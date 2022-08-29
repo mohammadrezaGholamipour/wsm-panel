@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "BYekan";
+  src: url("./fonts/BYekan-webfont.eot") format("eot"),
+    url("./fonts/BYekan-webfont.woff") format("woff"),
+    url("./fonts/BYekan-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* //////////////////////////////////////////////////////// */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* //////////////////////////////////////////////////////// */
+@layer base {
+  * {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently*/
+    font-family: "BYekan";
+  }
+}
+@layer components {
+  .NavInfo {
+    @apply text-gray-700  shadow-sm p-2 flex-row flex justify-evenly align-baseline flex-wrap-reverse;
+    background-color: #f7ecde;
+  }
+  @media only screen and (max-width: 422px) {
+    .NavTarikh {
+      @apply mb-2;
+    }
+  }
+  .NavTarikh {
+    @apply flex justify-center items-center;
+  }
+  .TarikhBtn {
+    @apply shadow-md inline-block px-6 py-2 border-2 border-green-500 text-green-500 leading-tight rounded-xl hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  }
+  .NavIcon {
+    @apply flex justify-center items-center;
+  }
+  .BtnLogOut {
+    @apply rounded-full  bg-yellow-700 text-white w-7 h-7 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0  transition duration-150 ease-in-out;
+  }
+  .NavBreadCrumb {
+    @apply border-t-2 border-yellow-900  flex flex-wrap items-center justify-center py-1 text-blue-900 hover:text-gray-800 focus:text-gray-700 shadow-sm;
+    direction: rtl;
+    background-color: #f7edde;
+  }
+}
