@@ -36,7 +36,7 @@
     @apply text-gray-600 flex justify-center items-center;
   }
   .NavBtn {
-    @apply flex py-1 text-white px-2  rounded-lg shadow-lg justify-center items-center;
+    @apply  flex py-2 text-white px-2 rounded-full shadow-xl justify-center items-center;
   }
   .NavTarikh {
     @apply flex text-gray-600 items-center;

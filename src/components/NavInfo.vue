@@ -24,18 +24,15 @@ TarikhOption.forEach((items) => {
 <template>
   <nav class="NavInfo">
     <div class="NavIcon">
-      <router-link to="" class="NavBtn px-3 bg-green-500 text-xl">
-        <p>پیام ها</p>
-        <font-awesome-icon icon="fa-solid fa-envelope" class="ml-2" />
-      </router-link>
+      <!-- //////////////////////////////// -->
+      <button type="button" class="NavBtn bg-green-500 text-xl">
+        <font-awesome-icon icon="fa-solid fa-envelope" />
+      </button>
 
       <!-- ////////////////////////////// -->
-      <router-link to="" class="NavBtn mx-2 bg-red-500 text-lg">
+      <button type="button" class="NavBtn mx-2 bg-red-500 text-lg">
         <font-awesome-icon icon="fa-solid fa-power-off" class="" />
-
-        <p class="px-1">خارج شدن</p>
-      </router-link>
-
+      </button>
       <!-- ////////////////////////////// -->
       <div class="content text-xl">
         <font-awesome-icon icon="fa-solid fa-moon" class="text-blue-600" />
