@@ -24,12 +24,24 @@ TarikhOption.forEach((items) => {
 <template>
   <nav class="NavInfo">
     <div class="NavIcon">
+      <div
+        class="px-4 py-1 mr-3 bg-green-400 text-2xl flex items-center justify-center text-center rounded-lg shadow-lg"
+      >
+        <router-link class="flex justify-center items-center" to="">
+          <p class="text-white">پیام ها</p>
+          <font-awesome-icon
+            icon="fa-solid fa-envelope"
+            class="text-white ml-2"
+          />
+        </router-link>
+      </div>
+
       <!-- ////////////////////////////// -->
       <router-link class="flex justify-center items-center" to="">
         <button type="button" class="BtnLogOut">
           <font-awesome-icon
             icon="fa-solid fa-power-off"
-            class="text-white text-xl pt-1"
+            class="text-xl pt-1"
           />
         </button>
 
@@ -38,10 +50,10 @@ TarikhOption.forEach((items) => {
 
       <!-- ////////////////////////////// -->
       <div class="content px-2 text-xl">
-        <font-awesome-icon icon="fa-solid fa-moon" />
-        <input type="checkbox" id="tooglenight" class="cbx hidden" />
-        <label for="tooglenight" class="switch"></label>
-        <font-awesome-icon icon="fas fa-sun " />
+        <font-awesome-icon icon="fa-solid fa-moon" class="text-blue-600" />
+        <input type="checkbox" id="tooglenight" class="cbx hidden shadow-sm" />
+        <label for="tooglenight" class="switch shadow-sm"></label>
+        <font-awesome-icon icon="fas fa-sun" class="text-orange-500" />
       </div>
       <!-- ////////////////////////////// -->
     </div>
@@ -65,19 +77,20 @@ TarikhOption.forEach((items) => {
 }
 .switch {
   transition: all 0.3s ease;
-  background: #7e7e7e;
+  background: #2563eb;
   border-radius: 100px;
   position: relative;
   cursor: pointer;
   display: block;
   height: 20px;
-  margin: 0 5px;
+  margin: 0 7px;
   width: 44px;
 }
 .switch:after {
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+  border: solid 1.75px #9c9c9c;
   transition: all 0.3s ease;
-  background: #555555;
+  background: #ffffff;
   border-radius: 100px;
   position: absolute;
   display: block;
@@ -91,19 +104,13 @@ TarikhOption.forEach((items) => {
   transform: scale(1.15, 0.85);
 }
 .cbx:checked ~ label {
-  background: #9b9b9b;
+  background: #f97316;
 }
 .cbx:checked ~ label:after {
   left: 20px;
   background: #ffffff;
 }
-.cbx:disabled ~ label {
-  background: #d5d5d5;
-  pointer-events: none;
-}
-.cbx:disabled ~ label:after {
-  background: #bcbdbc;
-}
+
 .hidden {
   display: none;
 }

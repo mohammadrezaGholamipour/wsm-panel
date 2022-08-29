@@ -8,10 +8,15 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 /* import specific icons */
-import { faPowerOff, faSun,faMoon } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPowerOff,
+  faSun,
+  faMoon,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faPowerOff, faSun, faMoon);
+library.add(faPowerOff, faSun, faMoon, faEnvelope);
 import "./css/index.css";
 
 const app = createApp(App);

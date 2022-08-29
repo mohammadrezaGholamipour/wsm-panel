@@ -4,8 +4,10 @@ import BreadCrumb from "../components/BreadCrumb.vue";
 </script>
 
 <template>
-  <NavInfo />
-  <BreadCrumb />
+  <div class="container mx-auto ">
+    <NavInfo />
+    <BreadCrumb />
+  </div>
 </template>
 
 <style scoped></style>
