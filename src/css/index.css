@@ -24,7 +24,7 @@
 }
 @layer components {
   .NavInfo {
-    @apply p-2 flex-row flex justify-between align-baseline flex-wrap-reverse;
+    @apply p-2 flex-row flex  justify-between align-baseline flex-wrap-reverse;
   }
   @media only screen and (max-width: 427px) {
     .NavTarikh {
@@ -41,7 +41,7 @@
     @apply text-gray-600 flex justify-center items-center;
   }
   .BtnLogOut {
-    @apply rounded-full  text-white w-7 h-7 hover:bg-red-600  bg-gray-600 shadow-lg transition duration-150 ease-in-out;
+    @apply rounded-full  text-white w-7 h-7;
   }
   .NavBreadCrumb {
     @apply border-t-2 border-gray-600  flex flex-wrap items-center justify-center py-1 text-blue-900 hover:text-gray-800 focus:text-gray-700;

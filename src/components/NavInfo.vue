@@ -24,20 +24,22 @@ TarikhOption.forEach((items) => {
 <template>
   <nav class="NavInfo">
     <div class="NavIcon">
-      <div
-        class="px-4 py-1 mr-3 bg-green-400 text-2xl flex items-center justify-center text-center rounded-lg shadow-lg"
+      <router-link
+        class="px-3 py-1 mr-3 text-white bg-green-500 text-xl flex items-center justify-center text-center rounded-lg shadow-lg"
+        to=""
       >
-        <router-link class="flex justify-center items-center" to="">
-          <p class="text-white">پیام ها</p>
-          <font-awesome-icon
-            icon="fa-solid fa-envelope"
-            class="text-white ml-2"
-          />
-        </router-link>
-      </div>
+        <p>پیام ها</p>
+        <font-awesome-icon
+          icon="fa-solid fa-envelope"
+          class="ml-2"
+        />
+      </router-link>
 
       <!-- ////////////////////////////// -->
-      <router-link class="flex justify-center items-center" to="">
+      <router-link
+        class="flex py-1 text-white px-1 bg-red-500 rounded-lg shadow-lg justify-center items-center"
+        to=""
+      >
         <button type="button" class="BtnLogOut">
           <font-awesome-icon
             icon="fa-solid fa-power-off"
@@ -57,11 +59,11 @@ TarikhOption.forEach((items) => {
       </div>
       <!-- ////////////////////////////// -->
     </div>
-    <div class="NavTarikh">
+    <!-- <div class="NavTarikh">
       <button type="button" class="TarikhBtn">
         {{ Tarikh[3] }} {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }}
       </button>
-    </div>
+    </div> -->
   </nav>
 </template>
 
