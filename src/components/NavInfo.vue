@@ -24,34 +24,20 @@ TarikhOption.forEach((items) => {
 <template>
   <nav class="NavInfo">
     <div class="NavIcon">
-      <router-link
-        class="px-3 py-1 mr-3 text-white bg-green-500 text-xl flex items-center justify-center text-center rounded-lg shadow-lg"
-        to=""
-      >
+      <router-link to="" class="NavBtn px-3 bg-green-500 text-xl">
         <p>پیام ها</p>
-        <font-awesome-icon
-          icon="fa-solid fa-envelope"
-          class="ml-2"
-        />
+        <font-awesome-icon icon="fa-solid fa-envelope" class="ml-2" />
       </router-link>
 
       <!-- ////////////////////////////// -->
-      <router-link
-        class="flex py-1 text-white px-1 bg-red-500 rounded-lg shadow-lg justify-center items-center"
-        to=""
-      >
-        <button type="button" class="BtnLogOut">
-          <font-awesome-icon
-            icon="fa-solid fa-power-off"
-            class="text-xl pt-1"
-          />
-        </button>
+      <router-link to="" class="NavBtn mx-2 bg-red-500 text-lg">
+        <font-awesome-icon icon="fa-solid fa-power-off" class="" />
 
         <p class="px-1">خارج شدن</p>
       </router-link>
 
       <!-- ////////////////////////////// -->
-      <div class="content px-2 text-xl">
+      <div class="content text-xl">
         <font-awesome-icon icon="fa-solid fa-moon" class="text-blue-600" />
         <input type="checkbox" id="tooglenight" class="cbx hidden shadow-sm" />
         <label for="tooglenight" class="switch shadow-sm"></label>
