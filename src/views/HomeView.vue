@@ -1,15 +1,15 @@
 <script setup>
-import NavInfo from "../components/NavInfo.vue";
+import Navigation from "../components/Navigation.vue";
 import BreadCrumb from "../components/BreadCrumb.vue";
 import SideNav from "../components/SideNav.vue";
 </script>
 
 <template>
   <header>
-    <NavInfo />
+    <Navigation />
     <BreadCrumb />
   </header>
-  <main >
+  <main>
     <SideNav />
   </main>
 </template>

@@ -51,21 +51,27 @@
   }
 }
 @layer components {
-  .NavInfo {
+  .Navigation {
     @apply p-2 flex-row flex bg-white  justify-between align-baseline flex-wrap-reverse shadow-lg;
   }
 
   .NavIcon {
-    @apply text-gray-600 flex justify-center items-center;
+    @apply flex justify-center items-center;
   }
-  .NavBtn {
-    @apply flex py-2 border-2 leading-tight justify-center items-center  px-2 rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  .BtnLogout {
+    @apply border-red-500  py-2 text-lg text-white bg-red-600 flex border-2 leading-tight justify-center items-center  px-2 rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  }
+  .BtnMessages {
+    @apply border-green-600 text-xl py-1 text-white bg-green-600 flex border-2 leading-tight justify-center items-center  px-2 rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  }
+  .BtnAccount {
+    @apply dropdown-toggle px-2 py-2 text-lg bg-purple-600 text-white rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap;
   }
 
   .NavBreadCrumb {
     @apply border-t-2 justify-between px-2 flex flex-row  py-1 text-blue-900 hover:text-gray-800 focus:text-gray-700;
-    direction: rtl;
     background-color: #f9fafb;
+    direction: rtl;
   }
   .NavTarikh {
     @apply flex  text-gray-600 items-start;
