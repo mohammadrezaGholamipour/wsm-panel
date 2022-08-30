@@ -15,10 +15,20 @@ import {
   faMoon,
   faEnvelope,
   faHouseChimney,
+  faBuildingColumns,
+  faCircleArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faPowerOff, faSun, faMoon, faEnvelope, faHouseChimney);
+library.add(
+  faPowerOff,
+  faSun,
+  faMoon,
+  faEnvelope,
+  faHouseChimney,
+  faBuildingColumns,
+  faCircleArrowDown
+);
 import "./css/index.css";
 
 const app = createApp(App);
