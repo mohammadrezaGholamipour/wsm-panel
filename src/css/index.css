@@ -50,11 +50,16 @@
     background-color: #a8bbbf;
   }
 }
+
 @layer components {
   .Navigation {
-    @apply p-2 flex-row flex bg-white  justify-between align-baseline flex-wrap-reverse shadow-lg;
+    @apply p-2 flex-row flex bg-white align-baseline flex-wrap-reverse shadow-lg;
   }
-
+  @media only screen and (max-width: 600px) {
+    .Navigation {
+      @apply justify-center;
+    }
+  }
   .NavIcon {
     @apply flex justify-center items-center;
   }
@@ -67,7 +72,10 @@
   .BtnAccount {
     @apply dropdown-toggle px-2 py-2 text-lg bg-purple-600 text-white rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap;
   }
-
+  .UiAccount {
+    @apply text-center  min-w-max  text-base z-50 float-right py-2 list-none rounded-lg shadow-lg bg-clip-padding border-none bg-gray-800;
+    transform: translate3d(-42px, 49px, 0px) !important;
+  }
   .NavBreadCrumb {
     @apply border-t-2 justify-between px-2 flex flex-row  py-1 text-blue-900 hover:text-gray-800 focus:text-gray-700;
     background-color: #f9fafb;

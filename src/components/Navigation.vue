@@ -21,10 +21,8 @@
             >
               <font-awesome-icon icon="fa-solid fa-user-pen" />
             </button>
-            <!-- ////////////////////////////// -->
-
             <ul
-              class="text-center text dropdown-menu min-w-max hidden text-base z-50 float-right py-2 list-none rounded-lg shadow-lg bg-clip-padding border-none bg-gray-800"
+              class="UiAccount hidden dropdown-menu"
               aria-labelledby="dropdownMenuButton2"
             >
               <h6
