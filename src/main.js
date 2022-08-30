@@ -17,6 +17,7 @@ import {
   faHouseChimney,
   faBuildingColumns,
   faCircleArrowDown,
+  faUserPen,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
@@ -27,7 +28,8 @@ library.add(
   faEnvelope,
   faHouseChimney,
   faBuildingColumns,
-  faCircleArrowDown
+  faCircleArrowDown,
+  faUserPen
 );
 import "./css/index.css";
 

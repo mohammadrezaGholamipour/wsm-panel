@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <div class="SideNav" id="sidenavSecExample">
-    <ul class="relative">
+    <ul class="relative pr-5">
       <li class="relative">
         <a
           class="flex items-center justify-center h-12 rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
