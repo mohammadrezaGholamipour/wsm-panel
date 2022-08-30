@@ -1,27 +1,46 @@
-<script setup></script>
+<script setup>
+import { ref } from "@vue/reactivity";
+
+const TarikhOption = [
+  {
+    day: "numeric",
+  },
+  {
+    month: "long",
+  },
+  {
+    weekday: "long",
+  },
+  {
+    year: "numeric",
+  },
+];
+const Tarikh = ref([]);
+TarikhOption.forEach((items) => {
+  Tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
+});
+</script>
 <template>
   <nav class="NavBreadCrumb">
-    <div
-      class="container-fluid w-full flex flex-wrap items-center justify-between px-6"
-    >
-      <nav
-        class="bg-grey-light rounded-md w-full text-blue-500"
-        aria-label="breadcrumb"
-      >
-        <ol class="list-reset flex">
-          <li>
-            <a href="#">مدیران</a>
-          </li>
-          <li><span class="mx-2">/</span></li>
-          <li>
-            <a href="#">زیر مجموعه</a>
-          </li>
-          <li><span class="mx-2">/</span></li>
-          <li>
-            <a href="#">ارتباطات</a>
-          </li>
-        </ol>
-      </nav>
+    <nav aria-label="breadcrumb">
+      <ol class="list-reset text-black flex items-center align-baseline">
+        <li>
+          <a href="#"><font-awesome-icon icon="fa-solid fa-house-chimney" /></a>
+        </li>
+        <li><span class="mx-2">/</span></li>
+        <li>
+          <a href="#">زیر مجموعه</a>
+        </li>
+        <li><span class="mx-2">/</span></li>
+        <li>
+          <a href="#">ارتباطات</a>
+        </li>
+      </ol>
+    </nav>
+    <div class="NavTarikh">
+      <button type="button" class="TarikhBtn">
+        {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }} {{ Tarikh[3] }}
+      </button>
     </div>
   </nav>
 </template>

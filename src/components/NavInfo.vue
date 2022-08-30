@@ -1,37 +1,26 @@
 <script setup>
-import { ref } from "@vue/reactivity";
 
-const TarikhOption = [
-  {
-    day: "numeric",
-  },
-  {
-    month: "long",
-  },
-  {
-    weekday: "long",
-  },
-  {
-    year: "numeric",
-  },
-];
-const Tarikh = ref([]);
-TarikhOption.forEach((items) => {
-  Tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
-});
 </script>
 
 <template>
   <nav class="NavInfo">
     <div class="NavIcon">
       <!-- //////////////////////////////// -->
-      <button type="button" class="NavBtn bg-green-500 text-xl">
+
+      <button
+        type="button"
+        class="border-green-500 NavBtn text-xl py-1 rounded-lg hover:bg-green-500"
+      >
         <font-awesome-icon icon="fa-solid fa-envelope" />
+        <p class="ml-1">پیام ها</p>
       </button>
 
       <!-- ////////////////////////////// -->
-      <button type="button" class="NavBtn mx-2 bg-red-500 text-lg">
-        <font-awesome-icon icon="fa-solid fa-power-off" class="" />
+      <button
+        type="button"
+        class="border-red-500 NavBtn mx-2 text-lg text-red-600 hover:bg-red-500"
+      >
+        <font-awesome-icon icon="fa-solid fa-power-off" />
       </button>
       <!-- ////////////////////////////// -->
       <div class="content text-xl">
@@ -42,11 +31,6 @@ TarikhOption.forEach((items) => {
       </div>
       <!-- ////////////////////////////// -->
     </div>
-    <!-- <div class="NavTarikh">
-      <button type="button" class="TarikhBtn">
-        {{ Tarikh[3] }} {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }}
-      </button>
-    </div> -->
   </nav>
 </template>
 
