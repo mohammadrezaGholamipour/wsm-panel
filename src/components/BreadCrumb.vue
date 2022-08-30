@@ -37,11 +37,11 @@ TarikhOption.forEach((items) => {
         </li>
       </ol>
     </nav>
-    <div class="NavTarikh">
+    <!-- <div class="NavTarikh">
       <button type="button" class="TarikhBtn">
         {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }} {{ Tarikh[3] }}
       </button>
-    </div>
+    </div> -->
   </nav>
 </template>
 

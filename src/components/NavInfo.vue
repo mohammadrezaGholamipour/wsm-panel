@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
   <nav class="NavInfo">
@@ -9,7 +7,7 @@
 
       <button
         type="button"
-        class="border-green-500 NavBtn text-xl py-1 rounded-lg hover:bg-green-500"
+        class="border-green-600 rounded-md NavBtn text-xl py-1 text-white bg-green-500 hover:bg-green-600"
       >
         <font-awesome-icon icon="fa-solid fa-envelope" />
         <p class="ml-1">پیام ها</p>
@@ -18,7 +16,7 @@
       <!-- ////////////////////////////// -->
       <button
         type="button"
-        class="border-red-500 NavBtn mx-2 text-lg text-red-600 hover:bg-red-500"
+        class="border-red-500 NavBtn mx-2 text-lg text-white bg-red-500 hover:bg-red-600"
       >
         <font-awesome-icon icon="fa-solid fa-power-off" />
       </button>

@@ -21,27 +21,61 @@
     user-select: none; /* Non-prefixed version, currently*/
     font-family: "BYekan";
   }
+  body {
+    background-color: #f9fafb !important;
+  }
+  main {
+    direction: rtl;
+  }
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
 }
 @layer components {
   .NavInfo {
-    @apply p-2 flex-row flex  justify-between align-baseline flex-wrap-reverse shadow-lg;
+    @apply p-2 flex-row flex bg-white  justify-between align-baseline flex-wrap-reverse shadow-lg;
   }
 
   .NavIcon {
     @apply text-gray-600 flex justify-center items-center;
   }
   .NavBtn {
-    @apply flex py-2 border-2 leading-tight justify-center items-center  px-2 rounded-full hover:text-white  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+    @apply flex py-2 border-2 leading-tight justify-center items-center  px-2 rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
 
   .NavBreadCrumb {
-    @apply border-t-2 justify-between px-2 border-gray-600 flex flex-row  py-1 text-blue-900 hover:text-gray-800 focus:text-gray-700;
+    @apply border-t-2 justify-between px-2 flex flex-row  py-1 text-blue-900 hover:text-gray-800 focus:text-gray-700;
     direction: rtl;
+    background-color: #f9fafb;
   }
   .NavTarikh {
     @apply flex  text-gray-600 items-start;
   }
   .TarikhBtn {
     @apply inline-block px-3 py-2.5 bg-purple-700 text-white  leading-tight  rounded shadow-md hover:bg-purple-800 hover:shadow-lg  transition duration-150 ease-in-out;
+  }
+  .SideNav {
+    @apply w-60 flex justify-center items-start overflow-hidden h-full shadow-md bg-white absolute p-2;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
   }
 }
