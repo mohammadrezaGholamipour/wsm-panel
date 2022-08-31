@@ -1,8 +1,15 @@
 <script setup>
 import { ref } from "@vue/reactivity";
-const test = ref();
+const MenuIconPosition = ref(false);
 const HandelIconMenu = (event) => {
-  test.value = event.currentTarget.ariaExpanded;
+  const FindCollapsed = event.currentTarget.classList;
+  FindCollapsed.forEach((items) => {
+    if (items === "collapsed") {
+      MenuIconPosition.value = false;
+    } else {
+      MenuIconPosition.value = true;
+    }
+  });
 };
 </script>
 <template>
@@ -18,6 +25,7 @@ const HandelIconMenu = (event) => {
           <span>جامعه الزهرا</span>
         </a>
       </li>
+      <hr class="my-2" />
       <li class="relative" id="sidenavXxEx2">
         <a
           @click="HandelIconMenu"
@@ -30,7 +38,13 @@ const HandelIconMenu = (event) => {
           aria-controls="collapseSidenavXxEx2"
         >
           <span>جامعه المصطفی</span>
-          <font-awesome-icon icon="fa-solid fa-circle-arrow-down" />
+          <font-awesome-icon
+            :icon="
+              MenuIconPosition
+                ? 'fa-solid fa-circle-arrow-up'
+                : 'fa-solid fa-circle-arrow-down'
+            "
+          />
         </a>
         <ul
           class="relative accordion-collapse text-center collapse"

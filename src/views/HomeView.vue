@@ -8,11 +8,11 @@ import HeaderPanel from "../components/HeaderPanel.vue";
 <template>
   <header>
     <HeaderPanel />
-    <BreadCrumb />
   </header>
-  <main>
-    <MenuMobile />
+  <main class="Main">
+    <BreadCrumb />
     <MenuSystem />
+    <MenuMobile />
   </main>
 </template>
 

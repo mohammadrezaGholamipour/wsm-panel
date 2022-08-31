@@ -30,13 +30,10 @@
             data-mdb-ripple="true"
             data-mdb-ripple-color="primary"
           >
-            <font-awesome-icon
-              icon="fa-solid fa-building-columns"
-              class="mx-1"
-            />
             <span>جامعه الزهرا</span>
           </a>
         </li>
+        <hr class="my-2" />
         <li class="relative" id="sidenavXxEx2">
           <a
             class="MenuLink"

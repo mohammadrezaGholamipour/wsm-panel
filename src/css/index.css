@@ -53,7 +53,7 @@
 
 @layer components {
   .HeaderPanel {
-    @apply p-2 flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-lg;
+    @apply p-2 border-b-2 flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-lg;
   }
   @media only screen and (max-width: 600px) {
     .HeaderPanel {
@@ -82,18 +82,19 @@
     transform: translate3d(-42px, 49px, 0px) !important;
   }
   .NavBreadCrumb {
-    @apply border-t-2 justify-between px-2 flex flex-row  py-2 text-blue-900 hover:text-gray-800 focus:text-gray-700;
+    @apply p-2 text-blue-900 hover:text-gray-800 focus:text-gray-700;
     background-color: #f9fafb;
     direction: rtl;
   }
   .Tarikh {
     @apply inline-block px-3 py-2.5 bg-slate-500 text-white  leading-tight  rounded shadow-md hover:shadow-lg  transition duration-150 ease-in-out;
   }
+  .Main {
+    @apply flex w-full flex-row-reverse justify-center;
+  }
   .MenuSystem {
-    @apply w-60 flex justify-start text-lg items-start overflow-hidden h-full shadow-md bg-white absolute py-2;
+    @apply w-60   justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white  py-2;
     border-left: 1px solid #e5e7eb;
-    border-top: 1px solid #e5e7eb;
-    border-top-left-radius: 30px;
   }
   .MenuLink {
     @apply flex w-full justify-evenly px-3 items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
@@ -109,7 +110,7 @@
   .BtnMenuMobile {
     @apply flex items-center mr-1 py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
   }
-    @media only screen and (min-width: 1000px) {
+  @media only screen and (min-width: 1000px) {
     .BtnMenuMobile {
       display: none !important;
     }
