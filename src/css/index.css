@@ -55,12 +55,7 @@
   .HeaderPanel {
     @apply p-2 border-b-2 flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-lg;
   }
-  @media only screen and (max-width: 600px) {
-    .HeaderPanel {
-      @apply justify-center;
-    }
-  }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 460px) {
     .Tarikh {
       display: none !important;
     }
@@ -96,7 +91,7 @@
     border-left: 1px solid #e5e7eb;
     height: 100vh;
   }
-  .MenuLink {
+  . .MenuLink {
     @apply flex w-full justify-evenly px-3 items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
   }
   .MenuLinkNested {
@@ -105,6 +100,14 @@
   @media only screen and (max-width: 1000px) {
     .MenuSystem {
       display: none;
+    }
+  }
+  @media only screen and (max-width: 773px) {
+    .BreadCrumbAndDarkOrLightMoodBtn {
+      display: none !important;
+    }
+    .HeaderPanel {
+      @apply justify-center;
     }
   }
   .BtnMenuMobile {
