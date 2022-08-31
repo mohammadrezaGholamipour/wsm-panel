@@ -1,8 +1,7 @@
 <script setup></script>
 <template>
   <div class="MenuSystem" id="sidenavSecExample">
-    
-    <ul class="relative pr-5">
+    <ul class="relative w-full px-2">
       <li class="relative">
         <a
           class="MenuLink"

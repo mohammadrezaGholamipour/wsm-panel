@@ -1,85 +1,110 @@
-<script setup></script>
+<script setup>
+import { ref } from "@vue/reactivity";
+
+const TarikhOption = [
+  {
+    day: "numeric",
+  },
+  {
+    month: "long",
+  },
+  {
+    weekday: "long",
+  },
+  {
+    year: "numeric",
+  },
+];
+const Tarikh = ref([]);
+TarikhOption.forEach((items) => {
+  Tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
+});
+</script>
 
 <template>
   <nav class="HeaderPanel">
-    <button
-      data-bs-target="#offcanvasRight"
-      aria-controls="offcanvasRight"
-      data-bs-toggle="offcanvas"
-      class="BtnMenuMobile"
-      type="button"
-    >
-      <font-awesome-icon icon="fa-solid fa-bars" />
-    </button>
     <div class="HeaderPanelIcon">
+      <!-- ////////////////////////////// -->
+      <!-- LogOutBtn -->
+      <button type="button" class="BtnLogout">
+        <font-awesome-icon icon="fa-solid fa-power-off" />
+      </button>
       <!-- //////////////////////////////// -->
+      <!-- MenuMobileBtn -->
+      <button
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight"
+        data-bs-toggle="offcanvas"
+        class="BtnMenuMobile"
+        type="button"
+      >
+        <font-awesome-icon icon="fa-solid fa-bars" />
+      </button>
+      <!-- //////////////////////////////// -->
+      <!-- MessagesBtn -->
       <button type="button" class="BtnMessages">
         <font-awesome-icon icon="fa-solid fa-envelope" />
         <p class="ml-1">پیام ها</p>
       </button>
       <!-- ////////////////////////////// -->
-      <div class="flex justify-center">
-        <div>
-          <div class="dropdown mx-2 relative">
-            <button
-              data-bs-toggle="dropdown"
-              id="dropdownMenuButton2"
-              aria-expanded="false"
-              class="BtnAccount"
-              type="button"
-            >
-              <font-awesome-icon icon="fa-solid fa-user-pen" />
-            </button>
-            <ul
-              class="UlAccount hidden dropdown-menu"
-              aria-labelledby="dropdownMenuButton2"
-            >
-              <h6
-                class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent"
-              >
-                آقای مجتبی شاقی
-              </h6>
-              <span
-                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300"
-                >مدیر فنی
-              </span>
-              <li>
-                <a
-                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700 active:bg-blue-600"
-                  href="#"
-                  >تغییر اطلاعات</a
-                >
-              </li>
-              <li>
-                <a
-                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
-                  href="#"
-                >
-                  نظر سنجی</a
-                >
-              </li>
+      <!-- AccountInfoBtn -->
 
-              <li>
-                <hr
-                  class="h-0 my-2 border border-solid border-t-0 border-gray-300 opacity-25"
-                />
-              </li>
-              <li>
-                <a
-                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
-                  href="#"
-                  >خروج از اکانت</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="ml-2 relative">
+        <button
+          data-bs-toggle="dropdown"
+          id="dropdownMenuButton2"
+          aria-expanded="false"
+          class="BtnAccount"
+          type="button"
+        >
+          <font-awesome-icon icon="fa-solid fa-user-pen" />
+        </button>
+        <ul
+          class="UlAccount py-0 overflow-hidden hidden dropdown-menu"
+          aria-labelledby="dropdownMenuButton2"
+        >
+          <h6
+            class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent"
+          >
+            آقای مجتبی شاقی
+          </h6>
+          <span
+            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300"
+            >مدیر فنی
+          </span>
+          <li>
+            <a
+              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700 active:bg-blue-600"
+              href="#"
+              >تغییر اطلاعات</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
+              href="#"
+            >
+              نظر سنجی</a
+            >
+          </li>
+
+          <li>
+            <hr
+              class="h-0 border border-solid border-t-0 border-gray-300 opacity-25"
+            />
+          </li>
+          <li>
+            <a
+              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
+              href="#"
+              >خروج از اکانت</a
+            >
+          </li>
+        </ul>
       </div>
+
       <!-- ////////////////////////////// -->
-      <button type="button" class="BtnLogout">
-        <font-awesome-icon icon="fa-solid fa-power-off" />
-      </button>
-      <!-- ////////////////////////////// -->
+      <!-- DarkAndLightMoodBtn -->
       <div class="content text-xl mx-2">
         <font-awesome-icon icon="fa-solid fa-moon" class="text-blue-600" />
         <input type="checkbox" id="tooglenight" class="cbx hidden shadow-sm" />
@@ -87,6 +112,9 @@
         <font-awesome-icon icon="fas fa-sun" class="text-orange-500" />
       </div>
       <!-- ////////////////////////////// -->
+    </div>
+    <div class="Tarikh">
+      {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }} {{ Tarikh[3] }}
     </div>
   </nav>
 </template>
