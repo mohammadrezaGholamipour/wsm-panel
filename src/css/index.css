@@ -93,7 +93,7 @@
     @apply flex w-full flex-row-reverse justify-center;
   }
   .MenuSystem {
-    @apply w-60   justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white  py-2;
+    @apply w-60 flex absolute right-0  justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white  py-2;
     border-left: 1px solid #e5e7eb;
   }
   .MenuLink {
