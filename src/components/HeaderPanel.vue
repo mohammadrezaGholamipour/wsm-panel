@@ -40,16 +40,14 @@ TarikhOption.forEach((items) => {
       >
         <font-awesome-icon icon="fa-solid fa-bars" />
       </button>
-      <!-- //////////////////////////////// -->
-      <!-- MessagesBtn -->
-      <button type="button" class="BtnMessages">
-        <font-awesome-icon icon="fa-solid fa-envelope" />
-        <p class="ml-1">پیام ها</p>
-      </button>
+      <!-- ////////////////////////////////// -->
+      <!-- Tarikh -->
+      <div class="Tarikh">
+        {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }} {{ Tarikh[3] }}
+      </div>
       <!-- ////////////////////////////// -->
       <!-- AccountInfoBtn -->
-
-      <div class="ml-2 relative">
+      <div class="relative">
         <button
           data-bs-toggle="dropdown"
           id="dropdownMenuButton2"
@@ -102,7 +100,6 @@ TarikhOption.forEach((items) => {
           </li>
         </ul>
       </div>
-
       <!-- ////////////////////////////// -->
       <!-- DarkAndLightMoodBtn -->
       <div class="content text-xl mx-2">
@@ -111,11 +108,15 @@ TarikhOption.forEach((items) => {
         <label for="tooglenight" class="switch shadow-sm"></label>
         <font-awesome-icon icon="fas fa-sun" class="text-orange-500" />
       </div>
-      <!-- ////////////////////////////// -->
+      <!-- //////////////////////////////// -->
     </div>
-    <div class="Tarikh">
-      {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }} {{ Tarikh[3] }}
-    </div>
+    <!-- //////////////////////////////// -->
+    <!-- MessagesBtn -->
+    <button type="button" class="BtnMessages">
+      <font-awesome-icon icon="fa-solid fa-envelope" />
+      <p class="ml-1">پیام ها</p>
+    </button>
+    <!-- //////////////////////////////// -->
   </nav>
 </template>
 
