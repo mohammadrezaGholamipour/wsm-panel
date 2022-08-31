@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "@vue/reactivity";
+import BreadCrumb from "./BreadCrumb.vue";
 
 const TarikhOption = [
   {
@@ -110,6 +111,7 @@ TarikhOption.forEach((items) => {
       </div>
       <!-- //////////////////////////////// -->
     </div>
+    <BreadCrumb />
     <!-- //////////////////////////////// -->
     <!-- MessagesBtn -->
     <button type="button" class="BtnMessages ml-1">

@@ -114,9 +114,6 @@ const HandelIconMenu = (event) => {
         </ul>
       </li>
     </ul>
-    <div class="text-center bottom-0 absolute bg-blue-400 w-full">
-      <p class="py-2 text-sm text-white">مرکز خدمات حوزه های علمیه قم</p>
-    </div>
   </div>
 </template>
 

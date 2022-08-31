@@ -82,19 +82,19 @@
     transform: translate3d(-42px, 49px, 0px) !important;
   }
   .NavBreadCrumb {
-    @apply p-2 text-blue-900 hover:text-gray-800 focus:text-gray-700;
-    background-color: #f9fafb;
+    @apply p-2 flex text-blue-900 hover:text-gray-800 focus:text-gray-700;
     direction: rtl;
   }
   .Tarikh {
     @apply inline-block px-3 py-2.5 bg-slate-500 text-white  leading-tight  rounded shadow-md hover:shadow-lg  transition duration-150 ease-in-out;
   }
-  .Main {
-    @apply flex w-full flex-row-reverse justify-center;
+  #Main {
+    @apply flex flex-row-reverse justify-end;
   }
   .MenuSystem {
-    @apply w-60 flex absolute right-0  justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white  py-2;
+    @apply w-60 flex justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white  py-2;
     border-left: 1px solid #e5e7eb;
+    height: 100vh;
   }
   .MenuLink {
     @apply flex w-full justify-evenly px-3 items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;

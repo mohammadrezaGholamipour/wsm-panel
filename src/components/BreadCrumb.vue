@@ -10,7 +10,9 @@
               icon="fa-solid fa-house-chimney"
           /></a>
         </li>
-        <li><span class="mx-2">/</span></li>
+        <li>
+          <span class="mx-2">/</span>
+        </li>
         <li>
           <a href="#" class="text-yellow-600">زیر مجموعه</a>
         </li>

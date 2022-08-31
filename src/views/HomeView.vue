@@ -6,11 +6,10 @@ import HeaderPanel from "../components/HeaderPanel.vue";
 </script>
 
 <template>
-  <header>
+  <header id="Header">
     <HeaderPanel />
   </header>
-  <main class="Main">
-    <BreadCrumb />
+  <main id="Main">
     <MenuSystem />
     <MenuMobile />
   </main>
