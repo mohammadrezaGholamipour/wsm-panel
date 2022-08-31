@@ -130,7 +130,7 @@ TarikhOption.forEach((items) => {
   flex-direction: row;
   display: flex;
 }
-@media only screen and (max-width: 381px) {
+@media only screen and (max-width: 389px) {
   .content {
     display: none;
   }
