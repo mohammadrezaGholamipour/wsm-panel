@@ -112,9 +112,9 @@ TarikhOption.forEach((items) => {
     </div>
     <!-- //////////////////////////////// -->
     <!-- MessagesBtn -->
-    <button type="button" class="BtnMessages">
+    <button type="button" class="BtnMessages ml-1">
       <font-awesome-icon icon="fa-solid fa-envelope" />
-      <p class="ml-1">پیام ها</p>
+      <p class="ml-2">پیام ها</p>
     </button>
     <!-- //////////////////////////////// -->
   </nav>
@@ -130,7 +130,7 @@ TarikhOption.forEach((items) => {
   flex-direction: row;
   display: flex;
 }
-@media only screen and (max-width: 365px) {
+@media only screen and (max-width: 381px) {
   .content {
     display: none;
   }

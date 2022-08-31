@@ -72,10 +72,10 @@
     @apply border-red-500 mr-2 p-2 text-lg text-white bg-red-600 flex border-2 leading-tight justify-center items-center  rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
   .BtnMessages {
-    @apply text-xl py-1 border-green-600 border-2 text-white bg-green-600 flex  leading-tight items-center  px-6 rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+    @apply text-xl py-1 px-4 border-green-600 border-2 text-white bg-green-600 flex  leading-tight items-center rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
   .BtnAccount {
-    @apply dropdown-toggle ml-1 px-2 py-2 text-xl bg-slate-500 text-white rounded shadow-md  hover:shadow-lg  active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap;
+    @apply dropdown-toggle mx-1 px-2 py-2 text-xl bg-slate-500 text-white rounded shadow-md  hover:shadow-lg  active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap;
   }
   .UlAccount {
     @apply text-center  min-w-max  text-base z-50 float-right py-2 list-none rounded-lg shadow-lg bg-clip-padding border-none bg-gray-800;
@@ -107,7 +107,7 @@
     }
   }
   .BtnMenuMobile {
-    @apply flex items-center mr-1 py-2 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out ;
+    @apply flex items-center mr-1 py-2 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
   }
   .MenuMobile {
     @apply bg-white  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
