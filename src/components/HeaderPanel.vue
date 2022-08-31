@@ -27,7 +27,7 @@ TarikhOption.forEach((items) => {
       <!-- ////////////////////////////// -->
       <!-- LogOutBtn -->
       <button type="button" class="BtnLogout">
-        <font-awesome-icon icon="fa-solid fa-power-off" />
+        <font-awesome-icon icon="fa-solid fa-power-off" beat />
       </button>
       <!-- //////////////////////////////// -->
       <!-- MenuMobileBtn -->

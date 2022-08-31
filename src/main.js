@@ -17,6 +17,7 @@ import {
   faHouseChimney,
   faBuildingColumns,
   faCircleArrowDown,
+  faCircleArrowUp,
   faUserPen,
   faBars,
   faCircleXmark,
@@ -31,9 +32,10 @@ library.add(
   faHouseChimney,
   faBuildingColumns,
   faCircleArrowDown,
+  faCircleArrowUp,
   faUserPen,
   faBars,
-  faCircleXmark,
+  faCircleXmark
 );
 import "./css/index.css";
 

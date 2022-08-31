@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import { ref } from "@vue/reactivity";
+const test = ref();
+const HandelIconMenu = (event) => {
+  test.value = event.currentTarget.ariaExpanded;
+};
+</script>
 <template>
   <div class="MenuSystem" id="sidenavSecExample">
     <ul class="relative w-full px-2">
@@ -14,19 +20,17 @@
       </li>
       <li class="relative" id="sidenavXxEx2">
         <a
+          @click="HandelIconMenu"
           class="MenuLink"
           data-mdb-ripple="true"
           data-mdb-ripple-color="primary"
           data-bs-toggle="collapse"
           data-bs-target="#collapseSidenavXxEx2"
-          aria-expanded="false"
+          aria-expanded="true"
           aria-controls="collapseSidenavXxEx2"
         >
           <span>جامعه المصطفی</span>
-          <font-awesome-icon
-            icon="fa-solid fa-circle-arrow-down"
-            class="mx-1"
-          />
+          <font-awesome-icon icon="fa-solid fa-circle-arrow-down" />
         </a>
         <ul
           class="relative accordion-collapse text-center collapse"
@@ -67,23 +71,20 @@
           aria-controls="collapseSidenavXxEx3"
         >
           <span>سازمان تبلیغات</span>
-          <font-awesome-icon
-            icon="fa-solid fa-circle-arrow-down"
-            class="mx-1"
-          />
+          <font-awesome-icon icon="fa-solid fa-circle-arrow-down" />
         </a>
         <ul
           class="relative accordion-collapse collapse"
-          id="collapseSidenavXxEx3"
-          aria-labelledby="sidenavXxEx3"
           data-bs-parent="#sidenavSecExample"
+          aria-labelledby="sidenavXxEx3"
+          id="collapseSidenavXxEx3"
         >
           <li class="relative">
             <a
-              href="#!"
+              data-mdb-ripple-color="primary"
               class="MenuLinkNested"
               data-mdb-ripple="true"
-              data-mdb-ripple-color="primary"
+              href="#!"
               >امور مالی</a
             >
           </li>
