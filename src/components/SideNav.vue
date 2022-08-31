@@ -2,7 +2,7 @@
 <template>
   <div class="SideNav" id="sidenavSecExample">
     <ul class="relative pr-5">
-      <li class="relative">
+      <li class="relative px-5">
         <a
           class="flex items-center justify-center h-12 rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
           href="#!"
