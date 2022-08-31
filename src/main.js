@@ -18,6 +18,7 @@ import {
   faBuildingColumns,
   faCircleArrowDown,
   faUserPen,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
@@ -29,7 +30,8 @@ library.add(
   faHouseChimney,
   faBuildingColumns,
   faCircleArrowDown,
-  faUserPen
+  faUserPen,
+  faBars
 );
 import "./css/index.css";
 

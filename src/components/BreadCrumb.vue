@@ -49,4 +49,6 @@ TarikhOption.forEach((items) => {
   </nav>
 </template>
 
-<style scoped></style>
+<style scoped>
+  
+</style>
