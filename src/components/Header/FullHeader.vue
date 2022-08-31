@@ -23,8 +23,8 @@ TarikhOption.forEach((items) => {
 </script>
 
 <template>
-  <nav class="HeaderPanel">
-    <div class="HeaderPanelIcon">
+  <nav class="Header">
+    <div class="HeaderBtn">
       <!-- ////////////////////////////// -->
       <!-- LogOutBtn -->
       <button type="button" class="BtnLogout">

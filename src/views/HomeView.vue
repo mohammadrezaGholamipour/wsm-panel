@@ -1,12 +1,12 @@
 <script setup>
-import MenuSystem from "../components/MenuSystem.vue";
-import MenuMobile from "../components/MenuMobile.vue";
-import HeaderPanel from "../components/HeaderPanel.vue";
+import MenuSystem from "../components/Menu/MenuSystem.vue";
+import MenuMobile from "../components/Menu/MenuMobile.vue";
+import FullHeader from "../components/Header/FullHeader.vue";
 </script>
 
 <template>
   <header id="Header">
-    <HeaderPanel />
+    <FullHeader />
   </header>
   <main id="Main">
     <MenuSystem />

@@ -52,19 +52,12 @@
 }
 
 @layer components {
-  .HeaderPanel {
+  /* Header */
+  .Header {
     @apply p-2 border-b-2 flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-lg;
   }
-  @media only screen and (max-width: 460px) {
-    460px .Tarikh {
-      display: none !important;
-    }
-  }
-  .HeaderPanelIcon {
+  .HeaderBtn {
     @apply flex justify-center items-center;
-  }
-  .BtnLogout {
-    @apply border-red-500 mr-2 p-2 text-lg text-white bg-red-600 flex border-2 leading-tight justify-center items-center  rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
   .BtnMessages {
     @apply text-xl py-1 px-4 border-green-600 border-2 text-white bg-green-600 flex  leading-tight items-center rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
@@ -76,26 +69,46 @@
     @apply text-center  min-w-max  text-base z-50 float-right py-2 list-none rounded-lg shadow-lg bg-clip-padding border-none bg-gray-800;
     transform: translate3d(-42px, 49px, 0px) !important;
   }
-  .NavBreadCrumb {
-    @apply p-2 flex text-blue-900 hover:text-gray-800 focus:text-gray-700;
-    direction: rtl;
-  }
   .Tarikh {
     @apply inline-block px-3 py-2.5 bg-slate-500 text-white  leading-tight  rounded shadow-md hover:shadow-lg  transition duration-150 ease-in-out;
   }
+  .BtnMenuMobile {
+    @apply flex items-center mr-1 py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
+  }
+  .BtnLogout {
+    @apply border-red-500 mr-2 p-2 text-lg text-white bg-red-600 flex border-2 leading-tight justify-center items-center  rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  }
+  /* FinishHeader */
+  /* /////////////////////////////// */
+  /* Main */
   #Main {
     @apply flex flex-row-reverse justify-end;
   }
+  /* FinishMain */
+  /* /////////////////////////////// */
+  /* Menu */
   .MenuSystem {
-    @apply w-60 flex justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white py-2;
+    @apply w-60 flex justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white py-3;
     border-left: 1px solid #e5e7eb;
     height: 100vh;
   }
+  .MenuMobile {
+    @apply bg-white  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
+    max-width: 280px !important;
+  }
   .MenuLink {
-    @apply flex w-full justify-evenly px-3 items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
+    @apply flex w-full justify-evenly  items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
   }
   .MenuLinkNested {
     @apply flex items-center py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out;
+  }
+  /* FinishMenu */
+  /* /////////////////////////////// */
+  /* Responsive */
+  @media only screen and (max-width: 460px) {
+    .Tarikh {
+      display: none !important;
+    }
   }
   @media only screen and (max-width: 1000px) {
     .MenuSystem {
@@ -106,20 +119,14 @@
     .BreadCrumbAndDarkOrLightMoodBtn {
       display: none !important;
     }
-    .HeaderPanel {
+    .Header {
       @apply justify-center;
     }
-  }
-  .BtnMenuMobile {
-    @apply flex items-center mr-1 py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
   }
   @media only screen and (min-width: 1000px) {
     .BtnMenuMobile {
       display: none !important;
     }
   }
-  .MenuMobile {
-    @apply bg-white  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
-    max-width: 280px !important;
-  }
+  /* FinishResponsive */
 }
