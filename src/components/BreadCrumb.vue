@@ -21,7 +21,7 @@ TarikhOption.forEach((items) => {
 });
 </script>
 <template>
-  <nav class="NavBreadCrumb">
+  <div class="NavBreadCrumb">
     <nav aria-label="breadcrumb">
       <ol class="list-reset text-black flex items-center align-baseline">
         <li>
@@ -46,9 +46,7 @@ TarikhOption.forEach((items) => {
         {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }} {{ Tarikh[3] }}
       </button>
     </div> -->
-  </nav>
+  </div>
 </template>
 
-<style scoped>
-  
-</style>
+<style scoped></style>

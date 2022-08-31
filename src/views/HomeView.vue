@@ -1,16 +1,18 @@
 <script setup>
-import Navigation from "../components/Navigation.vue";
 import BreadCrumb from "../components/BreadCrumb.vue";
-import SideNav from "../components/SideNav.vue";
+import MenuSystem from "../components/MenuSystem.vue";
+import MenuMobile from "../components/MenuMobile.vue";
+import HeaderPanel from "../components/HeaderPanel.vue";
 </script>
 
 <template>
   <header>
-    <Navigation />
+    <HeaderPanel />
     <BreadCrumb />
   </header>
   <main>
-    <SideNav />
+    <MenuMobile />
+    <MenuSystem />
   </main>
 </template>
 

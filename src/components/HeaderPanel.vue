@@ -1,8 +1,17 @@
 <script setup></script>
 
 <template>
-  <nav class="Navigation">
-    <div class="NavIcon">
+  <nav class="HeaderPanel">
+    <button
+      data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight"
+      data-bs-toggle="offcanvas"
+      class="BtnMenuMobile"
+      type="button"
+    >
+      <font-awesome-icon icon="fa-solid fa-bars" />
+    </button>
+    <div class="HeaderPanelIcon">
       <!-- //////////////////////////////// -->
       <button type="button" class="BtnMessages">
         <font-awesome-icon icon="fa-solid fa-envelope" />
@@ -22,7 +31,7 @@
               <font-awesome-icon icon="fa-solid fa-user-pen" />
             </button>
             <ul
-              class="UiAccount hidden dropdown-menu"
+              class="UlAccount hidden dropdown-menu"
               aria-labelledby="dropdownMenuButton2"
             >
               <h6
@@ -91,6 +100,11 @@
   align-items: center;
   flex-direction: row;
   display: flex;
+}
+@media only screen and (max-width: 365px) {
+  .content {
+    display: none;
+  }
 }
 .switch {
   transition: all 0.3s ease;

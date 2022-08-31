@@ -19,6 +19,7 @@ import {
   faCircleArrowDown,
   faUserPen,
   faBars,
+  faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
@@ -31,7 +32,8 @@ library.add(
   faBuildingColumns,
   faCircleArrowDown,
   faUserPen,
-  faBars
+  faBars,
+  faCircleXmark,
 );
 import "./css/index.css";
 

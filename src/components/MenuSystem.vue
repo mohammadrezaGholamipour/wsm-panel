@@ -1,10 +1,11 @@
 <script setup></script>
 <template>
-  <div class="SideNav" id="sidenavSecExample">
+  <div class="MenuSystem" id="sidenavSecExample">
+    
     <ul class="relative pr-5">
-      <li class="relative px-5">
+      <li class="relative">
         <a
-          class="flex items-center justify-center h-12 rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
+          class="MenuLink"
           href="#!"
           data-mdb-ripple="true"
           data-mdb-ripple-color="primary"
@@ -15,7 +16,7 @@
       </li>
       <li class="relative" id="sidenavXxEx2">
         <a
-          class="flex items-center justify-center h-12 rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer"
+          class="MenuLink"
           data-mdb-ripple="true"
           data-mdb-ripple-color="primary"
           data-bs-toggle="collapse"
@@ -38,7 +39,7 @@
           <li class="relative">
             <a
               href="#!"
-              class="flex items-center py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
+              class="MenuLinkNested"
               data-mdb-ripple="true"
               data-mdb-ripple-color="primary"
               >مدیریت</a
@@ -47,7 +48,7 @@
           <li class="relative">
             <a
               href="#!"
-              class="flex items-center py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-600 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
+              class="MenuLinkNested"
               data-mdb-ripple="true"
               data-mdb-ripple-color="primary"
               >کارمندان</a
@@ -59,7 +60,7 @@
       <!-- ////////////////////////////// -->
       <li class="relative" id="sidenavXxEx3">
         <a
-          class="flex justify-center items-center h-12 rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer"
+          class="MenuLink"
           data-mdb-ripple="true"
           data-mdb-ripple-color="primary"
           data-bs-toggle="collapse"
@@ -82,7 +83,7 @@
           <li class="relative">
             <a
               href="#!"
-              class="flex items-center text-gray-600 py-4 pr-6 h-6 rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
+              class="MenuLinkNested"
               data-mdb-ripple="true"
               data-mdb-ripple-color="primary"
               >امور مالی</a
@@ -91,7 +92,7 @@
           <li class="relative">
             <a
               href="#!"
-              class="flex items-center text-gray-600 py-4 pr-6 h-6 rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
+              class="MenuLinkNested"
               data-mdb-ripple="true"
               data-mdb-ripple-color="primary"
               >امور اداری</a
