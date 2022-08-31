@@ -103,15 +103,18 @@ TarikhOption.forEach((items) => {
       </div>
       <!-- ////////////////////////////// -->
       <!-- DarkAndLightMoodBtn -->
+
+      <!-- //////////////////////////////// -->
+    </div>
+    <div class="flex">
       <div class="content text-xl mx-2">
         <font-awesome-icon icon="fa-solid fa-moon" class="text-blue-600" />
         <input type="checkbox" id="tooglenight" class="cbx hidden shadow-sm" />
         <label for="tooglenight" class="switch shadow-sm"></label>
         <font-awesome-icon icon="fas fa-sun" class="text-orange-500" />
       </div>
-      <!-- //////////////////////////////// -->
+      <BreadCrumb />
     </div>
-    <BreadCrumb />
     <!-- //////////////////////////////// -->
     <!-- MessagesBtn -->
     <button type="button" class="BtnMessages ml-1">

@@ -14,11 +14,11 @@
           <span class="mx-2">/</span>
         </li>
         <li>
-          <a href="#" class="text-yellow-600">زیر مجموعه</a>
+          <a href="#" style="color: #64748b">زیر مجموعه</a>
         </li>
         <li><span class="mx-2">/</span></li>
         <li>
-          <a href="#" class="text-yellow-600">ارتباطات</a>
+          <a href="#" style="color: #64748b">ارتباطات</a>
         </li>
       </ol>
     </nav>
