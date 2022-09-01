@@ -25,7 +25,10 @@ const Tarikh = ref([]);
 TarikhOption.forEach((items) => {
   Tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
 });
-
+watch(isFullscreen, (value) => {
+  console.log(value);
+  IconFullOrDefaultScreen.value = value;
+});
 const HandelFullOrDefaultScreen = () => {
   IconFullOrDefaultScreen.value = !IconFullOrDefaultScreen.value;
   if (IconFullOrDefaultScreen.value) {
@@ -73,42 +76,39 @@ const HandelFullOrDefaultScreen = () => {
           <font-awesome-icon icon="fa-solid fa-user-pen" />
         </button>
         <ul
-          class="UlAccount py-0 overflow-hidden hidden dropdown-menu"
+          class="UlAccount py-0 overflow-hidden hidden text-white dropdown-menu bg-slate-500"
           aria-labelledby="dropdownMenuButton2"
         >
-          <h6
-            class="text-gray-400 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent"
-          >
-            آقای مجتبی شاقی
-          </h6>
-          <span
-            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300"
-            >مدیر فنی
-          </span>
+          <h5 class="text-sm py-2 px-4 block w-full">آقای مجتبی شاقی</h5>
+          <hr
+            class="h-0 border border-solid border-t-0 border-white opacity-25"
+          />
           <li>
             <a
-              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700 active:bg-blue-600"
+              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-white hover:text-black"
               href="#"
               >تغییر اطلاعات</a
             >
           </li>
+          <hr
+            class="h-0 border border-solid border-t-0 border-white opacity-25"
+          />
           <li>
             <a
-              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
+              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-white hover:text-black"
               href="#"
             >
               نظر سنجی</a
             >
           </li>
 
-          <li>
-            <hr
-              class="h-0 border border-solid border-t-0 border-gray-300 opacity-25"
-            />
-          </li>
+          <hr
+            class="h-0 border border-solid border-t-0 border-white opacity-25"
+          />
+
           <li>
             <a
-              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
+              class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-white hover:text-black focus:text-white focus:bg-gray-700"
               href="#"
               >خروج از اکانت</a
             >
