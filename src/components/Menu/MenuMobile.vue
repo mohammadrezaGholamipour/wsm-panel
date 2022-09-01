@@ -4,6 +4,7 @@
     aria-labelledby="offcanvasRightLabel"
     class="MenuMobile offcanvas"
     id="offcanvasRight"
+    dir="rtl"
   >
     <div class="offcanvas-header flex items-center justify-between p-3">
       <h5 class="offcanvas-title mb-0" id="offcanvasRightLabel">

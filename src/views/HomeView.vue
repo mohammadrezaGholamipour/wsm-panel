@@ -2,15 +2,17 @@
 import MenuSystem from "../components/Menu/MenuSystem.vue";
 import MenuMobile from "../components/Menu/MenuMobile.vue";
 import FullHeader from "../components/Header/FullHeader.vue";
+import TablePerson from "../components/TablePerson.vue";
 </script>
 
 <template>
+  <MenuMobile />
   <header id="Header">
     <FullHeader />
   </header>
   <main id="Main">
+    <TablePerson />
     <MenuSystem />
-    <MenuMobile />
   </main>
 </template>
 

@@ -88,9 +88,11 @@
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystem {
-    @apply w-60 flex justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white py-3;
+    @apply flex justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white py-3;
     border-left: 1px solid #e5e7eb;
     height: 100vh;
+    min-width: 200px !important;
+    max-width: 200px !important;
   }
   .MenuMobile {
     @apply bg-white text-lg  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
