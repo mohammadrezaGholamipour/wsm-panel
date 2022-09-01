@@ -5,7 +5,7 @@
     class="MenuMobile offcanvas"
     id="offcanvasRight"
   >
-    <div class="offcanvas-header flex items-center justify-between p-4">
+    <div class="offcanvas-header flex items-center justify-between p-3">
       <h5 class="offcanvas-title mb-0" id="offcanvasRightLabel">
         مرکز خدمات حوزه های علمیه قم
       </h5>
@@ -21,8 +21,8 @@
         />
       </button>
     </div>
-    <div class="offcanvas-body px-4 overflow-y-auto">
-      <ul class="relative">
+    <div class="offcanvas-body overflow-y-auto">
+      <ul class="relative px-2">
         <li class="relative">
           <a
             class="MenuLink"
@@ -45,13 +45,10 @@
             aria-controls="collapseSidenavXxEx2"
           >
             <span>جامعه المصطفی</span>
-            <font-awesome-icon
-              icon="fa-solid fa-circle-arrow-down"
-              class="mx-1"
-            />
+            <font-awesome-icon icon="fa-solid fa-circle-arrow-down" />
           </a>
           <ul
-            class="relative accordion-collapse text-center collapse"
+            class="relative accordion-collapse collapse"
             id="collapseSidenavXxEx2"
             aria-labelledby="sidenavXxEx2"
             data-bs-parent="#sidenavSecExample"
@@ -89,10 +86,7 @@
             aria-controls="collapseSidenavXxEx3"
           >
             <span>سازمان تبلیغات</span>
-            <font-awesome-icon
-              icon="fa-solid fa-circle-arrow-down"
-              class="mx-1"
-            />
+            <font-awesome-icon icon="fa-solid fa-circle-arrow-down" />
           </a>
           <ul
             class="relative accordion-collapse collapse"

@@ -93,7 +93,7 @@
     height: 100vh;
   }
   .MenuMobile {
-    @apply bg-white  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
+    @apply bg-white text-lg  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
     max-width: 280px !important;
   }
   .MenuLink {

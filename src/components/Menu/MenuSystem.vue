@@ -47,7 +47,7 @@ const HandelIconMenu = (event) => {
           />
         </a>
         <ul
-          class="relative accordion-collapse text-center collapse"
+          class="relative accordion-collapse  collapse"
           id="collapseSidenavXxEx2"
           aria-labelledby="sidenavXxEx2"
           data-bs-parent="#sidenavSecExample"
