@@ -7,6 +7,7 @@
           ><font-awesome-icon
             class="text-blue-600"
             icon="fa-solid fa-house-chimney"
+            
         /></a>
       </li>
       <li>

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 import BreadCrumb from "./BreadCrumb.vue";
-
+const IconFullOrDefaultScreen = ref(false);
 const TarikhOption = [
   {
     day: "numeric",
@@ -20,6 +20,14 @@ const Tarikh = ref([]);
 TarikhOption.forEach((items) => {
   Tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
 });
+const HandelFullOrDefaultScreen = () => {
+  IconFullOrDefaultScreen.value = !IconFullOrDefaultScreen.value;
+  if (IconFullOrDefaultScreen.value) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+};
 </script>
 
 <template>
@@ -102,6 +110,19 @@ TarikhOption.forEach((items) => {
         </ul>
       </div>
       <!-- ////////////////////////////// -->
+      <button
+        type="button"
+        class="FullOrDefaultScreen"
+        @click="HandelFullOrDefaultScreen"
+      >
+        <font-awesome-icon
+          :icon="
+            IconFullOrDefaultScreen
+              ? 'fa-solid fa-down-left-and-up-right-to-center'
+              : 'fa-solid fa-up-right-and-down-left-from-center'
+          "
+        />
+      </button>
     </div>
     <div class="BreadCrumbAndDarkOrLightMoodBtn flex items-center">
       <!-- DarkAndLightMoodBtn -->
