@@ -116,6 +116,7 @@ const HandelFullOrDefaultScreen = () => {
         </ul>
       </div>
       <!-- ////////////////////////////// -->
+      <!-- FullOrDefaultScreen -->
       <button
         type="button"
         class="FullOrDefaultScreen"
@@ -129,6 +130,7 @@ const HandelFullOrDefaultScreen = () => {
           "
         />
       </button>
+      <!-- //////////////////////////////// -->
     </div>
     <div class="BreadCrumbAndDarkOrLightMoodBtn flex items-center">
       <!-- DarkAndLightMoodBtn -->
@@ -140,7 +142,6 @@ const HandelFullOrDefaultScreen = () => {
       </div>
       <!-- //////////////////////////////// -->
       <BreadCrumb />
-      <!-- //////////////////////////////// -->
     </div>
     <!-- //////////////////////////////// -->
     <!-- MessagesBtn -->
