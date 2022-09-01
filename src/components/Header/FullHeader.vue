@@ -1,7 +1,11 @@
 <script setup>
 import { ref } from "@vue/reactivity";
+import { watch } from "@vue/runtime-core";
 import BreadCrumb from "./BreadCrumb.vue";
+import { useFullscreen } from "@vueuse/core";
+const { isFullscreen, enter, exit } = useFullscreen();
 const IconFullOrDefaultScreen = ref(false);
+
 const TarikhOption = [
   {
     day: "numeric",
@@ -16,16 +20,18 @@ const TarikhOption = [
     year: "numeric",
   },
 ];
+
 const Tarikh = ref([]);
 TarikhOption.forEach((items) => {
   Tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
 });
+
 const HandelFullOrDefaultScreen = () => {
   IconFullOrDefaultScreen.value = !IconFullOrDefaultScreen.value;
   if (IconFullOrDefaultScreen.value) {
-    document.documentElement.requestFullscreen();
+    enter();
   } else {
-    document.exitFullscreen();
+    exit();
   }
 };
 </script>
@@ -117,7 +123,7 @@ const HandelFullOrDefaultScreen = () => {
       >
         <font-awesome-icon
           :icon="
-            IconFullOrDefaultScreen
+            isFullscreen
               ? 'fa-solid fa-down-left-and-up-right-to-center'
               : 'fa-solid fa-up-right-and-down-left-from-center'
           "
