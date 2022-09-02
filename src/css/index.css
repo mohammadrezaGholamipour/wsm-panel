@@ -23,6 +23,7 @@
   }
   body {
     background-color: #f9fafb !important;
+    text-align: center;
   }
   main {
     direction: rtl;
@@ -92,7 +93,6 @@
     @apply w-full h-full p-4;
   }
   .ParentTabel {
-    @apply text-center;
     height: 530px !important ;
     width: 100% !important;
     direction: ltr !important;

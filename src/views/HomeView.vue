@@ -24,5 +24,3 @@ import TablePerson from "../components/TablePerson.vue";
   </main>
   <!-- ////////////////////////// -->
 </template>
-
-<style scoped></style>
