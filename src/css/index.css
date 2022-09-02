@@ -26,6 +26,7 @@
   }
   main {
     direction: rtl;
+    height: 100vh;
   }
   ::-webkit-scrollbar {
     width: 20px;
@@ -85,11 +86,14 @@
   /* /////////////////////////////// */
   /* Main */
   #Main {
-    @apply flex flex-row-reverse ;
+    @apply flex flex-row-reverse;
+  }
+  #Content {
+    @apply w-full h-full p-4;
   }
   .ParentTabel {
-    @apply text-center p-4;
-    height: 510px !important ;
+    @apply text-center;
+    height: 530px !important ;
     width: 100% !important;
     direction: ltr !important;
   }

@@ -6,14 +6,23 @@ import TablePerson from "../components/TablePerson.vue";
 </script>
 
 <template>
+  <!-- ////////////////////////// -->
   <MenuMobile />
+  <!-- ////////////////////////// -->
   <header id="Header">
     <FullHeader />
   </header>
+  <!-- ////////////////////////// -->
   <main id="Main">
-    <TablePerson />
+    <!-- ////////////////////////// -->
+    <div id="Content">
+      <TablePerson />
+    </div>
+    <!-- ////////////////////////// -->
     <MenuSystem />
+    <!-- ////////////////////////// -->
   </main>
+  <!-- ////////////////////////// -->
 </template>
 
 <style scoped></style>
