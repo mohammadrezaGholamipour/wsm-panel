@@ -83,21 +83,15 @@ const Table = ref([
 </script>
 <template>
   <div class="ParentTabel">
-    <div class="overflow-auto w-full h-full shadow-xl">
+    <div class="overflow-auto w-full h-full shadow-2xl bg-white rounded-lg">
       <table class="Table">
         <thead class="bg-blue-500 text-white">
           <tr>
-            <th scope="col" class="text-sm font-medium px-6 py-4">ردیف</th>
-            <th scope="col" class="text-sm font-medium px-6 py-4">نام</th>
-            <th scope="col" class="text-sm font-medium px-6 py-4">
-              نام خانوادگی
-            </th>
-            <th scope="col" class="text-sm font-medium px-6 py-4">
-              شماره تلفن همراه
-            </th>
-            <th scope="col" class="text-sm font-medium px-6 py-4">
-              کد دانشجویی
-            </th>
+            <th scope="col" class="font-medium px-6 py-4">ردیف</th>
+            <th scope="col" class="font-medium px-6 py-4">نام</th>
+            <th scope="col" class="font-medium px-6 py-4">نام خانوادگی</th>
+            <th scope="col" class="font-medium px-6 py-4">شماره تلفن همراه</th>
+            <th scope="col" class="font-medium px-6 py-4">کد دانشجویی</th>
           </tr>
         </thead>
         <tbody>

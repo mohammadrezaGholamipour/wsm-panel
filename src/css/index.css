@@ -34,14 +34,14 @@
     background-color: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
+    background-color: #a8bbbf;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
+    background-color: #a8bbbf;
     border-radius: 20px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
+    background-color: #a8bbbf;
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
@@ -85,11 +85,11 @@
   /* /////////////////////////////// */
   /* Main */
   #Main {
-    @apply flex flex-row-reverse justify-end;
+    @apply flex flex-row-reverse ;
   }
   .ParentTabel {
     @apply text-center p-4;
-    height: 508px !important ;
+    height: 510px !important ;
     width: 100% !important;
     direction: ltr !important;
   }
@@ -102,9 +102,8 @@
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystem {
-    @apply flex justify-start text-lg items-start overflow-hidden  shadow-lg bg-white p-3;
-    border-left: 1px solid #e5e7eb;
-    min-height: 100% !important;
+    @apply flex justify-start text-lg items-start overflow-hidden shadow-lg bg-white p-3;
+    border-left: 2px solid #e5e7eb;
     min-width: 200px !important;
     max-width: 200px !important;
   }
@@ -121,7 +120,7 @@
   /* FinishMenu */
   /* /////////////////////////////// */
   /* Responsive */
-  @media only screen and (max-width: 460px) {
+  @media only screen and (max-width: 810px) {
     .BtnMenuMobile {
       @apply mr-0;
     }
@@ -134,8 +133,11 @@
       display: none;
     }
   }
-  @media only screen and (max-width: 773px) {
+  @media only screen and (max-width: 680px) {
     .BreadCrumbAndDarkOrLightMoodBtn {
+      display: none !important;
+    }
+    .FullOrDefaultScreen {
       display: none !important;
     }
     .Header {
@@ -144,11 +146,6 @@
   }
   @media only screen and (min-width: 1001px) {
     .BtnMenuMobile {
-      display: none !important;
-    }
-  }
-  @media only screen and (max-width: 319px) {
-    .FullOrDefaultScreen {
       display: none !important;
     }
   }
