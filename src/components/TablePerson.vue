@@ -62,7 +62,7 @@ const Table = ref([
     id: 9,
     name: "حسین",
     lastname: "مقانلو",
-    phone: "03525412835",
+    phone: "09379571175",
     studentCode: "25874136",
   },
   {
@@ -80,28 +80,28 @@ const Table = ref([
       <table class="Table">
         <thead style="border-top-right-radius: 10px !important">
           <tr style="background-color: #3b82f6; color: white">
-            <th scope="col" class="font-medium px-4 py-2">ردیف</th>
-            <th scope="col" class="font-medium px-6 py-4">نام</th>
-            <th scope="col" class="font-medium px-6 py-4">نام خانوادگی</th>
-            <th scope="col" class="font-medium px-6 py-4">شماره تلفن همراه</th>
-            <th scope="col" class="font-medium px-6 py-4">کد دانشجویی</th>
+            <th scope="col" class="font-medium py-4 px-2">ردیف</th>
+            <th scope="col" class="font-medium py-4 px-2">نام</th>
+            <th scope="col" class="font-medium py-4 px-2">نام خانوادگی</th>
+            <th scope="col" class="font-medium py-4 px-2">شماره تلفن همراه</th>
+            <th scope="col" class="font-medium py-4 px-2">کد دانشجویی</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(items, index) in Table" :key="items.id">
-            <td class="px-4 py-2 whitespace-nowrap">
+            <td class="py-4">
               {{ index + 1 }}
             </td>
-            <td class="px-6 py-4">
+            <td class="py-4">
               {{ items.name }}
             </td>
-            <td class="px-6 py-4">
+            <td class="py-4">
               {{ items.lastname }}
             </td>
-            <td class="px-6 py-4">
+            <td class="py-4">
               {{ items.phone }}
             </td>
-            <td class="px-6 py-4">
+            <td class="py-4">
               {{ items.studentCode }}
             </td>
           </tr>

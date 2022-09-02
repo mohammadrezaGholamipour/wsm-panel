@@ -93,19 +93,20 @@
     @apply w-full h-full p-4;
   }
   .ParentTabel {
-    height: 530px !important ;
+    height: 560px !important ;
     width: 100% !important;
     direction: ltr !important;
   }
   .Table {
     @apply w-full h-full;
     direction: rtl !important;
+    min-width: 450px !important;
     border-radius: 20px !important;
   }
   .Table tr:nth-child(odd) {
   }
   .Table tr:nth-child(even) {
-    background-color: #DFE8CC;
+    background-color: #dfe8cc;
   }
 
   /* FinishMain */
