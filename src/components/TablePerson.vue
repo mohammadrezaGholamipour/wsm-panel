@@ -85,8 +85,8 @@ const Table = ref([
   <div class="ParentTabel">
     <div class="overflow-auto w-full h-full shadow-2xl bg-white rounded-lg">
       <table class="Table">
-        <thead class="bg-blue-500 text-white">
-          <tr>
+        <thead>
+          <tr style="background-color: #3b82f6; color: white">
             <th scope="col" class="font-medium px-6 py-4">ردیف</th>
             <th scope="col" class="font-medium px-6 py-4">نام</th>
             <th scope="col" class="font-medium px-6 py-4">نام خانوادگی</th>
@@ -95,34 +95,20 @@ const Table = ref([
           </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="(items, index) in Table"
-            :key="items.id"
-            class="border-b bg-white"
-          >
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-            >
+          <tr v-for="(items, index) in Table" :key="items.id">
+            <td class="px-6 py-4 whitespace-nowrap">
               {{ index + 1 }}
             </td>
-            <td
-              class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-            >
+            <td class="px-6 py-4">
               {{ items.name }}
             </td>
-            <td
-              class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-            >
+            <td class="px-6 py-4">
               {{ items.lastname }}
             </td>
-            <td
-              class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-            >
+            <td class="px-6 py-4">
               {{ items.phone }}
             </td>
-            <td
-              class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-            >
+            <td class="px-6 py-4">
               {{ items.studentCode }}
             </td>
           </tr>

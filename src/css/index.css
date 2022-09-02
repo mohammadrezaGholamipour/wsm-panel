@@ -98,10 +98,16 @@
     direction: ltr !important;
   }
   .Table {
-    @apply w-full;
+    @apply w-full h-full;
     direction: rtl !important;
     border-radius: 20px !important;
   }
+  .Table tr:nth-child(odd) {
+  }
+  .Table tr:nth-child(even) {
+    background-color: #f7eddb;
+  }
+
   /* FinishMain */
   /* /////////////////////////////// */
   /* Menu */
