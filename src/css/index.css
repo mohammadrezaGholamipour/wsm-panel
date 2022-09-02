@@ -60,7 +60,7 @@
     @apply flex justify-center items-center;
   }
   .BtnMessages {
-    @apply lg:shadow-md   hover:scale-110 text-xl py-1 px-4 border-green-700 border-2 text-white bg-green-600 flex  leading-tight items-center rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+    @apply lg:shadow-md hover:scale-110 text-xl py-1 px-4 border-green-700 border-2 text-white bg-green-600 flex  leading-tight items-center rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
   .FullOrDefaultScreen {
     @apply hover:scale-110 flex items-center mr-1 py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
@@ -85,20 +85,28 @@
   /* /////////////////////////////// */
   /* Main */
   #Main {
-    @apply flex flex-row-reverse justify-end w-full;
+    @apply flex flex-row-reverse justify-end;
   }
   .ParentTabel {
-    @apply flex text-center flex-col w-full p-4;
+    @apply text-center p-4;
+    height: 508px !important ;
+    width: 100% !important;
+    direction: ltr !important;
+  }
+  .Table {
+    @apply w-full;
+    direction: rtl !important;
+    border-radius: 20px !important;
   }
   /* FinishMain */
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystem {
-    @apply flex justify-start text-lg items-start overflow-hidden h-full shadow-lg bg-white py-3;
+    @apply flex justify-start text-lg items-start overflow-hidden  shadow-lg bg-white p-3;
     border-left: 1px solid #e5e7eb;
+    min-height: 100% !important;
     min-width: 200px !important;
     max-width: 200px !important;
-    height: 100vh;
   }
   .MenuMobile {
     @apply bg-white text-lg  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
@@ -136,6 +144,11 @@
   }
   @media only screen and (min-width: 1001px) {
     .BtnMenuMobile {
+      display: none !important;
+    }
+  }
+  @media only screen and (max-width: 319px) {
+    .FullOrDefaultScreen {
       display: none !important;
     }
   }

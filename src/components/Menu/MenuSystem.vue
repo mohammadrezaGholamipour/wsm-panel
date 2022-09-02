@@ -14,7 +14,7 @@ const HandelIconMenu = (event) => {
 </script>
 <template>
   <div class="MenuSystem" id="sidenavSecExample">
-    <ul class="relative w-full px-2">
+    <ul class="relative w-full h-full">
       <li class="relative">
         <a
           class="MenuLink"
@@ -47,7 +47,7 @@ const HandelIconMenu = (event) => {
           />
         </a>
         <ul
-          class="relative accordion-collapse  collapse"
+          class="relative accordion-collapse collapse"
           id="collapseSidenavXxEx2"
           aria-labelledby="sidenavXxEx2"
           data-bs-parent="#sidenavSecExample"

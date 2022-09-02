@@ -5,9 +5,8 @@
       <li>
         <a href="#"
           ><font-awesome-icon
-            class="text-blue-600"
+            class="text-blue-600 hover:scale-110 transition-all"
             icon="fa-solid fa-house-chimney"
-            
         /></a>
       </li>
       <li>
