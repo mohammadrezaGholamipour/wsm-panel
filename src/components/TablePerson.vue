@@ -46,38 +46,31 @@ const Table = ref([
   },
   {
     id: 7,
+    name: "ابوالفضل",
+    lastname: "آیدی",
+    phone: "09362574121",
+    studentCode: "10025849",
+  },
+  {
+    id: 8,
     name: "عرفان",
     lastname: "نعمتی",
     phone: "09195412801",
     studentCode: "58433216",
   },
   {
-    id: 8,
+    id: 9,
     name: "حسین",
     lastname: "مقانلو",
     phone: "03525412835",
     studentCode: "25874136",
   },
   {
-    id: 9,
+    id: 10,
     name: "ابوالفضل",
     lastname: "زندیه",
     phone: "09192605481",
     studentCode: "96157428",
-  },
-  {
-    id: 10,
-    name: "ابوالفضل",
-    lastname: "آیدی",
-    phone: "09362574121",
-    studentCode: "10025849",
-  },
-  {
-    id: 10,
-    name: "ابوالفضل",
-    lastname: "آیدی",
-    phone: "09362574121",
-    studentCode: "10025849",
   },
 ]);
 </script>
