@@ -56,7 +56,7 @@
 @layer components {
   /* Header */
   .Header {
-    @apply p-2 border-b-2 flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-lg;
+    @apply p-2 border-b flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-lg;
   }
   .HeaderBtn {
     @apply flex justify-center items-center;
@@ -105,7 +105,7 @@
   .Table tr:nth-child(odd) {
   }
   .Table tr:nth-child(even) {
-    background-color: #f7eddb;
+    background-color: #DFE8CC;
   }
 
   /* FinishMain */

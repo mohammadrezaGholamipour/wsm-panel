@@ -78,9 +78,9 @@ const Table = ref([
   <div class="ParentTabel">
     <div class="overflow-auto w-full h-full shadow-2xl bg-white rounded-lg">
       <table class="Table">
-        <thead>
+        <thead style="border-top-right-radius: 10px !important">
           <tr style="background-color: #3b82f6; color: white">
-            <th scope="col" class="font-medium px-6 py-4">ردیف</th>
+            <th scope="col" class="font-medium px-4 py-2">ردیف</th>
             <th scope="col" class="font-medium px-6 py-4">نام</th>
             <th scope="col" class="font-medium px-6 py-4">نام خانوادگی</th>
             <th scope="col" class="font-medium px-6 py-4">شماره تلفن همراه</th>
@@ -89,7 +89,7 @@ const Table = ref([
         </thead>
         <tbody>
           <tr v-for="(items, index) in Table" :key="items.id">
-            <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-4 py-2 whitespace-nowrap">
               {{ index + 1 }}
             </td>
             <td class="px-6 py-4">
