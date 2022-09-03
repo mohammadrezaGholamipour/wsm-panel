@@ -56,7 +56,7 @@
 @layer components {
   /* Header */
   .Header {
-    @apply p-2 border-b flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-lg;
+    @apply p-2 border-b flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-sm;
   }
   .HeaderBtn {
     @apply flex justify-center items-center;
@@ -93,7 +93,7 @@
     @apply w-full h-full p-4;
   }
   .ParentTabel {
-    height: 560px !important ;
+    max-height: 560px !important ;
     width: 100% !important;
     direction: ltr !important;
   }
@@ -103,17 +103,19 @@
     min-width: 450px !important;
     border-radius: 20px !important;
   }
-  .Table tr:nth-child(odd) {
-  }
+
   .Table tr:nth-child(even) {
     background-color: #dfe8cc;
+  }
+  .InputTabel {
+    @apply form-control py-1.5 text-center text-gray-700 border border-solid rounded transition ease-in-out m-0 focus:border-blue-600 focus:outline-none;
   }
 
   /* FinishMain */
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystem {
-    @apply flex justify-start text-lg items-start overflow-hidden shadow-lg bg-white p-3;
+    @apply flex justify-start text-lg items-start overflow-hidden bg-white p-3;
     border-left: 2px solid #e5e7eb;
     min-width: 200px !important;
     max-width: 200px !important;

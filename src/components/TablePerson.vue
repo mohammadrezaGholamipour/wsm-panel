@@ -73,24 +73,106 @@ const Table = ref([
     studentCode: "96157428",
   },
 ]);
+const TableFilter = ref([]);
+const InputTable = ref([
+  { id: 1, name: "نام", value: "", input: "name" },
+  { id: 2, name: "نام خانوادگی", value: "", input: "lastname" },
+  { id: 3, name: "شماره تلفن", value: "", input: "studentCode" },
+  { id: 4, name: "کد دانشجویی", value: "", input: "phone" },
+]);
+const HandelFilterInput = (value, input) => {
+  console.log(input);
+  console.log(value);
+  Table.value.filter((items) => {
+    console.log(items.name);
+  });
+};
 </script>
 <template>
   <div class="ParentTabel">
     <div class="overflow-auto w-full h-full shadow-2xl bg-white rounded-lg">
-      <table class="Table">
+      <table v-if="TableFilter.length" class="Table">
         <thead style="border-top-right-radius: 10px !important">
           <tr style="background-color: #3b82f6; color: white">
-            <th scope="col" class="font-medium py-4 px-2">ردیف</th>
-            <th scope="col" class="font-medium py-4 px-2">نام</th>
-            <th scope="col" class="font-medium py-4 px-2">نام خانوادگی</th>
-            <th scope="col" class="font-medium py-4 px-2">شماره تلفن همراه</th>
-            <th scope="col" class="font-medium py-4 px-2">کد دانشجویی</th>
+            <th scope="col" class="font-medium pb-1 pt-3 px-2">ردیف</th>
+            <th scope="col" class="font-medium pb-1 pt-3 px-2">نام</th>
+            <th scope="col" class="font-medium pb-1 pt-3 px-2">نام خانوادگی</th>
+            <th scope="col" class="font-medium pb-1 pt-3 px-2">
+              شماره تلفن همراه
+            </th>
+            <th scope="col" class="font-medium py-2 px-2">کد دانشجویی</th>
+          </tr>
+          <tr style="background-color: #3b82f6; color: white">
+            <td class="py-4">1</td>
+            <th
+              v-for="(items, index) in InputTable"
+              :key="index"
+              scope="col"
+              class="font-medium py-1"
+            >
+              <input
+                :placeholder="items.name"
+                v-model="items.value"
+                class="InputTabel"
+                type="text"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(items, index) in TableFilter" :key="items.id">
+            <td class="py-4">
+              {{ index + 2 }}
+            </td>
+            <td class="py-4">
+              {{ items.name }}
+            </td>
+            <td class="py-4">
+              {{ items.lastname }}
+            </td>
+            <td class="py-4">
+              {{ items.phone }}
+            </td>
+            <td class="py-4">
+              {{ items.studentCode }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- ////////////////////////////////////////// -->
+      <table v-else class="Table">
+        <thead style="border-top-right-radius: 10px !important">
+          <tr style="background-color: #3b82f6; color: white">
+            <th scope="col" class="font-medium pb-1 pt-3 px-2">ردیف</th>
+            <th scope="col" class="font-medium pb-1 pt-3 px-2">نام</th>
+            <th scope="col" class="font-medium pb-1 pt-3 px-2">نام خانوادگی</th>
+            <th scope="col" class="font-medium pb-1 pt-3 px-2">
+              شماره تلفن همراه
+            </th>
+            <th scope="col" class="font-medium py-2 px-2">کد دانشجویی</th>
+          </tr>
+          <tr style="background-color: #3b82f6; color: white">
+            <td class="py-4">1</td>
+            <th
+              v-for="(items, index) in InputTable"
+              :key="index"
+              scope="col"
+              class="font-medium py-1"
+            >
+              <input
+                @input="HandelFilterInput(items.value, items.input)"
+                :placeholder="items.name"
+                v-model="items.value"
+                class="InputTabel"
+                type="text"
+              />
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(items, index) in Table" :key="items.id">
             <td class="py-4">
-              {{ index + 1 }}
+              {{ index + 2 }}
             </td>
             <td class="py-4">
               {{ items.name }}
