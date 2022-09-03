@@ -23,10 +23,8 @@
   }
   body {
     background-color: #f9fafb !important;
-    overflow-x: hidden;
     text-align: center;
-    width: 100vw;
-    height: 100vh;
+    
   }
   ::-webkit-scrollbar {
     width: 20px;
@@ -55,8 +53,7 @@
 @layer components {
   /* Header */
   .Header {
-    @apply p-2 border-b flex-row  justify-between flex bg-white align-baseline flex-wrap-reverse shadow-sm;
-    width: calc(100% - 20px);
+    @apply p-2 border-b flex-row justify-between flex bg-white align-baseline flex-wrap-reverse shadow-sm;
   }
   .HeaderBtn {
     @apply flex justify-center items-center;
@@ -88,25 +85,17 @@
   /* Main */
   #Main {
     @apply flex flex-row-reverse;
-    width: 100% !important;
-    height: 100% !important;
     direction: rtl;
   }
   #Content {
     @apply p-4;
-    width: 100% !important;
-    height: 100% !important;
   }
   .ParentTabel {
     max-height: 400px !important ;
     direction: ltr !important;
-    width: 100% !important;
   }
   .Table {
-    width: 100% !important;
-    height: 100% !important;
     direction: rtl !important;
-    min-width: 450px !important;
     border-radius: 20px !important;
   }
 
@@ -123,6 +112,7 @@
   .MenuSystem {
     @apply flex justify-start text-lg items-start overflow-hidden bg-white p-3;
     border-left: 2px solid #e5e7eb;
+    height: 100vh;
     min-width: 200px !important;
     max-width: 200px !important;
   }
@@ -131,7 +121,6 @@
     max-width: 280px !important;
   }
   .MenuLink {
-    
     @apply flex w-full justify-evenly  items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
   }
   .MenuLinkNested {
@@ -151,11 +140,6 @@
   @media only screen and (max-width: 1000px) {
     .MenuSystem {
       display: none;
-    
-    }
-    .Header {
-      width: 100% !important;
-      justify-content: center;
     }
   }
   @media only screen and (max-width: 680px) {
