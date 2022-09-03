@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "@vue/reactivity";
+import { computed } from "@vue/runtime-core";
 
 const Table = ref([
   {
@@ -65,14 +66,17 @@ const Table = ref([
 ]);
 const TableFilter = ref([]);
 const InputTable = ref([
-  { id: 1, name: "نام", value: "", input: "name" },
-  { id: 2, name: "نام خانوادگی", value: "", input: "lastname" },
-  { id: 4, name: "کد دانشجویی", value: "", input: "phone" },
-  { id: 3, name: "شماره تلفن", value: "", input: "studentCode" },
+  { name: "نام", value: "", input: "name" },
+  { name: "نام خانوادگی", value: "", input: "lastname" },
+  { name: "شماره تلفن همراه", value: "", input: "phone" },
+  { name: "کد دانشجویی", value: "", input: "studentCode" },
 ]);
+
 const HandelFilterInput = (input, value) => {
-  console.log(Table.value[0].phone === value);
-  TableFilter.value = [];
+  const AllInput = InputTable.value.every((items) => items.value === "");
+  if (AllInput) {
+    TableFilter.value = [];
+  }
   Table.value.filter((items) => {
     if (items[input] === value) {
       TableFilter.value.push(items);
