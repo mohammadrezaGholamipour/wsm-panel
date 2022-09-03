@@ -67,14 +67,14 @@ const TableFilter = ref([]);
 const InputTable = ref([
   { id: 1, name: "نام", value: "", input: "name" },
   { id: 2, name: "نام خانوادگی", value: "", input: "lastname" },
-  { id: 3, name: "شماره تلفن", value: "", input: "studentCode" },
   { id: 4, name: "کد دانشجویی", value: "", input: "phone" },
+  { id: 3, name: "شماره تلفن", value: "", input: "studentCode" },
 ]);
 const HandelFilterInput = (input, value) => {
+  console.log(Table.value[0].phone === value);
   TableFilter.value = [];
   Table.value.filter((items) => {
-    if (items[input] == value) {
-      console.log("yoyo");
+    if (items[input] === value) {
       TableFilter.value.push(items);
     }
   });
@@ -115,7 +115,7 @@ const HandelFilterInput = (input, value) => {
         <tbody v-if="TableFilter.length">
           <tr v-for="(items, index) in TableFilter" :key="index">
             <td class="py-4">
-              {{ index + 1 }}
+              {{ index + 2 }}
             </td>
             <td class="py-4">
               {{ items.name }}
@@ -134,7 +134,7 @@ const HandelFilterInput = (input, value) => {
         <tbody v-else>
           <tr v-for="(items, index) in Table" :key="index">
             <td class="py-4">
-              {{ index + 1 }}
+              {{ index + 2 }}
             </td>
             <td class="py-4">
               {{ items.name }}
