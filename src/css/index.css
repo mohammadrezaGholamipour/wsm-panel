@@ -55,7 +55,8 @@
 @layer components {
   /* Header */
   .Header {
-    @apply p-2 border-b flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-sm;
+    @apply p-2 border-b flex-row  justify-between flex bg-white align-baseline flex-wrap-reverse shadow-sm;
+    width: calc(100% - 20px);
   }
   .HeaderBtn {
     @apply flex justify-center items-center;
