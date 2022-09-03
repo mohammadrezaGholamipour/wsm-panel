@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "@vue/reactivity";
-import { computed } from "@vue/runtime-core";
 
 const Table = ref([
   {
@@ -87,81 +86,80 @@ const HandelFilterInput = (input, value) => {
 </script>
 <template>
   <div class="ParentTabel">
-    <div class="overflow-auto w-full h-full shadow-2xl bg-white rounded-lg">
-      <table class="Table">
-        <thead style="border-top-right-radius: 10px !important">
-          <tr style="background-color: #3b82f6; color: white">
-            <th scope="col" class="font-medium pb-1 pt-3 px-2">ردیف</th>
-            <th scope="col" class="font-medium pb-1 pt-3 px-2">نام</th>
-            <th scope="col" class="font-medium pb-1 pt-3 px-2">نام خانوادگی</th>
-            <th scope="col" class="font-medium pb-1 pt-3 px-2">
-              شماره تلفن همراه
-            </th>
-            <th scope="col" class="font-medium py-2 px-2">کد دانشجویی</th>
-          </tr>
-          <tr style="background-color: #3b82f6; color: white">
-            <td class="py-4">1</td>
-            <th
-              v-for="(items, index) in InputTable"
-              :key="index"
-              scope="col"
-              class="font-medium py-1"
-            >
-              <input
-                @input="HandelFilterInput(items.input, items.value)"
-                :placeholder="items.name"
-                v-model="items.value"
-                class="InputTabel"
-                type="text"
-              />
-            </th>
-          </tr>
-        </thead>
-        <tbody v-if="TableFilter.length">
-          <tr v-for="(items, index) in TableFilter" :key="index">
-            <td class="py-4">
-              {{ index + 2 }}
-            </td>
-            <td class="py-4">
-              {{ items.name }}
-            </td>
-            <td class="py-4">
-              {{ items.lastname }}
-            </td>
-            <td class="py-4">
-              {{ items.phone }}
-            </td>
-            <td class="py-4">
-              {{ items.studentCode }}
-            </td>
-          </tr>
-        </tbody>
-        <tbody v-else>
-          <tr v-for="(items, index) in Table" :key="index">
-            <td class="py-4">
-              {{ index + 2 }}
-            </td>
-            <td class="py-4">
-              {{ items.name }}
-            </td>
-            <td class="py-4">
-              {{ items.lastname }}
-            </td>
-            <td class="py-4">
-              {{ items.phone }}
-            </td>
-            <td class="py-4">
-              {{ items.studentCode }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- ////////////////////////////////////////// -->
-    </div>
+    <table class="Table">
+      <thead>
+        <tr style="background-color: #3b82f6; color: white">
+          <th scope="col" class="font-medium pb-1 pt-3 px-2">ردیف</th>
+          <th scope="col" class="font-medium pb-1 pt-3 px-2">نام</th>
+          <th scope="col" class="font-medium pb-1 pt-3 px-2">نام خانوادگی</th>
+          <th scope="col" class="font-medium pb-1 pt-3 px-2">
+            شماره تلفن همراه
+          </th>
+          <th scope="col" class="font-medium py-2 px-2">کد دانشجویی</th>
+        </tr>
+        <tr style="background-color: #3b82f6; color: white">
+          <td class="py-4">1</td>
+          <th
+            v-for="(items, index) in InputTable"
+            class="font-medium py-1"
+            :key="index"
+            scope="col"
+          >
+            <input
+              @input="HandelFilterInput(items.input, items.value)"
+              :placeholder="items.name"
+              v-model="items.value"
+              class="InputTabel"
+              type="text"
+            />
+          </th>
+        </tr>
+      </thead>
+      <tbody v-if="TableFilter.length">
+        <tr v-for="(items, index) in TableFilter" :key="index">
+          <td class="py-4">
+            {{ index + 2 }}
+          </td>
+          <td class="py-4">
+            {{ items.name }}
+          </td>
+          <td class="py-4">
+            {{ items.lastname }}
+          </td>
+          <td class="py-4">
+            {{ items.phone }}
+          </td>
+          <td class="py-4">
+            {{ items.studentCode }}
+          </td>
+        </tr>
+      </tbody>
+      <tbody v-else>
+        <tr v-for="(items, index) in Table" :key="index">
+          <td class="py-4">
+            {{ index + 2 }}
+          </td>
+          <td class="py-4">
+            {{ items.name }}
+          </td>
+          <td class="py-4">
+            {{ items.lastname }}
+          </td>
+          <td class="py-4">
+            {{ items.phone }}
+          </td>
+          <td class="py-4">
+            {{ items.studentCode }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- ////////////////////////////////////////// -->
   </div>
 </template>
 <style>
-.test {
-  padding: 0px !important;
+.text {
+  width: 100% !important;
+  height: 100% !important;
 }
 </style>

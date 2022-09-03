@@ -23,10 +23,9 @@
   }
   body {
     background-color: #f9fafb !important;
+    overflow-x: hidden;
     text-align: center;
-  }
-  main {
-    direction: rtl;
+    width: 100vw;
     height: 100vh;
   }
   ::-webkit-scrollbar {
@@ -88,17 +87,23 @@
   /* Main */
   #Main {
     @apply flex flex-row-reverse;
+    width: 100% !important;
+    height: 100% !important;
+    direction: rtl;
   }
   #Content {
-    @apply w-full h-full p-4;
+    @apply p-4;
+    width: 100% !important;
+    height: 100% !important;
   }
   .ParentTabel {
-    max-height: 560px !important ;
-    width: 100% !important;
+    max-height: 400px !important ;
     direction: ltr !important;
+    width: 100% !important;
   }
   .Table {
-    @apply w-full h-full;
+    width: 100% !important;
+    height: 100% !important;
     direction: rtl !important;
     min-width: 450px !important;
     border-radius: 20px !important;
