@@ -76,12 +76,13 @@ const HandelFilterInput = (input, value) => {
   const AllInput = InputTable.value.every((items) => items.value === "");
   if (AllInput) {
     TableFilter.value = [];
+  } else {
+    Table.value.filter((items) => {
+      if (items[input] === value) {
+        TableFilter.value.push(items);
+      }
+    });
   }
-  Table.value.filter((items) => {
-    if (items[input] === value) {
-      TableFilter.value.push(items);
-    }
-  });
 };
 </script>
 <template>
