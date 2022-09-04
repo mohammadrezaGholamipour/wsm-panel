@@ -113,7 +113,7 @@
     @apply text-gray-700;
   }
   .InputTabel {
-    @apply form-control py-1.5 shadow-lg text-center text-gray-700   rounded transition ease-in-out m-0 focus:border-blue-600 focus:outline-none;
+    @apply form-control py-1.5 shadow-lg text-center text-gray-700 rounded transition ease-in-out m-0 focus:border-blue-600 focus:outline-none;
   }
   .ExelBtn {
     @apply inline-block px-6 py-2.5 text-lg  text-gray-600 font-medium  leading-tight uppercase rounded  bg-yellow-300  shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out;

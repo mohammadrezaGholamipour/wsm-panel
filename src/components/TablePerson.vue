@@ -112,8 +112,8 @@ const ExportExcel = () => {
   <div class="ParentTabel">
     <table class="Table">
       <thead>
-        <tr style="background-color: white;padding: 5px !important;">
-          <th class="px-2 font-medium">
+        <tr>
+          <th class="font-medium">
             <button class="ExelBtn" @click="ExportExcel">
               خروجی گرفتن از جدول
             </button>
