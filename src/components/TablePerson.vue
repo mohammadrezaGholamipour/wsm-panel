@@ -69,7 +69,7 @@ const Table = ref([
     studentCode: "58422219",
   },
   {
-    name: "سیعد",
+    name: "سعید",
     lastname: "حمیدیان",
     phone: "09124582196",
     studentCode: "44136259",
@@ -84,8 +84,12 @@ const InputTable = ref([
 ]);
 
 const HandelFilterInput = (input, value) => {
-  const AllInput = InputTable.value.every((items) => items.value === "");
-  if (AllInput) {
+  const InputValue = InputTable.value.every((items) => items.value === "");
+  let studentCode;
+  let firstname;
+  let lastname;
+  let phone;
+  if (InputValue) {
     TableFilter.value = [];
   } else {
     Table.value.filter((items) => {

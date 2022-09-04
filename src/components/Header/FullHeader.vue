@@ -26,7 +26,6 @@ TarikhOption.forEach((items) => {
   Tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
 });
 watch(isFullscreen, (value) => {
-  console.log(value);
   IconFullOrDefaultScreen.value = value;
 });
 const HandelFullOrDefaultScreen = () => {
