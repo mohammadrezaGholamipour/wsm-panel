@@ -1,4 +1,5 @@
 <script setup>
+import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { ref } from "@vue/reactivity";
 
 const Table = ref([
@@ -82,13 +83,8 @@ const InputTable = ref([
   { name: "شماره تلفن همراه", value: "", input: "phone" },
   { name: "کد دانشجویی", value: "", input: "studentCode" },
 ]);
-
 const HandelFilterInput = (input, value) => {
   const InputValue = InputTable.value.every((items) => items.value === "");
-  let studentCode;
-  let firstname;
-  let lastname;
-  let phone;
   if (InputValue) {
     TableFilter.value = [];
   } else {
@@ -99,13 +95,29 @@ const HandelFilterInput = (input, value) => {
     });
   }
 };
+const ExportExcel = () => {
+  saveExcel({
+    data: Table.value,
+    fileName: "Person",
+    columns: [
+      { field: "name" },
+      { field: "lastname" },
+      { field: "phone" },
+      { field: "studentCode" },
+    ],
+  });
+};
 </script>
 <template>
   <div class="ParentTabel">
     <table class="Table">
-      <thead>
+      <thead class="py-2">
         <tr style="background-color: #3b82f6; color: white">
-          <th class="px-2 font-medium">ردیف</th>
+          <th class="px-2 font-medium">
+            <button class="ExelBtn" @click="ExportExcel">
+              خروجی از گرفتن جدول
+            </button>
+          </th>
           <th
             v-for="(items, index) in InputTable"
             class="font-medium p-1"
@@ -162,5 +174,43 @@ const HandelFilterInput = (input, value) => {
       </tbody>
     </table>
     <!-- ////////////////////////////////////////// -->
+    <div
+      class="flex justify-center items-center p-1"
+      style="background-color: #3b82ff; color: white"
+    >
+      <nav aria-label="Page navigation example">
+        <ul class="flex list-style-none">
+          <li class="page-item disabled">
+            <a
+              class="page-link py-3 px-6 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md hover:text-black hover:bg-white focus:shadow-none cursor-not-allowed"
+              href="#"
+              tabindex="-1"
+              aria-disabled="true"
+              >قبلی</a
+            >
+          </li>
+          <li class="page-item">
+            <a class="page-link py-3 px-6 relative block" href="#">1</a>
+          </li>
+          <li class="page-item active">
+            <a
+              class="page-link py-3 px-6 relative block border-0 bg-white rounded-md text-black shadow-md"
+              href="#"
+              >2 <span class="visually-hidden">(current)</span></a
+            >
+          </li>
+          <li class="page-item">
+            <a class="page-link py-3 px-6 relative block" href="#">3</a>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link py-3 px-6 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md hover:text-black hover:bg-white focus:shadow-none"
+              href="#"
+              >بعدی</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </template>

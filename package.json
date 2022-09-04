@@ -1,29 +1,30 @@
 {
   "name": "panel-admin",
+  "version": "2.2.2",
   "private": true,
-  "version": "1.1.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "preview": "vite preview",
     "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vite"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.2",
-    "@fortawesome/free-brands-svg-icons": "^6.1.2",
     "@fortawesome/free-regular-svg-icons": "^6.1.2",
+    "@fortawesome/free-brands-svg-icons": "^6.1.2",
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@progress/kendo-vue-excel-export": "^3.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.1",
-    "@vueuse/core": "^9.1.1",
     "tw-elements": "^1.0.0-alpha12",
-    "vue": "^3.2.37",
-    "vue-router": "^4.1.5"
+    "@vueuse/core": "^9.1.1",
+    "vue-router": "^4.1.5",
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",
     "autoprefixer": "^10.4.8",
-    "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
+    "postcss": "^8.4.16",
     "vite": "^3.0.7"
   }
 }

@@ -94,7 +94,7 @@
     @apply w-full h-full p-4;
   }
   .ParentTabel {
-    max-height: 610px !important ;
+    max-height: 606px !important ;
     direction: ltr !important;
     width: 100% !important;
     overflow: auto;
@@ -106,13 +106,15 @@
     width: 100% !important;
   }
 
-  .Table tr:nth-child(even) {
+  .Table tr:nth-child(odd) {
     background-color: #dfe8cc;
   }
   .InputTabel {
     @apply form-control py-1.5 text-center text-gray-700 border border-solid rounded transition ease-in-out m-0 focus:border-blue-600 focus:outline-none;
   }
-
+  .ExelBtn {
+    @apply inline-block px-6 py-2.5 text-lg  text-white font-medium  leading-tight uppercase rounded  bg-green-700  shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  }
   /* FinishMain */
   /* /////////////////////////////// */
   /* Menu */
