@@ -25,10 +25,7 @@
     background-color: #f9fafb !important;
     text-align: center;
   }
-  main {
-    direction: rtl;
-    height: 100vh;
-  }
+
   ::-webkit-scrollbar {
     width: 20px;
   }
@@ -88,20 +85,23 @@
   /* Main */
   #Main {
     @apply flex flex-row-reverse;
+    direction: rtl;
+    height: 100vh;
   }
   #Content {
     @apply w-full h-full p-4;
   }
   .ParentTabel {
-    max-height: 560px !important ;
-    width: 100% !important;
+    max-height: 610px !important ;
     direction: ltr !important;
+    width: 100% !important;
+    overflow: auto;
   }
   .Table {
-    @apply w-full h-full;
-    direction: rtl !important;
     min-width: 450px !important;
-    border-radius: 20px !important;
+    direction: rtl !important;
+    height: 100% !important;
+    width: 100% !important;
   }
 
   .Table tr:nth-child(even) {
@@ -146,15 +146,17 @@
       display: none;
     }
   }
-  @media only screen and (max-width: 680px) {
+  @media only screen and (max-width: 650px) {
     .BreadCrumbAndDarkOrLightMoodBtn {
-      display: none !important;
-    }
-    .FullOrDefaultScreen {
       display: none !important;
     }
     .Header {
       @apply justify-center;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    .FullOrDefaultScreen {
+      display: none !important;
     }
   }
   @media only screen and (min-width: 1001px) {
