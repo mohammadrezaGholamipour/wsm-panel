@@ -111,11 +111,11 @@ const ExportExcel = () => {
 <template>
   <div class="ParentTabel">
     <table class="Table">
-      <thead class="py-2">
-        <tr style="background-color: #3b82f6; color: white">
+      <thead>
+        <tr style="background-color: white;padding: 5px !important;">
           <th class="px-2 font-medium">
             <button class="ExelBtn" @click="ExportExcel">
-              خروجی از گرفتن جدول
+              خروجی گرفتن از جدول
             </button>
           </th>
           <th
@@ -174,15 +174,12 @@ const ExportExcel = () => {
       </tbody>
     </table>
     <!-- ////////////////////////////////////////// -->
-    <div
-      class="flex justify-center items-center p-1"
-      style="background-color: #3b82ff; color: white"
-    >
+    <div class="flex justify-center items-center p-1">
       <nav aria-label="Page navigation example">
         <ul class="flex list-style-none">
           <li class="page-item disabled">
             <a
-              class="page-link py-3 px-6 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md hover:text-black hover:bg-white focus:shadow-none cursor-not-allowed"
+              class="page-link py-3 px-6 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md hover:text-white hover:bg-red-500 hover:shadow-md focus:shadow-none cursor-not-allowed"
               href="#"
               tabindex="-1"
               aria-disabled="true"
@@ -204,7 +201,7 @@ const ExportExcel = () => {
           </li>
           <li class="page-item">
             <a
-              class="page-link py-3 px-6 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md hover:text-black hover:bg-white focus:shadow-none"
+              class="page-link py-3 px-6 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md hover:text-white hover:bg-green-500 hover:shadow-md focus:shadow-none"
               href="#"
               >بعدی</a
             >
