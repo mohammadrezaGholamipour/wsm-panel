@@ -111,9 +111,9 @@ const ExportExcel = () => {
 <template>
   <div class="ParentTabel">
     <table class="Table">
-      <thead>
+      <thead >
         <tr style="background-color: #cbd5e1">
-          <th class="p-1 text-center ">
+          <th class="p-1 text-center">
             <button class="ExcelBtn" @click="ExportExcel">
               <font-awesome-icon icon="fa-solid fa-print" />
             </button>
@@ -174,7 +174,7 @@ const ExportExcel = () => {
       </tbody>
     </table>
     <!-- ////////////////////////////////////////// -->
-    <div class="flex justify-center items-center pb-2 pt-2 text-sm">
+    <div class="TablePagination">
       <ul class="flex list-style-none">
         <li class="page-item disabled">
           <a

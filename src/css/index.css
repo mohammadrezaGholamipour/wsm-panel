@@ -91,8 +91,8 @@
   #Content {
     @apply w-full h-full p-4;
   }
+  /* Tabel */
   .ParentTabel {
-    max-height: 606px !important;
     direction: ltr !important;
     width: 100% !important;
     overflow: auto;
@@ -110,19 +110,18 @@
   .Table tr:nth-child(even) {
     background-color: #d1d5db;
   }
-  .Table tr {
-    @apply text-gray-700;
-  }
   .Table tbody {
     @apply text-sm;
   }
 
   .InputTabel {
     @apply py-1.5 shadow-lg text-center text-gray-700 rounded transition ease-in-out m-0 focus:outline-none focus:shadow-none;
-    border: none;
   }
   .ExcelBtn {
-    @apply text-3xl shadow-lg flex justify-center mx-auto items-center text-white text-center p-1 rounded-md bg-blue-600;
+    @apply text-3xl shadow-lg flex justify-center mx-auto items-center text-white text-center p-1 rounded-md bg-blue-400;
+  }
+  .TablePagination {
+    @apply flex justify-center items-center pb-2 pt-2 text-sm;
   }
   /* FinishMain */
   /* /////////////////////////////// */
