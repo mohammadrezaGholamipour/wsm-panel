@@ -115,7 +115,7 @@ const ExportExcel = () => {
         <tr>
           <th class="font-medium">
             <button class="ExcelBtn" @click="ExportExcel">
-              خروجی گرفتن از جدول
+              <font-awesome-icon icon="fa-solid fa-print" />
             </button>
           </th>
           <th
@@ -174,7 +174,7 @@ const ExportExcel = () => {
       </tbody>
     </table>
     <!-- ////////////////////////////////////////// -->
-    <div class="flex justify-center items-center p-1">
+    <div class="flex justify-center items-center p-1 border-t-2">
       <nav aria-label="Page navigation example">
         <ul class="flex list-style-none">
           <li class="page-item disabled">
