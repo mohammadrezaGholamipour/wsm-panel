@@ -116,5 +116,3 @@ const HandelIconMenu = (event) => {
     </ul>
   </div>
 </template>
-
-<style scoped></style>

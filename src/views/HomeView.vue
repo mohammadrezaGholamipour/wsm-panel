@@ -6,7 +6,7 @@ import TablePerson from "../components/TablePerson.vue";
 </script>
 
 <template>
-  <!-- ////////////////////////// -->
+
   <MenuMobile />
   <!-- ////////////////////////// -->
   <header id="Header">
@@ -22,5 +22,4 @@ import TablePerson from "../components/TablePerson.vue";
     <MenuSystem />
     <!-- ////////////////////////// -->
   </main>
-  <!-- ////////////////////////// -->
 </template>

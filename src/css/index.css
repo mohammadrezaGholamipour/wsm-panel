@@ -23,6 +23,8 @@
   }
   body {
     background-color: #f9fafb !important;
+    max-width: 1500px !important;
+    margin: 0 auto;
     text-align: center;
   }
 
@@ -120,9 +122,8 @@
   /* /////////////////////////////// */
   /* Main */
   #Main {
-    @apply flex flex-row-reverse;
+    @apply flex flex-row-reverse mx-auto w-full h-full;
     direction: rtl;
-    height: 100vh;
   }
   #Content {
     @apply w-full h-full p-4;
@@ -168,6 +169,7 @@
     border-left: 1px solid #e5e7eb;
     min-width: 200px !important;
     max-width: 200px !important;
+    height: 100vh !important;
   }
   .MenuMobile {
     @apply bg-white text-lg  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
