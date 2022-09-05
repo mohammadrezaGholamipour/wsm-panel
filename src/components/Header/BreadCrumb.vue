@@ -1,6 +1,10 @@
 <script setup></script>
 <template>
-  <nav aria-label="breadcrumb" class="ml-1 flex" dir="rtl">
+  <nav
+    aria-label="breadcrumb"
+    class="flex justify-center items-center"
+    dir="rtl"
+  >
     <ol class="list-reset text-black flex items-center align-baseline">
       <li>
         <a href="#"
