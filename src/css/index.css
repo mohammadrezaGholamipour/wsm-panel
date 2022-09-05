@@ -128,8 +128,8 @@
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystem {
-    @apply flex justify-start text-lg items-start overflow-hidden bg-white p-3;
-    border-left: 2px solid #e5e7eb;
+    @apply flex justify-start text-lg items-start overflow-hidden bg-white p-3 shadow-sm;
+    border-left: 1px solid #e5e7eb;
     min-width: 200px !important;
     max-width: 200px !important;
   }
@@ -179,7 +179,7 @@
   }
   @media only screen and (max-width: 777px) {
     .ParentTabel {
-      border-radius: none !important;
+      border-radius: 0 !important;
     }
   }
   /* FinishResponsive */
