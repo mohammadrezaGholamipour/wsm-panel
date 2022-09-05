@@ -114,7 +114,7 @@ const ExportExcel = () => {
       <thead>
         <tr>
           <th class="font-medium">
-            <button class="ExelBtn" @click="ExportExcel">
+            <button class="ExcelBtn" @click="ExportExcel">
               خروجی گرفتن از جدول
             </button>
           </th>
