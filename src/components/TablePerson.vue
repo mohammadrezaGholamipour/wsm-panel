@@ -51,12 +51,6 @@ const Table = ref([
     studentCode: "58433216",
   },
   {
-    name: "حسین",
-    lastname: "مقانلو",
-    phone: "09379571175",
-    studentCode: "25874136",
-  },
-  {
     name: "ابوالفضل",
     lastname: "زندیه",
     phone: "09192605481",
@@ -67,12 +61,6 @@ const Table = ref([
     lastname: "مقدم منش",
     phone: "09212931921",
     studentCode: "58422219",
-  },
-  {
-    name: "سعید",
-    lastname: "حمیدیان",
-    phone: "09124582196",
-    studentCode: "44136259",
   },
 ]);
 const TableFilter = ref([]);
