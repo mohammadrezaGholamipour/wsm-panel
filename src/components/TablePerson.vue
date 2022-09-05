@@ -162,10 +162,10 @@ const ExportExcel = () => {
     </table>
     <!-- ////////////////////////////////////////// -->
     <div class="TablePagination">
-      <ul class="flex list-style-none">
+      <ul class="flex list-style-none justify-center items-center text-white">
         <li class="page-item disabled">
           <a
-            class="page-link py-3 px-3 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-white bg-red-500 shadow-md focus:shadow-none cursor-not-allowed"
+            class="page-link p-2 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white bg-red-500 shadow-md focus:shadow-none cursor-not-allowed"
             href="#"
             tabindex="-1"
             aria-disabled="true"
@@ -177,7 +177,7 @@ const ExportExcel = () => {
         </li>
         <li class="page-item active mx-1">
           <a
-            class="page-link py-3 px-5 relative block border-0 bg-white rounded-full text-black shadow-md"
+            class="page-link py-1 px-3 text-center text-xl relative block border-0 bg-white rounded-full text-black shadow-md"
             href="#"
             >2 <span class="visually-hidden">(current)</span></a
           >
@@ -187,7 +187,7 @@ const ExportExcel = () => {
         </li>
         <li class="page-item">
           <a
-            class="page-link py-3 px-3 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-white bg-green-500 shadow-md focus:shadow-none"
+            class="page-link  p-2 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white bg-blue-500 shadow-md focus:shadow-none"
             href="#"
             >بعدی</a
           >

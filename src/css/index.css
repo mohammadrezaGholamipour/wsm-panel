@@ -159,6 +159,7 @@
   }
   .TablePagination {
     @apply flex justify-center items-center pb-2 pt-2 text-sm;
+    background-color: #95a0b1;
   }
   /* FinishTable */
   /* FinishMain */
