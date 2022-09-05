@@ -88,19 +88,26 @@
     height: 100vh;
   }
   .LoginForm {
-    @apply block p-6 rounded-lg shadow-lg bg-white;
+    @apply flex justify-center items-center flex-col p-6 rounded-lg shadow-lg bg-white;
     direction: rtl;
   }
   .LoginParentInput {
     @apply flex justify-center items-center flex-col;
   }
   .LoginInput {
-    @apply form-control px-3 py-1.5 mb-2 text-center text-gray-700 bg-white border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+    @apply form-control px-3 py-1.5 mb-2 text-center text-gray-700 bg-white border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
   }
   .LoginParentBtn {
     @apply flex justify-center items-center flex-col;
   }
+  .LoginBtn {
+    @apply block mb-3 mt-2 px-6 py-2.5 bg-green-500 text-white rounded-md  shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out;
+  }
+  .LoginForgetInfo {
+    @apply text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out;
+  }
   /* FinishLoginPage */
+
   /* /////////////////////////////// */
   /* Main */
   #Main {
