@@ -82,6 +82,26 @@
   }
   /* FinishHeader */
   /* /////////////////////////////// */
+  /* LoginPage */
+  .LoginPage {
+    @apply flex justify-center items-center w-full;
+    height: 100vh;
+  }
+  .LoginForm {
+    @apply block p-6 rounded-lg shadow-lg bg-white;
+    direction: rtl;
+  }
+  .LoginParentInput {
+    @apply flex justify-center items-center flex-col;
+  }
+  .LoginInput {
+    @apply form-control px-3 py-1.5 mb-2 text-center text-gray-700 bg-white border border-solid border-gray-300 rounded-xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+  }
+  .LoginParentBtn {
+    @apply flex justify-center items-center flex-col;
+  }
+  /* FinishLoginPage */
+  /* /////////////////////////////// */
   /* Main */
   #Main {
     @apply flex flex-row-reverse;
