@@ -20,10 +20,6 @@
         </div>
         <div class="LoginParentBtn">
           <button type="button" class="LoginBtn">وارد شدن</button>
-
-          <a href="#!" class="LoginForgetInfo">
-            رمز یا نام کاربری خود را فراموش کرده اید؟</a
-          >
         </div>
       </form>
     </div>
