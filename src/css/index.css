@@ -65,26 +65,29 @@
     @apply flex justify-center items-center;
   }
   .BtnMessages {
-    @apply lg:shadow-md hover:scale-110 text-xl py-1 px-4 border-green-600 border-2 text-white bg-green-600 flex  leading-tight items-center rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+    @apply lg:shadow-md hover:scale-110 text-xl py-1.5 px-4 border-green-600 border  text-white bg-green-600 flex  leading-tight items-center rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  }
+  .breadcrumb {
+    @apply flex justify-center items-center;
   }
   .FullOrDefaultScreen {
-    @apply hover:scale-110 flex items-center  py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
+    @apply hover:scale-110 ml-1 flex items-center  py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
   }
   .BtnAccount {
-    @apply hover:scale-110 dropdown-toggle px-2 py-2.5 text-xl bg-slate-500 text-white rounded shadow-md  hover:shadow-lg  active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap;
+    @apply hover:scale-110  dropdown-toggle px-2 py-2.5 text-xl bg-slate-500 text-white rounded shadow-md  hover:shadow-lg  active:shadow-lg active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap;
   }
   .UlAccount {
     @apply text-center text-black  min-w-max  z-50 float-right py-2 list-none rounded-lg shadow-lg bg-clip-padding bg-white;
     transform: translate3d(-42px, 49px, 0px) !important;
   }
   .Tarikh {
-    @apply inline-block px-3 py-2.5 bg-slate-500 text-white  leading-tight  rounded shadow-md hover:shadow-lg  transition duration-150 ease-in-out;
+    @apply inline-block mr-1 px-3 py-2.5 bg-slate-500 text-white  leading-tight  rounded shadow-md hover:shadow-lg  transition duration-150 ease-in-out;
   }
   .BtnMenuMobile {
-    @apply hover:scale-110 flex items-center py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
+    @apply hover:scale-110 mr-1 flex items-center py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
   }
   .BtnLogout {
-    @apply hover:scale-110 border-red-500  p-2 text-lg text-white bg-red-600 flex border-2 leading-tight justify-center items-center  rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+    @apply hover:scale-110 mr-1 border-red-500  p-2 text-lg text-white bg-red-600 flex border-2 leading-tight justify-center items-center  rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
   /* FinishHeader */
   /* /////////////////////////////// */
@@ -179,27 +182,9 @@
   /* FinishMenu */
   /* /////////////////////////////// */
   /* Responsive */
-  @media only screen and (max-width: 810px) {
-    .Tarikh {
-      display: none !important;
-    }
-  }
   @media only screen and (max-width: 1000px) {
     .MenuSystem {
       display: none;
-    }
-  }
-  @media only screen and (max-width: 650px) {
-    .BreadCrumbAndDarkOrLightMoodBtn {
-      display: none !important;
-    }
-    .Header {
-      @apply justify-center;
-    }
-  }
-  @media only screen and (max-width: 320px) {
-    .FullOrDefaultScreen {
-      display: none !important;
     }
   }
   @media only screen and (min-width: 1001px) {
@@ -212,5 +197,31 @@
       border-radius: 0 !important;
     }
   }
+  @media only screen and (max-width: 690px) {
+    .Header {
+      @apply justify-center;
+    }
+    .breadcrumb {
+      @apply mx-2;
+    }
+    .Tarikh {
+      display: none !important;
+    }
+  }
+
+  @media only screen and (max-width: 503px) {
+    .breadcrumb {
+      display: none !important;
+    }
+    .BtnMessages {
+      @apply ml-1;
+    }
+  }
+  @media only screen and (max-width: 309px) {
+    .FullOrDefaultScreen {
+      display: none !important;
+    }
+  }
+
   /* FinishResponsive */
 }

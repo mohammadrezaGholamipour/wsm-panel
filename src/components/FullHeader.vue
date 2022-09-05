@@ -5,12 +5,14 @@ import Messagesbtn from "./Header/Messagesbtn.vue";
 import BreadCrumb from "./Header/BreadCrumb.vue";
 import TarikhBtn from "./Header/TarikhBtn.vue";
 import LogoutAccountBtn from "./Header/LogoutAccountBtn.vue";
+import MenuMobileBtn from "./Header/MenuMobileBtn.vue";
 </script>
 
 <template>
   <nav class="Header">
     <div class="Left">
       <LogoutAccountBtn />
+      <MenuMobileBtn />
       <TarikhBtn />
       <AccountInfoBtn />
       <FullScreenbtn />
