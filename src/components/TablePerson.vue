@@ -1,7 +1,6 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { ref } from "@vue/reactivity";
-
 const Table = ref([
   {
     name: "محمدرضا",
@@ -52,12 +51,6 @@ const Table = ref([
     studentCode: "58433216",
   },
   {
-    name: "حسین",
-    lastname: "مقانلو",
-    phone: "09379571175",
-    studentCode: "25874136",
-  },
-  {
     name: "ابوالفضل",
     lastname: "زندیه",
     phone: "09192605481",
@@ -68,12 +61,6 @@ const Table = ref([
     lastname: "مقدم منش",
     phone: "09212931921",
     studentCode: "58422219",
-  },
-  {
-    name: "سعید",
-    lastname: "حمیدیان",
-    phone: "09124582196",
-    studentCode: "44136259",
   },
 ]);
 const TableFilter = ref([]);
@@ -112,10 +99,10 @@ const ExportExcel = () => {
   <div class="ParentTabel">
     <table class="Table">
       <thead>
-        <tr>
-          <th class="font-medium">
-            <button class="ExelBtn" @click="ExportExcel">
-              خروجی گرفتن از جدول
+        <tr id="FirstTr">
+          <th class="p-2">
+            <button class="ExcelBtn" @click="ExportExcel">
+              <font-awesome-icon icon="fa-solid fa-print" />
             </button>
           </th>
           <th
@@ -174,40 +161,39 @@ const ExportExcel = () => {
       </tbody>
     </table>
     <!-- ////////////////////////////////////////// -->
-    <div class="flex justify-center items-center p-1">
-      <nav aria-label="Page navigation example">
-        <ul class="flex list-style-none">
-          <li class="page-item disabled">
-            <a
-              class="page-link py-3 px-6 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md hover:text-white hover:bg-red-500 hover:shadow-md focus:shadow-none cursor-not-allowed"
-              href="#"
-              tabindex="-1"
-              aria-disabled="true"
-              >قبلی</a
-            >
-          </li>
-          <li class="page-item">
-            <a class="page-link py-3 px-6 relative block" href="#">1</a>
-          </li>
-          <li class="page-item active">
-            <a
-              class="page-link py-3 px-6 relative block border-0 bg-white rounded-md text-black shadow-md"
-              href="#"
-              >2 <span class="visually-hidden">(current)</span></a
-            >
-          </li>
-          <li class="page-item">
-            <a class="page-link py-3 px-6 relative block" href="#">3</a>
-          </li>
-          <li class="page-item">
-            <a
-              class="page-link py-3 px-6 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-md hover:text-white hover:bg-green-500 hover:shadow-md focus:shadow-none"
-              href="#"
-              >بعدی</a
-            >
-          </li>
-        </ul>
-      </nav>
+    <div class="TablePagination">
+      <ul class="flex list-style-none">
+        <li class="page-item disabled">
+          <a
+            class="page-link py-3 px-3 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-white bg-red-500 shadow-md focus:shadow-none cursor-not-allowed"
+            href="#"
+            tabindex="-1"
+            aria-disabled="true"
+            >قبلی</a
+          >
+        </li>
+        <li class="page-item mx-1">
+          <a class="page-link py-3 px-6 relative block" href="#">1</a>
+        </li>
+        <li class="page-item active mx-1">
+          <a
+            class="page-link py-3 px-5 relative block border-0 bg-white rounded-full text-black shadow-md"
+            href="#"
+            >2 <span class="visually-hidden">(current)</span></a
+          >
+        </li>
+        <li class="page-item mx-1">
+          <a class="page-link py-3 px-6 relative block" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a
+            class="page-link py-3 px-3 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-white bg-green-500 shadow-md focus:shadow-none"
+            href="#"
+            >بعدی</a
+          >
+        </li>
+      </ul>
     </div>
+    <!-- ////////////////////////////////////////// -->
   </div>
 </template>

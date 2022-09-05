@@ -67,16 +67,16 @@ const HandelFullOrDefaultScreen = () => {
       <div class="relative">
         <button
           data-bs-toggle="dropdown"
-          id="dropdownMenuButton2"
           aria-expanded="false"
           class="BtnAccount"
           type="button"
+          id="test"
         >
           <font-awesome-icon icon="fa-solid fa-user-pen" />
         </button>
         <ul
           class="UlAccount py-0 overflow-hidden hidden text-white dropdown-menu bg-slate-500"
-          aria-labelledby="dropdownMenuButton2"
+          aria-labelledby="test"
         >
           <h5 class="text-sm py-2 px-4 block w-full">آقای مجتبی شاقی</h5>
           <hr

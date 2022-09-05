@@ -23,9 +23,7 @@
   }
   body {
     background-color: #f9fafb !important;
-    max-width: 1600px !important;
     text-align: center;
-    margin: 0 auto;
   }
 
   ::-webkit-scrollbar {
@@ -61,7 +59,7 @@
     @apply flex justify-center items-center;
   }
   .BtnMessages {
-    @apply lg:shadow-md hover:scale-110 text-xl py-1 px-4 border-green-700 border-2 text-white bg-green-600 flex  leading-tight items-center rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+    @apply lg:shadow-md hover:scale-110 text-xl py-1 px-4 border-green-600 border-2 text-white bg-green-600 flex  leading-tight items-center rounded-md hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
   .FullOrDefaultScreen {
     @apply hover:scale-110 flex items-center mr-1 py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
@@ -84,6 +82,33 @@
   }
   /* FinishHeader */
   /* /////////////////////////////// */
+  /* LoginPage */
+  .LoginPage {
+    @apply flex justify-center items-center w-full;
+    height: 100vh;
+  }
+  .LoginForm {
+    @apply flex justify-center items-center flex-col p-6 rounded-lg shadow-lg bg-white;
+    direction: rtl;
+  }
+  .LoginParentInput {
+    @apply flex justify-center items-center flex-col;
+  }
+  .LoginInput {
+    @apply form-control px-3 py-1.5 mb-4 text-center text-gray-700 bg-white border border-solid border-gray-300 rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+  }
+  .LoginParentBtn {
+    @apply flex justify-center items-center flex-col;
+  }
+  .LoginBtn {
+    @apply block mb-3 mt-2 px-6 py-2.5 bg-green-500 text-white rounded-md  shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out;
+  }
+  .LoginForgetInfo {
+    @apply text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out;
+  }
+  /* FinishLoginPage */
+
+  /* /////////////////////////////// */
   /* Main */
   #Main {
     @apply flex flex-row-reverse;
@@ -93,10 +118,11 @@
   #Content {
     @apply w-full h-full p-4;
   }
+  /* Tabel */
   .ParentTabel {
-    max-height: 606px !important ;
     direction: ltr !important;
     width: 100% !important;
+    border-radius: 20px;
     overflow: auto;
   }
   .Table {
@@ -105,25 +131,32 @@
     height: 100% !important;
     width: 100% !important;
   }
+  .Table tr:nth-child(even) {
+    background-color: #d1d5db;
+  }
+  #FirstTr {
+    background-color: #d1d5db;
+  }
+  .Table tbody {
+    @apply text-sm;
+  }
 
-  .Table tr:nth-child(odd) {
-    background-color: #9ed2c6;
-  }
-  .Table tr {
-    @apply text-gray-700;
-  }
   .InputTabel {
-    @apply form-control py-1.5 shadow-lg text-center text-gray-700 rounded transition ease-in-out m-0 focus:border-blue-600 focus:outline-none;
+    @apply py-1.5 shadow-lg text-center text-gray-700 rounded transition ease-in-out m-0 focus:outline-none focus:shadow-none;
   }
-  .ExelBtn {
-    @apply inline-block px-6 py-2.5 text-lg  text-gray-600 font-medium  leading-tight uppercase rounded  bg-yellow-300  shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+  .ExcelBtn {
+    @apply text-3xl shadow-lg flex justify-center mx-auto items-center text-white text-center p-1 rounded-md bg-blue-400;
   }
+  .TablePagination {
+    @apply flex justify-center items-center pb-2 pt-2 text-sm;
+  }
+  /* FinishTable */
   /* FinishMain */
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystem {
-    @apply flex justify-start text-lg items-start overflow-hidden bg-white p-3;
-    border-left: 2px solid #e5e7eb;
+    @apply flex justify-start text-lg items-start overflow-hidden bg-white p-3 shadow-sm;
+    border-left: 1px solid #e5e7eb;
     min-width: 200px !important;
     max-width: 200px !important;
   }
@@ -169,6 +202,11 @@
   @media only screen and (min-width: 1001px) {
     .BtnMenuMobile {
       display: none !important;
+    }
+  }
+  @media only screen and (max-width: 777px) {
+    .ParentTabel {
+      border-radius: 0 !important;
     }
   }
   /* FinishResponsive */
