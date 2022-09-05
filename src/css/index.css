@@ -95,6 +95,7 @@
   .ParentTabel {
     direction: ltr !important;
     width: 100% !important;
+    border-radius: 20px;
     overflow: auto;
   }
   .Table {
@@ -104,14 +105,14 @@
     width: 100% !important;
   }
 
-  .Table tr:nth-child(odd) {
-    background-color: #ffedd5;
-  }
   .Table tr:nth-child(even) {
     background-color: #d1d5db;
   }
   .Table tbody {
     @apply text-sm;
+  }
+  #FirstTr {
+    background-color: #d1d5db;
   }
 
   .InputTabel {

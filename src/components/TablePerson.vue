@@ -111,8 +111,8 @@ const ExportExcel = () => {
 <template>
   <div class="ParentTabel">
     <table class="Table">
-      <thead >
-        <tr style="background-color: #cbd5e1">
+      <thead>
+        <tr id="FirstTr">
           <th class="p-1 text-center">
             <button class="ExcelBtn" @click="ExportExcel">
               <font-awesome-icon icon="fa-solid fa-print" />
