@@ -174,8 +174,8 @@ const ExportExcel = () => {
       </tbody>
     </table>
     <!-- ////////////////////////////////////////// -->
-    <div class="flex justify-center items-center p-1 border-t-2">
-      <nav aria-label="Page navigation example">
+    <div class="flex justify-center items-center border-t-2">
+      <nav aria-label="Page navigation example ">
         <ul class="flex list-style-none">
           <li class="page-item disabled">
             <a
@@ -189,7 +189,7 @@ const ExportExcel = () => {
           <li class="page-item">
             <a class="page-link py-3 px-6 relative block" href="#">1</a>
           </li>
-          <li class="page-item active">
+          <li class="page-item active p-1">
             <a
               class="page-link py-3 px-6 relative block border-0 bg-white rounded-md text-black shadow-md"
               href="#"

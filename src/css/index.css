@@ -94,7 +94,7 @@
     @apply w-full h-full p-4;
   }
   .ParentTabel {
-    max-height: 606px !important ;
+    max-height: 606px !important;
     direction: ltr !important;
     width: 100% !important;
     overflow: auto;
@@ -117,7 +117,7 @@
     border: none;
   }
   .ExcelBtn {
-    @apply text-3xl text-slate-600;
+    @apply text-3xl text-slate-600 p-2;
   }
   /* FinishMain */
   /* /////////////////////////////// */
