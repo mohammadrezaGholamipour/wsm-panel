@@ -104,15 +104,14 @@
     height: 100% !important;
     width: 100% !important;
   }
-
   .Table tr:nth-child(even) {
+    background-color: #d1d5db;
+  }
+  #FirstTr {
     background-color: #d1d5db;
   }
   .Table tbody {
     @apply text-sm;
-  }
-  #FirstTr {
-    background-color: #d1d5db;
   }
 
   .InputTabel {
@@ -124,6 +123,7 @@
   .TablePagination {
     @apply flex justify-center items-center pb-2 pt-2 text-sm;
   }
+  /* FinishTable */
   /* FinishMain */
   /* /////////////////////////////// */
   /* Menu */

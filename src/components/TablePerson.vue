@@ -1,7 +1,6 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { ref } from "@vue/reactivity";
-
 const Table = ref([
   {
     name: "محمدرضا",
@@ -113,7 +112,7 @@ const ExportExcel = () => {
     <table class="Table">
       <thead>
         <tr id="FirstTr">
-          <th class="p-1 text-center">
+          <th class="p-2">
             <button class="ExcelBtn" @click="ExportExcel">
               <font-awesome-icon icon="fa-solid fa-print" />
             </button>
