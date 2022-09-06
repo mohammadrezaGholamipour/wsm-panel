@@ -162,7 +162,9 @@ const ExportExcel = () => {
     </table>
     <!-- ////////////////////////////////////////// -->
     <div class="TablePagination">
-      <ul class="flex list-style-none justify-center items-center text-white">
+      <ul
+        class="flex list-style-none justify-center items-center w-full text-white"
+      >
         <li class="page-item disabled">
           <a
             class="page-link p-2 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white bg-red-500 shadow-md focus:shadow-none cursor-not-allowed"
@@ -187,7 +189,7 @@ const ExportExcel = () => {
         </li>
         <li class="page-item">
           <a
-            class="page-link  p-2 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white bg-blue-500 shadow-md focus:shadow-none"
+            class="page-link p-2 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white bg-blue-500 shadow-md focus:shadow-none"
             href="#"
             >بعدی</a
           >
