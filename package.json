@@ -13,14 +13,14 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.2",
     "@fortawesome/free-regular-svg-icons": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@progress/kendo-vue-excel-export": "^3.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "@kyvg/vue3-notification": "^2.4.1",
-    "@progress/kendo-vue-excel-export": "^3.5.2",
-    "@vueuse/core": "^9.1.1",
     "tw-elements": "^1.0.0-alpha12",
+    "@vueuse/core": "^9.1.1",
     "vee-validate": "^4.6.7",
-    "vue": "^3.2.37",
     "vue-router": "^4.1.5",
+    "vue": "^3.2.37",
     "yup": "^0.32.11"
   },
   "devDependencies": {

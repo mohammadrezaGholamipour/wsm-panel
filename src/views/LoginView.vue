@@ -48,7 +48,7 @@ const HandelLogin = () => {
       <Form @submit.prevent>
         <div class="LoginParentInput">
           <Field
-            placeholder="نام کاربری را وارد کنید"
+            placeholder="نام کاربری"
             :rules="ValidateUserName"
             v-model="UserName"
             class="LoginInput"
@@ -57,7 +57,7 @@ const HandelLogin = () => {
           />
           <ErrorMessage name="username" class="text-red-500 my-1" />
           <Field
-            placeholder="رمز عبور را وارد کنید"
+            placeholder="رمز عبور"
             :rules="ValidatePassword"
             v-model="Password"
             class="LoginInput"
