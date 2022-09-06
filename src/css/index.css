@@ -23,9 +23,9 @@
   }
   body {
     background-color: #f9fafb !important;
-    max-width: 1500px !important;
-    margin: 0 auto;
+    max-width: 1600px !important;
     text-align: center;
+    margin: 0 auto;
   }
 
   ::-webkit-scrollbar {
