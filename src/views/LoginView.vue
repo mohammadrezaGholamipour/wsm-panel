@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { Field, Form, ErrorMessage } from "vee-validate";
+</script>
 <template>
   <div class="LoginPage">
     <div class="LoginForm">
