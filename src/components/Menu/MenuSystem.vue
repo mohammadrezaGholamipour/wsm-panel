@@ -435,11 +435,14 @@ const MenuList = ref([
         <li>
           <a
             class="MenuLink"
-            data-mdb-ripple-color="primary"
+            data-mdb-ripple-color="info"
             data-mdb-ripple="true"
           >
             <span>{{ items.title }}</span>
-            <font-awesome-icon icon=" fa-solid fa-circle-arrow-down" />
+            <font-awesome-icon
+              class="text-green-700"
+              icon=" fa-solid fa-circle-arrow-down"
+            />
           </a>
           <ul
             class="MenuUlNested"
@@ -451,13 +454,17 @@ const MenuList = ref([
               :key="item.title"
             >
               <a
-                data-mdb-ripple-color="primary"
+                data-mdb-ripple-color="info"
                 class="MenuLinkNested"
                 data-mdb-ripple="true"
                 href="#!"
               >
                 <span>{{ item.title }}</span>
-               <font-awesome-icon class="text-xs ml-1 text-blue-400" icon="fa-solid fa-circle" />
+
+                <font-awesome-icon
+                  class="text-xs ml-1 text-green-600"
+                  icon="fa-solid fa-grip-lines"
+                />
               </a>
             </li>
           </ul>

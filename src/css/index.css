@@ -171,7 +171,7 @@
     @apply text-lg bg-white p-3 shadow-sm;
     border-left: 1px solid #e5e7eb;
     min-height: calc(100vh - 57px);
-    min-width: 200px !important;
+    min-width: 285px !important;
     max-width: 200px !important;
   }
   .MenuSystemParentUl {
@@ -182,12 +182,12 @@
     max-width: 280px !important;
   }
   .MenuLink {
-    @apply flex justify-between items-center p-2 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
+    @apply flex justify-between text-gray-800 items-center p-2 rounded-lg hover:text-gray-600 hover:bg-[#3af00d23] transition duration-300 ease-in-out cursor-pointer;
     width: 100% !important;
   }
   .MenuLinkNested {
-    @apply flex items-center flex-row-reverse p-1 w-full justify-end text-gray-700  rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
-    font-size: 12pt;
+    @apply flex items-center flex-row-reverse p-1 w-full justify-end text-gray-700  rounded-lg hover:text-gray-900 hover:bg-[#0dcaf023]  transition duration-300 ease-in-out cursor-pointer;
+    font-size: 13pt;
   }
   .MenuSystemHr {
     @apply h-0 my-1 border border-solid border-t-0 border-gray-700 opacity-25;
