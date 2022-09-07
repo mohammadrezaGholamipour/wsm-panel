@@ -460,6 +460,9 @@ const MenuList = ref([
             </li>
           </ul>
         </li>
+        <hr
+          class="h-0 my-1 border border-solid border-t-0 border-gray-700 opacity-25"
+        />
       </ul>
     </div>
   </div>
