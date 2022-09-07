@@ -87,8 +87,8 @@ const MenuList = ref([
         hasAccess: true,
       },
     ],
-    isOpen: true,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    isOpen: false,
+    hasAccess: true,
   },
   {
     title: "خراسان",
@@ -425,34 +425,42 @@ const MenuList = ref([
 ]);
 </script>
 <template>
-  <div class="MenuSystem">
-    <ul
-      @click="HandelCollapseUl(items.title)"
-      v-for="items in MenuList"
-      class="w-full text-center"
-      :key="items.title"
-    >
-      <li>
-        <a
-          data-mdb-ripple-color="primary"
-          data-mdb-ripple="true"
-          class="MenuLink"
-        >
-          <span>{{ items.title }}</span>
-          <font-awesome-icon icon=" fa-solid fa-circle-arrow-down" />
-        </a>
-        <ul :class="items.isOpen ? 'relative accordion-collapse' : 'collapse'">
-          <li v-for="item in items.children" :key="item.title" class="relative">
-            <a
-              data-mdb-ripple-color="primary"
-              class="MenuLinkNested"
-              data-mdb-ripple="true"
-              href="#!"
-              >{{ item.title }}</a
+  <div class="MenuSystemParent">
+    <div class="MenuSystemParentUl">
+      <ul
+        @click="HandelCollapseUl(items.title)"
+        v-for="items in MenuList"
+        class="w-full text-center"
+        :key="items.title"
+      >
+        <li>
+          <a
+            data-mdb-ripple-color="primary"
+            data-mdb-ripple="true"
+            class="MenuLink"
+          >
+            <span>{{ items.title }}</span>
+            <font-awesome-icon icon=" fa-solid fa-circle-arrow-down" />
+          </a>
+          <ul
+            :class="items.isOpen ? 'relative accordion-collapse' : 'collapse'"
+          >
+            <li
+              v-for="item in items.children"
+              :key="item.title"
+              class="relative"
             >
-          </li>
-        </ul>
-      </li>
-    </ul>
+              <a
+                data-mdb-ripple-color="primary"
+                class="MenuLinkNested"
+                data-mdb-ripple="true"
+                href="#!"
+                >{{ item.title }}</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
