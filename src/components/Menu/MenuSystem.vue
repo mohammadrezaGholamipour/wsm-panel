@@ -431,7 +431,6 @@ const MenuList = ref([
         @click="HandelCollapseUl(items.title)"
         v-for="items in MenuList"
         :key="items.title"
-        class="w-full"
       >
         <li>
           <a
@@ -443,13 +442,10 @@ const MenuList = ref([
             <font-awesome-icon icon=" fa-solid fa-circle-arrow-down" />
           </a>
           <ul
-            :class="items.isOpen ? 'relative accordion-collapse' : 'collapse'"
+            class="MenuUlNested"
+            :class="items.isOpen ? ' accordion-collapse' : 'collapse'"
           >
-            <li
-              v-for="item in items.children"
-              :key="item.title"
-              class="relative"
-            >
+            <li class="flex w-full flex-row justify-between" v-for="item in items.children" :key="item.title">
               <a
                 data-mdb-ripple-color="primary"
                 class="MenuLinkNested"
@@ -460,9 +456,7 @@ const MenuList = ref([
             </li>
           </ul>
         </li>
-        <hr
-          class="h-0 my-1 border border-solid border-t-0 border-gray-700 opacity-25"
-        />
+        <hr class="MenuSystemHr" />
       </ul>
     </div>
   </div>
