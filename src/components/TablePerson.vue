@@ -159,44 +159,7 @@ const ExportExcel = () => {
           </td>
         </tr>
       </tbody>
-      <div class="TablePagination">
-        <ul
-          class="list-style-none flex w-full justify-center items-center text-white"
-        >
-          <li class="page-item disabled">
-            <a
-              class="page-link p-2 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white bg-red-500 shadow-md focus:shadow-none cursor-not-allowed"
-              href="#"
-              tabindex="-1"
-              aria-disabled="true"
-              >قبلی</a
-            >
-          </li>
-          <li class="page-item mx-1">
-            <a class="page-link py-3 px-6 relative block" href="#">1</a>
-          </li>
-          <li class="page-item active mx-1">
-            <a
-              class="page-link py-1 px-3 text-center text-xl relative block border-0 bg-white rounded-full text-black shadow-md"
-              href="#"
-              >2 <span class="visually-hidden">(current)</span></a
-            >
-          </li>
-          <li class="page-item mx-1">
-            <a class="page-link py-3 px-6 relative block" href="#">3</a>
-          </li>
-          <li class="page-item">
-            <a
-              class="page-link p-2 relative block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white bg-blue-500 shadow-md focus:shadow-none"
-              href="#"
-              >بعدی</a
-            >
-          </li>
-        </ul>
-      </div>
     </table>
-    <!-- ////////////////////////////////////////// -->
-<<<<<<< HEAD
     <div class="TablePagination">
       <ul
         class="flex list-style-none justify-center items-center w-full text-white"
@@ -233,7 +196,5 @@ const ExportExcel = () => {
       </ul>
     </div>
     <!-- ////////////////////////////////////////// -->
-=======
->>>>>>> 10f392d9cab1c75f74fc3f63f9df4a1697c71a60
   </div>
 </template>

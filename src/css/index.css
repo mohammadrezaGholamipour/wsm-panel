@@ -172,7 +172,6 @@
     border-left: 1px solid #e5e7eb;
     min-width: 200px !important;
     max-width: 200px !important;
-    height: 100vh !important;
   }
   .MenuMobile {
     @apply bg-white text-lg  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
