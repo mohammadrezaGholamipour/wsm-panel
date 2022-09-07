@@ -24,7 +24,6 @@
   body {
     background-color: #f9fafb !important;
     max-width: 1600px !important;
-    height: 100vh !important;
     text-align: center;
     margin: 0 auto;
   }
@@ -124,13 +123,11 @@
   /* /////////////////////////////// */
   /* Main */
   #Main {
-    @apply flex flex-row-reverse mx-auto   w-full;
-    height: calc(100vh - 57px) !important;
+    @apply flex flex-row-reverse w-full;
     direction: rtl;
   }
   #Content {
     @apply w-full p-4;
-    height: calc(100vh - 57px) !important;
   }
   /* Tabel */
   .ParentTabel {
@@ -171,9 +168,9 @@
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystemParent {
-    @apply  text-lg items-center bg-white p-3 shadow-sm;
+    @apply text-lg bg-white p-3 shadow-sm;
     border-left: 1px solid #e5e7eb;
-    height: calc(100vh - 57px) !important;
+    min-height: calc(100vh - 57px);
     min-width: 200px !important;
     max-width: 200px !important;
   }
