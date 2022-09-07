@@ -279,7 +279,7 @@ const MenuList = ref([
         hasAccess: true,
       },
       {
-        title: "لیست اطلاعات تجمیعی طلاب المصطفی",
+        title: "اطلاعات تجمیعی طلاب المصطفی",
         link: "/servicebus/almostaf_allstudents",
         children: [],
         isOpen: false,
@@ -435,25 +435,22 @@ const MenuList = ref([
       >
         <li>
           <a
-            data-bs-toggle="collapse"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-            class="MenuLink"
             data-mdb-ripple-color="info"
+            data-bs-toggle="collapse"
             data-mdb-ripple="true"
+            class="MenuLink"
           >
             <span>{{ items.title }}</span>
             <font-awesome-icon
-              class="text-green-600"
               icon=" fa-solid fa-circle-arrow-down"
+              :class="
+                items.isOpen
+                  ? 'rotate-180 text-green-600  duration-500 '
+                  : ' text-green-600 duration-500'
+              "
             />
           </a>
-          <ul
-            :class="
-              items.isOpen ? 'MenuUlNested accordion-collapse' : 'collapse'
-            "
-          >
+          <ul :class="items.isOpen ? 'accordion-collapse ' : 'collapse'">
             <li
               class="flex w-full flex-row justify-between"
               v-for="item in items.children"
