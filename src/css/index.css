@@ -24,6 +24,7 @@
   body {
     background-color: #f9fafb !important;
     max-width: 1600px !important;
+    height: 100vh;
     text-align: center;
     margin: 0 auto;
   }
@@ -123,11 +124,12 @@
   /* /////////////////////////////// */
   /* Main */
   #Main {
-    @apply flex flex-row-reverse mx-auto w-full h-full;
+    @apply flex flex-row-reverse mx-auto w-full;
+    height: calc(100vh - 57px);
     direction: rtl;
   }
   #Content {
-    @apply w-full h-full p-4;
+    @apply w-full  p-4 flex justify-center items-center;
   }
   /* Tabel */
   .ParentTabel {
@@ -168,18 +170,17 @@
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystem {
-    @apply flex justify-start text-lg items-start overflow-hidden bg-white p-3 shadow-sm;
+    @apply flex justify-start flex-col text-lg items-center bg-white p-3 shadow-sm;
     border-left: 1px solid #e5e7eb;
     min-width: 200px !important;
     max-width: 200px !important;
-    height: 100vh !important;
   }
   .MenuMobile {
     @apply bg-white text-lg  offcanvas-end fixed bottom-0 invisible bg-clip-padding outline-none transition duration-300 ease-in-out top-0 right-0 border-none w-96;
     max-width: 280px !important;
   }
   .MenuLink {
-    @apply flex w-full justify-evenly  items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
+    @apply flex w-full justify-around  items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
   }
   .MenuLinkNested {
     @apply flex items-center py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out;
