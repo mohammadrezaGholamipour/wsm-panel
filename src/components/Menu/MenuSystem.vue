@@ -430,14 +430,14 @@ const MenuList = ref([
       <ul
         @click="HandelCollapseUl(items.title)"
         v-for="items in MenuList"
-        class="w-full text-center"
         :key="items.title"
+        class="w-full"
       >
         <li>
           <a
+            class="MenuLink"
             data-mdb-ripple-color="primary"
             data-mdb-ripple="true"
-            class="MenuLink"
           >
             <span>{{ items.title }}</span>
             <font-awesome-icon icon=" fa-solid fa-circle-arrow-down" />

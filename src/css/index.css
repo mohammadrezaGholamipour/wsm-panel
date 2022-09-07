@@ -182,7 +182,8 @@
     max-width: 280px !important;
   }
   .MenuLink {
-    @apply flex w-full justify-around  items-center h-12 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
+    @apply flex justify-between items-center p-2 rounded-lg hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer;
+    width: 100% !important;
   }
   .MenuLinkNested {
     @apply flex items-center py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out;
