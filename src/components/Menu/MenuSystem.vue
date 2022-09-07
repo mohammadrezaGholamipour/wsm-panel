@@ -87,6 +87,7 @@ const MenuList = ref([
         hasAccess: true,
       },
     ],
+
     isOpen: false,
     hasAccess: true,
   },
@@ -434,19 +435,24 @@ const MenuList = ref([
       >
         <li>
           <a
+            data-bs-toggle="collapse"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
             class="MenuLink"
             data-mdb-ripple-color="info"
             data-mdb-ripple="true"
           >
             <span>{{ items.title }}</span>
             <font-awesome-icon
-              class="text-green-700"
+              class="text-green-600"
               icon=" fa-solid fa-circle-arrow-down"
             />
           </a>
           <ul
-            class="MenuUlNested"
-            :class="items.isOpen ? ' accordion-collapse' : 'collapse'"
+            :class="
+              items.isOpen ? 'MenuUlNested accordion-collapse' : 'collapse'
+            "
           >
             <li
               class="flex w-full flex-row justify-between"

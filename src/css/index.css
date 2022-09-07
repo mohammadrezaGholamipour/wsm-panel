@@ -182,7 +182,7 @@
     max-width: 280px !important;
   }
   .MenuLink {
-    @apply flex justify-between text-gray-800 items-center p-2 rounded-lg hover:text-gray-600 hover:bg-[#3af00d23] transition duration-300 ease-in-out cursor-pointer;
+    @apply flex justify-between text-gray-800 items-center p-2 rounded-lg hover:text-gray-600 hover:bg-[#3af00d1c] transition duration-300 ease-in-out cursor-pointer;
     width: 100% !important;
   }
   .MenuLinkNested {
