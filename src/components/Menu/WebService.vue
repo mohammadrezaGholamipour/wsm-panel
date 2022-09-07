@@ -10,7 +10,11 @@ const HandelWebService = () => {
 };
 </script>
 <template>
+<<<<<<< HEAD:src/components/WebService.vue
   <div class="flex wrap justify-center items-center mt-6">
+=======
+  <div class="flex justify-center items-center">
+>>>>>>> ac2028f64f7ec0bce5f4c6108889de07aeabd2f2:src/components/Menu/WebService.vue
     <input
       v-model="Unvan"
       type="text"

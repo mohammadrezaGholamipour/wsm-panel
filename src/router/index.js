@@ -11,8 +11,18 @@ const router = createRouter({
     },
     {
       path: "/home",
-      name: "home",
-      component: () => import("../views/HomeView.vue"),
+      component: () => import("../layouts/MainLayout.vue"),
+      children: [
+        {
+          path: "",
+          name: "home",
+          component: () => import("../views/HomeView.vue"),
+        },
+      ],
+    },
+    {
+      path: "/:catchAll(.*)*",
+      component: () => import("../views/ErrorNotFound.vue"),
     },
   ],
 });
