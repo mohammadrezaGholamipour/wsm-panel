@@ -445,14 +445,20 @@ const MenuList = ref([
             class="MenuUlNested"
             :class="items.isOpen ? ' accordion-collapse' : 'collapse'"
           >
-            <li class="flex w-full flex-row justify-between" v-for="item in items.children" :key="item.title">
+            <li
+              class="flex w-full flex-row justify-between"
+              v-for="item in items.children"
+              :key="item.title"
+            >
               <a
                 data-mdb-ripple-color="primary"
                 class="MenuLinkNested"
                 data-mdb-ripple="true"
                 href="#!"
-                >{{ item.title }}</a
               >
+                <span>{{ item.title }}</span>
+               <font-awesome-icon class="text-xs ml-1 text-blue-400" icon="fa-solid fa-circle" />
+              </a>
             </li>
           </ul>
         </li>

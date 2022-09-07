@@ -25,6 +25,7 @@ import {
   faUpRightAndDownLeftFromCenter,
   faDownLeftAndUpRightToCenter,
   faPrint,
+  faCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
@@ -42,7 +43,8 @@ library.add(
   faCircleXmark,
   faUpRightAndDownLeftFromCenter,
   faDownLeftAndUpRightToCenter,
-  faPrint
+  faPrint,
+  faCircle
 );
 import "./css/index.css";
 
