@@ -1,7 +1,7 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { ref } from "@vue/reactivity";
-const data = ref({
+const TableService = ref({
   status: 200,
   meta_data: {
     current_page: 2,
@@ -371,16 +371,15 @@ const data = ref({
     },
   ],
 });
-const InputTable = ref([
+const InputTableService = ref([
   { name: "کد", value: "", input: "Servicemethodid" },
   { name: "نام", value: "", input: "Name" },
   { name: "نام سرویس", value: "", input: "ServiceName" },
   { name: "نام متد", value: "", input: "Servicemethodname" },
 ]);
-
 const ExportExcel = () => {
   saveExcel({
-    data: TablePerson.value,
+    data: TableService.value.data,
     fileName: "Person",
     columns: [
       { field: "ردیف" },
@@ -404,7 +403,7 @@ const ExportExcel = () => {
             </button>
           </th>
           <th
-            v-for="(items, index) in InputTable"
+            v-for="(items, index) in InputTableService"
             class="font-medium p-1"
             :key="index"
             scope="col"
@@ -420,7 +419,7 @@ const ExportExcel = () => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(items, index) in TablePerson" :key="index">
+        <tr v-for="(items, index) in TableService.data" :key="index">
           <td class="py-4">
             {{ index + 1 }}
           </td>
@@ -441,24 +440,19 @@ const ExportExcel = () => {
     </table>
     <div class="TablePagination">
       <ul class="UlPagination">
-        <li @click="HandelPaginationPrev">
+        <li>
           <a class="BtnNextOrPrevPagination bg-red-500">قبلی</a>
         </li>
-        <li
-          @click="HandelPaginationPage"
-          v-if="Pagination.current_page - 1 !== 0"
-        >
-          <a class="PagePagination">{{ Pagination.current_page - 1 }}</a>
+        <li>
+          <a class="PagePagination">1</a>
         </li>
         <li>
-          <a class="PagePagination border-4 border-yellow-500">{{
-            Pagination.current_page
-          }}</a>
+          <a class="PagePagination border-4 border-green-700"> 2 </a>
         </li>
-        <li @click="HandelPaginationPage">
-          <a class="PagePagination">{{ Pagination.current_page + 1 }}</a>
+        <li>
+          <a class="PagePagination">3</a>
         </li>
-        <li @click="HandelPaginationNext">
+        <li>
           <a class="BtnNextOrPrevPagination bg-blue-500">بعدی</a>
         </li>
       </ul>
