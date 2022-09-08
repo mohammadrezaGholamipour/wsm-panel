@@ -380,14 +380,12 @@ const InputTableService = ref([
 const ExportExcel = () => {
   saveExcel({
     data: TableService.value.data,
-    fileName: "Person",
+    fileName: "TableService",
     columns: [
-      { field: "ردیف" },
-      { field: "کد" },
-      { field: "نام" },
-      { field: "نام سرویس" },
-      { field: "نام متد" },
-      { field: "وضعیت" },
+      { field: "Id", title: "کد" },
+      { field: "Name", title: "نام" },
+      { field: "ServiceName", title: "نام سرویس" },
+      { field: "Servicemethodname", title: "نام متد" },
     ],
   });
 };
