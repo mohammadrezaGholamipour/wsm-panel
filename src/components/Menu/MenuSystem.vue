@@ -6,7 +6,6 @@ const HandelCollapseUl = (itemstitle) => {
   MenuList.value.forEach((items) => {
     if (items.title === itemstitle) {
       items.isOpen = !items.isOpen;
-      console.log(items.isOpen);
     }
   });
 };
@@ -16,21 +15,21 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای  کامل  ",
-        link: "/servicebus/runkhaharan",
+        link: "/home/runkhaharan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای اساتید ",
-        link: "/servicebus/runkhaharanasatid",
+        link: "/home/runkhaharanasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای   موردی ",
-        link: "/servicebus/runonekhaharan",
+        link: "/home/runonekhaharan",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -38,14 +37,14 @@ const MenuList = ref([
 
       {
         title: " اجرای موردی اساتید ",
-        link: "/servicebus/runonekhaharanasatid",
+        link: "/home/runonekhaharanasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: " اجرای بر اساس تغییرات",
-        link: "/servicebus/run_haharan_bychange",
+        link: "/home/run_haharan_bychange",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -53,78 +52,77 @@ const MenuList = ref([
 
       {
         title: "لیست اجرای کامل ",
-        link: "/servicebus/listkhaharan",
+        link: "/home/listkhaharan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست اساتید ",
-        link: "/servicebus/listkhaharanasatid",
+        link: "/home/listkhaharanasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی ",
-        link: "/servicebus/listkhaharanone",
+        link: "/home/listkhaharanone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی اساتید ",
-        link: "/servicebus/listkhaharanoneasatid",
+        link: "/home/listkhaharanoneasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست خواهران بر اساس تغییرات ",
-        link: "/servicebus/list_haharan_bychange",
+        link: "/home/list_haharan_bychange",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
-
     isOpen: false,
-    hasAccess: true,
+    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
   },
   {
     title: "خراسان",
     children: [
       {
         title: "اجرای  کامل خراسان ",
-        link: "/servicebus/runkhorasan",
+        link: "/home/runkhorasan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای ممتازین خراسان ",
-        link: "/servicebus/runkhorasan_momtazin",
+        link: "/home/runkhorasan_momtazin",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای موردی  خراسان ",
-        link: "/servicebus/runkhorasanone",
+        link: "/home/runkhorasanone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست کامل خراسان ",
-        link: "/servicebus/listkhorasan",
+        link: "/home/listkhorasan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست ممتازین خراسان ",
-        link: "/servicebus/list_khorasanone_momtazin",
+        link: "/home/list_khorasanone_momtazin",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -132,35 +130,35 @@ const MenuList = ref([
 
       {
         title: "لیست موردی خراسان ",
-        link: "/servicebus/listkhorasanone",
+        link: "/home/listkhorasanone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true,
   },
   {
     title: "جامعه الزهرا",
     children: [
       {
         title: "اجرای  کامل  ",
-        link: "/servicebus/runAlzahra",
+        link: "/home/runAlzahra",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای اساتید ",
-        link: "/servicebus/runAlzahraasatid",
+        link: "/home/runAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای   موردی ",
-        link: "/servicebus/runoneAlzahra",
+        link: "/home/runoneAlzahra",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -168,140 +166,140 @@ const MenuList = ref([
 
       {
         title: " اجرای موردی اساتید ",
-        link: "/servicebus/runoneAlzahraasatid",
+        link: "/home/runoneAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: " اجرای موردی براساس کدبایگانی ",
-        link: "/servicebus/runoneAlzahr_archivedcode",
+        link: "/home/runoneAlzahr_archivedcode",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: " اجرای مبلغین الزهرا ",
-        link: "/servicebus/runoneAlzahr_mobaleghin",
+        link: "/home/runoneAlzahr_mobaleghin",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست اجرای کامل ",
-        link: "/servicebus/listAlzahra",
+        link: "/home/listAlzahra",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست اساتید ",
-        link: "/servicebus/listAlzahraasatid",
+        link: "/home/listAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی ",
-        link: "/servicebus/listAlzahraone",
+        link: "/home/listAlzahraone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی اساتید ",
-        link: "/servicebus/listAlzahraoneasatid",
+        link: "/home/listAlzahraoneasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی براساس کدبایگانی ",
-        link: "/servicebus/listAlzahra_archivedcode",
+        link: "/home/listAlzahra_archivedcode",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست مبلغین الزهرا ",
-        link: "/servicebus/listAlzahra_mobaleghin",
+        link: "/home/listAlzahra_mobaleghin",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true,
   },
   {
     title: "اهل سنت",
     children: [
       {
         title: "اجرای  کامل اهل سنت ",
-        link: "/servicebus/runsonnat",
+        link: "/home/runsonnat",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای تکی اهل سنت ",
-        link: "/servicebus/runsonnat_one",
+        link: "/home/runsonnat_one",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست کامل اهل سنت ",
-        link: "/servicebus/listsonnat",
+        link: "/home/listsonnat",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست تکی اهل سنت ",
-        link: "/servicebus/listsonnat_one",
+        link: "/home/listsonnat_one",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true,
   },
   {
     title: "جامعه المصطفی",
     children: [
       {
         title: "اجرای تجمیعی المصطفی",
-        link: "/servicebus/run_almostafa_allstudents",
+        link: "/home/run_almostafa_allstudents",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اطلاعات تجمیعی طلاب المصطفی",
-        link: "/servicebus/almostaf_allstudents",
+        link: "/home/almostaf_allstudents",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true,
   },
   {
     title: "دفترتبلیغات",
     children: [
       {
         title: "اجرای تکی مبلغ ",
-        link: "/servicebus/tablighat_office_one_run",
+        link: "/home/tablighat_office_one_run",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرا براساس بازه تاریخ ",
-        link: "/servicebus/tablighat_office_run_by_dates",
+        link: "/home/tablighat_office_run_by_dates",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -309,28 +307,28 @@ const MenuList = ref([
 
       {
         title: "لیست تکی مبلغ ",
-        link: "/servicebus/tablighat_office_one_list",
+        link: "/home/tablighat_office_one_list",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست اجرا براساس بازه تاریخ ",
-        link: "/servicebus/tablighat_office_list_by_dates",
+        link: "/home/tablighat_office_list_by_dates",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true,
   },
   {
     title: "سامانه پیامک چاپار ",
     children: [
       {
         title: "تاریخچه ارسال پیامک",
-        link: "/servicebus/chappar_sms",
+        link: "/home/chappar_sms",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -338,21 +336,21 @@ const MenuList = ref([
 
       {
         title: "ارسال پیامک",
-        link: "/servicebus/run_chappar_sms",
+        link: "/home/run_chappar_sms",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true,
   },
   {
     title: "سازمان تبلیغات",
     children: [
       {
         title: "اجرای مبلغین",
-        link: "/servicebus/tablighat_org_mobaleghin_run",
+        link: "/home/tablighat_org_mobaleghin_run",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -360,7 +358,7 @@ const MenuList = ref([
 
       {
         title: "اجرای تکی مبلغین",
-        link: "/servicebus/tablighat_org_mobalegh_run",
+        link: "/home/tablighat_org_mobalegh_run",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -368,7 +366,7 @@ const MenuList = ref([
 
       {
         title: "لیست مبلغین",
-        link: "/servicebus/tablighat_org_mobaleghin_list",
+        link: "/home/tablighat_org_mobaleghin_list",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -376,21 +374,21 @@ const MenuList = ref([
 
       {
         title: "لیست تکی مبلغین",
-        link: "/servicebus/tablighat_org_mobalegh_list",
+        link: "/home/tablighat_org_mobalegh_list",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true,
   },
   {
     title: "امور استخدامی",
     children: [
       {
         title: "اجرای لیستی استعلام کارمندان",
-        link: "/servicebus/employee_inquery_bylist_run",
+        link: "/home/employee_inquery_bylist_run",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -398,7 +396,7 @@ const MenuList = ref([
 
       {
         title: "اجرای موردی استعلام کارمند",
-        link: "/servicebus/employee_inquery_single_run",
+        link: "/home/employee_inquery_single_run",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -406,7 +404,7 @@ const MenuList = ref([
 
       {
         title: "لیست بلوکی استعلام کارمندان",
-        link: "/servicebus/employee_inquery_bylist_list",
+        link: "/home/employee_inquery_bylist_list",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -414,14 +412,14 @@ const MenuList = ref([
 
       {
         title: "لیست موردی استعلام کارمند",
-        link: "/servicebus/employee_inquery_single_list",
+        link: "/home/employee_inquery_single_list",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true,
   },
 ]);
 </script>
@@ -436,7 +434,6 @@ const MenuList = ref([
         <li>
           <a
             data-mdb-ripple-color="info"
-            data-bs-toggle="collapse"
             data-mdb-ripple="true"
             class="MenuLink"
           >
@@ -450,17 +447,17 @@ const MenuList = ref([
               "
             />
           </a>
-          <ul :class="items.isOpen ? 'accordion-collapse ' : 'collapse'">
+          <ul :class="items.isOpen ? 'accordion-collapse' : 'collapse'">
             <li
               class="flex w-full flex-row justify-between"
               v-for="item in items.children"
               :key="item.title"
             >
-              <a
+              <router-link
                 data-mdb-ripple-color="info"
                 class="MenuLinkNested"
                 data-mdb-ripple="true"
-                href="#!"
+                :to="item.link"
               >
                 <span>{{ item.title }}</span>
 
@@ -468,7 +465,7 @@ const MenuList = ref([
                   class="text-xs ml-1 text-green-600"
                   icon="fa-solid fa-grip-lines"
                 />
-              </a>
+              </router-link>
             </li>
           </ul>
         </li>
