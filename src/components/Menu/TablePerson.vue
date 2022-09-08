@@ -387,6 +387,7 @@ const ExportExcel = () => {
       { field: "ServiceName", title: "نام سرویس" },
       { field: "Servicemethodname", title: "نام متد" },
     ],
+    dir: "rtl",
   });
 };
 </script>
