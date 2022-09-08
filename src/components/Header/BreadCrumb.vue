@@ -10,19 +10,19 @@ const Route = useRoute();
     class="breadcrumb"
     dir="rtl"
   >
-    <ol class="list-reset text-black flex items-center align-baseline">
+    <ol
+      class="text-white py-1 px-2 rounded shadow-md bg-blue-500 hover:shadow-lg transition duration-150 ease-in-out flex justify-center items-center align-center"
+    >
       <li>
-        <a href="#"
-          ><font-awesome-icon
-            class="text-blue-600 hover:scale-110 transition-all"
+        <router-link to="/home">
+          <font-awesome-icon
+            class="hover:scale-110 transition-all"
             icon="fa-solid fa-house-chimney"
-        /></a>
+        /></router-link>
       </li>
+      <li class="mx-2 flex"><font-awesome-icon icon="fa-solid fa-link" /></li>
       <li>
-        <span class="mx-2">/</span>
-      </li>
-      <li>
-        <a href="#" style="color: #64748b">{{ Route.meta.breadcrumb }}</a>
+        <router-link to="">{{ Route.meta.breadcrumb }}</router-link>
       </li>
     </ol>
   </nav>
