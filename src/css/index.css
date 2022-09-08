@@ -159,7 +159,7 @@
     @apply py-1.5 shadow-lg text-center text-gray-700 rounded transition ease-in-out m-0 focus:outline-none focus:shadow-none;
   }
   .ExcelBtn {
-    @apply text-3xl shadow-lg flex justify-center mx-auto items-center text-white text-center p-1 rounded-md bg-blue-400;
+    @apply hover:scale-110 transition-all text-3xl shadow-lg flex justify-center mx-auto items-center text-white text-center p-1 rounded-md bg-blue-500;
   }
   .TablePagination {
     @apply flex justify-center items-center;
