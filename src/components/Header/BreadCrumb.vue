@@ -22,7 +22,7 @@ const Route = useRoute();
       </li>
       <li class="mx-2 flex"><font-awesome-icon icon="fa-solid fa-link" /></li>
       <li>
-        <router-link to="">{{ Route.meta.breadcrumb }}</router-link>
+        {{ Route.meta.breadcrumb }}
       </li>
     </ol>
   </nav>
