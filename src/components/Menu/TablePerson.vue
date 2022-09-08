@@ -1,7 +1,7 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { ref } from "@vue/reactivity";
-const TablePerson = ref({
+const data = ref({
   status: 200,
   meta_data: {
     current_page: 2,
@@ -369,6 +369,186 @@ const TablePerson = ref({
       CreatedBy: 1199,
       ModifiedBy: 1199,
     },
+    {
+      Id: 9615766,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 96158766,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 96217866,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 962785766,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 867867,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 96578566,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 947858666,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 9628766,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 28786,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
+    {
+      Id: 45687,
+      Serviceid: 4,
+      Servicemethodid: 1022,
+      Servicemethodname: "فردی  تغییرات خواهران",
+      ServiceName: "خواهران",
+      TypeRun: 0,
+      SleepRun: 0,
+      Name: "اجرای تغییرات 6 بهمن ماه 1400",
+      Input: "1400/10/30,1400/11/06",
+      state: 3,
+      DateRun: "2022-01-26T09:22:35.733",
+      IsActive: true,
+      CreatedDate: "2022-01-26T09:22:41.267",
+      ModifiedDate: "2022-01-27T08:37:17.723",
+      CreatedBy: 1199,
+      ModifiedBy: 1199,
+    },
   ],
 });
 const InputTable = ref([
@@ -378,7 +558,12 @@ const InputTable = ref([
   { name: "نام متد", value: "", input: "Servicemethodname" },
 ]);
 const Pagination = ref();
-Pagination.value = TablePerson.value.meta_data;
+const TablePerson = ref();
+Pagination.value = data.value.meta_data;
+TablePerson.value = data.value.data;
+const HandelPaginationPrev = () => {
+  console.log(Pagination.value.current_page - 1);
+};
 // const HandelFilterInput = (input, value) => {
 //   const InputValue = InputTable.value.every((items) => items.value === "");
 //   if (InputValue) {
@@ -393,7 +578,7 @@ Pagination.value = TablePerson.value.meta_data;
 // };
 const ExportExcel = () => {
   saveExcel({
-    data: TablePerson.value.data,
+    data: TablePerson.value,
     fileName: "Person",
     columns: [
       { field: "ردیف" },
@@ -433,7 +618,7 @@ const ExportExcel = () => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(items, index) in TablePerson.data" :key="index">
+        <tr v-for="(items, index) in TablePerson" :key="index">
           <td class="py-4">
             {{ index + 1 }}
           </td>
