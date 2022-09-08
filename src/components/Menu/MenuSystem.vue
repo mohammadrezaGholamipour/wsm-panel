@@ -433,7 +433,7 @@ const MenuList = ref([
       >
         <li>
           <a
-            data-mdb-ripple-color="info"
+            data-mdb-ripple-color="black"
             data-mdb-ripple="true"
             class="MenuLink"
           >
@@ -442,12 +442,12 @@ const MenuList = ref([
               icon=" fa-solid fa-circle-arrow-down"
               :class="
                 items.isOpen
-                  ? 'rotate-180 text-green-600  duration-500 '
-                  : ' text-green-600 duration-500'
+                  ? 'rotate-180 text-red-500  duration-500 '
+                  : ' text-slate-500 duration-500'
               "
             />
           </a>
-          <ul  :class="items.isOpen ? ' accordion-collapse' : 'collapse'">
+          <ul :class="items.isOpen ? ' accordion-collapse' : 'collapse'">
             <li
               class="flex w-full flex-row justify-between"
               v-for="item in items.children"

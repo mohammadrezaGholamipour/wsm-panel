@@ -11,7 +11,7 @@ const Route = useRoute();
     dir="rtl"
   >
     <ol
-      class="text-white py-1 px-2 rounded shadow-md bg-blue-500 hover:shadow-lg transition duration-150 ease-in-out flex justify-center items-center align-center"
+      class="breadcrumbOl"
     >
       <li>
         <router-link to="/home">

@@ -72,6 +72,9 @@
   .breadcrumb {
     @apply flex justify-center items-center;
   }
+  .breadcrumbOl {
+    @apply text-white py-2 px-4 rounded shadow-md bg-slate-500 hover:shadow-lg items-center transition duration-150 ease-in-out flex justify-center;
+  }
   .FullOrDefaultScreen {
     @apply hover:scale-110 ml-1 flex items-center  py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight  rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
   }
@@ -89,7 +92,7 @@
     @apply hover:scale-110 mr-1 flex items-center py-2.5 text-xl px-3 bg-slate-500 text-white leading-tight uppercase rounded shadow-md  focus:shadow-lg focus:outline-none focus:ring-0  hover:shadow-lg transition duration-150 ease-in-out;
   }
   .BtnLogout {
-    @apply hover:scale-110 mr-1 border-red-500  p-2 text-lg text-white bg-red-600 flex border-2 leading-tight justify-center items-center  rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+    @apply hover:scale-110 mr-1 border-red-600  p-2 text-lg text-white bg-red-600 flex border-2 leading-tight justify-center items-center  rounded-full hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
   /* FinishHeader */
   /* /////////////////////////////// */
@@ -192,11 +195,11 @@
     max-width: 280px !important;
   }
   .MenuLink {
-    @apply flex justify-between text-gray-800 items-center p-2 rounded-lg hover:text-gray-600 hover:bg-[#3af00d1c] transition duration-300 ease-in-out cursor-pointer;
+    @apply flex justify-between text-gray-800 items-center p-2 rounded-lg hover:text-gray-600 hover:bg-[#60645f1c] transition duration-300 ease-in-out cursor-pointer;
     width: 100% !important;
   }
   .MenuLinkNested {
-    @apply flex items-center flex-row-reverse p-1 w-full justify-end text-gray-700  rounded-lg hover:text-gray-900 hover:bg-[#0dcaf023]  transition duration-300 ease-in-out cursor-pointer;
+    @apply flex items-center flex-row-reverse p-1 w-full justify-end text-gray-700  rounded-lg hover:text-gray-900 hover:bg-[#0df00d23]  transition duration-300 ease-in-out cursor-pointer;
     font-size: 13pt;
   }
   .MenuSystemHr {
