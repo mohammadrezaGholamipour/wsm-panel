@@ -86,8 +86,6 @@ const MenuList = ref([
         hasAccess: true,
       },
     ],
-    name: "#test",
-    id: "test",
     isOpen: false,
     hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
   },
