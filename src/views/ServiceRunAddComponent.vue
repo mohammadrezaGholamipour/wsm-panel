@@ -1,4 +1,4 @@
-<template>ServiceRunAddComponent</template>
+<template>ServiceRunAddComponent.vue</template>
 
 <script>
 export default {};

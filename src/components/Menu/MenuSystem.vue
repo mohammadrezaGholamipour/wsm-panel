@@ -324,7 +324,7 @@ const MenuList = ref([
     hasAccess: true,
   },
   {
-    title: "سامانه پیامک چاپار ",
+    title: "سامانه پیامک چاپار",
     children: [
       {
         title: "تاریخچه ارسال پیامک",

@@ -1,4 +1,4 @@
-<template>ServiceRunAddComponent</template>
+<template>ServiceRunAlChapparAddComponent</template>
 
 <script>
 export default {};
