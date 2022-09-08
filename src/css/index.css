@@ -164,13 +164,13 @@
     width: 100% !important;
   }
   .UlPagination {
-    @apply flex w-full justify-center items-center text-white;
+    @apply flex py-2 w-full justify-center items-center text-white;
   }
   .BtnNextOrPrevPagination {
-    @apply p-2 relative mx-2 block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white shadow-md focus:shadow-none;
+    @apply p-2 relative mx-2 cursor-pointer block border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-white shadow-md focus:shadow-none;
   }
   .PagePagination {
-    @apply py-1 mx-1  px-3 text-center text-xl relative block border-0 bg-white rounded-full text-black shadow-md;
+    @apply py-1 mx-1 cursor-pointer px-3 text-center text-xl relative block border-0 bg-white rounded-full text-black shadow-md;
   }
 
   /* FinishTable */

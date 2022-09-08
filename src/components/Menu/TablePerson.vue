@@ -4,7 +4,7 @@ import { ref } from "@vue/reactivity";
 const TablePerson = ref({
   status: 200,
   meta_data: {
-    current_page: 1,
+    current_page: 2,
     page_size: 20,
     total: 8643,
   },
@@ -379,7 +379,6 @@ const InputTable = ref([
 ]);
 const Pagination = ref();
 Pagination.value = TablePerson.value.meta_data;
-console.log(Pagination.value);
 // const HandelFilterInput = (input, value) => {
 //   const InputValue = InputTable.value.every((items) => items.value === "");
 //   if (InputValue) {
@@ -455,24 +454,24 @@ const ExportExcel = () => {
     </table>
     <div class="TablePagination">
       <ul class="UlPagination">
-        <li>
+        <li @click="HandelPaginationPrev">
           <a class="BtnNextOrPrevPagination bg-red-500">قبلی</a>
         </li>
-        <li>
-          <a
-            class="PagePagination"
- 
-            >2</a
-          >
+        <li
+          @click="HandelPaginationPage"
+          v-if="Pagination.current_page - 1 !== 0"
+        >
+          <a class="PagePagination">{{ Pagination.current_page - 1 }}</a>
         </li>
         <li>
-          <a
-            class="page-link py-1 px-3 text-center text-xl relative block border-0 bg-white rounded-full text-black shadow-md"
-            href="#"
-            >3</a
-          >
+          <a class="PagePagination border-4 border-yellow-500">{{
+            Pagination.current_page
+          }}</a>
         </li>
-        <li>
+        <li @click="HandelPaginationPage">
+          <a class="PagePagination">{{ Pagination.current_page + 1 }}</a>
+        </li>
+        <li @click="HandelPaginationNext">
           <a class="BtnNextOrPrevPagination bg-blue-500">بعدی</a>
         </li>
       </ul>
