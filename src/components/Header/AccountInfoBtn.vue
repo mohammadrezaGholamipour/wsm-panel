@@ -6,7 +6,6 @@
       aria-expanded="false"
       class="BtnAccount"
       type="button"
-      id="test"
     >
       <font-awesome-icon icon="fa-solid fa-user-pen" />
     </button>

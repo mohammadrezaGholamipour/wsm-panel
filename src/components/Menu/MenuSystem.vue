@@ -86,6 +86,8 @@ const MenuList = ref([
         hasAccess: true,
       },
     ],
+    name: "#test",
+    id: "test",
     isOpen: false,
     hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
   },
@@ -424,7 +426,7 @@ const MenuList = ref([
 ]);
 </script>
 <template>
-  <div class="MenuSystemParent">
+  <div id="sidenavExample" class="MenuSystemParent">
     <div class="MenuSystemParentUl">
       <ul
         @click="HandelCollapseUl(items.title)"
@@ -447,7 +449,7 @@ const MenuList = ref([
               "
             />
           </a>
-          <ul :class="items.isOpen ? 'accordion-collapse' : 'collapse'">
+          <ul  :class="items.isOpen ? ' accordion-collapse' : 'collapse'">
             <li
               class="flex w-full flex-row justify-between"
               v-for="item in items.children"

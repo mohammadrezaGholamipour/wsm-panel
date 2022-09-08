@@ -1,7 +1,6 @@
-<template>ServiceRunAddComponent.vue</template>
-
-<script>
-export default {};
+<script setup>
+import TablePerson from "../components/Menu/TablePerson.vue";
 </script>
-
-<style></style>
+<template>
+  <TablePerson />
+</template>

@@ -1,6 +1,15 @@
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+
+const Route = useRoute();
+</script>
 <template>
-  <nav aria-label="breadcrumb" class="breadcrumb" dir="rtl">
+  <nav
+    v-if="Route.meta.breadcrumb"
+    aria-label="breadcrumb"
+    class="breadcrumb"
+    dir="rtl"
+  >
     <ol class="list-reset text-black flex items-center align-baseline">
       <li>
         <a href="#"
@@ -13,11 +22,7 @@
         <span class="mx-2">/</span>
       </li>
       <li>
-        <a href="#" style="color: #64748b">زیر مجموعه</a>
-      </li>
-      <li><span class="mx-2">/</span></li>
-      <li>
-        <a href="#" style="color: #64748b">ارتباطات</a>
+        <a href="#" style="color: #64748b">{{ Route.meta.breadcrumb }}</a>
       </li>
     </ol>
   </nav>
