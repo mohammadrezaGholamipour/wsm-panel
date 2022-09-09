@@ -440,19 +440,19 @@ const ExportExcel = () => {
     <div class="TablePagination">
       <ul class="UlPagination">
         <li>
-          <a class="BtnNextOrPrevPagination bg-red-500">قبلی</a>
+          <a class="BtnNextOrPrevPagination">قبلی</a>
         </li>
         <li>
           <a class="PagePagination">1</a>
         </li>
         <li>
-          <a class="PagePagination border-4 border-green-700"> 2 </a>
+          <a class="PagePagination"> 2 </a>
         </li>
         <li>
           <a class="PagePagination">3</a>
         </li>
         <li>
-          <a class="BtnNextOrPrevPagination bg-blue-500">بعدی</a>
+          <a class="BtnNextOrPrevPagination">بعدی</a>
         </li>
       </ul>
     </div>

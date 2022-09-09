@@ -1,4 +1,4 @@
-<template>ServiceRunAdminComponent</template>
+<template><div>ServiceRunAdminComponent</div></template>
 
 <script>
 export default {};

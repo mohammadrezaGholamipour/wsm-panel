@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
-const isOptionsExpanded = ref(false);
+const isExpanded = ref(false);
 const HandelCollapseUl = (itemstitle) => {
   MenuList.value.forEach((items) => {
     if (items.title === itemstitle) {
@@ -424,7 +424,7 @@ const MenuList = ref([
 ]);
 </script>
 <template>
-  <div id="sidenavExample" class="MenuSystemParent">
+  <div class="MenuSystemParent">
     <div class="MenuSystemParentUl">
       <ul
         @click="HandelCollapseUl(items.title)"
@@ -433,8 +433,7 @@ const MenuList = ref([
       >
         <li>
           <a
-            @click="isOptionsExpanded = !isOptionsExpanded"
-            @blur="isOptionsExpanded = false"
+            @click="isExpanded = !isExpanded"
             data-mdb-ripple-color="black"
             data-mdb-ripple="true"
             class="MenuLink"
