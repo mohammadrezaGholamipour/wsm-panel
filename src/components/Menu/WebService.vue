@@ -1,22 +1,17 @@
 <script setup>
 import { ref } from "@vue/reactivity";
-
-const Unvan = ref();
+const Onvan = ref();
 const Code = ref();
 const HandelWebService = () => {
-  if (!Unvan.value || !Code.value) {
+  if (!Onvan.value || !Code.value) {
     alert("کامل نیست");
   }
 };
 </script>
 <template>
-<<<<<<< HEAD:src/components/WebService.vue
   <div class="flex wrap justify-center items-center mt-6">
-=======
-  <div class="flex justify-center items-center">
->>>>>>> ac2028f64f7ec0bce5f4c6108889de07aeabd2f2:src/components/Menu/WebService.vue
     <input
-      v-model="Unvan"
+      v-model="Onvan"
       type="text"
       class="form-control ml-1 block text-center shadow-lg w-60 px-3 py-2.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
       placeholder="عنوان"
@@ -30,7 +25,7 @@ const HandelWebService = () => {
     />
     <button
       @click="HandelWebService"
-      class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium rounded shadow-lg hover:bg-purple-700   transition duration-150 ease-in-out"
+      class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium rounded shadow-lg hover:bg-purple-700 transition duration-150 ease-in-out"
     >
       تایید
     </button>

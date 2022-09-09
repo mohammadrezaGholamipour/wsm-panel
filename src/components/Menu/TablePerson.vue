@@ -1,6 +1,7 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { ref } from "@vue/reactivity";
+import { watch } from "@vue/runtime-core";
 const CurrentPage = ref();
 const TableService = ref({
   status: 200,
@@ -377,17 +378,23 @@ const HandelPrevPagination = () => {
   if (CurrentPage.value > 1) {
     CurrentPage.value--;
   }
-  const HandelFindPage = ($event) => {
-    debugger;
-    console.log($event);
-  };
 };
+watch(CurrentPage, (value) => {
+  console.log(value);
+});
+const HandelFindPage = (event) => {
+  CurrentPage.value = Number(event.target.innerHTML);
+};
+
 const InputTableService = ref([
-  { name: "کد", value: "", input: "Servicemethodid" },
+  { name: "کد", value: "", input: "Id" },
   { name: "نام", value: "", input: "Name" },
   { name: "نام سرویس", value: "", input: "ServiceName" },
   { name: "نام متد", value: "", input: "Servicemethodname" },
 ]);
+const HandelFilterInput = (input, value) => {
+  console.log(input, value);
+};
 const ExportExcel = () => {
   saveExcel({
     data: TableService.value.data,
@@ -461,15 +468,19 @@ const ExportExcel = () => {
           </a>
         </li>
         <li v-if="CurrentPage - 1 > 0">
-          <a class="PagePagination">{{ CurrentPage - 1 }}</a>
+          <a @click="HandelFindPage" class="PagePagination">
+            {{ CurrentPage - 1 }}
+          </a>
         </li>
         <li>
-          <a class="PagePagination border-slate-600 border-2">
+          <a class="PagePagination scale-110 border-slate-600 border-2">
             {{ CurrentPage }}
           </a>
         </li>
-        <li @click="HandelFindPage(event)">
-          <a class="PagePagination"> {{ CurrentPage + 1 }}</a>
+        <li>
+          <a @click="HandelFindPage" class="PagePagination">
+            {{ CurrentPage + 1 }}
+          </a>
         </li>
         <li @click="CurrentPage++">
           <a class="BtnNextOrPrevPagination">
