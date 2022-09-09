@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
-const MenuIconPosition = ref(false);
+const isOptionsExpanded = ref(false);
 const HandelCollapseUl = (itemstitle) => {
   MenuList.value.forEach((items) => {
     if (items.title === itemstitle) {
@@ -433,6 +433,8 @@ const MenuList = ref([
       >
         <li>
           <a
+            @click="isOptionsExpanded = !isOptionsExpanded"
+            @blur="isOptionsExpanded = false"
             data-mdb-ripple-color="black"
             data-mdb-ripple="true"
             class="MenuLink"
@@ -447,37 +449,25 @@ const MenuList = ref([
               "
             />
           </a>
-          <transition
-            enter-active-class="duration-300 ease-out"
-            enter-from-class="transform opacity-0"
-            enter-to-class="opacity-100"
-            leave-active-class="duration-200 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="transform opacity-0"
-          >
-            <ul :class="items.isOpen ? ' accordion-collapse' : 'collapse'">
-              <li
-                class="flex w-full flex-row justify-between"
-                v-for="item in items.children"
-                :key="item.title"
-              >
-                <router-link
-                  data-mdb-ripple-color="info"
-                  class="MenuLinkNested"
-                  data-mdb-ripple="true"
-                  :to="item.link"
-                >
-                  <span>{{ item.title }}</span>
 
-                  <font-awesome-icon
-                    class="text-xs ml-1 text-green-600"
-                    icon="fa-solid fa-grip-lines"
-                  />
-                </router-link>
-              </li>
-            </ul>
-          </transition>
+          <ul v-show="items.isOpen">
+            <li
+              class="flex w-full flex-row justify-between"
+              v-for="item in items.children"
+              :key="item.title"
+            >
+              <router-link class="MenuLinkNested" :to="item.link">
+                <span>{{ item.title }}</span>
+
+                <font-awesome-icon
+                  class="text-xs ml-1 text-green-600"
+                  icon="fa-solid fa-grip-lines"
+                />
+              </router-link>
+            </li>
+          </ul>
         </li>
+
         <hr class="MenuSystemHr" />
       </ul>
     </div>
