@@ -377,6 +377,10 @@ const HandelPrevPagination = () => {
   if (CurrentPage.value > 1) {
     CurrentPage.value--;
   }
+  const HandelFindPage = ($event) => {
+    debugger;
+    console.log($event);
+  };
 };
 const InputTableService = ref([
   { name: "کد", value: "", input: "Servicemethodid" },
@@ -430,19 +434,19 @@ const ExportExcel = () => {
           v-show="TableService.status === 200"
           :key="index"
         >
-          <td class="py-4">
+          <td>
             {{ index + 1 }}
           </td>
-          <td class="py-4">
+          <td>
             {{ items.Id }}
           </td>
-          <td class="py-4">
+          <td>
             {{ items.Name }}
           </td>
-          <td class="py-4">
+          <td>
             {{ items.ServiceName }}
           </td>
-          <td class="py-4">
+          <td>
             {{ items.Servicemethodname }}
           </td>
         </tr>
@@ -452,21 +456,25 @@ const ExportExcel = () => {
     <div class="TablePagination">
       <ul class="UlPagination">
         <li @click="HandelPrevPagination">
-          <a class="BtnNextOrPrevPagination">قبلی</a>
+          <a class="BtnNextOrPrevPagination">
+            <font-awesome-icon icon=" fa-solid fa-circle-arrow-left" />
+          </a>
         </li>
         <li v-if="CurrentPage - 1 > 0">
           <a class="PagePagination">{{ CurrentPage - 1 }}</a>
         </li>
         <li>
-          <a class="PagePagination border-yellow-600 border-2">
+          <a class="PagePagination border-slate-600 border-2">
             {{ CurrentPage }}
           </a>
         </li>
-        <li>
-          <a class="PagePagination">{{ CurrentPage + 1 }}</a>
+        <li @click="HandelFindPage(event)">
+          <a class="PagePagination"> {{ CurrentPage + 1 }}</a>
         </li>
         <li @click="CurrentPage++">
-          <a class="BtnNextOrPrevPagination">بعدی</a>
+          <a class="BtnNextOrPrevPagination">
+            <font-awesome-icon icon=" fa-solid fa-circle-arrow-right" />
+          </a>
         </li>
       </ul>
     </div>
