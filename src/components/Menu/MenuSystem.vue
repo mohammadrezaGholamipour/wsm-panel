@@ -448,23 +448,30 @@ const MenuList = ref([
               "
             />
           </a>
+          <transition
+            enter-active-class="duration-500 ease-out"
+            enter-from-class="transform opacity-0"
+            leave-to-class="transform opacity-0"
+            leave-from-class="opacity-100"
+            enter-to-class="opacity-100"
+          >
+            <ul v-show="items.isOpen">
+              <li
+                class="flex w-full flex-row justify-between"
+                v-for="item in items.children"
+                :key="item.title"
+              >
+                <router-link class="MenuLinkNested" :to="item.link">
+                  <span>{{ item.title }}</span>
 
-          <ul v-show="items.isOpen">
-            <li
-              class="flex w-full flex-row justify-between"
-              v-for="item in items.children"
-              :key="item.title"
-            >
-              <router-link class="MenuLinkNested" :to="item.link">
-                <span>{{ item.title }}</span>
-
-                <font-awesome-icon
-                  class="text-xs ml-1 text-green-600"
-                  icon="fa-solid fa-grip-lines"
-                />
-              </router-link>
-            </li>
-          </ul>
+                  <font-awesome-icon
+                    class="text-xs ml-1 text-green-600"
+                    icon="fa-solid fa-grip-lines"
+                  />
+                </router-link>
+              </li>
+            </ul>
+          </transition>
         </li>
 
         <hr class="MenuSystemHr" />

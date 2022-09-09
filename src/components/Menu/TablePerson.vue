@@ -4,7 +4,7 @@ import { ref } from "@vue/reactivity";
 const TableService = ref({
   status: 200,
   meta_data: {
-    current_page: 2,
+    current_page: 1,
     page_size: 20,
     total: 8643,
   },
@@ -418,7 +418,11 @@ const ExportExcel = () => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(items, index) in TableService.data" :key="index">
+        <tr
+          v-for="(items, index) in TableService.data"
+          v-show="TableService.status === 200"
+          :key="index"
+        >
           <td class="py-4">
             {{ index + 1 }}
           </td>
@@ -435,6 +439,7 @@ const ExportExcel = () => {
             {{ items.Servicemethodname }}
           </td>
         </tr>
+        <p v-show="TableService.status !== 200">اطلاعات دریافت نشد</p>
       </tbody>
     </table>
     <div class="TablePagination">
