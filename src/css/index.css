@@ -170,7 +170,7 @@
     @apply flex py-2 w-full justify-center items-center text-white;
   }
   .BtnNextOrPrevPagination {
-    @apply p-1 relative mx-2 hover:scale-110 border-2  border-slate-500 bg-white cursor-pointer block   outline-none transition-all duration-300 rounded-lg text-black shadow-md focus:shadow-none;
+    @apply p-1 px-2 relative mx-2 hover:scale-110 border-2  border-slate-500 bg-white cursor-pointer block   outline-none transition-all duration-300 rounded-lg text-black shadow-md focus:shadow-none;
   }
   .PagePagination {
     @apply py-0 hover:scale-110 transition-all mx-1 cursor-pointer px-2 text-center text-xl relative block  bg-white rounded-full text-black shadow-md;
@@ -223,7 +223,7 @@
       border-radius: 0 !important;
     }
   }
-  @media only screen and (max-width: 690px) {
+  @media only screen and (max-width: 700px) {
     .Header {
       @apply justify-center;
     }
@@ -235,7 +235,7 @@
     }
   }
 
-  @media only screen and (max-width: 522px) {
+  @media only screen and (max-width: 536px) {
     .breadcrumb {
       display: none !important;
     }
