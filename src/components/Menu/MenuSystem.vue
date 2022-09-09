@@ -1,34 +1,25 @@
 <script setup>
-import { onMounted } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
-const isExpanded = ref(false);
-const HandelCollapseUl = (itemstitle) => {
-  MenuList.value.forEach((items) => {
-    if (items.title === itemstitle) {
-      items.isOpen = !items.isOpen;
-    }
-  });
-};
 const MenuList = ref([
   {
     title: "خواهران",
     children: [
       {
-        title: "اجرای  کامل  ",
+        title: "اجرای  کامل",
         link: "/home/runkhaharan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "اجرای اساتید ",
+        title: "اجرای اساتید",
         link: "/home/runkhaharanasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "اجرای   موردی ",
+        title: "اجرای موردی",
         link: "/home/runonekhaharan",
         children: [],
         isOpen: false,
@@ -36,14 +27,14 @@ const MenuList = ref([
       },
 
       {
-        title: " اجرای موردی اساتید ",
+        title: "اجرای موردی اساتید",
         link: "/home/runonekhaharanasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: " اجرای بر اساس تغییرات",
+        title: "اجرای بر اساس تغییرات",
         link: "/home/run_haharan_bychange",
         children: [],
         isOpen: false,
@@ -51,14 +42,14 @@ const MenuList = ref([
       },
 
       {
-        title: "لیست اجرای کامل ",
+        title: "لیست اجرای کامل",
         link: "/home/listkhaharan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست اساتید ",
+        title: "لیست اساتید",
         link: "/home/listkhaharanasatid",
         children: [],
         isOpen: false,
@@ -72,14 +63,14 @@ const MenuList = ref([
         hasAccess: true,
       },
       {
-        title: "لیست موردی اساتید ",
+        title: "لیست موردی اساتید",
         link: "/home/listkhaharanoneasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست خواهران بر اساس تغییرات ",
+        title: "لیست خواهران بر اساس تغییرات",
         link: "/home/list_haharan_bychange",
         children: [],
         isOpen: false,
@@ -93,35 +84,35 @@ const MenuList = ref([
     title: "خراسان",
     children: [
       {
-        title: "اجرای  کامل خراسان ",
+        title: "اجرای  کامل خراسان",
         link: "/home/runkhorasan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "اجرای ممتازین خراسان ",
+        title: "اجرای ممتازین خراسان",
         link: "/home/runkhorasan_momtazin",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "اجرای موردی  خراسان ",
+        title: "اجرای موردی  خراسان",
         link: "/home/runkhorasanone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست کامل خراسان ",
+        title: "لیست کامل خراسان",
         link: "/home/listkhorasan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست ممتازین خراسان ",
+        title: "لیست ممتازین خراسان",
         link: "/home/list_khorasanone_momtazin",
         children: [],
         isOpen: false,
@@ -129,7 +120,7 @@ const MenuList = ref([
       },
 
       {
-        title: "لیست موردی خراسان ",
+        title: "لیست موردی خراسان",
         link: "/home/listkhorasanone",
         children: [],
         isOpen: false,
@@ -143,21 +134,21 @@ const MenuList = ref([
     title: "جامعه الزهرا",
     children: [
       {
-        title: "اجرای  کامل  ",
+        title: "اجرای  کامل",
         link: "/home/runAlzahra",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "اجرای اساتید ",
+        title: "اجرای اساتید",
         link: "/home/runAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "اجرای   موردی ",
+        title: "اجرای موردی",
         link: "/home/runoneAlzahra",
         children: [],
         isOpen: false,
@@ -165,63 +156,63 @@ const MenuList = ref([
       },
 
       {
-        title: " اجرای موردی اساتید ",
+        title: "اجرای موردی اساتید",
         link: "/home/runoneAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: " اجرای موردی براساس کدبایگانی ",
+        title: "اجرای موردی براساس کدبایگانی",
         link: "/home/runoneAlzahr_archivedcode",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: " اجرای مبلغین الزهرا ",
+        title: "اجرای مبلغین الزهرا",
         link: "/home/runoneAlzahr_mobaleghin",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست اجرای کامل ",
+        title: "لیست اجرای کامل",
         link: "/home/listAlzahra",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست اساتید ",
+        title: "لیست اساتید",
         link: "/home/listAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست موردی ",
+        title: "لیست موردی",
         link: "/home/listAlzahraone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست موردی اساتید ",
+        title: "لیست موردی اساتید",
         link: "/home/listAlzahraoneasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست موردی براساس کدبایگانی ",
+        title: "لیست موردی براساس کدبایگانی",
         link: "/home/listAlzahra_archivedcode",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست مبلغین الزهرا ",
+        title: "لیست مبلغین الزهرا",
         link: "/home/listAlzahra_mobaleghin",
         children: [],
         isOpen: false,
@@ -235,28 +226,28 @@ const MenuList = ref([
     title: "اهل سنت",
     children: [
       {
-        title: "اجرای  کامل اهل سنت ",
+        title: "اجرای کامل اهل سنت",
         link: "/home/runsonnat",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "اجرای تکی اهل سنت ",
+        title: "اجرای تکی اهل سنت",
         link: "/home/runsonnat_one",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست کامل اهل سنت ",
+        title: "لیست کامل اهل سنت",
         link: "/home/listsonnat",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست تکی اهل سنت ",
+        title: "لیست تکی اهل سنت",
         link: "/home/listsonnat_one",
         children: [],
         isOpen: false,
@@ -291,14 +282,14 @@ const MenuList = ref([
     title: "دفترتبلیغات",
     children: [
       {
-        title: "اجرای تکی مبلغ ",
+        title: "اجرای تکی مبلغ",
         link: "/home/tablighat_office_one_run",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "اجرا براساس بازه تاریخ ",
+        title: "اجرا براساس بازه تاریخ",
         link: "/home/tablighat_office_run_by_dates",
         children: [],
         isOpen: false,
@@ -306,14 +297,14 @@ const MenuList = ref([
       },
 
       {
-        title: "لیست تکی مبلغ ",
+        title: "لیست تکی مبلغ",
         link: "/home/tablighat_office_one_list",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
-        title: "لیست اجرا براساس بازه تاریخ ",
+        title: "لیست اجرا براساس بازه تاریخ",
         link: "/home/tablighat_office_list_by_dates",
         children: [],
         isOpen: false,
@@ -422,6 +413,14 @@ const MenuList = ref([
     hasAccess: true,
   },
 ]);
+const isExpanded = ref(false);
+const HandelCollapseUl = (itemstitle) => {
+  MenuList.value.forEach((items) => {
+    if (items.title === itemstitle) {
+      items.isOpen = !items.isOpen;
+    }
+  });
+};
 </script>
 <template>
   <div class="MenuSystemParent">

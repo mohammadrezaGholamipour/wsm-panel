@@ -1,10 +1,11 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { ref } from "@vue/reactivity";
+const CurrentPage = ref();
 const TableService = ref({
   status: 200,
   meta_data: {
-    current_page: 1,
+    current_page: 2,
     page_size: 20,
     total: 8643,
   },
@@ -371,6 +372,12 @@ const TableService = ref({
     },
   ],
 });
+CurrentPage.value = TableService.value.meta_data.current_page;
+const HandelPrevPagination = () => {
+  if (CurrentPage.value > 1) {
+    CurrentPage.value--;
+  }
+};
 const InputTableService = ref([
   { name: "کد", value: "", input: "Servicemethodid" },
   { name: "نام", value: "", input: "Name" },
@@ -444,19 +451,21 @@ const ExportExcel = () => {
     </table>
     <div class="TablePagination">
       <ul class="UlPagination">
-        <li>
+        <li @click="HandelPrevPagination">
           <a class="BtnNextOrPrevPagination">قبلی</a>
         </li>
-        <li>
-          <a class="PagePagination">1</a>
+        <li v-if="CurrentPage - 1 > 0">
+          <a class="PagePagination">{{ CurrentPage - 1 }}</a>
         </li>
         <li>
-          <a class="PagePagination"> 2 </a>
+          <a class="PagePagination border-yellow-600 border-2">
+            {{ CurrentPage }}
+          </a>
         </li>
         <li>
-          <a class="PagePagination">3</a>
+          <a class="PagePagination">{{ CurrentPage + 1 }}</a>
         </li>
-        <li>
+        <li @click="CurrentPage++">
           <a class="BtnNextOrPrevPagination">بعدی</a>
         </li>
       </ul>
