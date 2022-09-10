@@ -10,9 +10,7 @@ const Route = useRoute();
     class="breadcrumb"
     dir="rtl"
   >
-    <ol
-      class="breadcrumbOl"
-    >
+    <ol class="breadcrumbOl">
       <li>
         <router-link to="/home">
           <font-awesome-icon
@@ -21,7 +19,7 @@ const Route = useRoute();
         /></router-link>
       </li>
       <li class="mx-2 flex"><font-awesome-icon icon="fa-solid fa-link" /></li>
-      
+
       <li>
         {{ Route.meta.breadcrumb }}
       </li>

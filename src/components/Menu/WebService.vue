@@ -16,14 +16,31 @@ const HandelWebService = () => {
     if (!Onvan.value || !Code.value) {
       alert("کامل نیست");
     } else {
-      console.log(Route.meta.serviceid, Route.meta.Servicemethodid);
-      console.log(Onvan.value);
-      console.log(Code.value);
+      const WebService = {
+        Id: 0,
+        state: 0,
+        Name: Onvan.value,
+        Servicemethodname: "",
+        Input: Code.value,
+        Serviceid: Route.meta.serviceid,
+        Servicemethodid: Route.meta.Servicemethodid,
+        ServiceName: 0,
+      };
+      console.log(WebService);
     }
   } else {
     if (Onvan.value) {
-      console.log(Route.meta.serviceid);
-      console.log(Onvan.value);
+      const WebService = {
+        Id: 0,
+        state: 0,
+        Name: Onvan.value,
+        Servicemethodname: "",
+        Input: "",
+        Serviceid: Route.meta.serviceid,
+        Servicemethodid: "",
+        ServiceName: 0,
+      };
+      console.log(WebService);
     } else {
       alert("کامل نیست");
     }
@@ -56,6 +73,7 @@ const HandelWebService = () => {
     </transition>
     <button class="BtnWebService" @click="HandelWebService">
       اجرای وب سرویس
+      <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
     </button>
   </div>
 </template>
