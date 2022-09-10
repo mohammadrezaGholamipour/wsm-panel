@@ -48,12 +48,12 @@ const HandelWebService = () => {
 };
 </script>
 <template>
-  <div class="flex wrap justify-center flex-wrap items-center mt-6">
+  <div class="flex justify-center  flex-col items-center ">
     <input
-      v-model="Onvan"
-      type="text"
       class="InputWebService"
       placeholder="عنوان"
+      v-model="Onvan"
+      type="text"
     />
     <transition
       enter-active-class="duration-500 ease-out"
@@ -64,8 +64,8 @@ const HandelWebService = () => {
       enter-to-class="opacity-100"
     >
       <input
-        class="InputWebService"
         v-show="Route.meta.isone > 0"
+        class="InputWebService"
         placeholder="ورودی"
         v-model="Code"
         type="text"
