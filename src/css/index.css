@@ -235,27 +235,27 @@
     .ParentTabel {
       border-radius: 0 !important;
     }
+    .Table tr td {
+      padding: 5px;
+    }
   }
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 724px) {
+    .breadcrumb {
+      display: none !important;
+    }
     .Header {
       @apply justify-center;
     }
-    .breadcrumb {
-      @apply mx-2;
+    .BtnMessages {
+      @apply ml-1;
     }
+  }
+  @media only screen and (max-width: 500px) {
     .Tarikh {
       display: none !important;
     }
   }
 
-  @media only screen and (max-width: 536px) {
-    .breadcrumb {
-      display: none !important;
-    }
-    .BtnMessages {
-      @apply ml-2;
-    }
-  }
   @media only screen and (max-width: 309px) {
     .FullOrDefaultScreen {
       display: none !important;
