@@ -1,5 +1,5 @@
 <script setup>
-import TablePerson from "../components/Menu/TablePerson.vue";
+import TablePerson from "../components/TablePerson.vue";
 </script>
 <template>
   <TablePerson />
