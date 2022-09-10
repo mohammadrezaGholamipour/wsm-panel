@@ -2,9 +2,11 @@
 import { ref } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
+// ////////////////////////
+const Route = useRoute();
 const Onvan = ref();
 const Code = ref();
-const Route = useRoute();
+// ////////////////////////
 watch(Route, () => {
   Onvan.value = "";
   Code.value = "";
