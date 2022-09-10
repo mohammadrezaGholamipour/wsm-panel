@@ -20,7 +20,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای کل خواهران",
             serviceid: "4",
-            type: "1006",
+            Servicemethodid: "1006",
             isone: "0",
           },
         },
@@ -30,7 +30,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای اساتید خواهران",
             serviceid: "4",
-            type: "1009",
+            Servicemethodid: "1009",
             isone: "0",
           },
         },
@@ -40,17 +40,17 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای موردی خواهران",
             serviceid: "4",
-            type: "1010",
+            Servicemethodid: "1010",
             isone: "1",
           },
         },
         {
           path: "runonekhaharanasatid",
-          component: () => import("../views//ServiceRunAddComponent.vue"),
+          component: () => import("../views/ServiceRunAddComponent.vue"),
           meta: {
             breadcrumb: "اجرای موردی اساتید خواهران",
             serviceid: "4",
-            type: "1011",
+            Servicemethodid: "1011",
             isone: "1",
           },
         },
@@ -61,7 +61,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای خواهران بر اساس تغییرات",
             serviceid: "4",
-            type: "1022",
+            Servicemethodid: "1022",
             isone: "1",
           },
         },
@@ -71,7 +71,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست کامل خواهران",
-            requestType: "1006",
+            requestServicemethodid: "1006",
             serviceid: "4",
           },
         },
@@ -80,7 +80,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست اساتید خواهران",
-            requestType: "1009",
+            requestServicemethodid: "1009",
             serviceid: "4",
           },
         },
@@ -89,7 +89,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست موردی خواهران",
-            requestType: "1010",
+            requestServicemethodid: "1010",
             serviceid: "4",
           },
         },
@@ -98,7 +98,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست موردی  اساتید خواهران",
-            requestType: "1011",
+            requestServicemethodid: "1011",
             serviceid: "4",
           },
         },
@@ -107,7 +107,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست تغییرات  خواهران",
-            requestType: "1022",
+            requestServicemethodid: "1022",
             serviceid: "4",
           },
         },
@@ -118,7 +118,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای کل خراسان",
             serviceid: "2",
-            type: "1003",
+            Servicemethodid: "1003",
             isone: "0",
           },
         },
@@ -129,7 +129,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای ممتازین خراسان",
             serviceid: "2",
-            type: "1025",
+            Servicemethodid: "1025",
             isone: "0",
           },
         },
@@ -139,7 +139,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای موردی خراسان",
             serviceid: "2",
-            type: "1013",
+            Servicemethodid: "1013",
             isone: "1",
           },
         },
@@ -149,7 +149,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست کامل خراسان",
-            requestType: "1003",
+            requestServicemethodid: "1003",
             serviceid: "2",
           },
         },
@@ -158,7 +158,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست ممتازین خراسان",
-            requestType: "1025",
+            requestServicemethodid: "1025",
             serviceid: "2",
           },
         },
@@ -167,7 +167,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست موردی خراسان",
-            requestType: "1013",
+            requestServicemethodid: "1013",
             serviceid: "2",
           },
         },
@@ -178,7 +178,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای کل جامعه الزهرا",
             serviceid: "3",
-            type: "1005",
+            Servicemethodid: "1005",
             isone: "0",
           },
         },
@@ -188,7 +188,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای اساتید جامعه الزهرا",
             serviceid: "3",
-            type: "1008",
+            Servicemethodid: "1008",
             isone: "0",
           },
         },
@@ -198,7 +198,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای موردی جامعه الزهرا",
             serviceid: "3",
-            type: "1012",
+            Servicemethodid: "1012",
             isone: "1",
           },
         },
@@ -208,7 +208,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای موردی اساتید جامعه الزهرا",
             serviceid: "3",
-            type: "1014",
+            Servicemethodid: "1014",
             isone: "1",
           },
         },
@@ -218,7 +218,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای موردی جامعه الزهرا-براساس کدبایگانی",
             serviceid: "3",
-            type: "1026",
+            Servicemethodid: "1026",
             isone: "1",
           },
         },
@@ -228,7 +228,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای مبلغین جامعه الزهرا",
             serviceid: "3",
-            type: "1042",
+            Servicemethodid: "1042",
             isone: "0",
           },
         },
@@ -238,7 +238,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست کامل جامعه الزهرا",
-            requestType: "1005",
+            requestServicemethodid: "1005",
             serviceid: "3",
           },
         },
@@ -247,7 +247,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست اساتید جامعه الزهرا",
-            requestType: "1008",
+            requestServicemethodid: "1008",
             serviceid: "3",
           },
         },
@@ -256,7 +256,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست موردی جامعه الزهرا",
-            requestType: "1012",
+            requestServicemethodid: "1012",
             serviceid: "3",
           },
         },
@@ -265,7 +265,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست موردی اساتید جامعه الزهرا",
-            requestType: "1014",
+            requestServicemethodid: "1014",
             serviceid: "3",
           },
         },
@@ -274,7 +274,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست موردی جامعه الزهرا-کدبایگانی",
-            requestType: "1026",
+            requestServicemethodid: "1026",
             serviceid: "3",
           },
         },
@@ -283,7 +283,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست مبلغین جامعه الزهرا",
-            requestType: "1042",
+            requestServicemethodid: "1042",
             serviceid: "3",
           },
         },
@@ -294,7 +294,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای کل سنت",
             serviceid: "1",
-            type: "1007",
+            Servicemethodid: "1007",
             isone: "0",
           },
         },
@@ -304,7 +304,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای تکی اهل سنت",
             serviceid: "1",
-            type: "1036",
+            Servicemethodid: "1036",
             isone: "1",
           },
         },
@@ -314,7 +314,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست کامل سنت ",
-            requestType: "1007",
+            requestServicemethodid: "1007",
             serviceid: "1",
           },
         },
@@ -324,7 +324,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "لیست تکی اهل سنت",
             serviceid: "1",
-            requestType: "1036",
+            requestServicemethodid: "1036",
           },
         },
         // جامعه المصطفی
@@ -335,7 +335,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای تجمیعی المصطفی",
             serviceid: "7",
-            type: "1034",
+            Servicemethodid: "1034",
             isone: "0",
           },
         },
@@ -344,7 +344,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست اطللاعات تجمیعی طلاب المصطفی",
-            requestType: "1034",
+            requestServicemethodid: "1034",
             serviceid: "7",
           },
         },
@@ -355,7 +355,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای تکی دفتر تبلیغات",
             serviceid: "8",
-            type: "1038",
+            Servicemethodid: "1038",
             isone: "1",
           },
         },
@@ -366,7 +366,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای کل دفتر تبلیغات براساس بازه تاریخ",
             serviceid: "8",
-            type: "1039",
+            Servicemethodid: "1039",
             isone: "1",
           },
         },
@@ -377,7 +377,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "لیست تکی دفتر تبلیغات",
             serviceid: "8",
-            requestType: "1038",
+            requestServicemethodid: "1038",
           },
         },
         {
@@ -385,7 +385,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست دفتر تبلیغات براساس سال",
-            requestType: "1039",
+            requestServicemethodid: "1039",
             serviceid: "8",
           },
         },
@@ -396,7 +396,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "تاریخچه ارسال",
             serviceid: "9",
-            type: "1041",
+            Servicemethodid: "1041",
             isone: "1",
           },
         },
@@ -407,7 +407,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "ارسال پیامک",
             serviceid: "9",
-            type: "1041",
+            Servicemethodid: "1041",
             isone: "1",
           },
         },
@@ -418,7 +418,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای مبلغین سازمان تبلیغات",
             serviceid: "10",
-            type: "1043",
+            Servicemethodid: "1043",
             isone: "0",
           },
         },
@@ -428,7 +428,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای تکی مبلغ سازمان تبلیغات",
             serviceid: "10",
-            type: "1044",
+            Servicemethodid: "1044",
             isone: "1",
           },
         },
@@ -438,7 +438,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست مبلغین سازمان تبلیغات",
-            requestType: "1043",
+            requestServicemethodid: "1043",
             serviceid: "10",
           },
         },
@@ -447,7 +447,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست موردی مبلغ سازمان تبلیغات",
-            requestType: "1044",
+            requestServicemethodid: "1044",
             serviceid: "10",
           },
         },
@@ -458,7 +458,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای لیستی استعلام کارمند",
             serviceid: "11",
-            type: "1046",
+            Servicemethodid: "1046",
             isone: "1",
           },
         },
@@ -468,7 +468,7 @@ const router = createRouter({
           meta: {
             breadcrumb: "اجرای موردی استعلام کارمند",
             serviceid: "11",
-            type: "1045",
+            Servicemethodid: "1045",
             isone: "1",
           },
         },
@@ -477,7 +477,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست استعلام کارمندان",
-            requestType: "1046",
+            requestServicemethodid: "1046",
             serviceid: "11",
           },
         },
@@ -486,7 +486,7 @@ const router = createRouter({
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
             breadcrumb: "لیست موردی استعلام کارمند",
-            requestType: "1045",
+            requestServicemethodid: "1045",
             serviceid: "11",
           },
         },

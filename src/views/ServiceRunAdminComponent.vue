@@ -1,7 +1,8 @@
-<template><div>ServiceRunAdminComponent</div></template>
-
-<script>
-export default {};
+<script setup>
+import TablePerson from "../components/Menu/TablePerson.vue";
 </script>
+<template>
+  <TablePerson />
+</template>
 
 <style></style>

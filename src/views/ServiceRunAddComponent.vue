@@ -1,6 +1,6 @@
 <script setup>
-import TablePerson from "../components/Menu/TablePerson.vue";
+import WebService from "../components/Menu/WebService.vue";
 </script>
 <template>
-  <TablePerson />
+  <WebService />
 </template>
