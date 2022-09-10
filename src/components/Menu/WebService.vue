@@ -5,16 +5,23 @@ import { useRoute } from "vue-router";
 const Onvan = ref();
 const Code = ref();
 const Route = useRoute();
+watch(Route, () => {
+  Onvan.value = "";
+  Code.value = "";
+});
 const HandelWebService = () => {
   if (Route.meta.isone > 0) {
     if (!Onvan.value || !Code.value) {
       alert("کامل نیست");
     } else {
       console.log(Route.meta.serviceid, Route.meta.Servicemethodid);
+      console.log(Onvan.value);
+      console.log(Code.value);
     }
   } else {
     if (Onvan.value) {
       console.log(Route.meta.serviceid);
+      console.log(Onvan.value);
     } else {
       alert("کامل نیست");
     }
@@ -22,11 +29,11 @@ const HandelWebService = () => {
 };
 </script>
 <template>
-  <div class="flex wrap justify-center items-center mt-6">
+  <div class="flex wrap justify-center flex-wrap items-center mt-6">
     <input
       v-model="Onvan"
       type="text"
-      class="form-control ml-1 block text-center shadow-lg w-60 px-3 py-2.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      class="InputWebService"
       placeholder="عنوان"
     />
     <transition
@@ -38,17 +45,14 @@ const HandelWebService = () => {
       enter-to-class="opacity-100"
     >
       <input
-        class="form-control text-center ml-1 block w-60 shadow-lg px-3 py-2.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        class="InputWebService"
         v-show="Route.meta.isone > 0"
         placeholder="ورودی"
         v-model="Code"
         type="text"
       />
     </transition>
-    <button
-      class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium rounded shadow-lg hover:bg-purple-700 transition duration-150 ease-in-out"
-      @click="HandelWebService"
-    >
+    <button class="BtnWebService" @click="HandelWebService">
       اجرای وب سرویس
     </button>
   </div>

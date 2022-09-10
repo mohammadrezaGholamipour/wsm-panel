@@ -53,10 +53,17 @@
 }
 
 @layer components {
-  /* Header */
   .Header {
     @apply p-2 border-b flex-row w-full justify-between flex bg-white align-baseline flex-wrap-reverse shadow-sm;
   }
+  #Main {
+    @apply flex flex-row-reverse w-full;
+    direction: rtl;
+  }
+  #Content {
+    @apply w-full p-4;
+  }
+  /* Header */
   .Left {
     @apply flex justify-center items-center;
   }
@@ -122,16 +129,7 @@
     @apply text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out;
   }
   /* FinishLoginPage */
-
   /* /////////////////////////////// */
-  /* Main */
-  #Main {
-    @apply flex flex-row-reverse w-full;
-    direction: rtl;
-  }
-  #Content {
-    @apply w-full p-4;
-  }
   /* Tabel */
   .ParentTabel {
     direction: ltr !important;
@@ -178,9 +176,16 @@
   .PagePagination {
     @apply py-0 hover:scale-110 transition-all mx-1 cursor-pointer px-2 text-center text-xl relative block bg-slate-500 text-white border-slate-600 border-2 rounded-full shadow-md;
   }
-
   /* FinishTable */
-  /* FinishMain */
+  /* /////////////////////////////// */
+  /* WebService */
+  .InputWebService {
+    @apply form-control text-center ml-1 block w-60 shadow-lg px-3 py-2.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+  }
+  .BtnWebService {
+    @apply inline-block px-6 py-2.5 bg-purple-600 text-white font-medium rounded shadow-lg hover:bg-purple-700 transition duration-150 ease-in-out;
+  }
+  /* FinishWebService */
   /* /////////////////////////////// */
   /* Menu */
   .MenuSystemParent {
@@ -251,6 +256,5 @@
       display: none !important;
     }
   }
-
   /* FinishResponsive */
 }
