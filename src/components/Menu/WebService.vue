@@ -4,6 +4,7 @@ import { watch } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
 // ////////////////////////
 const Route = useRoute();
+const WebService = ref();
 const Onvan = ref();
 const Code = ref();
 // ////////////////////////
@@ -16,7 +17,7 @@ const HandelWebService = () => {
     if (!Onvan.value || !Code.value) {
       alert("کامل نیست");
     } else {
-      const WebService = {
+      WebService.value = {
         Id: 0,
         state: 0,
         Name: Onvan.value,
@@ -30,7 +31,7 @@ const HandelWebService = () => {
     }
   } else {
     if (Onvan.value) {
-      const WebService = {
+      WebService.value = {
         Id: 0,
         state: 0,
         Name: Onvan.value,
