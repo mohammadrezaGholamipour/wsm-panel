@@ -62,6 +62,7 @@ const HandelWebService = () => {
         placeholder="عنوان"
         v-model="Onvan"
         type="text"
+        autofocus
       />
       <transition
         enter-active-class="duration-500 ease-out"
