@@ -106,7 +106,7 @@ const router = createRouter({
           path: "list_haharan_bychange",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
           meta: {
-            breadcrumb: "لیست تغییرات  خواهران",
+            breadcrumb: "لیست تغییرات خواهران",
             requestServicemethodid: "1022",
             serviceid: "4",
           },

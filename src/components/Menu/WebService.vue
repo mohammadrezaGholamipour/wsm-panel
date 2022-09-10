@@ -48,33 +48,42 @@ const HandelWebService = () => {
 };
 </script>
 <template>
-  <div class="flex justify-center  flex-col items-center ">
-    <input
-      class="InputWebService"
-      placeholder="عنوان"
-      v-model="Onvan"
-      type="text"
+  <div class="ParentWebService">
+    <img
+      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+      style="width: 367px; margin: 0"
+      alt="webService"
     />
-    <transition
-      enter-active-class="duration-500 ease-out"
-      leave-active-class="duration-200 ease-out"
-      enter-from-class="transform opacity-0"
-      leave-to-class="transform opacity-0"
-      leave-from-class="opacity-100"
-      enter-to-class="opacity-100"
-    >
+
+    <div class="flex pt-6 justify-center flex-col items-center">
       <input
-        v-show="Route.meta.isone > 0"
         class="InputWebService"
-        placeholder="ورودی"
-        v-model="Code"
+        placeholder="عنوان"
+        v-model="Onvan"
         type="text"
       />
-    </transition>
-    <button class="BtnWebService" @click="HandelWebService">
-      اجرای وب سرویس
-      <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
-    </button>
+      <transition
+        enter-active-class="duration-500 ease-out"
+        leave-active-class="duration-200 ease-out"
+        enter-from-class="transform opacity-0"
+        leave-to-class="transform opacity-0"
+        leave-from-class="opacity-100"
+        enter-to-class="opacity-100"
+      >
+        <input
+          v-show="Route.meta.isone > 0"
+          class="InputWebService"
+          placeholder="ورودی"
+          v-model="Code"
+          type="text"
+        />
+      </transition>
+
+      <button class="BtnWebService" @click="HandelWebService">
+        وب سرویس
+        <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
+      </button>
+    </div>
   </div>
 </template>
 <style></style>
