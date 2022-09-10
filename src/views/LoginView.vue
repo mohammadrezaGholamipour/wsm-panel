@@ -21,28 +21,28 @@ const HandelLogin = () => {
     if (Password.value.length > 5) {
       notify({
         type: "success",
-        title: "خوش امدید",
-        ignoreDuplicates: true,
+        title: "خوش آمدید",
+        ignoreDuplicates: false,
       });
     } else {
       notify({
         type: "warn",
         title: "رمز عبور باید بیشتر از 5 رقم باشد",
-        ignoreDuplicates: true,
+        ignoreDuplicates: false,
       });
     }
   } else {
     notify({
       type: "error",
       title: "اطلاعات را کامل وارد",
-      ignoreDuplicates: true,
+      ignoreDuplicates: false,
     });
   }
 };
 </script>
 <template>
   <div class="LoginPage">
-    <notifications position="top center" class="mt-2" />
+    <notifications position="top center" class="mt-2" width="320" />
     <div class="LoginForm">
       <img src="../assets/image/Logo.png" alt="مرکز خدمات حوزه های علمیه" />
       <Form @submit.prevent>
@@ -76,9 +76,18 @@ const HandelLogin = () => {
   </div>
 </template>
 <style>
-.notification-title {
+.vue-notification {
   text-align: center !important;
-  font-size: 13pt !important;
-  font-weight: 0 !important;
+  font-size: 14pt !important;
+}
+.vue-notification {
+  border: none !important;
+  border-radius: 5px;
+}
+.notification-title {
+  font-weight: 550 !important;
+}
+.vue-notification.warn {
+  background: #bd8736;
 }
 </style>
