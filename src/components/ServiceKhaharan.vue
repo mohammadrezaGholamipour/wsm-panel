@@ -1,5 +1,5 @@
 <script setup>
-import DatePicker from "@alireza-ab/vue3-persian-datepicker";
+import DatePicker from "vue3-persian-datetime-picker";
 import { notify } from "@kyvg/vue3-notification";
 import { ref } from "@vue/reactivity";
 
@@ -9,11 +9,28 @@ const InputTarikh = ref([
   { Placeholder: "", Value: "" },
   { Placeholder: "", Value: "" },
 ]);
-const HandelChangeTarikh = (index, Value) => {
-  InputTarikh.value[index].Value = Value;
-};
+// const HandelChangeTarikh = (index, value) => {
+//   console.log(value);
+//   InputTarikh.value[index].Value = value;
+// };
 // ////////////////////////
-const HandelWebService = () => {};
+const HandelWebService = () => {
+  InputTarikh.value.forEach((items) => console.log(items.Value));
+  const Tarikh = InputTarikh.value.every((items) => !!items.Value === true);
+  if (Tarikh && InputOnvan.value) {
+    notify({
+      type: "success",
+      title: "خوش آمدید",
+      ignoreDuplicates: false,
+    });
+  } else {
+    notify({
+      type: "error",
+      title: "اطلاعات را کامل وارد",
+      ignoreDuplicates: false,
+    });
+  }
+};
 </script>
 <template>
   <div class="ParentWebService">
@@ -32,18 +49,7 @@ const HandelWebService = () => {};
         type="text"
         autofocus
       />
-      <date-picker
-        @update:model-value="HandelChangeTarikh(index, items.Value)"
-        v-for="(items, index) in InputTarikh"
-        placeholder="تاریخ شروع"
-        v-model="items.Value"
-        color="purple"
-        :key="index"
-        mode="single"
-        :modal="true"
-        :column="1"
-      />
-
+      <DatePicker />
       <button class="BtnWebService" @click="HandelWebService">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
@@ -65,12 +71,5 @@ const HandelWebService = () => {};
 }
 .vue-notification.warn {
   background: #bd8736;
-}
-.pdp .pdp-group .pdp-input {
-  text-align: center;
-}
-.pdp.rtl {
-  margin-top: 10px;
-  width: 240px;
 }
 </style>
