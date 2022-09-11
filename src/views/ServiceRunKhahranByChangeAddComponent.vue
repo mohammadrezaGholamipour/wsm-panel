@@ -1,7 +1,6 @@
-<template>ServiceRunKhahranByChangeAddComponent</template>
-
-<script>
-export default {};
+<script setup>
+import ServiceKhaharan from "../components/ServiceKhaharan.vue";
 </script>
-
-<style></style>
+<template>
+  <ServiceKhaharan />
+</template>

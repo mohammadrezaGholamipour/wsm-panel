@@ -219,6 +219,7 @@
   .MenuSystemHr {
     @apply h-0 my-1 border border-solid border-t-0 border-gray-700 opacity-25;
   }
+ 
   /* FinishMenu */
   /* /////////////////////////////// */
   /* Notification */
