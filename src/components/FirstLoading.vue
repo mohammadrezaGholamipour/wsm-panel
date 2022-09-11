@@ -102,7 +102,7 @@
 }
 .wrapper p {
   position: absolute;
-  left: 12px;
+  left: 17px;
   top: 75px;
   font-size: 20px;
   color: #fff;

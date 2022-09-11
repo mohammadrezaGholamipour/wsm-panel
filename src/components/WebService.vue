@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from "@vue/reactivity";
+import { notify } from "@kyvg/vue3-notification";
 import { watch } from "@vue/runtime-core";
+import { ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 // ////////////////////////
 const Route = useRoute();
@@ -15,7 +16,10 @@ watch(Route, () => {
 const HandelWebService = () => {
   if (Route.meta.isone > 0) {
     if (!Onvan.value || !Code.value) {
-      alert("کامل نیست");
+      notify({
+        type: "error",
+        title: "اطلاعات را کامل وارد کنید",
+      });
     } else {
       WebService.value = {
         Id: 0,
@@ -27,7 +31,11 @@ const HandelWebService = () => {
         Servicemethodid: Route.meta.Servicemethodid,
         ServiceName: 0,
       };
-      console.log(WebService);
+      notify({
+        type: "success",
+        title: "انجام شد",
+        ignoreDuplicates: false,
+      });
     }
   } else {
     if (Onvan.value) {
@@ -41,15 +49,23 @@ const HandelWebService = () => {
         Servicemethodid: "",
         ServiceName: 0,
       };
-      console.log(WebService);
+      notify({
+        type: "success",
+        title: "انجام شد",
+        ignoreDuplicates: false,
+      });
     } else {
-      alert("کامل نیست");
+      notify({
+        type: "error",
+        title: "عنوان را وارد کنید",
+      });
     }
   }
 };
 </script>
 <template>
   <div class="ParentWebService">
+    <notifications position="top center" class="mt-2" width="320" />
     <img
       src="../assets/image/WebService.webp"
       style="width: 367px; margin: 0"
@@ -88,4 +104,19 @@ const HandelWebService = () => {
     </div>
   </div>
 </template>
-<style></style>
+<style>
+.vue-notification {
+  text-align: center !important;
+  font-size: 14pt !important;
+}
+.vue-notification {
+  border: none !important;
+  border-radius: 5px;
+}
+.notification-title {
+  font-weight: 550 !important;
+}
+.vue-notification.warn {
+  background: #bd8736;
+}
+</style>

@@ -75,19 +75,3 @@ const HandelLogin = () => {
     </div>
   </div>
 </template>
-<style>
-.vue-notification {
-  text-align: center !important;
-  font-size: 14pt !important;
-}
-.vue-notification {
-  border: none !important;
-  border-radius: 5px;
-}
-.notification-title {
-  font-weight: 550 !important;
-}
-.vue-notification.warn {
-  background: #bd8736;
-}
-</style>
