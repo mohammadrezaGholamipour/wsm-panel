@@ -9,10 +9,6 @@ const InputTarikh = ref([
   { Placeholder: "تاریخ شروع", Value: "" },
   { Placeholder: "تاریخ پایان", Value: "" },
 ]);
-// const HandelChangeTarikh = (index, value) => {
-//   console.log(value);
-//   InputTarikh.value[index].Value = value;
-// };
 // ////////////////////////
 const HandelWebService = () => {
   InputTarikh.value.forEach((items) => console.log(items.Value));
@@ -20,7 +16,7 @@ const HandelWebService = () => {
   if (Tarikh && InputOnvan.value) {
     notify({
       type: "success",
-      title: "خوش آمدید",
+      title: "با موفقیت انجام شد",
       ignoreDuplicates: false,
     });
     InputTarikh.value.forEach((items) => (items.Value = ""));
@@ -89,9 +85,6 @@ const HandelWebService = () => {
 }
 .vpd-input-group input {
   text-align: center;
-}
-.vpd-icon-btn {
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity)) !important;
 }
 .vpd-year-label {
   display: none;
