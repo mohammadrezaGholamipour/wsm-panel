@@ -96,16 +96,22 @@ const HandelWebService = () => {
 .vpd-year-label {
   display: none;
 }
-.vpd-year-label {
-  text-align: center;
-  border-radius: 20px !important;
-}
 .vpd-content {
   border-radius: 20px !important;
 }
+.vpd-content svg {
+  display: inline;
+}
 .vpd-header {
+  text-align: center;
   border-top-right-radius: 17px;
   border-top-left-radius: 17px;
+}
+.vpd-month-label {
+  width: 117px;
+}
+.vpd-actions {
+  text-align: center;
 }
 .vpd-next,
 .vpd-prev {
