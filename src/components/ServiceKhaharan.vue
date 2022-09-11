@@ -6,8 +6,8 @@ import { ref } from "@vue/reactivity";
 // ////////////////////////
 const InputOnvan = ref();
 const InputTarikh = ref([
-  { Placeholder: "", Value: "" },
-  { Placeholder: "", Value: "" },
+  { Placeholder: "تاریخ شروع", Value: "" },
+  { Placeholder: "تاریخ پایان", Value: "" },
 ]);
 // const HandelChangeTarikh = (index, value) => {
 //   console.log(value);
@@ -23,6 +23,8 @@ const HandelWebService = () => {
       title: "خوش آمدید",
       ignoreDuplicates: false,
     });
+    InputTarikh.value.forEach((items) => (items.Value = ""));
+    InputOnvan.value = "";
   } else {
     notify({
       type: "error",
@@ -49,7 +51,13 @@ const HandelWebService = () => {
         type="text"
         autofocus
       />
-      <DatePicker />
+      <DatePicker
+        class="shadow-lg border border-solid border-gray-200 rounded"
+        v-for="(items, index) in InputTarikh"
+        :placeholder="items.Placeholder"
+        v-model="items.Value"
+        :key="index"
+      />
       <button class="BtnWebService" @click="HandelWebService">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
@@ -71,5 +79,37 @@ const HandelWebService = () => {
 }
 .vue-notification.warn {
   background: #bd8736;
+}
+.vpd-main {
+  margin-top: 7px;
+  width: 240px;
+}
+.vpd-input-group {
+  padding: 5px;
+}
+.vpd-input-group input {
+  text-align: center;
+}
+.vpd-icon-btn {
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity)) !important;
+}
+.vpd-year-label {
+  display: none;
+}
+.vpd-year-label {
+  text-align: center;
+  border-radius: 20px !important;
+}
+.vpd-content {
+  border-radius: 20px !important;
+}
+.vpd-header {
+  border-top-right-radius: 17px;
+  border-top-left-radius: 17px;
+}
+.vpd-next,
+.vpd-prev {
+  width: 31px;
+  background: #000;
 }
 </style>

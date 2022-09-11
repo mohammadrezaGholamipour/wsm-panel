@@ -220,9 +220,6 @@
     @apply h-0 my-1 border border-solid border-t-0 border-gray-700 opacity-25;
   }
 
- 
-
-  
   /* FinishMenu */
   /* /////////////////////////////// */
   /* Notification */
@@ -260,8 +257,6 @@
     .Table tr td {
       padding: 5px;
     }
-  }
-  @media only screen and (max-width: 724px) {
     .breadcrumb {
       display: none !important;
     }
