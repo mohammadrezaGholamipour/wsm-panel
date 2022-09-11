@@ -1,4 +1,4 @@
-<template>ServiceRunAlChapparAddComponent</template>
+<template>SMS</template>
 
 <script>
 export default {};
