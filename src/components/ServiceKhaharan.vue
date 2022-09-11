@@ -39,7 +39,7 @@ const HandelWebService = () => {
       alt="webService"
     />
 
-    <div class="flex pt-6 justify-center flex-col items-center">
+    <div class="flex justify-center flex-col items-center">
       <input
         class="InputWebService"
         v-model="InputOnvan"
