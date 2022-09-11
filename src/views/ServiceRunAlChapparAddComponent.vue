@@ -1,7 +1,4 @@
-<template>SMS</template>
-
-<script>
-export default {};
+<script setup>
+import ServiceSmS from "../components/ServiceSmS.vue";
 </script>
-
-<style></style>
+<template><ServiceSmS /></template>

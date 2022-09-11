@@ -34,8 +34,8 @@ const HandelWebService = () => {
       };
       notify({
         type: "success",
-        title: "انجام شد",
-        ignoreDuplicates: false,
+        title: "با موفقیت انجام شد",
+        ignoreDuplicates: true,
       });
     }
   } else {
@@ -53,12 +53,13 @@ const HandelWebService = () => {
       notify({
         type: "success",
         title: "انجام شد",
-        ignoreDuplicates: false,
+        ignoreDuplicates: true,
       });
     } else {
       notify({
         type: "error",
         title: "عنوان را وارد کنید",
+        ignoreDuplicates: true,
       });
     }
   }

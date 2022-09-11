@@ -17,7 +17,7 @@ const HandelWebService = () => {
     notify({
       type: "success",
       title: "با موفقیت انجام شد",
-      ignoreDuplicates: false,
+      ignoreDuplicates: true,
     });
     InputTarikh.value.forEach((items) => (items.Value = ""));
     InputOnvan.value = "";
@@ -25,7 +25,7 @@ const HandelWebService = () => {
     notify({
       type: "error",
       title: "اطلاعات را کامل وارد",
-      ignoreDuplicates: false,
+      ignoreDuplicates: true,
     });
   }
 };
@@ -80,10 +80,8 @@ const HandelWebService = () => {
   margin-top: 7px;
   width: 240px;
 }
-.vpd-input-group {
-  padding: 5px;
-}
 .vpd-input-group input {
+  padding: 7px;
   text-align: center;
 }
 .vpd-year-label {
