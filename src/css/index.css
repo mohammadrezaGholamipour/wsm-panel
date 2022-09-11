@@ -117,7 +117,7 @@
     @apply flex justify-center items-center flex-col;
   }
   .LoginInput {
-    @apply form-control px-3 py-1.5 my-1 text-center text-gray-700 bg-white border border-solid border-gray-300 shadow-md rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+    @apply form-control scale-x-110 px-3 py-1.5 my-1 text-center text-gray-700 bg-white border border-solid border-gray-300 shadow-md rounded-md transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
   }
   .LoginParentBtn {
     @apply flex justify-center items-center flex-col;
