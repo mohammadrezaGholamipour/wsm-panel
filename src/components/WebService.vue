@@ -51,7 +51,7 @@ const HandelWebService = () => {
 <template>
   <div class="ParentWebService">
     <img
-      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+      src="../assets/image/WebService.webp"
       style="width: 367px; margin: 0"
       alt="webService"
     />
