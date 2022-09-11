@@ -11,7 +11,6 @@ const InputTarikh = ref([
 ]);
 // ////////////////////////
 const HandelWebService = () => {
-  InputTarikh.value.forEach((items) => console.log(items.Value));
   const Tarikh = InputTarikh.value.every((items) => !!items.Value === true);
   if (Tarikh && InputOnvan.value) {
     notify({
