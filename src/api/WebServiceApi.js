@@ -1,5 +1,5 @@
 import HttpClient from "../config/HttpClient";
 
 export default {
-  WebService: (WebService) => HttpClient.get("/todos/1"),
+  WebService: (WebService) => HttpClient.post("/todos/1"),
 };

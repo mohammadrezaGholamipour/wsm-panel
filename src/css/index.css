@@ -180,7 +180,7 @@
   /* /////////////////////////////// */
   /* Service */
   .ParentService {
-    @apply inline-flex relative mt-5 justify-center flex-col rounded-lg items-center;
+    @apply inline-flex relative  justify-center flex-col rounded-lg items-center;
   }
   .InputService {
     @apply form-control text-center block  shadow-lg px-3 py-2.5  text-gray-700 border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white;

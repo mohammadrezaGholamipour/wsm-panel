@@ -53,7 +53,7 @@ const ShenasePlaceHolder = computed(() => {
       src="../assets/image/SmsService.png"
       style="width: 320px"
       alt="SmsService"
-      class="mb-2"
+
     />
     <div class="flex justify-center flex-col items-center">
       <input
