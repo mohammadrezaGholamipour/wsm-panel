@@ -2,5 +2,5 @@
 import ServiceSms from "../components/ServiceSms.vue";
 </script>
 <template>
-  <ServiceSms />
+  <Service-Sms />
 </template>
