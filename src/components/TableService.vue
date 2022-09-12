@@ -1,7 +1,7 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import { onMounted, watch } from "@vue/runtime-core";
-import TabelApi from "../api/TabelApi";
+import TabelServiceApi from "../api/TabelServiceApi";
 import { ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 const ServiceMethodId = ref();
@@ -9,11 +9,12 @@ const ServiceId = ref();
 const Route = useRoute();
 ServiceMethodId.value = Route.meta.requestServicemethodid;
 ServiceId.value = Route.meta.serviceid;
-
+// ////////////////////////////
+// HandelRequsetForTabelService
 const GetTabel = (ServiceMethodId, ServiceId) => {
   console.log(ServiceMethodId);
   console.log(ServiceId);
-  // TabelApi.TabelService(ServiceMethodId,ServiceId)
+  // TabelServiceApi.TabelService(ServiceMethodId,ServiceId)
   //   .then((response) => {
   //     TableService.value = response.data;
   //   })
@@ -31,6 +32,8 @@ watch(Route, () => {
     GetTabel(ServiceMethodId.value, ServiceId.value);
   }
 });
+// FinishRequsetForTabelService;
+// /////////////////////////////
 const CurrentPage = ref();
 const TableService = ref({
   status: 200,
@@ -412,7 +415,6 @@ watch(CurrentPage, (value) => {});
 const HandelFindPage = (event) => {
   CurrentPage.value = Number(event.target.innerHTML);
 };
-
 const InputTableService = ref([
   { name: "کد", value: "", input: "Id" },
   { name: "نام", value: "", input: "Name" },

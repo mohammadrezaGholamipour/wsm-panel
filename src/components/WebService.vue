@@ -1,4 +1,5 @@
 <script setup>
+import WebServiceApi from "../api/TabelServiceApi";
 import { notify } from "@kyvg/vue3-notification";
 import { watch } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
@@ -9,7 +10,18 @@ const WebService = ref();
 const Onvan = ref();
 const Code = ref();
 // ////////////////////////
+const GetWebService = (WebService) => {
+  console.log(WebService);
+  // WebServiceApi.WebService(WebService)
+  //   .then((response) => {
+  //     TableService.value = response.data;
+  //   })
+  //   .catch((error) => {
+  //     alert(error.message);
+  //   });
+};
 watch(Route, () => {
+  WebService.value = "";
   Onvan.value = "";
   Code.value = "";
 });
@@ -31,6 +43,7 @@ const HandelService = () => {
         Servicemethodid: Route.meta.Servicemethodid,
         ServiceName: 0,
       };
+      GetWebService(WebService.value);
       notify({
         type: "success",
         title: "با موفقیت انجام شد",
@@ -46,9 +59,10 @@ const HandelService = () => {
         Servicemethodname: "",
         Input: "",
         Serviceid: Route.meta.serviceid,
-        Servicemethodid: "",
+        Servicemethodid: Route.meta.Servicemethodid,
         ServiceName: 0,
       };
+      GetWebService(WebService.value);
       notify({
         type: "success",
         title: "انجام شد",
@@ -79,7 +93,6 @@ const HandelService = () => {
         placeholder="عنوان"
         v-model="Onvan"
         type="text"
-        autofocus
       />
       <transition
         enter-active-class="duration-500 ease-out"
