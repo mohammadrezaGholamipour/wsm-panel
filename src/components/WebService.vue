@@ -66,7 +66,7 @@ const HandelWebService = () => {
 </script>
 <template>
   <div class="ParentService">
-    <notifications position="top center" class="mt-2" width="320" />
+    <notifications position="top right" class="mt-2" width="320" />
     <img
       src="../assets/image/WebService.png"
       style="width: 367px; margin: 0"

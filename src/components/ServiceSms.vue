@@ -22,14 +22,8 @@ const InputSelect = ref([
     />
     <div class="flex justify-center flex-col items-center">
       <input placeholder="عنوان" type="text" class="InputService" />
-      <div
-        class="flex justify-center items-center mt-3 shadow-lg border border-solid border-gray-300 rounded"
-      >
-        <select
-          dir="ltr"
-          class="text-center cursor-pointer appearance-none px-1 py-1.5 text-gray-700 bg-no-repeat rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white active:border-none focus:border-none focus:outline-none"
-          style="width: 175px"
-        >
+      <div class="ParentInputSelectSms">
+        <select class="InputSelectSms" style="width: 175px">
           <option
             v-for="(items, index) in InputSelect"
             :value="items.value"
@@ -38,11 +32,9 @@ const InputSelect = ref([
             {{ items.text }}
           </option>
         </select>
-        <span
-          class="py-1.5 px-2.5 text-center bg-green-500 text-white rounded rounded-r-none"
-          >: نوع احراز هویت</span
-        >
+        <span class="SpanInputSelectSms">: نوع احراز هویت</span>
       </div>
+      <input placeholder="شناسه هویتی" type="text" class="InputService mt-3" />
       <textarea
         class="InputService mt-3"
         placeholder="متن پیامک"
