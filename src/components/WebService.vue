@@ -65,7 +65,7 @@ const HandelWebService = () => {
 };
 </script>
 <template>
-  <div class="ParentWebService">
+  <div class="ParentService">
     <notifications position="top center" class="mt-2" width="320" />
     <img
       src="../assets/image/WebService.png"
@@ -75,7 +75,7 @@ const HandelWebService = () => {
 
     <div class="flex justify-center flex-col items-center">
       <input
-        class="InputWebService"
+        class="InputService"
         placeholder="عنوان"
         v-model="Onvan"
         type="text"
@@ -91,14 +91,14 @@ const HandelWebService = () => {
       >
         <input
           v-show="Route.meta.isone > 0"
-          class="InputWebService"
+          class="InputService"
           placeholder="ورودی"
           v-model="Code"
           type="text"
         />
       </transition>
 
-      <button class="BtnWebService" @click="HandelWebService">
+      <button class="BtnService" @click="HandelWebService">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
       </button>

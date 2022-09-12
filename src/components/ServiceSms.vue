@@ -12,7 +12,7 @@ const InputSelect = ref([
 ]);
 </script>
 <template>
-  <div class="ParentSmsService">
+  <div class="ParentService">
     <notifications position="top center" class="mt-2" width="320" />
     <img
       src="../assets/image/SmsService.png"
@@ -21,8 +21,10 @@ const InputSelect = ref([
       alt="SmsService"
     />
     <div class="flex justify-center flex-col items-center">
-      <input placeholder="عنوان" type="text" class="InputSmsService" />
-      <div class="flex justify-center items-center mt-3 shadow-lg">
+      <input placeholder="عنوان" type="text" class="InputService" />
+      <div
+        class="flex justify-center items-center mt-3 shadow-lg border border-solid border-gray-300 rounded"
+      >
         <select
           dir="ltr"
           class="text-center cursor-pointer appearance-none px-1 py-1.5 text-gray-700 bg-no-repeat rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white active:border-none focus:border-none focus:outline-none"
@@ -42,12 +44,12 @@ const InputSelect = ref([
         >
       </div>
       <textarea
-        class="InputSmsService mt-3"
+        class="InputService mt-3"
         placeholder="متن پیامک"
         rows="7"
       ></textarea>
 
-      <button type="submit" class="BtnSmsService">ارسال پیامک</button>
+      <button type="submit" class="BtnService">ارسال پیامک</button>
     </div>
   </div>
 </template>
