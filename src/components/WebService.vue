@@ -34,8 +34,8 @@ const HandelWebService = () => {
       };
       notify({
         type: "success",
-        title: "انجام شد",
-        ignoreDuplicates: false,
+        title: "با موفقیت انجام شد",
+        ignoreDuplicates: true,
       });
     }
   } else {
@@ -53,12 +53,13 @@ const HandelWebService = () => {
       notify({
         type: "success",
         title: "انجام شد",
-        ignoreDuplicates: false,
+        ignoreDuplicates: true,
       });
     } else {
       notify({
         type: "error",
         title: "عنوان را وارد کنید",
+        ignoreDuplicates: true,
       });
     }
   }
@@ -68,12 +69,12 @@ const HandelWebService = () => {
   <div class="ParentWebService">
     <notifications position="top center" class="mt-2" width="320" />
     <img
-      src="../assets/image/WebService.webp"
+      src="../assets/image/WebService.png"
       style="width: 367px; margin: 0"
       alt="webService"
     />
 
-    <div class="flex pt-6 justify-center flex-col items-center">
+    <div class="flex justify-center flex-col items-center">
       <input
         class="InputWebService"
         placeholder="عنوان"

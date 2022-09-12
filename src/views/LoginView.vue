@@ -22,20 +22,20 @@ const HandelLogin = () => {
       notify({
         type: "success",
         title: "خوش آمدید",
-        ignoreDuplicates: false,
+        ignoreDuplicates: true,
       });
     } else {
       notify({
         type: "warn",
         title: "رمز عبور باید بیشتر از 5 رقم باشد",
-        ignoreDuplicates: false,
+        ignoreDuplicates: true,
       });
     }
   } else {
     notify({
       type: "error",
       title: "اطلاعات را کامل وارد",
-      ignoreDuplicates: false,
+      ignoreDuplicates: true,
     });
   }
 };
