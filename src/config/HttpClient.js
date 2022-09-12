@@ -1,6 +1,6 @@
 import axios from "axios";
 const HttpClient = axios.create({
-  baseURL: 'https://wsm.csis.ir/api/servicebus',
+  baseURL: 'https://jsonplaceholder.typicode.com',
   timeout: 20000,
   headers: {
     "Content-Type": "application/json;charset=UTF-8",

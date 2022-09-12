@@ -1,7 +1,36 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
+import { onMounted, watch } from "@vue/runtime-core";
+import TabelApi from "../api/TabelApi";
 import { ref } from "@vue/reactivity";
-import { watch } from "@vue/runtime-core";
+import { useRoute } from "vue-router";
+const ServiceMethodId = ref();
+const ServiceId = ref();
+const Route = useRoute();
+ServiceMethodId.value = Route.meta.requestServicemethodid;
+ServiceId.value = Route.meta.serviceid;
+
+const GetTabel = (ServiceMethodId, ServiceId) => {
+  console.log(ServiceMethodId);
+  console.log(ServiceId);
+  // TabelApi.TabelService(ServiceMethodId,ServiceId)
+  //   .then((response) => {
+  //     TableService.value = response.data;
+  //   })
+  //   .catch((error) => {
+  //     alert(error.message);
+  //   });
+};
+onMounted(() => {
+  GetTabel(ServiceMethodId.value, ServiceId.value);
+});
+watch(Route, () => {
+  if (Route.meta.requestServicemethodid) {
+    ServiceMethodId.value = Route.meta.requestServicemethodid;
+    ServiceId.value = Route.meta.serviceid;
+    GetTabel(ServiceMethodId.value, ServiceId.value);
+  }
+});
 const CurrentPage = ref();
 const TableService = ref({
   status: 200,
@@ -379,9 +408,7 @@ const HandelPrevPagination = () => {
     CurrentPage.value--;
   }
 };
-watch(CurrentPage, (value) => {
-  console.log(value);
-});
+watch(CurrentPage, (value) => {});
 const HandelFindPage = (event) => {
   CurrentPage.value = Number(event.target.innerHTML);
 };
@@ -460,7 +487,7 @@ const ExportExcel = () => {
         <p v-show="TableService.status !== 200">اطلاعات دریافت نشد</p>
       </tbody>
     </table>
-     <!-- ////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////// -->
     <div class="TablePagination">
       <ul class="UlPagination">
         <li @click="HandelPrevPagination">

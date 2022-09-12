@@ -1,8 +1,8 @@
 <script setup>
-import TablePerson from "../components/TablePerson.vue";
+import TableService from "../components/TableService.vue";
 </script>
 <template>
-  <TablePerson />
+  <TableService />
 </template>
 
 <style></style>
