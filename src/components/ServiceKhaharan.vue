@@ -47,7 +47,11 @@ const HandelWebService = () => {
         autofocus
       />
       <DatePicker
+<<<<<<< HEAD
         class="shadow-lg border border-solid border-gray-200 rounded-xl"
+=======
+        class="shadow-lg border border-solid border-gray-200 rounded"
+>>>>>>> 07bafd7612a41c501e2814a9ff2f6beb40c673e1
         v-for="(items, index) in InputTarikh"
         :placeholder="items.Placeholder"
         v-model="items.Value"
@@ -108,4 +112,8 @@ const HandelWebService = () => {
   width: 31px;
   background: #000;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 07bafd7612a41c501e2814a9ff2f6beb40c673e1

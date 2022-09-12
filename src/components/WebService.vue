@@ -74,7 +74,11 @@ const HandelWebService = () => {
       alt="webService"
     />
 
+<<<<<<< HEAD
     <div class="flex justify-center flex-col items-center">
+=======
+    <div class="flex  justify-center flex-col items-center">
+>>>>>>> 07bafd7612a41c501e2814a9ff2f6beb40c673e1
       <input
         class="InputWebService"
         placeholder="عنوان"
