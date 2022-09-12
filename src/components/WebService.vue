@@ -13,7 +13,7 @@ watch(Route, () => {
   Onvan.value = "";
   Code.value = "";
 });
-const HandelWebService = () => {
+const HandelService = () => {
   if (Route.meta.isone > 0) {
     if (!Onvan.value || !Code.value) {
       notify({
@@ -98,7 +98,7 @@ const HandelWebService = () => {
         />
       </transition>
 
-      <button class="BtnService" @click="HandelWebService">
+      <button class="BtnService" @click="HandelService">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
       </button>
