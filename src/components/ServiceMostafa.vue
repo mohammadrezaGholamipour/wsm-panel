@@ -1,21 +1,19 @@
 <script setup>
 import MostafaServiceApi from "../api/MostafaServiceApi";
 import { notify } from "@kyvg/vue3-notification";
-import { ref } from "@vue/reactivity";
+import { reactive, ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 // //////////////////////////////////////
 const Route = useRoute();
-const ServiceMethodId = ref();
-const ServiceId = ref();
-const Onvan = ref();
-const ChekBox = ref(true
+const state = reactive({
+  ServiceId: "",
+  ServiceMethodId: "",
+  Onvan: "",
+  ChekBox: true,
+});
 
-
-
-
-);
-ServiceMethodId.value = Route.meta.Servicemethodid;
-ServiceId.value = Route.meta.serviceid;
+state.ServiceId = Route.meta.serviceid;
+state.ServiceMethodId = Route.meta.Servicemethodid;
 // HandelRequestForServiceMostafa
 const GetServiceMostafa = (Onvan, ChekBox, ServiceMethodId, ServiceId) => {
   console.log(Onvan, ChekBox, ServiceMethodId, ServiceId);
@@ -27,14 +25,14 @@ const GetServiceMostafa = (Onvan, ChekBox, ServiceMethodId, ServiceId) => {
 };
 // FinishHandelRequestForServiceMostafa;
 const HandelServiceMostafa = () => {
-  if (Onvan.value) {
+  if (state.Onvan) {
     GetServiceMostafa(
-      Onvan.value,
-      ChekBox.value,
-      ServiceMethodId.value,
-      ServiceId.value
+      state.Onvan,
+      state.ChekBox,
+      state.ServiceId,
+      state.ServiceMethodId
     );
-    Onvan.value = "";
+    state.Onvan = "";
     notify({
       type: "success",
       title: "با موفقیت انجام شد",
@@ -61,12 +59,12 @@ const HandelServiceMostafa = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="Onvan"
+        v-model.trim="state.Onvan"
         placeholder="عنوان"
         type="text"
       />
       <div class="flex flex-row-reverse my-3 items-start justify-center">
-        <input v-model="ChekBox" class="InputChekBox" type="checkbox" />
+        <input v-model="state.ChekBox" class="InputChekBox" type="checkbox" />
         <label
           class="form-check-label text-lg inline-block text-gray-800"
           for="flexCheckDefault"

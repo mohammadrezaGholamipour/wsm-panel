@@ -419,7 +419,6 @@ const HandelPrevPagination = () => {
     state.CurrentPage--;
   }
 };
-
 const HandelFindPage = (event) => {
   state.CurrentPage = Number(event.target.innerHTML);
 };
