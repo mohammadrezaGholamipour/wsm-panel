@@ -1,7 +1,7 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
+import KhaharanServiceApi from "../api/KhaharanServiceApi";
 import { onMounted, watch } from "@vue/runtime-core";
-import TabelServiceApi from "../api/TabelServiceApi";
 import { ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 const ServiceMethodId = ref();
@@ -14,7 +14,7 @@ ServiceId.value = Route.meta.serviceid;
 const GetTabel = (ServiceMethodId, ServiceId) => {
   console.log(ServiceMethodId);
   console.log(ServiceId);
-  // TabelServiceApi.TabelService(ServiceMethodId,ServiceId)
+  // KhaharanServiceApi.TabelService(ServiceMethodId,ServiceId)
   //   .then((response) => {
   //     TableService.value = response.data;
   //   })

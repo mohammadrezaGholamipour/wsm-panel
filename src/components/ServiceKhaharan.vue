@@ -1,25 +1,68 @@
 <script setup>
+import TabelServiceApi from "../api/TabelServiceApi";
 import DatePicker from "vue3-persian-datetime-picker";
 import { notify } from "@kyvg/vue3-notification";
+import Convert from "../config/common";
 import { ref } from "@vue/reactivity";
-
-// ////////////////////////
+import { useRoute } from "vue-router";
+/////////////////////////////////////////////////
+const Route = useRoute();
+const ServiceMethodId = ref();
+const ServiceId = ref();
+ServiceMethodId.value = Route.meta.Servicemethodid;
+ServiceId.value = Route.meta.serviceid;
 const InputOnvan = ref();
 const InputTarikh = ref([
   { Placeholder: "تاریخ شروع", Value: "" },
   { Placeholder: "تاریخ پایان", Value: "" },
 ]);
-// ////////////////////////
+// HandelRequestForServiceKhaharan
+const GetServiceKhaharan = (
+  InputOnvan,
+  InputTarikhStart,
+  InputTarikhEnd,
+  ServiceMethodId,
+  ServiceId
+) => {
+  console.log(
+    InputOnvan,
+    InputTarikhStart,
+    InputTarikhEnd,
+    ServiceMethodId,
+    ServiceId
+  );
+  // KhaharanServiceApi.KhaharanService(InputOnvan,InputTarikhStart,InputTarikhEnd,ServiceMethodId,ServiceId)
+  //   .then((response) => {
+  //
+  //   })
+  //   .catch((error) => {
+  //     alert(error.message);
+  //   });
+};
+// FinishHandelRequestForServiceKhaharan
 const HandelWebService = () => {
   const Tarikh = InputTarikh.value.every((items) => !!items.Value === true);
   if (Tarikh && InputOnvan.value) {
+    InputTarikh.value.forEach(
+      (items) => (items.Value = Convert.dateConvertToGregorian(items.Value))
+    );
+    GetServiceKhaharan(
+      InputOnvan.value,
+      InputTarikh.value[0].Value,
+      InputTarikh.value[1].Value,
+      ServiceMethodId.value,
+      ServiceId.value
+    );
+    // خالی کردن اینپوت ها
+    InputTarikh.value[0].Value = "";
+    InputTarikh.value[1].Value = "";
+    InputOnvan.value = "";
+
     notify({
       type: "success",
       title: "با موفقیت انجام شد",
       ignoreDuplicates: true,
     });
-    InputTarikh.value.forEach((items) => (items.Value = ""));
-    InputOnvan.value = "";
   } else {
     notify({
       type: "error",
@@ -44,7 +87,6 @@ const HandelWebService = () => {
         v-model="InputOnvan"
         placeholder="عنوان"
         type="text"
-        autofocus
       />
       <DatePicker
         class="InputService p-1"

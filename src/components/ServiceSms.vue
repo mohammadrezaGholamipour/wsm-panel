@@ -1,7 +1,15 @@
 <script setup>
+import SmsServiceApi from "../api/SmsServiceApi";
 import { notify } from "@kyvg/vue3-notification";
-import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
+import { ref } from "@vue/reactivity";
+import { useRoute } from "vue-router";
+const Route = useRoute();
+/////////////////////////////////////////////////
+const ServiceMethodId = ref();
+const ServiceId = ref();
+ServiceMethodId.value = Route.meta.Servicemethodid;
+ServiceId.value = Route.meta.serviceid;
 const InputSelect = ref([
   { text: "کدملی", value: "1" },
   { text: "کد اختصاصی گذرنامه", value: "2" },
@@ -15,6 +23,31 @@ const Onvan = ref("");
 const InputSelectValue = ref("");
 const Shenase = ref("");
 const MatneSms = ref("");
+/////////////////////////////////////
+const SendSms = (
+  Onvan,
+  InputSelectValue,
+  Shenase,
+  MatneSms,
+  ServiceMethodId,
+  ServiceId
+) => {
+  console.log(
+    Onvan,
+    InputSelectValue,
+    Shenase,
+    MatneSms,
+    ServiceMethodId,
+    ServiceId
+  );
+  // SmsServiceApi.SmsService()
+  //   .then((response) => {
+  //     TableService.value = response.data;
+  //   })
+  //   .catch((error) => {
+  //     alert(error.message);
+  //   });
+};
 const AllInputSms = computed(() => {
   return (
     Onvan.value && InputSelectValue.value && Shenase.value && MatneSms.value
@@ -22,6 +55,19 @@ const AllInputSms = computed(() => {
 });
 const HandelService = () => {
   if (AllInputSms.value) {
+    SendSms(
+      Onvan.value,
+      InputSelectValue.value,
+      Shenase.value,
+      MatneSms.value,
+      ServiceMethodId.value,
+      ServiceId.value
+    );
+    // خالی کردن اینپوت ها
+    Onvan.value = "";
+    InputSelectValue.value = "";
+    Shenase.value = "";
+    MatneSms.value = "";
     notify({
       type: "success",
       title: "با موفقیت انجام شد",
@@ -53,7 +99,6 @@ const ShenasePlaceHolder = computed(() => {
       src="../assets/image/SmsService.png"
       style="width: 320px"
       alt="SmsService"
-
     />
     <div class="flex justify-center flex-col items-center">
       <input

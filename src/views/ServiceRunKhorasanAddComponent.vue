@@ -1,7 +1,6 @@
-<template>ServiceRunKhorasanAddComponent</template>
-
-<script>
-export default {};
+<script setup>
+import ServiceKhorasan from "../components/ServiceKhorasan.vue";
 </script>
-
-<style></style>
+<template>
+  <ServiceKhorasan />
+</template>
