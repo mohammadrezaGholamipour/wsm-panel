@@ -1,5 +1,5 @@
 import HttpClient from "../config/HttpClient";
 
 export default {
-  TabelService: () => HttpClient.get("/todos/1"),
+  TabelService: (ServiceMethodId, ServiceId) => HttpClient.get(`servicebus/serviceready?type=brief&serviceid=${ServiceId}&state=${ServiceMethodId}`),
 };

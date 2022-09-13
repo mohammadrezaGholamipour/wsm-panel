@@ -1,6 +1,6 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
-import KhaharanServiceApi from "../api/KhaharanServiceApi";
+import TabelServiceApi from "../api/TabelServiceApi";
 import { onMounted, watch } from "@vue/runtime-core";
 import { ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
@@ -12,15 +12,13 @@ ServiceId.value = Route.meta.serviceid;
 // ////////////////////////////
 // HandelRequsetForTabelService
 const GetTabel = (ServiceMethodId, ServiceId) => {
-  console.log(ServiceMethodId);
-  console.log(ServiceId);
-  // KhaharanServiceApi.TabelService(ServiceMethodId,ServiceId)
-  //   .then((response) => {
-  //     TableService.value = response.data;
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  TabelServiceApi.TabelService(ServiceMethodId, ServiceId)
+    .then((response) => {
+      TableService.value = response.data;
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
 };
 onMounted(() => {
   GetTabel(ServiceMethodId.value, ServiceId.value);

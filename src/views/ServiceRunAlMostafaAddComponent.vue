@@ -1,7 +1,6 @@
-<template>ServiceRunAlMostafaAddComponent.vue</template>
-
-<script>
-export default {};
+<script setup>
+import ServiceMostafa from "../components/ServiceMostafa.vue";
 </script>
-
-<style></style>
+<template>
+  <ServiceMostafa />
+</template>
