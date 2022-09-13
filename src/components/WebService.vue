@@ -14,13 +14,13 @@ const state = reactive({
 // ////////////////////////
 const GetWebService = (WebService) => {
   console.log(WebService);
-  // WebServiceApi.WebService(WebService)
-  //   .then((response) => {
-  //  
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  WebServiceApi.WebServiceForm(WebService)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
 };
 watch(Route, () => {
   state.WebService = "";

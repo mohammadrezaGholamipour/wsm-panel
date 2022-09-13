@@ -1,5 +1,5 @@
 import HttpClient from "../config/HttpClient";
 
 export default {
-  WebService: () => HttpClient.post("/todos/1"),
+  WebServiceForm: (WebService) => HttpClient.post(`servicebus/serviceready`, WebService),
 };
