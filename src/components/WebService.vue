@@ -1,5 +1,5 @@
 <script setup>
-import WebServiceApi from "../api/TabelServiceApi";
+import WebServiceApi from "../api/WebServiceApi";
 import { notify } from "@kyvg/vue3-notification";
 import { watch } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
@@ -7,14 +7,14 @@ import { useRoute } from "vue-router";
 // ////////////////////////
 const Route = useRoute();
 const state = reactive({
-  WebService: "",
+  WebServiceForm: "",
   Onvan: "",
   Code: "",
 });
 // ////////////////////////
-const GetWebService = (WebService) => {
-  console.log(WebService);
-  WebServiceApi.WebServiceForm(WebService)
+const GetWebService = (WebServiceForm) => {
+  console.log(WebServiceForm);
+  WebServiceApi.WebServiceForm(WebServiceForm)
     .then((response) => {
       console.log(response);
     })
@@ -23,7 +23,7 @@ const GetWebService = (WebService) => {
     });
 };
 watch(Route, () => {
-  state.WebService = "";
+  state.WebServiceForm = "";
   state.Onvan = "";
   state.Code = "";
 });
@@ -35,7 +35,7 @@ const HandelService = () => {
         title: "اطلاعات را کامل وارد کنید",
       });
     } else {
-      state.WebService = {
+      state.WebServiceForm = {
         Id: 0,
         state: 0,
         Name: state.Onvan,
@@ -45,7 +45,7 @@ const HandelService = () => {
         Servicemethodid: Route.meta.Servicemethodid,
         ServiceName: 0,
       };
-      GetWebService(state.WebService);
+      GetWebService(state.WebServiceForm);
       state.Onvan = "";
       state.Code = "";
       notify({
@@ -56,7 +56,7 @@ const HandelService = () => {
     }
   } else {
     if (state.Onvan) {
-      state.WebService = {
+      state.WebServiceForm = {
         Id: 0,
         state: 0,
         Name: state.Onvan,
@@ -66,7 +66,7 @@ const HandelService = () => {
         Servicemethodid: Route.meta.Servicemethodid,
         ServiceName: 0,
       };
-      GetWebService(state.WebService);
+      GetWebService(state.WebServiceForm);
       state.Onvan = "";
       notify({
         type: "success",
@@ -89,7 +89,7 @@ const HandelService = () => {
     <img
       src="../assets/image/WebService.png"
       style="width: 367px; margin: 0"
-      alt="webService"
+      alt="WebServiceForm"
     />
 
     <div class="flex justify-center flex-col items-center">

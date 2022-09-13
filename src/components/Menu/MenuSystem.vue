@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from "@vue/reactivity";
+import { useRoute } from "vue-router";
+const Route = useRoute();
 const MenuList = ref([
   {
     title: "خواهران",
@@ -413,7 +415,6 @@ const MenuList = ref([
     hasAccess: true,
   },
 ]);
-const isExpanded = ref(false);
 const HandelCollapseUl = (itemstitle) => {
   MenuList.value.forEach((items) => {
     if (items.title === itemstitle) {
@@ -432,7 +433,6 @@ const HandelCollapseUl = (itemstitle) => {
       >
         <li>
           <a
-            @click="isExpanded = !isExpanded"
             data-mdb-ripple-color="black"
             data-mdb-ripple="true"
             class="MenuLink"
@@ -442,7 +442,7 @@ const HandelCollapseUl = (itemstitle) => {
               icon=" fa-solid fa-circle-arrow-down"
               :class="
                 items.isOpen
-                  ? 'rotate-180 text-red-500  duration-500 '
+                  ? 'rotate-180 text-red-500  duration-500'
                   : ' text-slate-500 duration-500'
               "
             />
@@ -454,8 +454,13 @@ const HandelCollapseUl = (itemstitle) => {
             leave-from-class="opacity-100"
             enter-to-class="opacity-100"
           >
-            <ul v-show="items.isOpen">
+            <ul @click.stop v-show="items.isOpen">
               <li
+                :class="
+                  Route.path === item.link
+                    ? 'rounded-lg bg-[#60645f1c]'
+                    : 'text-left'
+                "
                 class="flex w-full flex-row justify-between"
                 v-for="item in items.children"
                 :key="item.title"
