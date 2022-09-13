@@ -419,6 +419,8 @@ const HandelCollapseUl = (itemstitle) => {
   MenuList.value.forEach((items) => {
     if (items.title === itemstitle) {
       items.isOpen = !items.isOpen;
+    } else {
+      items.isOpen = false;
     }
   });
 };
