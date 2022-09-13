@@ -458,8 +458,8 @@ const HandelCollapseUl = (itemstitle) => {
               <li
                 :class="
                   Route.path === item.link
-                    ? 'rounded-lg bg-[#60645f1c]'
-                    : 'text-left'
+                    ? 'hover:bg-[#60645f1c] rounded-lg bg-[#e02d2d1c]'
+                    : ''
                 "
                 class="flex w-full flex-row justify-between"
                 v-for="item in items.children"
