@@ -2,13 +2,15 @@
 import WebServiceApi from "../api/TabelServiceApi";
 import { notify } from "@kyvg/vue3-notification";
 import { watch } from "@vue/runtime-core";
-import { ref } from "@vue/reactivity";
+import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 // ////////////////////////
 const Route = useRoute();
-const WebService = ref();
-const Onvan = ref();
-const Code = ref();
+const state = reactive({
+  WebService: "",
+  Onvan: "",
+  Code: "",
+});
 // ////////////////////////
 const GetWebService = (WebService) => {
   console.log(WebService);
@@ -21,29 +23,29 @@ const GetWebService = (WebService) => {
   //   });
 };
 watch(Route, () => {
-  WebService.value = "";
-  Onvan.value = "";
-  Code.value = "";
+  state.WebService = "";
+  state.Onvan = "";
+  state.Code = "";
 });
 const HandelService = () => {
   if (Route.meta.isone > 0) {
-    if (!Onvan.value || !Code.value) {
+    if (!state.Onvan || !state.Code) {
       notify({
         type: "error",
         title: "اطلاعات را کامل وارد کنید",
       });
     } else {
-      WebService.value = {
+      state.WebService = {
         Id: 0,
         state: 0,
-        Name: Onvan.value,
+        Name: state.Onvan,
         Servicemethodname: "",
-        Input: Code.value,
+        Input: state.Code,
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
         ServiceName: 0,
       };
-      GetWebService(WebService.value);
+      GetWebService(state.WebService);
       notify({
         type: "success",
         title: "با موفقیت انجام شد",
@@ -51,18 +53,18 @@ const HandelService = () => {
       });
     }
   } else {
-    if (Onvan.value) {
-      WebService.value = {
+    if (state.Onvan) {
+      state.WebService = {
         Id: 0,
         state: 0,
-        Name: Onvan.value,
+        Name: state.Onvan,
         Servicemethodname: "",
         Input: "",
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
         ServiceName: 0,
       };
-      GetWebService(WebService.value);
+      GetWebService(state.WebService);
       notify({
         type: "success",
         title: "انجام شد",
@@ -91,7 +93,7 @@ const HandelService = () => {
       <input
         class="InputService"
         placeholder="عنوان"
-        v-model.trim="Onvan"
+        v-model.trim="state.Onvan"
         type="text"
       />
       <transition
@@ -106,7 +108,7 @@ const HandelService = () => {
           v-show="Route.meta.isone > 0"
           class="InputService"
           placeholder="ورودی"
-          v-model.trim="Code"
+          v-model.trim="state.Code"
           type="text"
         />
       </transition>
