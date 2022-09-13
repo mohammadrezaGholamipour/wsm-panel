@@ -91,7 +91,7 @@ const HandelService = () => {
       <input
         class="InputService"
         placeholder="عنوان"
-        v-model="Onvan"
+        v-model.trim="Onvan"
         type="text"
       />
       <transition
@@ -106,7 +106,7 @@ const HandelService = () => {
           v-show="Route.meta.isone > 0"
           class="InputService"
           placeholder="ورودی"
-          v-model="Code"
+          v-model.trim="Code"
           type="text"
         />
       </transition>

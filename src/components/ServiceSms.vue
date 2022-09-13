@@ -104,7 +104,7 @@ const ShenasePlaceHolder = computed(() => {
       <input
         class="InputService"
         placeholder="عنوان"
-        v-model="Onvan"
+        v-model.trim="Onvan"
         type="text"
       />
       <div class="ParentInputSelectSms">
@@ -126,13 +126,13 @@ const ShenasePlaceHolder = computed(() => {
       <input
         :placeholder="ShenasePlaceHolder"
         class="InputService mt-3"
-        v-model="Shenase"
+        v-model.trim="Shenase"
         type="text"
       />
       <textarea
         class="InputService mt-3"
         placeholder="متن پیامک"
-        v-model="MatneSms"
+        v-model.trim="MatneSms"
         rows="7"
       ></textarea>
 

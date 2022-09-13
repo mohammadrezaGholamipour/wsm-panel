@@ -1,5 +1,5 @@
 <script setup>
-import TabelServiceApi from "../api/TabelServiceApi";
+import KhaharanServiceApi from "../api/KhaharanServiceApi";
 import DatePicker from "vue3-persian-datetime-picker";
 import { notify } from "@kyvg/vue3-notification";
 import Convert from "../config/common";
@@ -84,7 +84,7 @@ const HandelWebService = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model="InputOnvan"
+        v-model.trim="InputOnvan"
         placeholder="عنوان"
         type="text"
       />
