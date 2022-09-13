@@ -378,7 +378,7 @@ const state = reactive({
   },
   ServiceMethodId: "",
   ServiceId: "",
-
+  CurrentPage: "",
   InputTableList: [
     { name: "کد", value: "", input: "Id" },
     { name: "نام", value: "", input: "Name" },
@@ -386,7 +386,7 @@ const state = reactive({
     { name: "نام متد", value: "", input: "Servicemethodname" },
   ],
 });
-const CurrentPage = ref();
+
 state.ServiceId = Route.meta.serviceid;
 state.ServiceMethodId = Route.meta.requestServicemethodid;
 // ////////////////////////////
@@ -413,15 +413,15 @@ watch(Route, () => {
 });
 // FinishRequsetForTabelService;
 // /////////////////////////////
-CurrentPage.value = state.TabelList.meta_data.current_page;
+state.CurrentPage = state.TabelList.meta_data.current_page;
 const HandelPrevPagination = () => {
-  if (CurrentPage.value > 1) {
-    CurrentPage.value--;
+  if (state.CurrentPage > 1) {
+    state.CurrentPage--;
   }
 };
-watch(CurrentPage, (value) => {});
+
 const HandelFindPage = (event) => {
-  CurrentPage.value = Number(event.target.innerHTML);
+  state.CurrentPage = Number(event.target.innerHTML);
 };
 const HandelFilterInput = (input, value) => {
   console.log(input, value);
@@ -499,22 +499,22 @@ const ExportExcel = () => {
             <font-awesome-icon icon=" fa-solid fa-circle-arrow-left" />
           </a>
         </li>
-        <li v-if="CurrentPage - 1 > 0">
+        <li v-if="state.CurrentPage - 1 > 0">
           <a @click="HandelFindPage" class="PagePagination">
-            {{ CurrentPage - 1 }}
+            {{ state.CurrentPage - 1 }}
           </a>
         </li>
         <li>
           <a class="PagePagination scale-110 border-slate-600 border-2">
-            {{ CurrentPage }}
+            {{ state.CurrentPage }}
           </a>
         </li>
         <li>
           <a @click="HandelFindPage" class="PagePagination">
-            {{ CurrentPage + 1 }}
+            {{ state.CurrentPage + 1 }}
           </a>
         </li>
-        <li @click="CurrentPage++">
+        <li @click="state.CurrentPage++">
           <a class="BtnNextOrPrevPagination">
             <font-awesome-icon icon=" fa-solid fa-circle-arrow-right" />
           </a>

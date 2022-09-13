@@ -16,7 +16,7 @@ const GetWebService = (WebService) => {
   console.log(WebService);
   // WebServiceApi.WebService(WebService)
   //   .then((response) => {
-  //     TableService.value = response.data;
+  //  
   //   })
   //   .catch((error) => {
   //     alert(error.message);
@@ -46,6 +46,8 @@ const HandelService = () => {
         ServiceName: 0,
       };
       GetWebService(state.WebService);
+      state.Onvan = "";
+      state.Code = "";
       notify({
         type: "success",
         title: "با موفقیت انجام شد",
@@ -65,6 +67,7 @@ const HandelService = () => {
         ServiceName: 0,
       };
       GetWebService(state.WebService);
+      state.Onvan = "";
       notify({
         type: "success",
         title: "انجام شد",
