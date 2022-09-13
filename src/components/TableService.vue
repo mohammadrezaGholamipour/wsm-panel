@@ -2,7 +2,7 @@
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import TabelServiceApi from "../api/TabelServiceApi";
 import { onMounted, watch } from "@vue/runtime-core";
-import { reactive, ref } from "@vue/reactivity";
+import { reactive} from "@vue/reactivity";
 import { useRoute } from "vue-router";
 const Route = useRoute();
 const state = reactive({

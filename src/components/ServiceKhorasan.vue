@@ -1,19 +1,22 @@
 <script setup>
 import KhorasanServiceApi from "../api/KhaharanServiceApi";
 import { notify } from "@kyvg/vue3-notification";
-import { ref } from "@vue/reactivity";
+import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 // //////////////////////////////////////
 const Route = useRoute();
-const ServiceMethodId = ref();
-const ServiceId = ref();
-const Onvan = ref();
-const ChekBox = ref(true);
-ServiceMethodId.value = Route.meta.Servicemethodid;
-ServiceId.value = Route.meta.serviceid;
+const state = reactive({
+  ServiceId: "",
+  ServiceMethodId: "",
+  Onvan: "",
+  ChekBox: true,
+});
+
+state.ServiceMethodId = Route.meta.Servicemethodid;
+state.ServiceId = Route.meta.serviceid;
 // HandelRequestForServiceKhorasan
-const GetServiceKhorasan = (Onvan, ChekBox, ServiceMethodId, ServiceId) => {
-  console.log(Onvan, ChekBox, ServiceMethodId, ServiceId);
+const GetServiceKhorasan = (Onvan, ChekBox, ServiceId, ServiceMethodId) => {
+  console.log(Onvan, ChekBox, ServiceId, ServiceMethodId);
   // KhorasanServiceApi.KhorasanService()
   //   .then((response) => {})
   //   .catch((error) => {
@@ -22,14 +25,14 @@ const GetServiceKhorasan = (Onvan, ChekBox, ServiceMethodId, ServiceId) => {
 };
 // FinishHandelRequestForServiceKhorasan;
 const HandelServiceKhorasan = () => {
-  if (Onvan.value) {
+  if (state.Onvan) {
     GetServiceKhorasan(
-      Onvan.value,
-      ChekBox.value,
-      ServiceMethodId.value,
-      ServiceId.value
+      state.Onvan,
+      state.ChekBox,
+      state.ServiceId,
+      state.ServiceMethodId
     );
-    Onvan.value = "";
+    state.Onvan = "";
     notify({
       type: "success",
       title: "با موفقیت انجام شد",
@@ -56,12 +59,12 @@ const HandelServiceKhorasan = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="Onvan"
+        v-model.trim="state.Onvan"
         placeholder="عنوان"
         type="text"
       />
       <div class="flex flex-row-reverse my-3 items-start justify-center">
-        <input v-model="ChekBox" class="InputChekBox" type="checkbox" />
+        <input v-model="state.ChekBox" class="InputChekBox" type="checkbox" />
         <label
           class="form-check-label text-lg inline-block text-gray-800"
           for="flexCheckDefault"

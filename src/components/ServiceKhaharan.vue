@@ -3,33 +3,36 @@ import KhaharanServiceApi from "../api/KhaharanServiceApi";
 import DatePicker from "vue3-persian-datetime-picker";
 import { notify } from "@kyvg/vue3-notification";
 import Convert from "../config/common";
-import { ref } from "@vue/reactivity";
+import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 /////////////////////////////////////////////////
 const Route = useRoute();
-const ServiceMethodId = ref();
-const ServiceId = ref();
-ServiceMethodId.value = Route.meta.Servicemethodid;
-ServiceId.value = Route.meta.serviceid;
-const InputOnvan = ref();
-const InputTarikh = ref([
-  { Placeholder: "تاریخ شروع", Value: "" },
-  { Placeholder: "تاریخ پایان", Value: "" },
-]);
+const state = reactive({
+  ServiceId: "",
+  ServiceMethodId: "",
+  InputOnvan: "",
+  InputTarikh: [
+    { Placeholder: "تاریخ شروع", Value: "" },
+    { Placeholder: "تاریخ پایان", Value: "" },
+  ],
+});
+
+state.ServiceMethodId = Route.meta.Servicemethodid;
+state.ServiceId = Route.meta.serviceid;
 // HandelRequestForServiceKhaharan
 const GetServiceKhaharan = (
   InputOnvan,
   InputTarikhStart,
   InputTarikhEnd,
-  ServiceMethodId,
-  ServiceId
+  ServiceId,
+  ServiceMethodId
 ) => {
   console.log(
     InputOnvan,
     InputTarikhStart,
     InputTarikhEnd,
-    ServiceMethodId,
-    ServiceId
+    ServiceId,
+    ServiceMethodId
   );
   // KhaharanServiceApi.KhaharanService(InputOnvan,InputTarikhStart,InputTarikhEnd,ServiceMethodId,ServiceId)
   //   .then((response) => {
@@ -41,22 +44,22 @@ const GetServiceKhaharan = (
 };
 // FinishHandelRequestForServiceKhaharan
 const HandelWebService = () => {
-  const Tarikh = InputTarikh.value.every((items) => !!items.Value === true);
-  if (Tarikh && InputOnvan.value) {
-    InputTarikh.value.forEach(
+  const Tarikh = state.InputTarikh.every((items) => !!items.Value === true);
+  if (Tarikh && state.InputOnvan) {
+    state.InputTarikh.forEach(
       (items) => (items.Value = Convert.dateConvertToGregorian(items.Value))
     );
     GetServiceKhaharan(
-      InputOnvan.value,
-      InputTarikh.value[0].Value,
-      InputTarikh.value[1].Value,
-      ServiceMethodId.value,
-      ServiceId.value
+      state.InputOnvan,
+      state.InputTarikh[0].Value,
+      state.InputTarikh[1].Value,
+      state.ServiceId,
+      state.ServiceMethodId
     );
     // خالی کردن اینپوت ها
-    InputTarikh.value[0].Value = "";
-    InputTarikh.value[1].Value = "";
-    InputOnvan.value = "";
+    state.InputTarikh[0].Value = "";
+    state.InputTarikh[1].Value = "";
+    state.InputOnvan = "";
 
     notify({
       type: "success",
@@ -84,13 +87,13 @@ const HandelWebService = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="InputOnvan"
+        v-model.trim="state.InputOnvan"
         placeholder="عنوان"
         type="text"
       />
       <DatePicker
         class="InputService p-0"
-        v-for="(items, index) in InputTarikh"
+        v-for="(items, index) in state.InputTarikh"
         :placeholder="items.Placeholder"
         v-model="items.Value"
         :key="index"
