@@ -1,7 +1,7 @@
 <script setup>
 import MostafaServiceApi from "../api/MostafaServiceApi";
 import { notify } from "@kyvg/vue3-notification";
-import { reactive} from "@vue/reactivity";
+import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 // //////////////////////////////////////
 const Route = useRoute();
@@ -9,7 +9,8 @@ const state = reactive({
   ServiceId: "",
   ServiceMethodId: "",
   Onvan: "",
-  ChekBox: true,
+  ChekBox: false,
+  Code: "",
 });
 
 state.ServiceId = Route.meta.serviceid;
@@ -25,25 +26,42 @@ const GetServiceMostafa = (Onvan, ChekBox, ServiceMethodId, ServiceId) => {
 };
 // FinishHandelRequestForServiceMostafa;
 const HandelServiceMostafa = () => {
-  if (state.Onvan) {
-    GetServiceMostafa(
-      state.Onvan,
-      state.ChekBox,
-      state.ServiceId,
-      state.ServiceMethodId
-    );
-    state.Onvan = "";
-    notify({
-      type: "success",
-      title: "با موفقیت انجام شد",
-      ignoreDuplicates: true,
-    });
+  if (state.ChekBox) {
+    if (state.Onvan && state.Code) {
+      GetServiceMostafa(
+        state.Onvan,
+        state.ChekBox,
+        state.ServiceId,
+        state.ServiceMethodId
+      );
+      state.Onvan = "";
+      state.Code = "";
+      notify({
+        type: "success",
+        title: "با موفقیت انجام شد",
+        ignoreDuplicates: true,
+      });
+    } else {
+      notify({
+        type: "error",
+        title: "اطلاعات را کامل وارد",
+        ignoreDuplicates: true,
+      });
+    }
   } else {
-    notify({
-      type: "error",
-      title: "اطلاعات را کامل وارد",
-      ignoreDuplicates: true,
-    });
+    if (state.Onvan) {
+      notify({
+        type: "success",
+        title: "با موفقیت انجام شد",
+        ignoreDuplicates: true,
+      });
+    } else {
+      notify({
+        type: "error",
+        title: "اطلاعات را کامل وارد",
+        ignoreDuplicates: true,
+      });
+    }
   }
 };
 </script>
@@ -63,19 +81,24 @@ const HandelServiceMostafa = () => {
         placeholder="عنوان"
         type="text"
       />
-      <div class="flex flex-row-reverse my-3 items-start justify-center">
+      <div class="flex flex-row-reverse mt-4 mb-2 items-start justify-center">
         <input v-model="state.ChekBox" class="InputChekBox" type="checkbox" />
         <label
           class="form-check-label text-lg inline-block text-gray-800"
           for="flexCheckDefault"
         >
-          فقط شامل یک طلبه میباشد
-          <br />
           <p class="p-0 m-0 text-blue-500">
             (واکشی اطلاعات فقط برای یک طلبه با کد تحصیلی المصطفی)
           </p>
         </label>
       </div>
+      <input
+        v-model.trim="state.Code"
+        placeholder="کد تحصیلی"
+        v-show="state.ChekBox"
+        class="InputService"
+        type="text"
+      />
       <button class="BtnService" @click="HandelServiceMostafa">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />

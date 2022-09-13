@@ -1,4 +1,4 @@
-<template>ServiceRunTablighatOfficeAddComponent.vue</template>
+<template>در دسترس نیست</template>
 
 <script>
 export default {};

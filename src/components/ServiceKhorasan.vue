@@ -9,7 +9,8 @@ const state = reactive({
   ServiceId: "",
   ServiceMethodId: "",
   Onvan: "",
-  ChekBox: true,
+  ChekBox: false,
+  Code: "",
 });
 
 state.ServiceMethodId = Route.meta.Servicemethodid;
@@ -25,25 +26,42 @@ const GetServiceKhorasan = (Onvan, ChekBox, ServiceId, ServiceMethodId) => {
 };
 // FinishHandelRequestForServiceKhorasan;
 const HandelServiceKhorasan = () => {
-  if (state.Onvan) {
-    GetServiceKhorasan(
-      state.Onvan,
-      state.ChekBox,
-      state.ServiceId,
-      state.ServiceMethodId
-    );
-    state.Onvan = "";
-    notify({
-      type: "success",
-      title: "با موفقیت انجام شد",
-      ignoreDuplicates: true,
-    });
+  if (state.ChekBox) {
+    if (state.Onvan && state.Code) {
+      GetServiceMostafa(
+        state.Onvan,
+        state.ChekBox,
+        state.ServiceId,
+        state.ServiceMethodId
+      );
+      state.Onvan = "";
+      state.Code = "";
+      notify({
+        type: "success",
+        title: "با موفقیت انجام شد",
+        ignoreDuplicates: true,
+      });
+    } else {
+      notify({
+        type: "error",
+        title: "اطلاعات را کامل وارد",
+        ignoreDuplicates: true,
+      });
+    }
   } else {
-    notify({
-      type: "error",
-      title: "اطلاعات را کامل وارد",
-      ignoreDuplicates: true,
-    });
+    if (state.Onvan) {
+      notify({
+        type: "success",
+        title: "با موفقیت انجام شد",
+        ignoreDuplicates: true,
+      });
+    } else {
+      notify({
+        type: "error",
+        title: "اطلاعات را کامل وارد",
+        ignoreDuplicates: true,
+      });
+    }
   }
 };
 </script>
@@ -69,13 +87,18 @@ const HandelServiceKhorasan = () => {
           class="form-check-label text-lg inline-block text-gray-800"
           for="flexCheckDefault"
         >
-          فقط شامل یک سال تحصیلی مشخص میباشد
-          <br />
           <p class="p-0 m-0 text-blue-500">
             (واکشی اطلاعات ممتازین برای یک سال تحصیلی خاص)
           </p>
         </label>
       </div>
+      <input
+        v-model.trim="state.Code"
+        v-show="state.ChekBox"
+        class="InputService"
+        placeholder="سال تحصیلی"
+        type="text"
+      />
       <button class="BtnService" @click="HandelServiceKhorasan">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
