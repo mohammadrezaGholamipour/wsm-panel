@@ -76,7 +76,7 @@ const HandelWebService = () => {
   <div class="ParentService">
     <notifications position="center top" class="mt-1" width="265" />
     <img
-      src="../assets/image/WebService.png"
+      src="../assets/image/WebService3.png"
       style="width: 367px; margin: 0"
       alt="webService"
     />
@@ -89,7 +89,7 @@ const HandelWebService = () => {
         type="text"
       />
       <DatePicker
-        class="InputService p-1"
+        class="InputService p-0"
         v-for="(items, index) in InputTarikh"
         :placeholder="items.Placeholder"
         v-model="items.Value"
@@ -119,7 +119,7 @@ const HandelWebService = () => {
 }
 .vpd-main {
   margin-top: 7px;
-  width: 240px;
+  width: 300px;
 }
 .vpd-input-group input {
   padding: 7px;
