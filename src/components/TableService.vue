@@ -2,7 +2,7 @@
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import TabelServiceApi from "../api/TabelServiceApi";
 import { onMounted, watch } from "@vue/runtime-core";
-import { reactive} from "@vue/reactivity";
+import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 const Route = useRoute();
 const state = reactive({
@@ -392,14 +392,15 @@ state.ServiceMethodId = Route.meta.requestServicemethodid;
 // ////////////////////////////
 // HandelRequsetForTabelService
 const GetTabel = (ServiceMethodId, ServiceId) => {
-  TabelServiceApi.TabelService(ServiceMethodId, ServiceId)
-    .then((response) => {
-      state.TabelList = response.data;
-      console.log(response.data);
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
+  console.log(ServiceMethodId, ServiceId);
+  // TabelServiceApi.TabelService(ServiceMethodId, ServiceId)
+  //   .then((response) => {
+  //     state.TabelList = response.data;
+  //     console.log(response.data);
+  //   })
+  //   .catch((error) => {
+  //     alert(error.message);
+  //   });
 };
 onMounted(() => {
   GetTabel(state.ServiceId, state.ServiceMethodId);

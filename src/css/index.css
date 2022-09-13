@@ -229,11 +229,13 @@
     width: 100% !important;
   }
   .MenuLinkNested {
-    @apply flex items-center flex-row-reverse p-1 w-full justify-end text-gray-700  rounded-lg hover:text-gray-900 hover:bg-[#60645f1c]  transition duration-300 ease-in-out cursor-pointer;
+    @apply flex items-center flex-row-reverse  w-full justify-end text-gray-700  rounded-lg hover:text-gray-900 hover:bg-[#60645f1c]  transition duration-300 ease-in-out cursor-pointer;
     font-size: 13pt;
+    padding: 3px;
+    margin: 2px 0px;
   }
   .MenuSystemHr {
-    @apply h-0 my-1 border border-solid border-t-0 border-gray-700 opacity-25;
+    @apply h-0 my-1 border border-dotted border-t-0 border-gray-700 opacity-25;
   }
 
   /* FinishMenu */

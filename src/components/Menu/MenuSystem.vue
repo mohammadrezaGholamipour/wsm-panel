@@ -444,17 +444,17 @@ const HandelCollapseUl = (itemstitle) => {
               icon=" fa-solid fa-circle-arrow-down"
               :class="
                 items.isOpen
-                  ? 'rotate-180 text-red-500  duration-500'
-                  : ' text-slate-500 duration-500'
+                  ? 'rotate-180 text-red-500  duration-700'
+                  : ' text-slate-500 duration-700'
               "
             />
           </a>
           <transition
-            enter-active-class="duration-500 ease-out"
+            enter-active-class="duration-700 ease-out"
             enter-from-class="transform opacity-0"
             leave-to-class="transform opacity-0"
-            leave-from-class="opacity-100"
-            enter-to-class="opacity-100"
+            leave-from-class="opacity-200"
+            enter-to-class="opacity-200"
           >
             <ul @click.stop v-show="items.isOpen">
               <li
