@@ -27,7 +27,9 @@ const state = reactive({
 const GetServiceKhorasan = (WebService) => {
   console.log(WebService);
   // ServiceKhorasanApi.Khorasan(WebService)
-  //   .then((response) => {})
+  //   .then((response) => {
+   // console.log(response);
+ // })
   //   .catch((error) => {
   //     alert(error.message);
   //   });

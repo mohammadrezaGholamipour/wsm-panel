@@ -16,7 +16,7 @@ const GetWebService = (WebService) => {
   console.log(WebService);
   // ServiceFormApi.Form(WebService)
   //   .then((response) => {
-  //
+  // // console.log(response);
   //   })
   //   .catch((error) => {
   //     alert(error.message);

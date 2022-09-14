@@ -23,7 +23,7 @@ const GetServiceKhaharan = (WebService) => {
   console.log(WebService);
   // ServiceKhaharanApi.Khaharan(WebService)
   //   .then((response) => {
-  //
+  // // console.log(response);
   //   })
   //   .catch((error) => {
   //     alert(error.message);

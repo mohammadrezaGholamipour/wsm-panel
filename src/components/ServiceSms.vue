@@ -29,7 +29,7 @@ const SendSms = (WebService) => {
   console.log(WebService);
   // ServiceSmsApi.Sms(WebService)
   //   .then((response) => {
-  //
+  // // console.log(response);
   //   })
   //   .catch((error) => {
   //     alert(error.message);

@@ -20,7 +20,9 @@ state.ServiceMethodId = Route.meta.Servicemethodid;
 const GetServiceMostafa = (WebService) => {
   console.log(WebService);
   // ServiceMostafaApi.Mostafa(WebService)
-  //   .then((response) => {})
+  //   .then((response) => {
+     // console.log(response);
+ // })
   //   .catch((error) => {
   //     alert(error.message);
   //   });
