@@ -1,6 +1,6 @@
 <script setup>
-import WebService from "../components/WebService.vue";
+import ServiceForm from "../components/ServiceForm.vue";
 </script>
 <template>
-  <WebService />
+  <ServiceForm />
 </template>

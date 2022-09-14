@@ -1,8 +1,6 @@
 <script setup>
-import TableService from "../components/TableService.vue";
+import ServiceTable from "../components/ServiceTable.vue";
 </script>
 <template>
-  <TableService />
+  <ServiceTable />
 </template>
-
-<style></style>

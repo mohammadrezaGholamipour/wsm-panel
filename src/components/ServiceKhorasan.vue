@@ -1,5 +1,5 @@
 <script setup>
-import KhorasanServiceApi from "../api/KhaharanServiceApi";
+import ServiceKhorasanApi from "../api/ServiceKhorasanApi";
 import { notify } from "@kyvg/vue3-notification";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
@@ -8,18 +8,28 @@ const Route = useRoute();
 const state = reactive({
   ServiceId: "",
   ServiceMethodId: "",
-  Onvan: "",
+  Name: "",
   ChekBox: false,
-  Code: "",
+  Input: "",
+  InputSelect: [
+    { text: "1394", value: "1" },
+    { text: "1395", value: "2" },
+    { text: "1396", value: "3" },
+    { text: "1397", value: "4" },
+    { text: "1398", value: "5" },
+    { text: "1399", value: "6" },
+    { text: "1400", value: "7" },
+    { text: "1401", value: "8" },
+  ],
+  WebService: {},
 });
-
-state.ServiceMethodId = Route.meta.Servicemethodid;
-state.ServiceId = Route.meta.serviceid;
 // HandelRequestForServiceKhorasan
-const GetServiceKhorasan = (Onvan, ChekBox, ServiceId, ServiceMethodId) => {
-  console.log(Onvan, ChekBox, ServiceId, ServiceMethodId);
-  // KhorasanServiceApi.KhorasanService()
-  //   .then((response) => {})
+const GetServiceKhorasan = (WebService) => {
+  console.log(WebService);
+  // ServiceKhorasanApi.Khorasan(WebService)
+  //   .then((response) => {
+   // console.log(response);
+ // })
   //   .catch((error) => {
   //     alert(error.message);
   //   });
@@ -27,15 +37,19 @@ const GetServiceKhorasan = (Onvan, ChekBox, ServiceId, ServiceMethodId) => {
 // FinishHandelRequestForServiceKhorasan;
 const HandelServiceKhorasan = () => {
   if (state.ChekBox) {
-    if (state.Onvan && state.Code) {
-      GetServiceMostafa(
-        state.Onvan,
-        state.ChekBox,
-        state.ServiceId,
-        state.ServiceMethodId
-      );
-      state.Onvan = "";
-      state.Code = "";
+    if (state.Name && state.Input) {
+      // پر کردن اطلاعات
+      state.WebService = {
+        Name: state.Name,
+        Input: state.Input,
+        Serviceid: Route.meta.serviceid,
+        Servicemethodid: Route.meta.Servicemethodid,
+      };
+      // ارسال اطلاعات
+      GetServiceKhorasan(JSON.stringify(state.WebService));
+      // خالی کردن
+      state.Name = "";
+      state.Input = "";
       notify({
         type: "success",
         title: "با موفقیت انجام شد",
@@ -49,7 +63,18 @@ const HandelServiceKhorasan = () => {
       });
     }
   } else {
-    if (state.Onvan) {
+    if (state.Name) {
+      // پر کردن اطلاعات
+      state.WebService = {
+        Name: state.Name,
+        Input: "",
+        Serviceid: Route.meta.serviceid,
+        Servicemethodid: Route.meta.Servicemethodid,
+      };
+      // ارسال اطلاعات
+      GetServiceKhorasan(JSON.stringify(state.WebService));
+      // خالی کردن
+      state.Name = "";
       notify({
         type: "success",
         title: "با موفقیت انجام شد",
@@ -77,11 +102,11 @@ const HandelServiceKhorasan = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="state.Onvan"
+        v-model.trim="state.Name"
         placeholder="عنوان"
         type="text"
       />
-      <div class="flex flex-row-reverse my-3 items-start justify-center">
+      <div class="flex flex-row-reverse my-3 mt-4 items-start justify-center">
         <input v-model="state.ChekBox" class="InputChekBox" type="checkbox" />
         <label
           class="form-check-label text-lg inline-block text-gray-800"
@@ -92,13 +117,25 @@ const HandelServiceKhorasan = () => {
           </p>
         </label>
       </div>
-      <input
-        v-model.trim="state.Code"
-        v-show="state.ChekBox"
-        class="InputService"
-        placeholder="سال تحصیلی"
-        type="text"
-      />
+      <div class="flex justify-center">
+        <select
+          v-model.trim="state.Input"
+          v-show="state.ChekBox"
+          class="mx-auto px-2 py-1.5 shadow-md text-gray-700 bg-white bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
+          aria-label="سال تحصیلی"
+          placeholder="fdsfasdf"
+        >
+          <option
+            class="text-center"
+            v-for="items in state.InputSelect"
+            :value="items.value"
+            :key="items.value"
+          >
+            {{ items.text }}
+          </option>
+        </select>
+      </div>
+
       <button class="BtnService" @click="HandelServiceKhorasan">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />

@@ -1,5 +1,5 @@
 <script setup>
-import SmsServiceApi from "../api/SmsServiceApi";
+import ServiceSmsApi from "../api/ServiceSmsApi";
 import { notify } from "@kyvg/vue3-notification";
 import { computed } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
@@ -9,7 +9,10 @@ const Route = useRoute();
 const state = reactive({
   ServiceId: "",
   ServiceMethodId: "",
-  Onvan: "",
+  Name: "",
+  InputSelectValue: "",
+  Shenase: "",
+  MatneSms: "",
   InputSelect: [
     { text: "کدملی", value: "1" },
     { text: "کد اختصاصی گذرنامه", value: "2" },
@@ -19,32 +22,14 @@ const state = reactive({
     { text: "شناسه ملی", value: "6" },
     { text: "شماره فراگیر گذرنامه", value: "7" },
   ],
-  InputSelectValue: "",
-  Shenase: "",
-  MatneSms: "",
+  WebService: {},
 });
-state.ServiceMethodId = Route.meta.Servicemethodid;
-state.ServiceId = Route.meta.serviceid;
 /////////////////////////////////////
-const SendSms = (
-  Onvan,
-  InputSelectValue,
-  Shenase,
-  MatneSms,
-  ServiceId,
-  ServiceMethodId
-) => {
-  console.log(
-    Onvan,
-    InputSelectValue,
-    Shenase,
-    MatneSms,
-    ServiceId,
-    ServiceMethodId
-  );
-  // SmsServiceApi.SmsService()
+const SendSms = (WebService) => {
+  console.log(WebService);
+  // ServiceSmsApi.Sms(WebService)
   //   .then((response) => {
-  //
+  // // console.log(response);
   //   })
   //   .catch((error) => {
   //     alert(error.message);
@@ -52,21 +37,22 @@ const SendSms = (
 };
 const AllInputSms = computed(() => {
   return (
-    state.Onvan && state.InputSelectValue && state.Shenase && state.MatneSms
+    state.Name && state.InputSelectValue && state.Shenase && state.MatneSms
   );
 });
 const HandelServiceSms = () => {
   if (AllInputSms.value) {
-    SendSms(
-      state.Onvan,
-      state.InputSelectValue,
-      state.Shenase,
-      state.MatneSms,
-      state.ServiceId,
-      state.ServiceMethodId
-    );
+    state.WebService = {
+      Name: state.Name,
+      IdType: state.InputSelectValue,
+      IdNumber: state.Shenase,
+      Message: state.MatneSms,
+      Serviceid: Route.meta.serviceid,
+      Servicemethodid: Route.meta.Servicemethodid,
+    };
+    SendSms(JSON.stringify(state.WebService));
     // خالی کردن اینپوت ها
-    state.Onvan = "";
+    state.Name = "";
     state.InputSelectValue = "";
     state.Shenase = "";
     state.MatneSms = "";
@@ -106,7 +92,7 @@ const ShenasePlaceHolder = computed(() => {
       <input
         class="InputService"
         placeholder="عنوان"
-        v-model.trim="state.Onvan"
+        v-model.trim="state.Name"
         type="text"
       />
       <div class="ParentInputSelectSms">
