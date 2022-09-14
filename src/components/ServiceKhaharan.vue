@@ -1,5 +1,5 @@
 <script setup>
-import KhaharanServiceApi from "../api/KhaharanServiceApi";
+import ServiceKhaharanApi from "../api/ServiceKhaharanApi";
 import DatePicker from "vue3-persian-datetime-picker";
 import { notify } from "@kyvg/vue3-notification";
 import Convert from "../config/common";
@@ -10,18 +10,18 @@ const Route = useRoute();
 const state = reactive({
   ServiceId: "",
   ServiceMethodId: "",
-  Onvan: "",
+  Name: "",
   InputTarikh: [
     { Placeholder: "تاریخ شروع", Value: "" },
     { Placeholder: "تاریخ پایان", Value: "" },
   ],
-  KhaharanService: {},
+  WebService: {},
 });
 
 // HandelRequestForServiceKhaharan
-const GetServiceKhaharan = (KhaharanService) => {
-  console.log(KhaharanService);
-  // KhaharanServiceApi.KhaharanService(KhaharanService)
+const GetServiceKhaharan = (WebService) => {
+  console.log(WebService);
+  // ServiceKhaharanApi.Khaharan(WebService)
   //   .then((response) => {
   //
   //   })
@@ -32,24 +32,24 @@ const GetServiceKhaharan = (KhaharanService) => {
 // FinishHandelRequestForServiceKhaharan
 const HandelWebService = () => {
   const Tarikh = state.InputTarikh.every((items) => !!items.Value === true);
-  if (Tarikh && state.Onvan) {
+  if (Tarikh && state.Name) {
     // تبدیل تاریخ به میلادی
     state.InputTarikh.forEach(
       (items) => (items.Value = Convert.dateConvertToGregorian(items.Value))
     );
     // پر کردن اطلاعات
-    state.KhaharanService = {
-      Name: state.Onvan,
+    state.WebService = {
+      Name: state.Name,
       Input: `${state.InputTarikh[0].Value},${state.InputTarikh[1].Value}`,
       Serviceid: Route.meta.serviceid,
       Servicemethodid: Route.meta.Servicemethodid,
     };
     // ارسال کردن
-    GetServiceKhaharan(JSON.stringify(state.KhaharanService));
+    GetServiceKhaharan(JSON.stringify(state.WebService));
     // خالی کردن اینپوت ها
     state.InputTarikh[0].Value = "";
     state.InputTarikh[1].Value = "";
-    state.Onvan = "";
+    state.Name = "";
     notify({
       type: "success",
       title: "با موفقیت انجام شد",
@@ -76,7 +76,7 @@ const HandelWebService = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="state.Onvan"
+        v-model.trim="state.Name"
         placeholder="عنوان"
         type="text"
       />

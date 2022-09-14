@@ -1,5 +1,5 @@
 <script setup>
-import FormServiceApi from "../api/FormServiceApi";
+import ServiceFormApi from "../api/ServiceFormApi";
 import { notify } from "@kyvg/vue3-notification";
 import { watch } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
@@ -7,46 +7,46 @@ import { useRoute } from "vue-router";
 // ////////////////////////
 const Route = useRoute();
 const state = reactive({
-  WebServiceForm: {},
-  Onvan: "",
-  Code: "",
+  WebService: {},
+  Name: "",
+  Input: "",
 });
 // ////////////////////////
-const GetWebService = (WebServiceForm) => {
-  console.log(WebServiceForm);
-  FormServiceApi.FormService(WebServiceForm)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
+const GetWebService = (WebService) => {
+  console.log(WebService);
+  // ServiceFormApi.Form(WebService)
+  //   .then((response) => {
+  //
+  //   })
+  //   .catch((error) => {
+  //     alert(error.message);
+  //   });
 };
 watch(Route, () => {
-  state.WebServiceForm = "";
-  state.Onvan = "";
-  state.Code = "";
+  state.WebService = "";
+  state.Name = "";
+  state.Input = "";
 });
 const HandelService = () => {
   if (Route.meta.isone > 0) {
-    if (!state.Onvan || !state.Code) {
+    if (!state.Name || !state.Input) {
       notify({
         type: "error",
         title: "اطلاعات را کامل وارد کنید",
       });
     } else {
       // پر کردن اطلاعات
-      state.WebServiceForm = {
-        Name: state.Onvan,
-        Input: state.Code,
+      state.WebService = {
+        Name: state.Name,
+        Input: state.Input,
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
       // ارسال کردن
-      GetWebService(JSON.stringify(state.WebServiceForm));
-      // خالی کردن 
-      state.Onvan = "";
-      state.Code = "";
+      GetWebService(JSON.stringify(state.WebService));
+      // خالی کردن
+      state.Name = "";
+      state.Input = "";
       notify({
         type: "success",
         title: "با موفقیت انجام شد",
@@ -54,18 +54,18 @@ const HandelService = () => {
       });
     }
   } else {
-    if (state.Onvan) {
+    if (state.Name) {
       // پر کردن اطلاعات
-      state.WebServiceForm = {
-        Name: state.Onvan,
+      state.WebService = {
+        Name: state.Name,
         Input: "",
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
       // ارسال کردن
-      GetWebService(JSON.stringify(state.WebServiceForm));
+      GetWebService(JSON.stringify(state.WebService));
       // خالی کردن
-      state.Onvan = "";
+      state.Name = "";
       notify({
         type: "success",
         title: "انجام شد",
@@ -87,14 +87,14 @@ const HandelService = () => {
     <img
       src="../assets/image/WebService.png"
       style="width: 367px; margin: 0"
-      alt="WebServiceForm"
+      alt="WebService"
     />
 
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
         placeholder="عنوان"
-        v-model.trim="state.Onvan"
+        v-model.trim="state.Name"
         type="text"
       />
       <transition
@@ -109,7 +109,7 @@ const HandelService = () => {
           v-show="Route.meta.isone > 0"
           class="InputService"
           placeholder="ورودی"
-          v-model.trim="state.Code"
+          v-model.trim="state.Input"
           type="text"
         />
       </transition>

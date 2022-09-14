@@ -1,5 +1,5 @@
 <script setup>
-import MostafaServiceApi from "../api/MostafaServiceApi";
+import ServiceMostafaApi from "../api/ServiceMostafaApi";
 import { notify } from "@kyvg/vue3-notification";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
@@ -8,18 +8,18 @@ const Route = useRoute();
 const state = reactive({
   ServiceId: "",
   ServiceMethodId: "",
-  Onvan: "",
+  Name: "",
   ChekBox: false,
-  Code: "",
-  MostafaService: {},
+  Input: "",
+  WebService: {},
 });
 
 state.ServiceId = Route.meta.serviceid;
 state.ServiceMethodId = Route.meta.Servicemethodid;
 // HandelRequestForServiceMostafa
-const GetServiceMostafa = (MostafaService) => {
-  console.log(MostafaService);
-  // MostafaServiceApi.MostafaService()
+const GetServiceMostafa = (WebService) => {
+  console.log(WebService);
+  // ServiceMostafaApi.Mostafa(WebService)
   //   .then((response) => {})
   //   .catch((error) => {
   //     alert(error.message);
@@ -28,16 +28,16 @@ const GetServiceMostafa = (MostafaService) => {
 // FinishHandelRequestForServiceMostafa;
 const HandelServiceMostafa = () => {
   if (state.ChekBox) {
-    if (state.Onvan && state.Code) {
-      state.MostafaService = {
-        Name: state.Onvan,
-        Input: state.Code,
+    if (state.Name && state.Input) {
+      state.WebService = {
+        Name: state.Name,
+        Input: state.Input,
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
-      GetServiceMostafa(JSON.stringify(state.MostafaService));
-      state.Onvan = "";
-      state.Code = "";
+      GetServiceMostafa(JSON.stringify(state.WebService));
+      state.Name = "";
+      state.Input = "";
       notify({
         type: "success",
         title: "با موفقیت انجام شد",
@@ -51,15 +51,15 @@ const HandelServiceMostafa = () => {
       });
     }
   } else {
-    if (state.Onvan) {
-      state.MostafaService = {
-        Name: state.Onvan,
+    if (state.Name) {
+      state.WebService = {
+        Name: state.Name,
         Input: "",
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
-      GetServiceMostafa(JSON.stringify(state.MostafaService));
-      state.Onvan = "";
+      GetServiceMostafa(JSON.stringify(state.WebService));
+      state.Name = "";
       notify({
         type: "success",
         title: "با موفقیت انجام شد",
@@ -87,7 +87,7 @@ const HandelServiceMostafa = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="state.Onvan"
+        v-model.trim="state.Name"
         placeholder="عنوان"
         type="text"
       />
@@ -103,7 +103,7 @@ const HandelServiceMostafa = () => {
         </label>
       </div>
       <input
-        v-model.trim="state.Code"
+        v-model.trim="state.Input"
         placeholder="کد تحصیلی"
         v-show="state.ChekBox"
         class="InputService"

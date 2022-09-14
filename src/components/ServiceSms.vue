@@ -1,5 +1,5 @@
 <script setup>
-import SmsServiceApi from "../api/SmsServiceApi";
+import ServiceSmsApi from "../api/ServiceSmsApi";
 import { notify } from "@kyvg/vue3-notification";
 import { computed } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
@@ -9,7 +9,7 @@ const Route = useRoute();
 const state = reactive({
   ServiceId: "",
   ServiceMethodId: "",
-  Onvan: "",
+  Name: "",
   InputSelectValue: "",
   Shenase: "",
   MatneSms: "",
@@ -22,12 +22,12 @@ const state = reactive({
     { text: "شناسه ملی", value: "6" },
     { text: "شماره فراگیر گذرنامه", value: "7" },
   ],
-  Sms: {},
+  WebService: {},
 });
 /////////////////////////////////////
-const SendSms = (Sms) => {
-  console.log(Sms);
-  // SmsServiceApi.SmsService()
+const SendSms = (WebService) => {
+  console.log(WebService);
+  // ServiceSmsApi.Sms(WebService)
   //   .then((response) => {
   //
   //   })
@@ -37,22 +37,22 @@ const SendSms = (Sms) => {
 };
 const AllInputSms = computed(() => {
   return (
-    state.Onvan && state.InputSelectValue && state.Shenase && state.MatneSms
+    state.Name && state.InputSelectValue && state.Shenase && state.MatneSms
   );
 });
 const HandelServiceSms = () => {
   if (AllInputSms.value) {
-    state.Sms = {
-      Name: state.Onvan,
+    state.WebService = {
+      Name: state.Name,
       IdType: state.InputSelectValue,
       IdNumber: state.Shenase,
       Message: state.MatneSms,
       Serviceid: Route.meta.serviceid,
       Servicemethodid: Route.meta.Servicemethodid,
     };
-    SendSms(JSON.stringify(state.Sms));
+    SendSms(JSON.stringify(state.WebService));
     // خالی کردن اینپوت ها
-    state.Onvan = "";
+    state.Name = "";
     state.InputSelectValue = "";
     state.Shenase = "";
     state.MatneSms = "";
@@ -92,7 +92,7 @@ const ShenasePlaceHolder = computed(() => {
       <input
         class="InputService"
         placeholder="عنوان"
-        v-model.trim="state.Onvan"
+        v-model.trim="state.Name"
         type="text"
       />
       <div class="ParentInputSelectSms">

@@ -1,6 +1,6 @@
 <script setup>
-import FormService from "../components/FormService.vue";
+import ServiceForm from "../components/ServiceForm.vue";
 </script>
 <template>
-  <FormService />
+  <ServiceForm />
 </template>
