@@ -85,9 +85,9 @@ const HandelService = () => {
   <div class="ParentService">
     <notifications position="top center" class="mt-1" width="320" />
     <img
-      src="../assets/image/WebService.png"
+      src="../assets/image/FormService.png"
       style="width: 367px; margin: 0"
-      alt="WebService"
+      alt="FormService"
     />
 
     <div class="flex justify-center flex-col items-center">

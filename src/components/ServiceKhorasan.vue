@@ -28,8 +28,8 @@ const GetServiceKhorasan = (WebService) => {
   console.log(WebService);
   // ServiceKhorasanApi.Khorasan(WebService)
   //   .then((response) => {
-   // console.log(response);
- // })
+  // console.log(response);
+  // })
   //   .catch((error) => {
   //     alert(error.message);
   //   });
@@ -94,9 +94,9 @@ const HandelServiceKhorasan = () => {
   <div class="ParentService">
     <notifications position="center top" class="mt-1" width="320" />
     <img
-      src="../assets/image/WebService2.png"
+      src="../assets/image/KhorasanService.png"
       style="width: 367px; margin: 0"
-      alt="webService"
+      alt="KhorasanService"
     />
 
     <div class="flex justify-center flex-col items-center">

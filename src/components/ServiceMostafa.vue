@@ -21,8 +21,8 @@ const GetServiceMostafa = (WebService) => {
   console.log(WebService);
   // ServiceMostafaApi.Mostafa(WebService)
   //   .then((response) => {
-     // console.log(response);
- // })
+  // console.log(response);
+  // })
   //   .catch((error) => {
   //     alert(error.message);
   //   });
@@ -81,9 +81,9 @@ const HandelServiceMostafa = () => {
   <div class="ParentService">
     <notifications position="center top" class="mt-1" width="320" />
     <img
-      src="../assets/image/WebService2.png"
+      src="../assets/image/MostafaService.png"
       style="width: 367px; margin: 0"
-      alt="webService"
+      alt="MostafaService"
     />
 
     <div class="flex justify-center flex-col items-center">
