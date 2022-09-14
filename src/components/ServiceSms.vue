@@ -82,7 +82,7 @@ const ShenasePlaceHolder = computed(() => {
 </script>
 <template>
   <div class="ParentService">
-    <notifications position="top center" class="mt-2" width="320" />
+    <notifications position="top center" class="mt-1" width="320" />
     <img
       src="../assets/image/SmsService.png"
       style="width: 320px"
@@ -130,4 +130,3 @@ const ShenasePlaceHolder = computed(() => {
     </div>
   </div>
 </template>
-<style></style>

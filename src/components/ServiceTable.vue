@@ -6,7 +6,7 @@ import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 const Route = useRoute();
 const state = reactive({
-  TabelList: {
+  TableList: {
     status: 200,
     meta_data: {
       current_page: 2,
@@ -395,7 +395,7 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
   console.log(ServiceMethodId, ServiceId);
   // ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
   //   .then((response) => {
-  //     state.TabelList = response.data;
+  //     state.TableList = response.data;
   //     console.log(response.data);
   //   })
   //   .catch((error) => {
@@ -414,7 +414,7 @@ watch(Route, () => {
 });
 // FinishRequsetForTabelService;
 // /////////////////////////////
-state.CurrentPage = state.TabelList.meta_data.current_page;
+state.CurrentPage = state.TableList.meta_data.current_page;
 const HandelPrevPagination = () => {
   if (state.CurrentPage > 1) {
     state.CurrentPage--;
@@ -428,7 +428,7 @@ const HandelFilterInput = (input, value) => {
 };
 const ExportExcel = () => {
   saveExcel({
-    data: state.TabelList.data,
+    data: state.TableList.data,
     fileName: "TableService",
     columns: [
       { field: "Id", title: "کد" },
@@ -468,8 +468,8 @@ const ExportExcel = () => {
       </thead>
       <tbody>
         <tr
-          v-for="(items, index) in state.TabelList.data"
-          v-show="state.TabelList.status === 200"
+          v-for="(items, index) in state.TableList.data"
+          v-show="state.TableList.status === 200"
           :key="index"
         >
           <td>
@@ -488,7 +488,7 @@ const ExportExcel = () => {
             {{ items.Servicemethodname }}
           </td>
         </tr>
-        <p v-show="state.TabelList.status !== 200">اطلاعات دریافت نشد</p>
+        <p v-show="state.TableList.status !== 200">اطلاعات دریافت نشد</p>
       </tbody>
     </table>
     <!-- ////////////////////////////////////////// -->

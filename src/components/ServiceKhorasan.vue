@@ -92,7 +92,7 @@ const HandelServiceKhorasan = () => {
 </script>
 <template>
   <div class="ParentService">
-    <notifications position="center top" class="mt-1" width="265" />
+    <notifications position="center top" class="mt-1" width="320" />
     <img
       src="../assets/image/WebService2.png"
       style="width: 367px; margin: 0"

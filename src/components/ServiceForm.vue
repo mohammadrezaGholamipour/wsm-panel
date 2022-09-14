@@ -121,7 +121,3 @@ const HandelService = () => {
     </div>
   </div>
 </template>
-<style>
-
-/* left: calc(50% - 160px); */
-</style>

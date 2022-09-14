@@ -1,19 +1,19 @@
 <script setup>
-import ServiceKhaharanApi from '../api/ServiceKhaharanApi';
-import DatePicker from 'vue3-persian-datetime-picker';
-import { notify } from '@kyvg/vue3-notification';
-import Convert from '@/utilities/common.js';
-import { reactive } from '@vue/reactivity';
-import { useRoute } from 'vue-router';
+import ServiceKhaharanApi from "../api/ServiceKhaharanApi";
+import DatePicker from "vue3-persian-datetime-picker";
+import { notify } from "@kyvg/vue3-notification";
+import Convert from "@/utilities/common.js";
+import { reactive } from "@vue/reactivity";
+import { useRoute } from "vue-router";
 /////////////////////////////////////////////////
 const Route = useRoute();
 const state = reactive({
-  ServiceId: '',
-  ServiceMethodId: '',
-  Name: '',
+  ServiceId: "",
+  ServiceMethodId: "",
+  Name: "",
   InputTarikh: [
-    { Placeholder: 'تاریخ شروع', Value: '' },
-    { Placeholder: 'تاریخ پایان', Value: '' },
+    { Placeholder: "تاریخ شروع", Value: "" },
+    { Placeholder: "تاریخ پایان", Value: "" },
   ],
   WebService: {},
 });
@@ -47,18 +47,18 @@ const HandelWebService = () => {
     // ارسال کردن
     GetServiceKhaharan(JSON.stringify(state.WebService));
     // خالی کردن اینپوت ها
-    state.InputTarikh[0].Value = '';
-    state.InputTarikh[1].Value = '';
-    state.Name = '';
+    state.InputTarikh[0].Value = "";
+    state.InputTarikh[1].Value = "";
+    state.Name = "";
     notify({
-      type: 'success',
-      title: 'با موفقیت انجام شد',
+      type: "success",
+      title: "با موفقیت انجام شد",
       ignoreDuplicates: true,
     });
   } else {
     notify({
-      type: 'error',
-      title: 'اطلاعات را کامل وارد',
+      type: "error",
+      title: "اطلاعات را کامل وارد",
       ignoreDuplicates: true,
     });
   }
@@ -66,7 +66,7 @@ const HandelWebService = () => {
 </script>
 <template>
   <div class="ParentService">
-    <notifications position="center top" class="mt-1" width="265" />
+    <notifications position="center top" class="mt-1" width="320" />
     <img
       src="../assets/image/WebService3.png"
       style="width: 367px; margin: 0"
@@ -95,20 +95,6 @@ const HandelWebService = () => {
   </div>
 </template>
 <style>
-.vue-notification {
-  text-align: center !important;
-  font-size: 14pt !important;
-}
-.vue-notification {
-  border: none !important;
-  border-radius: 5px;
-}
-.notification-title {
-  font-weight: 550 !important;
-}
-.vue-notification.warn {
-  background: #bd8736;
-}
 .vpd-main {
   margin-top: 7px;
   width: 300px;
