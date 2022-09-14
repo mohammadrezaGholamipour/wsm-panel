@@ -1,6 +1,6 @@
 <script setup>
-import WebService from "../components/WebService.vue";
+import FormService from "../components/FormService.vue";
 </script>
 <template>
-  <WebService />
+  <FormService />
 </template>

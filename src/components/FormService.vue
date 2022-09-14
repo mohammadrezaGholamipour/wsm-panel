@@ -1,5 +1,5 @@
 <script setup>
-import WebServiceApi from "../api/WebServiceApi";
+import FormServiceApi from "../api/FormServiceApi";
 import { notify } from "@kyvg/vue3-notification";
 import { watch } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
@@ -7,14 +7,14 @@ import { useRoute } from "vue-router";
 // ////////////////////////
 const Route = useRoute();
 const state = reactive({
-  WebServiceForm: "",
+  WebServiceForm: {},
   Onvan: "",
   Code: "",
 });
 // ////////////////////////
 const GetWebService = (WebServiceForm) => {
   console.log(WebServiceForm);
-  WebServiceApi.WebServiceForm(WebServiceForm)
+  FormServiceApi.FormService(WebServiceForm)
     .then((response) => {
       console.log(response);
     })
@@ -35,17 +35,16 @@ const HandelService = () => {
         title: "اطلاعات را کامل وارد کنید",
       });
     } else {
+      // پر کردن اطلاعات
       state.WebServiceForm = {
-        Id: 0,
-        state: 0,
         Name: state.Onvan,
-        Servicemethodname: "",
         Input: state.Code,
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
-        ServiceName: 0,
       };
-      GetWebService(state.WebServiceForm);
+      // ارسال کردن
+      GetWebService(JSON.stringify(state.WebServiceForm));
+      // خالی کردن 
       state.Onvan = "";
       state.Code = "";
       notify({
@@ -56,17 +55,16 @@ const HandelService = () => {
     }
   } else {
     if (state.Onvan) {
+      // پر کردن اطلاعات
       state.WebServiceForm = {
-        Id: 0,
-        state: 0,
         Name: state.Onvan,
-        Servicemethodname: "",
         Input: "",
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
-        ServiceName: 0,
       };
-      GetWebService(state.WebServiceForm);
+      // ارسال کردن
+      GetWebService(JSON.stringify(state.WebServiceForm));
+      // خالی کردن
       state.Onvan = "";
       notify({
         type: "success",

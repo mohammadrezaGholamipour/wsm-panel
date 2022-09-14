@@ -11,13 +11,11 @@ const state = reactive({
   Onvan: "",
   ChekBox: false,
   Code: "",
+  KhorasanService: {},
 });
-
-state.ServiceMethodId = Route.meta.Servicemethodid;
-state.ServiceId = Route.meta.serviceid;
 // HandelRequestForServiceKhorasan
-const GetServiceKhorasan = (Onvan, ChekBox, ServiceId, ServiceMethodId) => {
-  console.log(Onvan, ChekBox, ServiceId, ServiceMethodId);
+const GetServiceKhorasan = (KhorasanService) => {
+  console.log(KhorasanService);
   // KhorasanServiceApi.KhorasanService()
   //   .then((response) => {})
   //   .catch((error) => {
@@ -28,12 +26,16 @@ const GetServiceKhorasan = (Onvan, ChekBox, ServiceId, ServiceMethodId) => {
 const HandelServiceKhorasan = () => {
   if (state.ChekBox) {
     if (state.Onvan && state.Code) {
-      GetServiceMostafa(
-        state.Onvan,
-        state.ChekBox,
-        state.ServiceId,
-        state.ServiceMethodId
-      );
+      // پر کردن اطلاعات
+      state.KhorasanService = {
+        Name: state.Onvan,
+        Input: state.Code,
+        Serviceid: Route.meta.serviceid,
+        Servicemethodid: Route.meta.Servicemethodid,
+      };
+      // ارسال اطلاعات
+      GetServiceMostafa(JSON.stringify(state.KhorasanService));
+      // خالی کردن
       state.Onvan = "";
       state.Code = "";
       notify({
@@ -50,6 +52,17 @@ const HandelServiceKhorasan = () => {
     }
   } else {
     if (state.Onvan) {
+      // پر کردن اطلاعات
+      state.KhorasanService = {
+        Name: state.Onvan,
+        Input: "",
+        Serviceid: Route.meta.serviceid,
+        Servicemethodid: Route.meta.Servicemethodid,
+      };
+      // ارسال اطلاعات
+      GetServiceMostafa(JSON.stringify(state.KhorasanService));
+      // خالی کردن
+      state.Onvan = "";
       notify({
         type: "success",
         title: "با موفقیت انجام شد",

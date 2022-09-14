@@ -11,13 +11,14 @@ const state = reactive({
   Onvan: "",
   ChekBox: false,
   Code: "",
+  MostafaService: {},
 });
 
 state.ServiceId = Route.meta.serviceid;
 state.ServiceMethodId = Route.meta.Servicemethodid;
 // HandelRequestForServiceMostafa
-const GetServiceMostafa = (Onvan, ChekBox, ServiceMethodId, ServiceId) => {
-  console.log(Onvan, ChekBox, ServiceMethodId, ServiceId);
+const GetServiceMostafa = (MostafaService) => {
+  console.log(MostafaService);
   // MostafaServiceApi.MostafaService()
   //   .then((response) => {})
   //   .catch((error) => {
@@ -28,12 +29,13 @@ const GetServiceMostafa = (Onvan, ChekBox, ServiceMethodId, ServiceId) => {
 const HandelServiceMostafa = () => {
   if (state.ChekBox) {
     if (state.Onvan && state.Code) {
-      GetServiceMostafa(
-        state.Onvan,
-        state.ChekBox,
-        state.ServiceId,
-        state.ServiceMethodId
-      );
+      state.MostafaService = {
+        Name: state.Onvan,
+        Input: state.Code,
+        Serviceid: Route.meta.serviceid,
+        Servicemethodid: Route.meta.Servicemethodid,
+      };
+      GetServiceMostafa(JSON.stringify(state.MostafaService));
       state.Onvan = "";
       state.Code = "";
       notify({
@@ -50,6 +52,14 @@ const HandelServiceMostafa = () => {
     }
   } else {
     if (state.Onvan) {
+      state.MostafaService = {
+        Name: state.Onvan,
+        Input: "",
+        Serviceid: Route.meta.serviceid,
+        Servicemethodid: Route.meta.Servicemethodid,
+      };
+      GetServiceMostafa(JSON.stringify(state.MostafaService));
+      state.Onvan = "";
       notify({
         type: "success",
         title: "با موفقیت انجام شد",

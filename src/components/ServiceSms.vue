@@ -10,6 +10,9 @@ const state = reactive({
   ServiceId: "",
   ServiceMethodId: "",
   Onvan: "",
+  InputSelectValue: "",
+  Shenase: "",
+  MatneSms: "",
   InputSelect: [
     { text: "کدملی", value: "1" },
     { text: "کد اختصاصی گذرنامه", value: "2" },
@@ -19,29 +22,11 @@ const state = reactive({
     { text: "شناسه ملی", value: "6" },
     { text: "شماره فراگیر گذرنامه", value: "7" },
   ],
-  InputSelectValue: "",
-  Shenase: "",
-  MatneSms: "",
+  Sms: {},
 });
-state.ServiceMethodId = Route.meta.Servicemethodid;
-state.ServiceId = Route.meta.serviceid;
 /////////////////////////////////////
-const SendSms = (
-  Onvan,
-  InputSelectValue,
-  Shenase,
-  MatneSms,
-  ServiceId,
-  ServiceMethodId
-) => {
-  console.log(
-    Onvan,
-    InputSelectValue,
-    Shenase,
-    MatneSms,
-    ServiceId,
-    ServiceMethodId
-  );
+const SendSms = (Sms) => {
+  console.log(Sms);
   // SmsServiceApi.SmsService()
   //   .then((response) => {
   //
@@ -57,14 +42,15 @@ const AllInputSms = computed(() => {
 });
 const HandelServiceSms = () => {
   if (AllInputSms.value) {
-    SendSms(
-      state.Onvan,
-      state.InputSelectValue,
-      state.Shenase,
-      state.MatneSms,
-      state.ServiceId,
-      state.ServiceMethodId
-    );
+    state.Sms = {
+      Name: state.Onvan,
+      IdType: state.InputSelectValue,
+      IdNumber: state.Shenase,
+      Message: state.MatneSms,
+      Serviceid: Route.meta.serviceid,
+      Servicemethodid: Route.meta.Servicemethodid,
+    };
+    SendSms(JSON.stringify(state.Sms));
     // خالی کردن اینپوت ها
     state.Onvan = "";
     state.InputSelectValue = "";
