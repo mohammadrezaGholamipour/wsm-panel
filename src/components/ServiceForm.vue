@@ -7,20 +7,40 @@ import { useRoute } from "vue-router";
 // ////////////////////////
 const Route = useRoute();
 const state = reactive({
+  Loading: false,
   WebService: {},
   Name: "",
   Input: "",
 });
 // ////////////////////////
 const GetWebService = (WebService) => {
-  console.log(WebService);
-  // ServiceFormApi.Form(WebService)
-  //   .then((response) => {
-  // // console.log(response);
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  state.Loading = true;
+  ServiceFormApi.Form(WebService)
+    .then((response) => {
+      console.log(response);
+      setTimeout(() => {
+        state.Loading = false;
+        notify({
+          type: "success",
+          title: "اطلاعات با موفقیت دریافت شد",
+          ignoreDuplicates: false,
+        });
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      state.Loading = true;
+      notify({
+        type: "error",
+        title: "اطلاعات دریافت نشد لطفا مجدد امتحان کنید",
+        ignoreDuplicates: false,
+      });
+    })
+    .finally(() => {
+      setTimeout(() => {
+        state.Loading = false;
+      }, 2000);
+    });
 };
 watch(Route, () => {
   state.WebService = "";
@@ -33,6 +53,7 @@ const HandelService = () => {
       notify({
         type: "error",
         title: "اطلاعات را کامل وارد کنید",
+        ignoreDuplicates: false,
       });
     } else {
       // پر کردن اطلاعات
@@ -47,11 +68,6 @@ const HandelService = () => {
       // خالی کردن
       state.Name = "";
       state.Input = "";
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
-        ignoreDuplicates: true,
-      });
     }
   } else {
     if (state.Name) {
@@ -66,59 +82,106 @@ const HandelService = () => {
       GetWebService(JSON.stringify(state.WebService));
       // خالی کردن
       state.Name = "";
-      notify({
-        type: "success",
-        title: "انجام شد",
-        ignoreDuplicates: true,
-      });
     } else {
       notify({
         type: "error",
         title: "عنوان را وارد کنید",
-        ignoreDuplicates: true,
+        ignoreDuplicates: false,
       });
     }
   }
 };
 </script>
 <template>
-  <div class="ParentService">
-    <notifications position="top right" class="mt-2" width="320" />
-    <img
-      src="../assets/image/WebService.png"
-      style="width: 367px; margin: 0"
-      alt="WebService"
-    />
-
-    <div class="flex justify-center flex-col items-center">
-      <input
-        class="InputService"
-        placeholder="عنوان"
-        v-model.trim="state.Name"
-        type="text"
-      />
-      <transition
-        enter-active-class="duration-500 ease-out"
-        leave-active-class="duration-200 ease-out"
-        enter-from-class="transform opacity-0"
-        leave-to-class="transform opacity-0"
-        leave-from-class="opacity-100"
-        enter-to-class="opacity-100"
+  <div class="w-full h-full">
+    <notifications position="top center" class="mt-2" width="350" />
+    <div
+      v-if="state.Loading"
+      class="flex w-full h-full justify-center items-center space-x-2"
+    >
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current ml-1 rounded-full opacity-0 text-purple-500"
+        role="status"
       >
-        <input
-          v-show="Route.meta.isone > 0"
-          class="InputService"
-          placeholder="ورودی"
-          v-model.trim="state.Input"
-          type="text"
-        />
-      </transition>
-
-      <button class="BtnService" @click="HandelService">
-        وب سرویس
-        <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
-      </button>
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-green-500"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-yellow-500"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
+    <transition
+      enter-active-class="duration-500 ease-out"
+      leave-active-class="duration-200 ease-out"
+      enter-from-class="transform opacity-0"
+      leave-to-class="transform opacity-0"
+      leave-from-class="opacity-100"
+      enter-to-class="opacity-100"
+    >
+      <div v-show="!state.Loading" class="ParentService">
+        <img
+          src="../assets/image/WebService.png"
+          style="width: 367px; margin: 0"
+          alt="WebService"
+        />
+
+        <div class="flex justify-center flex-col items-center">
+          <input
+            class="InputService"
+            placeholder="عنوان"
+            v-model.trim="state.Name"
+            type="text"
+          />
+          <transition
+            enter-active-class="duration-500 ease-out"
+            leave-active-class="duration-200 ease-out"
+            enter-from-class="transform opacity-0"
+            leave-to-class="transform opacity-0"
+            leave-from-class="opacity-100"
+            enter-to-class="opacity-100"
+          >
+            <input
+              v-show="Route.meta.isone > 0"
+              class="InputService"
+              placeholder="ورودی"
+              v-model.trim="state.Input"
+              type="text"
+            />
+          </transition>
+
+          <button class="BtnService" @click="HandelService">
+            وب سرویس
+            <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
+          </button>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 <style>

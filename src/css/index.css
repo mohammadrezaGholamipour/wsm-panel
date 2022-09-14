@@ -36,7 +36,8 @@
     @apply p-2 border-b  flex-row justify-between flex bg-white align-baseline flex-wrap-reverse shadow-sm;
   }
   #Main {
-    @apply flex flex-row-reverse;
+    @apply flex w-full flex-row-reverse;
+     min-height: calc(100vh - 57px);
     direction: rtl;
   }
   #Content {
