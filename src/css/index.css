@@ -273,11 +273,11 @@
   /* FinishResponsive */
 }
 .vue-notification {
+  border-bottom-left-radius: 20px;
   text-align: center !important;
+  border-top-left-radius: 20px;
   font-size: 14pt !important;
   border: none !important;
-  border-bottom-left-radius: 20px;
-  border-top-left-radius: 20px;
 }
 
 .notification-title {

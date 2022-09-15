@@ -1,26 +1,46 @@
 <script setup>
 import ServiceFormApi from "../api/ServiceFormApi";
+import RequestLoading from "./RequestLoading.vue";
 import { notify } from "@kyvg/vue3-notification";
 import { watch } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
+
 // ////////////////////////
 const Route = useRoute();
 const state = reactive({
+  RequestLaoding: false,
   WebService: {},
   Name: "",
   Input: "",
 });
 // ////////////////////////
 const GetWebService = (WebService) => {
-  console.log(WebService);
-  // ServiceFormApi.Form(WebService)
-  //   .then((response) => {
-  // // console.log(response);
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  state.RequestLaoding = true;
+  ServiceFormApi.Form(WebService)
+    .then((response) => {
+      console.log(response);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "success",
+          title: "با موفقیت انجام شد",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "error",
+          title: "درخواست انجام نشد ",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    })
+    .finally(() => {});
 };
 watch(Route, () => {
   state.WebService = "";
@@ -47,11 +67,6 @@ const HandelService = () => {
       // خالی کردن
       state.Name = "";
       state.Input = "";
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
-        ignoreDuplicates: true,
-      });
     }
   } else {
     if (state.Name) {
@@ -66,11 +81,6 @@ const HandelService = () => {
       GetWebService(JSON.stringify(state.WebService));
       // خالی کردن
       state.Name = "";
-      notify({
-        type: "success",
-        title: "انجام شد",
-        ignoreDuplicates: true,
-      });
     } else {
       notify({
         type: "error",
@@ -82,8 +92,9 @@ const HandelService = () => {
 };
 </script>
 <template>
+  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentService">
-    <notifications position="top center" class="mt-1" width="320" />
+    <notifications duration="20000" position="top center" class="mt-1" width="320" />
     <img
       src="../assets/image/FormService.png"
       style="width: 367px; margin: 0"
