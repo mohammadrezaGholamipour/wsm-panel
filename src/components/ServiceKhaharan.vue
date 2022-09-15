@@ -69,11 +69,6 @@ const HandelWebService = () => {
     state.InputTarikh[0].Value = "";
     state.InputTarikh[1].Value = "";
     state.Name = "";
-    notify({
-      type: "success",
-      title: "با موفقیت انجام شد",
-      ignoreDuplicates: true,
-    });
   } else {
     notify({
       type: "error",

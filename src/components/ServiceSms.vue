@@ -75,11 +75,6 @@ const HandelServiceSms = () => {
     state.InputSelectValue = "";
     state.Shenase = "";
     state.MatneSms = "";
-    notify({
-      type: "success",
-      title: "با موفقیت انجام شد",
-      ignoreDuplicates: true,
-    });
   } else {
     notify({
       type: "error",
