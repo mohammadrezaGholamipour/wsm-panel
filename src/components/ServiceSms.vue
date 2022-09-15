@@ -7,6 +7,7 @@ import { useRoute } from "vue-router";
 const Route = useRoute();
 /////////////////////////////////////////////////
 const state = reactive({
+  RequestLaoding: false,
   ServiceId: "",
   ServiceMethodId: "",
   Name: "",
@@ -26,14 +27,30 @@ const state = reactive({
 });
 /////////////////////////////////////
 const SendSms = (WebService) => {
-  console.log(WebService);
-  // ServiceSmsApi.Sms(WebService)
-  //   .then((response) => {
-  // // console.log(response);
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  state.RequestLaoding = true;
+  ServiceSmsApi.Sms(WebService)
+    .then((response) => {
+      console.log(response);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "success",
+          title: "با موفقیت انجام شد",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "error",
+          title: "درخواست انجام نشد ",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    });
 };
 const AllInputSms = computed(() => {
   return (
@@ -81,6 +98,7 @@ const ShenasePlaceHolder = computed(() => {
 });
 </script>
 <template>
+  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentService">
     <notifications position="top center" class="mt-1" width="320" />
     <img

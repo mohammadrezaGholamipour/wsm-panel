@@ -3,47 +3,33 @@
   <div class="loading">
     <div class="inline-flex justify-between items-center">
       <div
-        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600"
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600"
         role="status"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      ></div>
       <div
-        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-purple-500"
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-purple-500"
         role="status"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      ></div>
       <div
-        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-green-500"
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-green-500"
         role="status"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      ></div>
       <div
-        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500"
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500"
         role="status"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      ></div>
       <div
-        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-yellow-500"
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-yellow-500"
         role="status"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      ></div>
       <div
-        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300"
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300"
         role="status"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      ></div>
       <div
-        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300"
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300"
         role="status"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
+      ></div>
     </div>
   </div>
 </template>
@@ -76,15 +62,5 @@
     rgba(20, 20, 20, 0.8),
     rgba(0, 0, 0, 0.8)
   );
-}
-
-/* :not(:required) hides these rules from IE9 and below */
-.loading:not(:required) {
-  /* hide "loading..." text */
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
 }
 </style>

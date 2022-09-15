@@ -6,6 +6,7 @@ import { useRoute } from "vue-router";
 // //////////////////////////////////////
 const Route = useRoute();
 const state = reactive({
+  RequestLaoding: false,
   ServiceId: "",
   ServiceMethodId: "",
   Name: "",
@@ -14,18 +15,32 @@ const state = reactive({
   WebService: {},
 });
 
-state.ServiceId = Route.meta.serviceid;
-state.ServiceMethodId = Route.meta.Servicemethodid;
 // HandelRequestForServiceMostafa
 const GetServiceMostafa = (WebService) => {
-  console.log(WebService);
-  // ServiceMostafaApi.Mostafa(WebService)
-  //   .then((response) => {
-  // console.log(response);
-  // })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  state.RequestLaoding = true;
+  ServiceMostafaApi.Mostafa(WebService)
+    .then((response) => {
+      console.log(response);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "success",
+          title: "با موفقیت انجام شد",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "error",
+          title: "درخواست انجام نشد ",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    });
 };
 // FinishHandelRequestForServiceMostafa;
 const HandelServiceMostafa = () => {
@@ -78,6 +93,7 @@ const HandelServiceMostafa = () => {
 };
 </script>
 <template>
+  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentService">
     <notifications position="center top" class="mt-1" width="320" />
     <img

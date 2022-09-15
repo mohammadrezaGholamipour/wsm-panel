@@ -8,6 +8,7 @@ import { useRoute } from "vue-router";
 /////////////////////////////////////////////////
 const Route = useRoute();
 const state = reactive({
+  RequestLaoding: false,
   ServiceId: "",
   ServiceMethodId: "",
   Name: "",
@@ -20,14 +21,30 @@ const state = reactive({
 
 // HandelRequestForServiceKhaharan
 const GetServiceKhaharan = (WebService) => {
-  console.log(WebService);
-  // ServiceKhaharanApi.Khaharan(WebService)
-  //   .then((response) => {
-  // // console.log(response);
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  state.RequestLaoding = true;
+  ServiceKhaharanApi.Khaharan(WebService)
+    .then((response) => {
+      console.log(response);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "success",
+          title: "با موفقیت انجام شد",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "error",
+          title: "درخواست انجام نشد ",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    });
 };
 // FinishHandelRequestForServiceKhaharan
 const HandelWebService = () => {
@@ -65,6 +82,7 @@ const HandelWebService = () => {
 };
 </script>
 <template>
+  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentService">
     <notifications position="center top" class="mt-1" width="320" />
     <img

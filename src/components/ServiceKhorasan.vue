@@ -6,6 +6,7 @@ import { useRoute } from "vue-router";
 // //////////////////////////////////////
 const Route = useRoute();
 const state = reactive({
+  RequestLaoding: false,
   ServiceId: "",
   ServiceMethodId: "",
   Name: "",
@@ -25,14 +26,30 @@ const state = reactive({
 });
 // HandelRequestForServiceKhorasan
 const GetServiceKhorasan = (WebService) => {
-  console.log(WebService);
-  // ServiceKhorasanApi.Khorasan(WebService)
-  //   .then((response) => {
-  // console.log(response);
-  // })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  state.RequestLaoding = true;
+  ServiceKhorasanApi.Khorasan(WebService)
+    .then((response) => {
+      console.log(response);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "success",
+          title: "با موفقیت انجام شد",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "error",
+          title: "درخواست انجام نشد ",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    });
 };
 // FinishHandelRequestForServiceKhorasan;
 const HandelServiceKhorasan = () => {
@@ -91,6 +108,7 @@ const HandelServiceKhorasan = () => {
 };
 </script>
 <template>
+  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentService">
     <notifications position="center top" class="mt-1" width="320" />
     <img

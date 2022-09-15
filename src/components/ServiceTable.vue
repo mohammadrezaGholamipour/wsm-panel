@@ -6,6 +6,7 @@ import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 const Route = useRoute();
 const state = reactive({
+  RequestLaoding: false,
   TableList: {
     status: 200,
     meta_data: {
@@ -386,21 +387,34 @@ const state = reactive({
     { name: "نام متد", value: "", input: "Servicemethodname" },
   ],
 });
-
-state.ServiceId = Route.meta.serviceid;
-state.ServiceMethodId = Route.meta.requestServicemethodid;
 // ////////////////////////////
 // HandelRequsetForTabelService
 const GetTabel = (ServiceMethodId, ServiceId) => {
-  console.log(ServiceMethodId, ServiceId);
-  // ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
-  //   .then((response) => {
-  //     state.TableList = response.data;
-  //     console.log(response.data);
-  //   })
-  //   .catch((error) => {
-  //     alert(error.message);
-  //   });
+  state.RequestLaoding = true;
+  ServiceTableApi.Tabel(WebService)
+    .then((response) => {
+      console.log(response);
+      state.TableList = response.data;
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "success",
+          title: "با موفقیت انجام شد",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setTimeout(() => {
+        state.RequestLaoding = false;
+        notify({
+          type: "error",
+          title: "درخواست انجام نشد ",
+          ignoreDuplicates: true,
+        });
+      }, 2000);
+    });
 };
 onMounted(() => {
   GetTabel(state.ServiceId, state.ServiceMethodId);
@@ -441,6 +455,7 @@ const ExportExcel = () => {
 };
 </script>
 <template>
+  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentTabel relative">
     <table class="Table">
       <thead>
