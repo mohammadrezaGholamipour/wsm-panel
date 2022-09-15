@@ -39,8 +39,7 @@ const GetWebService = (WebService) => {
           ignoreDuplicates: true,
         });
       }, 2000);
-    })
-    .finally(() => {});
+    });
 };
 watch(Route, () => {
   state.WebService = "";
@@ -94,7 +93,7 @@ const HandelService = () => {
 <template>
   <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentService">
-    <notifications duration="20000" position="top center" class="mt-1" width="320" />
+    <notifications position="top center" class="mt-1" width="320" />
     <img
       src="../assets/image/FormService.png"
       style="width: 367px; margin: 0"
