@@ -1,6 +1,51 @@
 <script setup></script>
 <template>
-  <div class="loading"></div>
+  <div class="loading">
+    <div class="inline-flex justify-between items-center ">
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-purple-500"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-green-500"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-yellow-500"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div
+        class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -8,9 +53,8 @@
   position: fixed;
   z-index: 5001;
   height: 2em;
-  width: 2em;
   overflow: show;
-  margin: auto;
+  margin: auto ;
   top: 0;
   left: 0;
   bottom: 0;
@@ -22,6 +66,7 @@
   content: "";
   display: block;
   position: fixed;
+  margin: auto;
   top: 0;
   left: 0;
   width: 100%;
