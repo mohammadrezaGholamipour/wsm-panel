@@ -74,11 +74,6 @@ const HandelServiceMostafa = () => {
       };
       GetServiceMostafa(JSON.stringify(state.WebService));
       state.Name = "";
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
-        ignoreDuplicates: true,
-      });
     } else {
       notify({
         type: "error",

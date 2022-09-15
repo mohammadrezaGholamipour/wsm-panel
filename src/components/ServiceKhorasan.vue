@@ -89,11 +89,6 @@ const HandelServiceKhorasan = () => {
       GetServiceKhorasan(JSON.stringify(state.WebService));
       // خالی کردن
       state.Name = "";
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
-        ignoreDuplicates: true,
-      });
     } else {
       notify({
         type: "error",
