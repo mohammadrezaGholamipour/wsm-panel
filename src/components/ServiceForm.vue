@@ -102,9 +102,9 @@ const HandelService = () => {
 
     <div class="flex justify-center flex-col items-center">
       <input
+        v-model.trim="state.Name"
         class="InputService"
         placeholder="عنوان"
-        v-model.trim="state.Name"
         type="text"
       />
       <transition
@@ -117,9 +117,9 @@ const HandelService = () => {
       >
         <input
           v-show="Route.meta.isone > 0"
+          v-model.trim="state.Input"
           class="InputService"
           placeholder="ورودی"
-          v-model.trim="state.Input"
           type="text"
         />
       </transition>

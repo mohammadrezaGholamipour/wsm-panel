@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <div class="loading">
-    <div class="inline-flex justify-between items-center ">
+    <div class="inline-flex justify-between items-center">
       <div
         class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600"
         role="status"
@@ -51,10 +51,10 @@
 <style scoped>
 .loading {
   position: fixed;
-  z-index: 5001;
-  height: 2em;
   overflow: show;
-  margin: auto ;
+  z-index: 5001;
+  margin: auto;
+  height: 2em;
   top: 0;
   left: 0;
   bottom: 0;
@@ -72,7 +72,6 @@
   width: 100%;
   height: 100%;
   background: radial-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8));
-
   background: -webkit-radial-gradient(
     rgba(20, 20, 20, 0.8),
     rgba(0, 0, 0, 0.8)
