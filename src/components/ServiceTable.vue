@@ -407,7 +407,7 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
           type: "success",
           title: "با موفقیت انجام شد",
         });
-      }, 3300);
+      }, 3500);
     })
     .catch((error) => {
       console.log(error.message);
@@ -418,7 +418,7 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
           type: "error",
           title: "درخواست انجام نشد ",
         });
-      }, 3300);
+      }, 3500);
     });
 };
 onMounted(() => {
@@ -466,6 +466,7 @@ const ExportExcel = () => {
     <notifications
       v-show="state.Notification"
       position="top center"
+      ignore-duplicates
       close-on-click
       class="mt-1"
       width="320"
