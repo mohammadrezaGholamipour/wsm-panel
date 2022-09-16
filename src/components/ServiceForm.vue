@@ -18,6 +18,7 @@ const state = reactive({
 // ////////////////////////
 const GetWebService = (WebService) => {
   state.RequestLaoding = true;
+  state.Notification = true;
   ServiceFormApi.Form(WebService)
     .then((response) => {
       console.log(response);
@@ -45,9 +46,6 @@ watch(Route, () => {
   state.Name = "";
   state.Input = "";
   state.Notification = false;
-  setTimeout(() => {
-    state.Notification = true;
-  }, 3500);
 });
 const HandelService = () => {
   if (Route.meta.isone > 0) {
