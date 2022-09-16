@@ -10,6 +10,7 @@ import { useRoute } from "vue-router";
 const Route = useRoute();
 const state = reactive({
   RequestLaoding: false,
+  Notification: true,
   TableList: {
     status: 200,
     meta_data: {
@@ -402,7 +403,6 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
         notify({
           type: "success",
           title: "با موفقیت انجام شد",
-          ignoreDuplicates: true,
         });
       }, 2000);
     })
@@ -413,7 +413,6 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
         notify({
           type: "error",
           title: "درخواست انجام نشد ",
-          ignoreDuplicates: true,
         });
       }, 2000);
     });
@@ -426,6 +425,10 @@ watch(Route, () => {
     state.ServiceMethodId = Route.meta.requestServicemethodid;
     state.ServiceId = Route.meta.serviceid;
     GetTabel(state.ServiceId, state.ServiceMethodId);
+    state.Notification = false;
+    setTimeout(() => {
+      state.Notification = true;
+    }, 2400);
   }
 });
 // FinishRequsetForTabelService;
@@ -460,10 +463,12 @@ const ExportExcel = () => {
   <div class="ParentTabel">
     <RequestLoading v-show="state.RequestLaoding" />
     <notifications
+      v-show="state.Notification"
       position="top center"
       close-on-click
       class="mt-1"
       width="320"
+      max="1"
     />
     <table class="Table">
       <thead>

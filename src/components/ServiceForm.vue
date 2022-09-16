@@ -25,7 +25,6 @@ const GetWebService = (WebService) => {
         notify({
           type: "success",
           title: "با موفقیت انجام شد",
-          ignoreDuplicates: true,
         });
       }, 2000);
     })
@@ -36,7 +35,6 @@ const GetWebService = (WebService) => {
         notify({
           type: "error",
           title: "درخواست انجام نشد ",
-          ignoreDuplicates: true,
         });
       }, 2000);
     });
