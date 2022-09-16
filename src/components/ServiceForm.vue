@@ -91,8 +91,8 @@ const HandelService = () => {
 };
 </script>
 <template>
-  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentService">
+    <RequestLoading v-show="state.RequestLaoding" />
     <notifications position="top center" class="mt-1" width="320" />
     <img
       src="../assets/image/FormService.png"

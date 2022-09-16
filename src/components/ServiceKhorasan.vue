@@ -100,8 +100,8 @@ const HandelServiceKhorasan = () => {
 };
 </script>
 <template>
-  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentService">
+    <RequestLoading v-show="state.RequestLaoding" />
     <notifications position="center top" class="mt-1" width="320" />
     <img
       src="../assets/image/KhorasanService.png"

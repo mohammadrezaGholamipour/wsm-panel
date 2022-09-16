@@ -393,7 +393,7 @@ const state = reactive({
 // HandelRequsetForTabelService
 const GetTabel = (ServiceMethodId, ServiceId) => {
   state.RequestLaoding = true;
-  ServiceTableApi.Tabel(WebService)
+  ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
     .then((response) => {
       console.log(response);
       state.TableList = response.data;
@@ -457,8 +457,8 @@ const ExportExcel = () => {
 };
 </script>
 <template>
-  <RequestLoading v-show="state.RequestLaoding" />
   <div class="ParentTabel relative">
+    <RequestLoading v-show="state.RequestLaoding" />
     <table class="Table">
       <thead>
         <tr id="FirstTr">
