@@ -112,6 +112,7 @@
   /* /////////////////////////////// */
   /* Tabel */
   .ParentTabel {
+    @apply inline-flex flex-col;
     direction: ltr !important;
     width: 100% !important;
     border-radius: 20px;

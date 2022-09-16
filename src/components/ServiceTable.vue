@@ -3,6 +3,7 @@ import { saveExcel } from "@progress/kendo-vue-excel-export";
 import ServiceTableApi from "../api/ServiceTableApi";
 import { onMounted, watch } from "@vue/runtime-core";
 import RequestLoading from "./RequestLoading.vue";
+import { notify } from "@kyvg/vue3-notification";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 
@@ -396,7 +397,6 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
   ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
     .then((response) => {
       console.log(response);
-      state.TableList = response.data;
       setTimeout(() => {
         state.RequestLaoding = false;
         notify({
@@ -457,8 +457,9 @@ const ExportExcel = () => {
 };
 </script>
 <template>
-  <div class="ParentTabel relative">
+  <div class="ParentTabel">
     <RequestLoading v-show="state.RequestLaoding" />
+    <notifications close-on-click position="top center" class="mt-1" width="320" />
     <table class="Table">
       <thead>
         <tr id="FirstTr">
