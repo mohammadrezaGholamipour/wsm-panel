@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .loading {
   position: fixed;
   overflow: show;

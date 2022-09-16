@@ -93,7 +93,12 @@ const HandelService = () => {
 <template>
   <div class="ParentService">
     <RequestLoading v-show="state.RequestLaoding" />
-    <notifications position="top center" class="mt-1" width="320" />
+    <notifications
+      position="top center"
+      close-on-click
+      class="mt-1"
+      width="320"
+    />
     <img
       src="../assets/image/FormService.png"
       style="width: 367px; margin: 0"

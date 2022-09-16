@@ -112,11 +112,9 @@
   /* /////////////////////////////// */
   /* Tabel */
   .ParentTabel {
-    @apply inline-flex flex-col;
+    @apply inline-flex w-full overflow-auto flex-col;
     direction: ltr !important;
-    width: 100% !important;
     border-radius: 20px;
-    overflow: auto;
   }
   .Table {
     min-width: 450px !important;

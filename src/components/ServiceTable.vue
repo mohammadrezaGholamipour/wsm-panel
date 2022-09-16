@@ -459,7 +459,12 @@ const ExportExcel = () => {
 <template>
   <div class="ParentTabel">
     <RequestLoading v-show="state.RequestLaoding" />
-    <notifications close-on-click position="top center" class="mt-1" width="320" />
+    <notifications
+      position="top center"
+      close-on-click
+      class="mt-1"
+      width="320"
+    />
     <table class="Table">
       <thead>
         <tr id="FirstTr">
