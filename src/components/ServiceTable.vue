@@ -460,95 +460,95 @@ const ExportExcel = () => {
 };
 </script>
 <template>
-  <div class="ParentTabel">
     <RequestLoading v-show="state.RequestLaoding" />
-    <notifications
-      v-show="state.Notification"
-      position="top center"
-      close-on-click
-      class="mt-1"
-      width="320"
-      max="1"
-    />
-    <table class="Table">
-      <thead>
-        <tr id="FirstTr">
-          <th class="p-2">
-            <button class="ExcelBtn" @click="ExportExcel">
-              <font-awesome-icon icon="fa-solid fa-print" />
-            </button>
-          </th>
-          <th
-            v-for="(items, index) in state.InputTableList"
-            class="font-medium p-1"
+    <div class="ParentTabel">
+      <notifications
+        v-show="state.Notification"
+        position="top center"
+        close-on-click
+        class="mt-1"
+        width="320"
+      />
+      <table class="Table">
+        <thead>
+          <tr id="FirstTr">
+            <th class="p-2">
+              <button class="ExcelBtn" @click="ExportExcel">
+                <font-awesome-icon icon="fa-solid fa-print" />
+              </button>
+            </th>
+            <th
+              v-for="(items, index) in state.InputTableList"
+              class="font-medium p-1"
+              :key="index"
+              scope="col"
+            >
+              <input
+                @input="HandelFilterInput(items.input, items.value)"
+                :placeholder="items.name"
+                v-model="items.value"
+                class="InputTabel"
+                type="text"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(items, index) in state.TableList.data"
+            v-show="state.TableList.status === 200"
             :key="index"
-            scope="col"
           >
-            <input
-              @input="HandelFilterInput(items.input, items.value)"
-              :placeholder="items.name"
-              v-model="items.value"
-              class="InputTabel"
-              type="text"
-            />
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="(items, index) in state.TableList.data"
-          v-show="state.TableList.status === 200"
-          :key="index"
-        >
-          <td>
-            {{ index + 1 }}
-          </td>
-          <td>
-            {{ items.Id }}
-          </td>
-          <td>
-            {{ items.Name }}
-          </td>
-          <td>
-            {{ items.ServiceName }}
-          </td>
-          <td>
-            {{ items.Servicemethodname }}
-          </td>
-        </tr>
-        <p v-show="state.TableList.status !== 200">اطلاعات دریافت نشد</p>
-      </tbody>
-    </table>
-    <!-- ////////////////////////////////////////// -->
-    <div class="TablePagination">
-      <ul class="UlPagination">
-        <li @click="HandelPrevPagination">
-          <a class="BtnNextOrPrevPagination">
-            <font-awesome-icon icon=" fa-solid fa-circle-arrow-left" />
-          </a>
-        </li>
-        <li v-if="state.CurrentPage - 1 > 0">
-          <a @click="HandelFindPage" class="PagePagination">
-            {{ state.CurrentPage - 1 }}
-          </a>
-        </li>
-        <li>
-          <a class="PagePagination scale-110 border-slate-600 border-2">
-            {{ state.CurrentPage }}
-          </a>
-        </li>
-        <li>
-          <a @click="HandelFindPage" class="PagePagination">
-            {{ state.CurrentPage + 1 }}
-          </a>
-        </li>
-        <li @click="state.CurrentPage++">
-          <a class="BtnNextOrPrevPagination">
-            <font-awesome-icon icon=" fa-solid fa-circle-arrow-right" />
-          </a>
-        </li>
-      </ul>
+            <td>
+              {{ index + 1 }}
+            </td>
+            <td>
+              {{ items.Id }}
+            </td>
+            <td>
+              {{ items.Name }}
+            </td>
+            <td>
+              {{ items.ServiceName }}
+            </td>
+            <td>
+              {{ items.Servicemethodname }}
+            </td>
+          </tr>
+          <p v-show="state.TableList.status !== 200">اطلاعات دریافت نشد</p>
+        </tbody>
+      </table>
+      <!-- ////////////////////////////////////////// -->
+      <div class="TablePagination">
+        <ul class="UlPagination">
+          <li @click="HandelPrevPagination">
+            <a class="BtnNextOrPrevPagination">
+              <font-awesome-icon icon=" fa-solid fa-circle-arrow-left" />
+            </a>
+          </li>
+          <li v-if="state.CurrentPage - 1 > 0">
+            <a @click="HandelFindPage" class="PagePagination">
+              {{ state.CurrentPage - 1 }}
+            </a>
+          </li>
+          <li>
+            <a class="PagePagination scale-110 border-slate-600 border-2">
+              {{ state.CurrentPage }}
+            </a>
+          </li>
+          <li>
+            <a @click="HandelFindPage" class="PagePagination">
+              {{ state.CurrentPage + 1 }}
+            </a>
+          </li>
+          <li @click="state.CurrentPage++">
+            <a class="BtnNextOrPrevPagination">
+              <font-awesome-icon icon=" fa-solid fa-circle-arrow-right" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- ////////////////////////////////////////// -->
     </div>
-    <!-- ////////////////////////////////////////// -->
-  </div>
+
 </template>
