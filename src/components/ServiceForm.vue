@@ -10,6 +10,7 @@ import { useRoute } from "vue-router";
 const Route = useRoute();
 const state = reactive({
   RequestLaoding: false,
+  Notification: true,
   WebService: {},
   Name: "",
   Input: "",
@@ -34,7 +35,7 @@ const GetWebService = (WebService) => {
         state.RequestLaoding = false;
         notify({
           type: "error",
-          title: "درخواست انجام نشد ",
+          title: "درخواست انجام نشد",
         });
       }, 2000);
     });
@@ -43,6 +44,10 @@ watch(Route, () => {
   state.WebService = "";
   state.Name = "";
   state.Input = "";
+  state.Notification = false;
+  setTimeout(() => {
+    state.Notification = true;
+  }, 3500);
 });
 const HandelService = () => {
   if (Route.meta.isone > 0) {
@@ -92,6 +97,7 @@ const HandelService = () => {
   <div class="ParentService">
     <RequestLoading v-show="state.RequestLaoding" />
     <notifications
+      v-show="state.Notification"
       position="top center"
       close-on-click
       class="mt-1"
