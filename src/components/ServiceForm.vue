@@ -42,10 +42,10 @@ const GetWebService = (WebService) => {
     });
 };
 watch(Route, () => {
+  state.Notification = false;
   state.WebService = "";
   state.Name = "";
   state.Input = "";
-  state.Notification = false;
 });
 const HandelService = () => {
   if (Route.meta.isone > 0) {
