@@ -461,8 +461,8 @@ const ExportExcel = () => {
 };
 </script>
 <template>
-  <RequestLoading v-if="state.RequestLaoding" />
   <div class="ParentTabel">
+    <RequestLoading v-if="state.RequestLaoding" />
     <notifications
       v-show="state.Notification"
       position="top center"
