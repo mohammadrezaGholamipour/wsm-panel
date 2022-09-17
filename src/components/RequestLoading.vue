@@ -1,37 +1,35 @@
 <script setup></script>
 <template>
-  <div>
-    <div class="loading">
-      <div class="inline-flex justify-between items-center">
-        <div
-          class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600"
-          role="status"
-        ></div>
-        <div
-          class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-purple-500"
-          role="status"
-        ></div>
-        <div
-          class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-green-500"
-          role="status"
-        ></div>
-        <div
-          class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500"
-          role="status"
-        ></div>
-        <div
-          class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-yellow-500"
-          role="status"
-        ></div>
-        <div
-          class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300"
-          role="status"
-        ></div>
-        <div
-          class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300"
-          role="status"
-        ></div>
-      </div>
+  <div class="loading">
+    <div class="inline-flex justify-between items-center">
+      <div
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-600"
+        role="status"
+      ></div>
+      <div
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-purple-500"
+        role="status"
+      ></div>
+      <div
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-green-500"
+        role="status"
+      ></div>
+      <div
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-red-500"
+        role="status"
+      ></div>
+      <div
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-yellow-500"
+        role="status"
+      ></div>
+      <div
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-blue-300"
+        role="status"
+      ></div>
+      <div
+        class="spinner-grow mx-1 inline-block w-8 h-8 bg-current rounded-full opacity-0 text-gray-300"
+        role="status"
+      ></div>
     </div>
   </div>
 </template>
