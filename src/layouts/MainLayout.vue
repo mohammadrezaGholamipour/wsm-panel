@@ -15,7 +15,7 @@ onMounted(() => {
 
 <template>
   <FirstLoading v-if="!Loading" />
-  <MenuMobile />
+
   <!-- ////////////////////////// -->
   <header v-show="Loading" id="Header">
     <FullHeader />
@@ -38,6 +38,7 @@ onMounted(() => {
     </div>
     <!-- ////////////////////////// -->
     <MenuSystem />
+    <MenuMobile />
     <!-- ////////////////////////// -->
   </main>
 </template>
