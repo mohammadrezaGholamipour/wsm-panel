@@ -400,6 +400,7 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
   ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
     .then((response) => {
       console.log(response);
+      state.CurrentPage = state.TableList.meta_data.current_page;
       setTimeout(() => {
         state.RequestLaoding = false;
         state.Notification = true;
@@ -434,7 +435,6 @@ watch(Route, () => {
 });
 // FinishRequsetForTabelService;
 // /////////////////////////////
-state.CurrentPage = state.TableList.meta_data.current_page;
 const HandelPrevPagination = () => {
   if (state.CurrentPage > 1) {
     state.CurrentPage--;
