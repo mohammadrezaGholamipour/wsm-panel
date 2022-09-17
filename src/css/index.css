@@ -113,7 +113,7 @@
   /* Tabel */
   .ParentTabel {
     direction: ltr !important;
-    border-radius: 20px;
+    border-radius: 8px;
     overflow: auto;
   }
   .Table {
@@ -285,9 +285,9 @@
   /* FinishResponsive */
 }
 .vue-notification {
-  border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 10px;
   text-align: center !important;
-  border-top-left-radius: 20px;
+  border-top-left-radius: 10px;
   font-size: 14pt !important;
   border: none !important;
 }
