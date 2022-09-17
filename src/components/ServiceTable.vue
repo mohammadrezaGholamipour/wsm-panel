@@ -14,7 +14,7 @@ const state = reactive({
   TableList: {
     status: 200,
     meta_data: {
-      current_page: 2,
+      current_page: 1,
       page_size: 20,
       total: 8643,
     },
