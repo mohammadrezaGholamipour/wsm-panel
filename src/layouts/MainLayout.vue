@@ -15,7 +15,6 @@ onMounted(() => {
 
 <template>
   <FirstLoading v-if="!Loading" />
-
   <!-- ////////////////////////// -->
   <header v-show="Loading" id="Header">
     <FullHeader />
