@@ -53,7 +53,7 @@
     @apply flex justify-center items-center;
   }
   .BtnMessages {
-    @apply shadow-md hover:scale-110 text-xl py-1.5 px-4   text-white bg-slate-500 flex items-center rounded hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
+    @apply shadow-md hover:scale-105 text-xl py-1.5 px-4   text-white bg-slate-500 flex items-center rounded hover:shadow-lg  focus:outline-none focus:ring-0 transition duration-150 ease-in-out;
   }
   .breadcrumb {
     @apply flex justify-center items-center;
