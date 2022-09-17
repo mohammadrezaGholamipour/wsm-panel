@@ -21,13 +21,18 @@
     user-select: none; /* Non-prefixed version, currently*/
     font-family: "BYekan";
   }
+  /* firefox */
+  html {
+    scrollbar-width: none;
+  }
   body {
     background-color: #f9fafb !important;
-    text-align: center;
-    margin: 0 auto;
+    text-align: center !important;
+    margin: 0 auto !important;
   }
+  /* chrome */
   ::-webkit-scrollbar {
-    width: 0px;
+    width: 0px !important;
   }
 }
 
@@ -212,9 +217,8 @@
   }
   .MenuMobileParent {
     @apply text-lg bg-white p-2 shadow-sm;
-
   }
-   .MenuMobileParentUl {
+  .MenuMobileParentUl {
     @apply w-full h-full;
   }
   .MenuLink {
@@ -297,7 +301,7 @@
 }
 .vue-notification-group {
   left: auto !important;
-  top: 72px !important;
+  top: 120px !important;
   right: 258px !important;
 }
 @media only screen and (max-width: 1000px) {
