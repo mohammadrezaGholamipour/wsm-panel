@@ -127,24 +127,19 @@ const HandelServiceKhorasan = () => {
           </p>
         </label>
       </div>
-      <div class="flex justify-center">
-        <select
-          v-model.trim="state.Input"
-          v-show="state.ChekBox"
-          class="mx-auto px-2 py-1.5 shadow-md text-gray-700 bg-white bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
-          aria-label="سال تحصیلی"
-          placeholder="fdsfasdf"
+      <select
+        v-model.trim="state.Input"
+        v-show="state.ChekBox"
+        class="InputSelect"
+      >
+        <option
+          v-for="items in state.InputSelect"
+          :value="items.value"
+          :key="items.value"
         >
-          <option
-            class="text-center"
-            v-for="items in state.InputSelect"
-            :value="items.value"
-            :key="items.value"
-          >
-            {{ items.text }}
-          </option>
-        </select>
-      </div>
+          {{ items.text }}
+        </option>
+      </select>
 
       <button class="BtnService" @click="HandelServiceKhorasan">
         وب سرویس
