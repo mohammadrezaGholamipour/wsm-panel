@@ -218,7 +218,7 @@
     @apply w-full h-full;
   }
   .MenuLink {
-    @apply flex justify-between text-gray-800 items-center p-2 rounded-lg hover:text-gray-600 hover:bg-[#60645f1c] transition duration-300 ease-in-out  cursor-pointer;
+    @apply flex justify-between text-gray-800 items-center mb-1 p-2 rounded-lg hover:text-gray-600 hover:bg-[#60645f1c] transition duration-300 ease-in-out  cursor-pointer;
     width: 100% !important;
   }
   .MenuLinkNested {

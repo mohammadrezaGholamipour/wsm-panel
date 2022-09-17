@@ -474,7 +474,9 @@ const HandelCollapseUl = (itemstitle) => {
                   :key="item.title"
                 >
                   <router-link class="MenuLinkNested" :to="item.link">
-                    <span>{{ item.title }}</span>
+                    <span data-bs-dismiss="offcanvas" aria-label="Close">{{
+                      item.title
+                    }}</span>
 
                     <font-awesome-icon
                       class="text-xs ml-1 text-green-600"
