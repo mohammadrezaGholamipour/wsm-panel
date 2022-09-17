@@ -306,6 +306,6 @@
     left: calc(50% - 160px) !important;
   }
   .vue-notification {
-    border-radius: 20px !important;
+    border-radius: 8px !important;
   }
 }
