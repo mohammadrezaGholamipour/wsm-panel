@@ -400,25 +400,17 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
   ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
     .then((response) => {
       console.log(response);
-      setTimeout(() => {
-        state.RequestLaoding = false;
-        state.Notification = true;
-        notify({
-          type: "success",
-          title: "با موفقیت انجام شد",
-        });
-      }, 3500);
+      notify({
+        type: "success",
+        title: "با موفقیت انجام شد",
+      });
     })
     .catch((error) => {
       console.log(error.message);
-      setTimeout(() => {
-        state.RequestLaoding = false;
-        state.Notification = true;
-        notify({
-          type: "error",
-          title: "درخواست انجام نشد ",
-        });
-      }, 3500);
+      notify({
+        type: "error",
+        title: "درخواست انجام نشد ",
+      });
     });
 };
 onMounted(() => {
@@ -444,7 +436,6 @@ const page = computed(() => {
     state.TableList.meta_data.total / state.TableList.meta_data.page_size
   );
 });
-console.log(page.value);
 const HandelFindPage = (event) => {
   state.CurrentPage = Number(event.target.innerHTML);
 };
@@ -467,7 +458,9 @@ const ExportExcel = () => {
 </script>
 <template>
   <div class="ParentTabel">
-    <RequestLoading v-if="state.RequestLaoding" />
+    <Teleport to="body">
+      <RequestLoading v-if="state.RequestLaoding" />
+    </Teleport>
     <notifications
       v-show="state.Notification"
       position="top center"

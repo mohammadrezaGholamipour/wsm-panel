@@ -54,19 +54,19 @@ library.add(
   faSliders
 );
 import "./css/index.css";
-router.beforeEach((to, from, next) => {
-  if (to.path === from.path && to.path !== "/") return;
-  const isAuthenticated = AuthService.getToken();
-  const hasRouterUrl = to?.matched?.length > 0;
-  if (!!!isAuthenticated) {
-    if (to.name !== "login")
-      return next({ path: '/login' });
-  } else if (!hasRouterUrl) {
-    if (to.name !== 'login')
-      return next({ path: "/" });
-  }
-  next();
-});
+// router.beforeEach((to, from, next) => {
+//   if (to.path === from.path && to.path !== "/") return;
+//   const isAuthenticated = AuthService.getToken();
+//   const hasRouterUrl = to?.matched?.length > 0;
+//   if (!!!isAuthenticated) {
+//     if (to.name !== "login")
+//       return next({ path: '/login' });
+//   } else if (!hasRouterUrl) {
+//     if (to.name !== 'login')
+//       return next({ path: "/" });
+//   }
+//   next();
+// });
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(router);

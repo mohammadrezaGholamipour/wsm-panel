@@ -14,7 +14,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <FirstLoading v-if="!Loading" />
+  <Teleport to="body">
+    <FirstLoading v-if="!Loading" />
+  </Teleport>
   <!-- ////////////////////////// -->
   <header v-show="Loading" id="Header">
     <FullHeader />
