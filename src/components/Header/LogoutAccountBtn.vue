@@ -3,10 +3,16 @@ import ServiceAccount from "../../api/ServiceAccount";
 import AuthService from "../../api/auth.js";
 import { useRouter } from "vue-router";
 const Route = useRouter();
+ServiceAccount.GetUser();
 const HandelLogOut = () => {
-  AuthService.removeAllUserInfo();
-  ServiceAccount.LogOut();
-  Route.replace("/login");
+  ServiceAccount.LogOut()
+    .then(() => {
+      AuthService.removeAllUserInfo();
+      Route.replace("/login");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 </script>
 <template>

@@ -19,8 +19,8 @@ const GetUserInfo = () => {
     });
 };
 // ///////////////////////////////////////
-const SendServiceLogin = (login) => {
-  ServiceAccount.Login(login)
+const SendServiceLogin = (perosn) => {
+  ServiceAccount.Login(perosn)
     .then((response) => {
       AuthService.setToken(response.jwToken);
       GetUserInfo();

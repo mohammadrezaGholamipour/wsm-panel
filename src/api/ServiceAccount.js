@@ -1,7 +1,7 @@
 import HttpClient from './HttpClient';
 
 export default {
-  Login: (login) => HttpClient.post(`auth/login`, login),
+  Login: (perosn) => HttpClient.post(`auth/login`, perosn),
   GetUser: () => HttpClient.get('auth/user-info'),
   LogOut: () => HttpClient.post('auth/logout'),
 };

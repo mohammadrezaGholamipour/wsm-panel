@@ -1,6 +1,7 @@
 <script setup>
+import { ref } from "@vue/reactivity";
 import AuthService from "../../api/auth.js";
-const User = AuthService.getUserInfo();
+const User = ref(AuthService.getUserInfo());
 </script>
 <template>
   <div class="relative">
