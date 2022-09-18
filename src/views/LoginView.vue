@@ -10,6 +10,7 @@ const SendServiceLogin = (login) => {
   ServiceLogin.Login(login)
     .then((response) => {
       AuthService.setToken(response.data.jwToken);
+      AuthService.setUserInfo(response.data);
       setTimeout(() => {
         notify({
           type: "success",

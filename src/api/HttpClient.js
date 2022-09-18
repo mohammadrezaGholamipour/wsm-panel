@@ -36,7 +36,7 @@ HttpClient.interceptors.response.use(
           break;
         case 401:
           if (!error.config.url.endsWith("/api/login")) {
-            Router.replace('/api/')
+            Router.replace('/api/login')
           }
           break;
         case 403:

@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import router from "./router";
+import router from "./router/Routes";
 import "tw-elements";
 import Notifications from "@kyvg/vue3-notification";
 /* import the fontawesome core */
@@ -53,7 +53,9 @@ library.add(
   faSliders
 );
 import "./css/index.css";
-
+router.beforeEach((to, from) => {
+  console.log(to, from);
+})
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(router);
