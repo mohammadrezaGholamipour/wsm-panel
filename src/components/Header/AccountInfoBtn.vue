@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import AuthService from "../../api/auth.js";
+const User = AuthService.getUserInfo();
+</script>
 <template>
   <div class="relative">
     <button
@@ -13,7 +16,9 @@
       class="UlAccount py-0 overflow-hidden hidden text-white dropdown-menu bg-slate-500"
       aria-labelledby="test"
     >
-      <h5 class="text-sm py-2 px-4 block w-full">آقای مجتبی شاقی</h5>
+      <h5 class="text-sm py-2 px-4 block w-full">
+        {{ `${User.firstName} ${User.lastName}` }}
+      </h5>
       <hr class="h-0 border border-solid border-t-0 border-white opacity-25" />
       <li>
         <a

@@ -56,7 +56,8 @@ library.add(
 import "./css/index.css";
 router.beforeEach((to, from, next) => {
   if (to.path == from.path && to.path != "/") return;
-  const isAuthenticated = AuthService.hasToken();
+  const isAuthenticated = AuthService.getToken();
+  console.log(!!isAuthenticated);
   const hasRouterUrl = to?.matched?.length > 0;
   if (!isAuthenticated) {
     if (to.name != "login")

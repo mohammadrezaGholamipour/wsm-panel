@@ -40,9 +40,6 @@ HttpClient.interceptors.response.use(
           }
           break;
         case 403:
-          if (window.location.href.includes("/admin"))
-            routerInstance.push("/admin/error/403");
-          else routerInstance.push("/account/auth");
           break;
         case 404:
           notify({

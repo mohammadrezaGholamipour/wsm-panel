@@ -74,7 +74,7 @@
   }
   .UlAccount {
     @apply text-center text-black  min-w-max  z-50 float-right py-2 list-none rounded-lg shadow-lg bg-clip-padding bg-white;
-    transform: translate3d(-42px, 49px, 0px) !important;
+    transform: translate3d(-36px, 53px, 0px) !important;
   }
   .Tarikh {
     @apply inline-block mr-1 px-3 py-2.5 bg-slate-500 text-white  leading-tight  rounded shadow-md hover:shadow-lg  transition duration-150 ease-in-out;
