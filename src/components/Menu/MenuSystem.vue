@@ -8,21 +8,21 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای  کامل",
-        link: "/home/runkhaharan",
+        link: "/runkhaharan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای اساتید",
-        link: "/home/runkhaharanasatid",
+        link: "/runkhaharanasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای موردی",
-        link: "/home/runonekhaharan",
+        link: "/runonekhaharan",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -30,14 +30,14 @@ const MenuList = ref([
 
       {
         title: "اجرای موردی اساتید",
-        link: "/home/runonekhaharanasatid",
+        link: "/runonekhaharanasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای بر اساس تغییرات",
-        link: "/home/run_haharan_bychange",
+        link: "/run_haharan_bychange",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -45,35 +45,35 @@ const MenuList = ref([
 
       {
         title: "لیست اجرای کامل",
-        link: "/home/listkhaharan",
+        link: "/listkhaharan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست اساتید",
-        link: "/home/listkhaharanasatid",
+        link: "/listkhaharanasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی ",
-        link: "/home/listkhaharanone",
+        link: "/listkhaharanone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی اساتید",
-        link: "/home/listkhaharanoneasatid",
+        link: "/listkhaharanoneasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست خواهران بر اساس تغییرات",
-        link: "/home/list_haharan_bychange",
+        link: "/list_haharan_bychange",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -87,35 +87,35 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای  کامل خراسان",
-        link: "/home/runkhorasan",
+        link: "/runkhorasan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای ممتازین خراسان",
-        link: "/home/runkhorasan_momtazin",
+        link: "/runkhorasan_momtazin",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای موردی  خراسان",
-        link: "/home/runkhorasanone",
+        link: "/runkhorasanone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست کامل خراسان",
-        link: "/home/listkhorasan",
+        link: "/listkhorasan",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست ممتازین خراسان",
-        link: "/home/list_khorasanone_momtazin",
+        link: "/list_khorasanone_momtazin",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -123,7 +123,7 @@ const MenuList = ref([
 
       {
         title: "لیست موردی خراسان",
-        link: "/home/listkhorasanone",
+        link: "/listkhorasanone",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -137,21 +137,21 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای  کامل",
-        link: "/home/runAlzahra",
+        link: "/runAlzahra",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای اساتید",
-        link: "/home/runAlzahraasatid",
+        link: "/runAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای موردی",
-        link: "/home/runoneAlzahra",
+        link: "/runoneAlzahra",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -159,63 +159,63 @@ const MenuList = ref([
 
       {
         title: "اجرای موردی اساتید",
-        link: "/home/runoneAlzahraasatid",
+        link: "/runoneAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای موردی براساس کدبایگانی",
-        link: "/home/runoneAlzahr_archivedcode",
+        link: "/runoneAlzahr_archivedcode",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای مبلغین الزهرا",
-        link: "/home/runoneAlzahr_mobaleghin",
+        link: "/runoneAlzahr_mobaleghin",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست اجرای کامل",
-        link: "/home/listAlzahra",
+        link: "/listAlzahra",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست اساتید",
-        link: "/home/listAlzahraasatid",
+        link: "/listAlzahraasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی",
-        link: "/home/listAlzahraone",
+        link: "/listAlzahraone",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی اساتید",
-        link: "/home/listAlzahraoneasatid",
+        link: "/listAlzahraoneasatid",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست موردی براساس کدبایگانی",
-        link: "/home/listAlzahra_archivedcode",
+        link: "/listAlzahra_archivedcode",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست مبلغین الزهرا",
-        link: "/home/listAlzahra_mobaleghin",
+        link: "/listAlzahra_mobaleghin",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -229,28 +229,28 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای کامل اهل سنت",
-        link: "/home/runsonnat",
+        link: "/runsonnat",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرای تکی اهل سنت",
-        link: "/home/runsonnat_one",
+        link: "/runsonnat_one",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست کامل اهل سنت",
-        link: "/home/listsonnat",
+        link: "/listsonnat",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست تکی اهل سنت",
-        link: "/home/listsonnat_one",
+        link: "/listsonnat_one",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -264,14 +264,14 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای تجمیعی المصطفی",
-        link: "/home/run_almostafa_allstudents",
+        link: "/run_almostafa_allstudents",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اطلاعات تجمیعی طلاب المصطفی",
-        link: "/home/almostaf_allstudents",
+        link: "/almostaf_allstudents",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -285,14 +285,14 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای تکی مبلغ",
-        link: "/home/tablighat_office_one_run",
+        link: "/tablighat_office_one_run",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "اجرا براساس بازه تاریخ",
-        link: "/home/tablighat_office_run_by_dates",
+        link: "/tablighat_office_run_by_dates",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -300,14 +300,14 @@ const MenuList = ref([
 
       {
         title: "لیست تکی مبلغ",
-        link: "/home/tablighat_office_one_list",
+        link: "/tablighat_office_one_list",
         children: [],
         isOpen: false,
         hasAccess: true,
       },
       {
         title: "لیست اجرا براساس بازه تاریخ",
-        link: "/home/tablighat_office_list_by_dates",
+        link: "/tablighat_office_list_by_dates",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -321,7 +321,7 @@ const MenuList = ref([
     children: [
       {
         title: "تاریخچه ارسال پیامک",
-        link: "/home/chappar_sms",
+        link: "/chappar_sms",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -329,7 +329,7 @@ const MenuList = ref([
 
       {
         title: "ارسال پیامک",
-        link: "/home/run_chappar_sms",
+        link: "/run_chappar_sms",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -343,7 +343,7 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای مبلغین",
-        link: "/home/tablighat_org_mobaleghin_run",
+        link: "/tablighat_org_mobaleghin_run",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -351,7 +351,7 @@ const MenuList = ref([
 
       {
         title: "اجرای تکی مبلغین",
-        link: "/home/tablighat_org_mobalegh_run",
+        link: "/tablighat_org_mobalegh_run",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -359,7 +359,7 @@ const MenuList = ref([
 
       {
         title: "لیست مبلغین",
-        link: "/home/tablighat_org_mobaleghin_list",
+        link: "/tablighat_org_mobaleghin_list",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -367,7 +367,7 @@ const MenuList = ref([
 
       {
         title: "لیست تکی مبلغین",
-        link: "/home/tablighat_org_mobalegh_list",
+        link: "/tablighat_org_mobalegh_list",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -381,7 +381,7 @@ const MenuList = ref([
     children: [
       {
         title: "اجرای لیستی استعلام کارمندان",
-        link: "/home/employee_inquery_bylist_run",
+        link: "/employee_inquery_bylist_run",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -389,7 +389,7 @@ const MenuList = ref([
 
       {
         title: "اجرای موردی استعلام کارمند",
-        link: "/home/employee_inquery_single_run",
+        link: "/employee_inquery_single_run",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -397,7 +397,7 @@ const MenuList = ref([
 
       {
         title: "لیست بلوکی استعلام کارمندان",
-        link: "/home/employee_inquery_bylist_list",
+        link: "/employee_inquery_bylist_list",
         children: [],
         isOpen: false,
         hasAccess: true,
@@ -405,7 +405,7 @@ const MenuList = ref([
 
       {
         title: "لیست موردی استعلام کارمند",
-        link: "/home/employee_inquery_single_list",
+        link: "/employee_inquery_single_list",
         children: [],
         isOpen: false,
         hasAccess: true,

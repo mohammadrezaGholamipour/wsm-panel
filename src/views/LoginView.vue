@@ -1,9 +1,40 @@
 <script setup>
+import ServiceAccount from "../api/ServiceAccount";
+import AuthService from "../api/auth.js";
 import { ref } from "@vue/reactivity";
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { notify } from "@kyvg/vue3-notification";
+import { useRouter } from "vue-router";
+const Router = useRouter();
 const UserName = ref("");
 const Password = ref("");
+// ///////////////////////////////////////
+const GetUserInfo = () => {
+  ServiceAccount.GetUser()
+    .then((response) => {
+      AuthService.setUserInfo(response.data);
+      Router.push("/");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+// ///////////////////////////////////////
+const SendServiceLogin = (perosn) => {
+  ServiceAccount.Login(perosn)
+    .then((response) => {
+      AuthService.setToken(response.jwToken);
+      GetUserInfo();
+    })
+    .catch((error) => {
+      console.log(error.message);
+      notify({
+        type: "error",
+        title: "درخواست انجام نشد",
+      });
+    });
+};
+// ///////////////////////////////////////
 const ValidateUserName = (value) => {
   if (!value) {
     return "لطفا نام کاربری خود را وارد کنید";
@@ -19,11 +50,11 @@ const ValidatePassword = (value) => {
 const HandelLogin = () => {
   if (UserName.value && Password.value) {
     if (Password.value.length > 5) {
-      notify({
-        type: "success",
-        title: "خوش آمدید",
-        ignoreDuplicates: true,
-      });
+      const Person = {
+        username: UserName.value,
+        password: Password.value,
+      };
+      SendServiceLogin(JSON.stringify(Person));
     } else {
       notify({
         type: "warn",
