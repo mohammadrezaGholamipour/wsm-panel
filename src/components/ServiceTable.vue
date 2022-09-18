@@ -16,7 +16,7 @@ const state = reactive({
     meta_data: {
       current_page: 1,
       page_size: 20,
-      total: 100,
+      total: 200,
     },
     data: [
       {
@@ -551,7 +551,7 @@ const ExportExcel = () => {
         </li>
         <li>
           <a
-            v-show="state.CurrentPage + 1 < page"
+            v-show="state.CurrentPage + 1 <= page"
             @click="HandelFindPage"
             class="PagePagination"
           >
@@ -560,7 +560,7 @@ const ExportExcel = () => {
         </li>
         <li>
           <a
-            v-show="state.CurrentPage + 2 < page"
+            v-show="state.CurrentPage + 2 <= page"
             @click="HandelFindPage"
             class="PagePagination"
           >
@@ -568,7 +568,7 @@ const ExportExcel = () => {
           </a>
         </li>
         <!-- ////////////////////////////////////////////////////////// -->
-        <li v-show="state.CurrentPage  < page" @click="state.CurrentPage++">
+        <li v-show="state.CurrentPage + 2 < page" @click="state.CurrentPage++">
           <a class="BtnNextOrPrevPagination">
             <font-awesome-icon icon=" fa-solid fa-circle-arrow-right" />
           </a>
