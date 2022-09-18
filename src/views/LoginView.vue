@@ -1,33 +1,40 @@
 <script setup>
-import ServiceLogin from "../api/ServiceLogin";
+import ServiceAccount from "../api/ServiceAccount";
 import AuthService from "../api/auth.js";
 import { ref } from "@vue/reactivity";
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { notify } from "@kyvg/vue3-notification";
+import { useRouter } from "vue-router";
+const Router = useRouter();
 const UserName = ref("");
 const Password = ref("");
-const SendServiceLogin = (login) => {
-  ServiceLogin.Login(login)
+// ///////////////////////////////////////
+const GetUserInfo = () => {
+  ServiceAccount.GetUser()
     .then((response) => {
-      AuthService.setToken(response.data.jwToken);
       AuthService.setUserInfo(response.data);
-      setTimeout(() => {
-        notify({
-          type: "success",
-          title: "با موفقیت انجام شد",
-        });
-      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+// ///////////////////////////////////////
+const SendServiceLogin = (login) => {
+  ServiceAccount.Login(login)
+    .then((response) => {
+      AuthService.setToken(response.jwToken);
+      GetUserInfo();
+      Router.replace("/");
     })
     .catch((error) => {
       console.log(error.message);
-      setTimeout(() => {
-        notify({
-          type: "error",
-          title: "درخواست انجام نشد",
-        });
-      }, 2000);
+      notify({
+        type: "error",
+        title: "درخواست انجام نشد",
+      });
     });
 };
+// ///////////////////////////////////////
 const ValidateUserName = (value) => {
   if (!value) {
     return "لطفا نام کاربری خود را وارد کنید";
@@ -44,8 +51,8 @@ const HandelLogin = () => {
   if (UserName.value && Password.value) {
     if (Password.value.length > 5) {
       const Person = {
-        UserName: UserName.value,
-        Password: Password.value,
+        username: UserName.value,
+        password: Password.value,
       };
       SendServiceLogin(JSON.stringify(Person));
     } else {

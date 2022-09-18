@@ -4,7 +4,7 @@ import { notify } from "@kyvg/vue3-notification";
 import AuthService from "../api/auth.js";
 const Router = useRouter()
 const HttpClient = axios.create({
-  baseURL: '/api/',
+  baseURL: 'http://alhadi2:5000/api',
   timeout: 20000,
   headers: {
     "Content-Type": "application/json;charset=UTF-8",
@@ -16,7 +16,7 @@ HttpClient.interceptors.request.use(
   (config) => {
     const Token = AuthService.getToken();
     if (Token) {
-      config.headers["authorization"] = `Bearer ${tokenVal}`;
+      config.headers["authorization"] = `Bearer ${Token}`;
     }
     return config;
   },

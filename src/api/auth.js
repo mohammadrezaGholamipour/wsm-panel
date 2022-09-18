@@ -38,8 +38,7 @@ const AuthService = {
     return user && user.isAdmin ? true : false;
   },
   hasToken: () =>
-    window.sessionStorage.getItem("token")?.length &&
-    window.sessionStorage.getItem("refreshToken")?.length,
+    window.sessionStorage.getItem("token")?.length,
   getBranchId: () => AuthService.getUserInfo()?.data?.branchId ?? null,
 };
 export default AuthService;
