@@ -13,6 +13,7 @@ const GetUserInfo = () => {
   ServiceAccount.GetUser()
     .then((response) => {
       AuthService.setUserInfo(response.data);
+      Router.push("/");
     })
     .catch((error) => {
       console.log(error);
@@ -24,7 +25,6 @@ const SendServiceLogin = (perosn) => {
     .then((response) => {
       AuthService.setToken(response.jwToken);
       GetUserInfo();
-      Router.replace("/");
     })
     .catch((error) => {
       console.log(error.message);

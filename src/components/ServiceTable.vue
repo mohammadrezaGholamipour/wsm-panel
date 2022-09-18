@@ -1,7 +1,7 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import ServiceTableApi from "../api/ServiceTableApi";
-import { onMounted, watch } from "@vue/runtime-core";
+import { computed, onMounted, watch } from "@vue/runtime-core";
 import RequestLoading from "./RequestLoading.vue";
 import { notify } from "@kyvg/vue3-notification";
 import { reactive } from "@vue/reactivity";
@@ -16,7 +16,7 @@ const state = reactive({
     meta_data: {
       current_page: 1,
       page_size: 20,
-      total: 8643,
+      total: 100,
     },
     data: [
       {
@@ -383,7 +383,7 @@ const state = reactive({
   },
   ServiceMethodId: "",
   ServiceId: "",
-  CurrentPage: "",
+  CurrentPage: 1,
   InputTableList: [
     { name: "کد", value: "", input: "Id" },
     { name: "نام", value: "", input: "Name" },
@@ -400,7 +400,6 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
   ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
     .then((response) => {
       console.log(response);
-      state.CurrentPage = state.TableList.meta_data.current_page;
       setTimeout(() => {
         state.RequestLaoding = false;
         state.Notification = true;
@@ -440,6 +439,12 @@ const HandelPrevPagination = () => {
     state.CurrentPage--;
   }
 };
+const page = computed(() => {
+  return Math.floor(
+    state.TableList.meta_data.total / state.TableList.meta_data.page_size
+  );
+});
+console.log(page.value);
 const HandelFindPage = (event) => {
   state.CurrentPage = Number(event.target.innerHTML);
 };
@@ -528,22 +533,42 @@ const ExportExcel = () => {
             <font-awesome-icon icon=" fa-solid fa-circle-arrow-left" />
           </a>
         </li>
+        <!-- /////////////////////////////////////////////////// -->
+        <li v-if="state.CurrentPage - 2 > 0">
+          <a @click="HandelFindPage" class="PagePagination">
+            {{ state.CurrentPage - 2 }}
+          </a>
+        </li>
         <li v-if="state.CurrentPage - 1 > 0">
           <a @click="HandelFindPage" class="PagePagination">
             {{ state.CurrentPage - 1 }}
           </a>
         </li>
         <li>
-          <a class="PagePagination scale-110 border-slate-600 border-2">
+          <a class="PagePagination scale-110 bg-white text-black border-2">
             {{ state.CurrentPage }}
           </a>
         </li>
         <li>
-          <a @click="HandelFindPage" class="PagePagination">
+          <a
+            v-show="state.CurrentPage + 1 < page"
+            @click="HandelFindPage"
+            class="PagePagination"
+          >
             {{ state.CurrentPage + 1 }}
           </a>
         </li>
-        <li @click="state.CurrentPage++">
+        <li>
+          <a
+            v-show="state.CurrentPage + 2 < page"
+            @click="HandelFindPage"
+            class="PagePagination"
+          >
+            {{ state.CurrentPage + 2 }}
+          </a>
+        </li>
+        <!-- ////////////////////////////////////////////////////////// -->
+        <li v-show="state.CurrentPage  < page" @click="state.CurrentPage++">
           <a class="BtnNextOrPrevPagination">
             <font-awesome-icon icon=" fa-solid fa-circle-arrow-right" />
           </a>

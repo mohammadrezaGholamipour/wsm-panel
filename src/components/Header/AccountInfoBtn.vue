@@ -18,7 +18,7 @@ const User = ref(AuthService.getUserInfo());
       aria-labelledby="test"
     >
       <h5 class="text-sm py-2 px-4 block w-full">
-        {{ `${User.firstName} ${User.lastName}` }}
+        {{ `${User?.firstName ?? ""} ${User?.lastName ?? ""}` }}
       </h5>
       <hr class="h-0 border border-solid border-t-0 border-white opacity-25" />
       <li>
