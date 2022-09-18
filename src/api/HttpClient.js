@@ -1,5 +1,8 @@
 import axios from "axios";
+import { useRouter } from "vue-router";
+import { notify } from "@kyvg/vue3-notification";
 import AuthService from "../api/auth.js";
+const Router = useRouter()
 const HttpClient = axios.create({
   baseURL: '/api/',
   timeout: 20000,
@@ -32,8 +35,8 @@ HttpClient.interceptors.response.use(
         case 400:
           break;
         case 401:
-          if (!error.config.url.endsWith("/api/")) {
-
+          if (!error.config.url.endsWith("/api/login")) {
+            Router.replace('/api/')
           }
           break;
         case 403:
@@ -42,37 +45,23 @@ HttpClient.interceptors.response.use(
           else routerInstance.push("/account/auth");
           break;
         case 404:
-          ElMessageBox.alert(`منبع درخواست شده یافت نشد.`, "خطا", {
-            confirmButtonText: "بسیار خب",
-            center: true,
+          notify({
+            type: "error",
+            title: `منبع درخواست شده یافت نشد`
           });
           break;
-        case 405:
-          if (isDevelopment) console.log("Not implemented");
-          break;
         case 500:
-          ElMessageBox.alert(
-            `خطای غیر منتظره! لطفا با پشتیبانی تماس بگیرید.`,
-            "خطا",
-            {
-              confirmButtonText: "بسیار خب",
-              center: true,
-            }
-          );
+          notify({
+            type: "error",
+            title: `خطای غیر منتظره! لطفا با پشتیبانی تماس بگیرید.`
+          });
           break;
         case 501:
-          ElMessageBox.alert(
-            `بخش درخواست شده درحال پیاده سازی می‌باشد. لطفا بعدا مراجعه نمایید`,
-            "خطا",
-            {
-              confirmButtonText: "بسیار خب",
-              center: true,
-            }
-          );
+          notify({
+            type: "error",
+            title: `بخش درخواست شده درحال پیاده سازی می‌باشد. لطفا بعدا مراجعه نمایید`
+          });
           break;
-        default:
-          if (isDevelopment)
-            console.log(`http client status : ${error.response.status}`);
       }
     } else {
     }
