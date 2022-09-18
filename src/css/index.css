@@ -302,7 +302,7 @@
 }
 .vue-notification-group {
   left: auto !important;
-  top: 120px !important;
+  top: 70px !important;
   right: 258px !important;
 }
 @media only screen and (max-width: 1000px) {

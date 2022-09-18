@@ -25,18 +25,14 @@ HttpClient.interceptors.request.use(
   }
 );
 HttpClient.interceptors.response.use(
-  (response) => {
-    const { code, message } = response.data;
-    return response.data || null;
-  },
   async (error) => {
     if (error && error.response) {
       switch (error.response.status) {
         case 400:
           break;
         case 401:
-          if (!error.config.url.endsWith("/api/login")) {
-            Router.replace('/api/login')
+          if (!error.config.url.endsWith("/login")) {
+            Router.replace('/login')
           }
           break;
         case 403:

@@ -38,7 +38,7 @@
 .loading {
   position: fixed;
   overflow: show;
-  z-index: 1000 !important;
+  z-index: 5400 !important;
   margin: auto;
   height: 2em;
   top: 0;

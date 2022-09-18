@@ -10,7 +10,6 @@ import { useRoute } from "vue-router";
 const Route = useRoute();
 const state = reactive({
   RequestLaoding: false,
-  Notification: true,
   WebService: {},
   Name: "",
   Input: "",
@@ -18,27 +17,25 @@ const state = reactive({
 // ////////////////////////
 const GetWebService = (WebService) => {
   state.RequestLaoding = true;
-  state.Notification = true;
   ServiceFormApi.Form(WebService)
     .then((response) => {
       console.log(response);
-      setTimeout(() => {
-        state.RequestLaoding = false;
-        notify({
-          type: "success",
-          title: "با موفقیت انجام شد",
-        });
-      }, 2000);
+      notify({
+        type: "success",
+        title: "با موفقیت انجام شد",
+      });
     })
     .catch((error) => {
       console.log(error.message);
+      notify({
+        type: "error",
+        title: "درخواست انجام نشد ",
+      });
+    })
+    .finally(() => {
       setTimeout(() => {
         state.RequestLaoding = false;
-        notify({
-          type: "error",
-          title: "درخواست انجام نشد",
-        });
-      }, 2000);
+      }, 1500);
     });
 };
 watch(Route, () => {
@@ -95,7 +92,6 @@ const HandelService = () => {
   <div class="ParentService">
     <RequestLoading v-show="state.RequestLaoding" />
     <notifications
-      v-show="state.Notification"
       position="top center"
       close-on-click
       class="mt-1"
