@@ -5,12 +5,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
-      name: "login",
+      path: "/login",
+      name: "",
       component: LoginView,
     },
     {
-      path: "/home",
+      path: "/",
       component: () => import("../layouts/MainLayout.vue"),
       children: [
         //خواهران

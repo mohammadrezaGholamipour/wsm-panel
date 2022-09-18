@@ -117,6 +117,7 @@
   /* /////////////////////////////// */
   /* Tabel */
   .ParentTabel {
+     @apply inline-flex relative w-full  justify-center flex-col rounded-lg items-center;
     direction: ltr !important;
     border-radius: 8px;
     overflow: auto;

@@ -1,9 +1,32 @@
 <script setup>
+import ServiceLogin from "../api/ServiceLogin";
+import AuthService from "../api/auth.js";
 import { ref } from "@vue/reactivity";
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { notify } from "@kyvg/vue3-notification";
 const UserName = ref("");
 const Password = ref("");
+const SendServiceLogin = (login) => {
+  ServiceLogin.Login(login)
+    .then((response) => {
+      AuthService.setToken(response.data.jwToken);
+      setTimeout(() => {
+        notify({
+          type: "success",
+          title: "با موفقیت انجام شد",
+        });
+      }, 2000);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      setTimeout(() => {
+        notify({
+          type: "error",
+          title: "درخواست انجام نشد",
+        });
+      }, 2000);
+    });
+};
 const ValidateUserName = (value) => {
   if (!value) {
     return "لطفا نام کاربری خود را وارد کنید";
@@ -19,11 +42,11 @@ const ValidatePassword = (value) => {
 const HandelLogin = () => {
   if (UserName.value && Password.value) {
     if (Password.value.length > 5) {
-      notify({
-        type: "success",
-        title: "خوش آمدید",
-        ignoreDuplicates: true,
-      });
+      const Person = {
+        UserName: UserName.value,
+        Password: Password.value,
+      };
+      SendServiceLogin(JSON.stringify(Person));
     } else {
       notify({
         type: "warn",
