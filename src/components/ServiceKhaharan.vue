@@ -27,25 +27,22 @@ const GetServiceKhaharan = (WebService) => {
   ServiceKhaharanApi.Khaharan(WebService)
     .then((response) => {
       console.log(response);
-      setTimeout(() => {
-        state.RequestLaoding = false;
-        notify({
-          type: "success",
-          title: "با موفقیت انجام شد",
-          ignoreDuplicates: true,
-        });
-      }, 2000);
+      notify({
+        type: "success",
+        title: "با موفقیت انجام شد",
+      });
     })
     .catch((error) => {
       console.log(error.message);
+      notify({
+        type: "error",
+        title: "درخواست انجام نشد ",
+      });
+    })
+    .finally(() => {
       setTimeout(() => {
         state.RequestLaoding = false;
-        notify({
-          type: "error",
-          title: "درخواست انجام نشد ",
-          ignoreDuplicates: true,
-        });
-      }, 2000);
+      }, 1500);
     });
 };
 // FinishHandelRequestForServiceKhaharan

@@ -10,7 +10,6 @@ import { useRoute } from "vue-router";
 const Route = useRoute();
 const state = reactive({
   RequestLaoding: false,
-  Notification: true,
   TableList: {
     status: 200,
     meta_data: {
@@ -391,8 +390,6 @@ const state = reactive({
     { name: "نام متد", value: "", input: "Servicemethodname" },
   ],
 });
-state.ServiceMethodId = Route.meta.requestServicemethodid;
-state.ServiceId = Route.meta.serviceid;
 // ////////////////////////////
 // HandelRequsetForTabelService
 const GetTabel = (ServiceMethodId, ServiceId) => {
@@ -400,25 +397,22 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
   ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
     .then((response) => {
       console.log(response);
-      setTimeout(() => {
-        state.RequestLaoding = false;
-        state.Notification = true;
-        notify({
-          type: "success",
-          title: "با موفقیت انجام شد",
-        });
-      }, 3500);
+      notify({
+        type: "success",
+        title: "با موفقیت انجام شد",
+      });
     })
     .catch((error) => {
       console.log(error.message);
+      notify({
+        type: "error",
+        title: "درخواست انجام نشد ",
+      });
+    })
+    .finally(() => {
       setTimeout(() => {
         state.RequestLaoding = false;
-        state.Notification = true;
-        notify({
-          type: "error",
-          title: "درخواست انجام نشد ",
-        });
-      }, 3500);
+      }, 1500);
     });
 };
 onMounted(() => {
@@ -430,7 +424,6 @@ watch(Route, () => {
     state.ServiceId = Route.meta.serviceid;
     GetTabel(state.ServiceId, state.ServiceMethodId);
   }
-  state.Notification = false;
 });
 // FinishRequsetForTabelService;
 // /////////////////////////////
@@ -444,7 +437,6 @@ const page = computed(() => {
     state.TableList.meta_data.total / state.TableList.meta_data.page_size
   );
 });
-console.log(page.value);
 const HandelFindPage = (event) => {
   state.CurrentPage = Number(event.target.innerHTML);
 };
@@ -467,11 +459,11 @@ const ExportExcel = () => {
 </script>
 <template>
   <div class="ParentTabel">
-    <RequestLoading v-if="state.RequestLaoding" />
+    <Teleport to="body">
+      <RequestLoading v-if="state.RequestLaoding" />
+    </Teleport>
     <notifications
-      v-show="state.Notification"
       position="top center"
-      ignore-duplicates
       close-on-click
       class="mt-1"
       width="320"
@@ -578,3 +570,4 @@ const ExportExcel = () => {
     <!-- ////////////////////////////////////////// -->
   </div>
 </template>
+

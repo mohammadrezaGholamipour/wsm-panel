@@ -34,11 +34,11 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .loading {
   position: fixed;
   overflow: show;
-  z-index: 5001;
+  z-index: 5400 !important;
   margin: auto;
   height: 2em;
   top: 0;

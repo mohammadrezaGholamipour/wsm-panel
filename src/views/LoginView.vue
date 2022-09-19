@@ -1,10 +1,11 @@
 <script setup>
-import ServiceAccount from "../api/ServiceAccount";
-import AuthService from "../api/auth.js";
-import { ref } from "@vue/reactivity";
 import { Form, Field, ErrorMessage } from "vee-validate";
+import ServiceAccount from "../api/ServiceAccount";
 import { notify } from "@kyvg/vue3-notification";
+import AuthService from "../api/auth.js";
 import { useRouter } from "vue-router";
+import { ref } from "@vue/reactivity";
+
 const Router = useRouter();
 const UserName = ref("");
 const Password = ref("");
@@ -23,11 +24,12 @@ const GetUserInfo = () => {
 const SendServiceLogin = (perosn) => {
   ServiceAccount.Login(perosn)
     .then((response) => {
+      console.log(response);
       AuthService.setToken(response.jwToken);
       GetUserInfo();
     })
     .catch((error) => {
-      console.log(error.message);
+      console.log(error);
       notify({
         type: "error",
         title: "درخواست انجام نشد",
@@ -73,7 +75,12 @@ const HandelLogin = () => {
 </script>
 <template>
   <div class="LoginPage">
-    <notifications position="top center" class="mt-2" width="320" />
+    <notifications
+      position="top center"
+      v-if="false"
+      class="mt-2"
+      width="320"
+    />
     <div class="LoginForm">
       <img src="../assets/image/Logo.png" alt="مرکز خدمات حوزه های علمیه" />
       <Form @submit.prevent>
