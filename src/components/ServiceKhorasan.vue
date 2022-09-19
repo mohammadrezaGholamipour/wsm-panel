@@ -1,10 +1,9 @@
 <script setup>
 import ServiceKhorasanApi from "../api/ServiceKhorasanApi";
 import RequestLoading from "./RequestLoading.vue";
-import { notify } from "@kyvg/vue3-notification";
+import { useRoute, useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
-import { useRoute, useRouter } from "vue-router";
 
 // //////////////////////////////////////
 const toast = useToast();
@@ -125,7 +124,7 @@ const HandelServiceKhorasan = () => {
       <select
         v-model.trim="state.input"
         v-show="state.chekBox"
-        class="inputSelect"
+        class="InputSelect"
       >
         <option
           v-for="items in state.inputSelect"

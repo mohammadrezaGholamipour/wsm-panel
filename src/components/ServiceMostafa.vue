@@ -1,13 +1,13 @@
 <script setup>
 import ServiceMostafaApi from "../api/ServiceMostafaApi";
 import RequestLoading from "./RequestLoading.vue";
+import { useRoute, useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
-import { useRoute, useRouter } from "vue-router";
 
 // //////////////////////////////////////
-const route = useRoute();
 const router = useRouter();
+const route = useRoute();
 const toast = useToast();
 const state = reactive({
   requestLaoding: false,
