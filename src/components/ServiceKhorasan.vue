@@ -4,11 +4,12 @@ import RequestLoading from "./RequestLoading.vue";
 import { notify } from "@kyvg/vue3-notification";
 import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 // //////////////////////////////////////
 const toast = useToast();
 const Route = useRoute();
+const Router = useRouter();
 const state = reactive({
   requestLaoding: false,
   ServiceId: "",
@@ -36,6 +37,9 @@ const getServiceKhorasan = (WebService) => {
       toast.success("با موفقیت انجام شد", {
         timeout: 2000,
       });
+      setTimeout(() => {
+        router.push({ name: route.meta.Servicemethodid });
+      }, 2000);
     })
     .catch((error) => {
       console.log(error.message);

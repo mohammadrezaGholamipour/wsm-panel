@@ -69,6 +69,7 @@ const router = createRouter({
         {
           path: "listkhaharan",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1006",
           meta: {
             breadcrumb: "لیست کامل خواهران",
             requestServicemethodid: "1006",
@@ -78,6 +79,7 @@ const router = createRouter({
         {
           path: "listkhaharanasatid",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1009",
           meta: {
             breadcrumb: "لیست اساتید خواهران",
             requestServicemethodid: "1009",
@@ -87,6 +89,7 @@ const router = createRouter({
         {
           path: "listkhaharanone",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1010",
           meta: {
             breadcrumb: "لیست موردی خواهران",
             requestServicemethodid: "1010",
@@ -96,6 +99,7 @@ const router = createRouter({
         {
           path: "listkhaharanoneasatid",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1011",
           meta: {
             breadcrumb: "لیست موردی  اساتید خواهران",
             requestServicemethodid: "1011",
@@ -105,6 +109,7 @@ const router = createRouter({
         {
           path: "list_haharan_bychange",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1022",
           meta: {
             breadcrumb: "لیست تغییرات خواهران",
             requestServicemethodid: "1022",
@@ -147,6 +152,7 @@ const router = createRouter({
         {
           path: "listkhorasan",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1003",
           meta: {
             breadcrumb: "لیست کامل خراسان",
             requestServicemethodid: "1003",
@@ -156,6 +162,7 @@ const router = createRouter({
         {
           path: "list_khorasanone_momtazin",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1025",
           meta: {
             breadcrumb: "لیست ممتازین خراسان",
             requestServicemethodid: "1025",
@@ -165,6 +172,7 @@ const router = createRouter({
         {
           path: "listkhorasanone",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "table",
           meta: {
             breadcrumb: "لیست موردی خراسان",
             requestServicemethodid: "1013",
@@ -236,6 +244,7 @@ const router = createRouter({
         {
           path: "listAlzahra",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1005",
           meta: {
             breadcrumb: "لیست کامل جامعه الزهرا",
             requestServicemethodid: "1005",
@@ -245,6 +254,7 @@ const router = createRouter({
         {
           path: "listAlzahraasatid",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1008",
           meta: {
             breadcrumb: "لیست اساتید جامعه الزهرا",
             requestServicemethodid: "1008",
@@ -254,6 +264,7 @@ const router = createRouter({
         {
           path: "listAlzahraone",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1012",
           meta: {
             breadcrumb: "لیست موردی جامعه الزهرا",
             requestServicemethodid: "1012",
@@ -263,6 +274,7 @@ const router = createRouter({
         {
           path: "listAlzahraoneasatid",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1014",
           meta: {
             breadcrumb: "لیست موردی اساتید جامعه الزهرا",
             requestServicemethodid: "1014",
@@ -272,6 +284,7 @@ const router = createRouter({
         {
           path: "listAlzahra_archivedcode",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1026",
           meta: {
             breadcrumb: "لیست موردی جامعه الزهرا-کدبایگانی",
             requestServicemethodid: "1026",
@@ -281,6 +294,7 @@ const router = createRouter({
         {
           path: "listAlzahra_mobaleghin",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1042",
           meta: {
             breadcrumb: "لیست مبلغین جامعه الزهرا",
             requestServicemethodid: "1042",
@@ -312,6 +326,7 @@ const router = createRouter({
         {
           path: "listsonnat",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1007",
           meta: {
             breadcrumb: "لیست کامل سنت ",
             requestServicemethodid: "1007",
@@ -321,6 +336,7 @@ const router = createRouter({
         {
           path: "listsonnat_one",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1036",
           meta: {
             breadcrumb: "لیست تکی اهل سنت",
             serviceid: "1",
@@ -342,6 +358,7 @@ const router = createRouter({
         {
           path: "almostaf_allstudents",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1034",
           meta: {
             breadcrumb: "لیست اطللاعات تجمیعی طلاب المصطفی",
             requestServicemethodid: "1034",
@@ -374,6 +391,7 @@ const router = createRouter({
         {
           path: "tablighat_office_one_list",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1038",
           meta: {
             breadcrumb: "لیست تکی دفتر تبلیغات",
             serviceid: "8",
@@ -383,6 +401,7 @@ const router = createRouter({
         {
           path: "tablighat_office_list_by_dates",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1039",
           meta: {
             breadcrumb: "لیست دفتر تبلیغات براساس سال",
             requestServicemethodid: "1039",
@@ -393,6 +412,7 @@ const router = createRouter({
         {
           path: "chappar_sms",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1041",
           meta: {
             breadcrumb: "تاریخچه ارسال",
             serviceid: "9",
@@ -436,6 +456,7 @@ const router = createRouter({
         {
           path: "tablighat_org_mobaleghin_list",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1043",
           meta: {
             breadcrumb: "لیست مبلغین سازمان تبلیغات",
             requestServicemethodid: "1043",
@@ -445,6 +466,7 @@ const router = createRouter({
         {
           path: "tablighat_org_mobalegh_list",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1044",
           meta: {
             breadcrumb: "لیست موردی مبلغ سازمان تبلیغات",
             requestServicemethodid: "1044",
@@ -475,6 +497,7 @@ const router = createRouter({
         {
           path: "employee_inquery_bylist_list",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1046",
           meta: {
             breadcrumb: "لیست استعلام کارمندان",
             requestServicemethodid: "1046",
@@ -484,6 +507,7 @@ const router = createRouter({
         {
           path: "employee_inquery_single_list",
           component: () => import("../views/ServiceRunAdminComponent.vue"),
+          name: "1045",
           meta: {
             breadcrumb: "لیست موردی استعلام کارمند",
             requestServicemethodid: "1045",

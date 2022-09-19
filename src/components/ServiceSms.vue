@@ -4,9 +4,10 @@ import ServiceSmsApi from "../api/ServiceSmsApi";
 import { useToast } from "vue-toastification";
 import { computed } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 /////////////////////////////////////////////////
 const route = useRoute();
+const router = useRouter();
 const toast = useToast();
 const state = reactive({
   requestLaoding: false,
@@ -37,6 +38,9 @@ const sendSms = (WebService) => {
       toast.success("با موفقیت انجام شد", {
         timeout: 2000,
       });
+      setTimeout(() => {
+        router.push({ name: route.meta.Servicemethodid });
+      }, 2000);
     })
     .catch((error) => {
       console.log(error.message);

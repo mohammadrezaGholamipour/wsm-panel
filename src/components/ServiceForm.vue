@@ -4,10 +4,11 @@ import RequestLoading from "./RequestLoading.vue";
 import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 /////////////////////////////////////////////////
 const toast = useToast();
 const route = useRoute();
+const router = useRouter();
 const state = reactive({
   requestLaoding: false,
   name: "",
@@ -22,6 +23,9 @@ const getWebService = (WebService) => {
       toast.success("با موفقیت انجام شد", {
         timeout: 2000,
       });
+      setTimeout(() => {
+        router.push({ name: route.meta.Servicemethodid });
+      }, 2000);
     })
     .catch((error) => {
       console.log(error.message);
@@ -70,6 +74,7 @@ const HandelService = () => {
       };
       // ارسال کردن
       getWebService(webServiceParams);
+
       // خالی کردن
       state.name = "";
     } else {
