@@ -1,62 +1,52 @@
 <script setup>
-import { Form, Field, ErrorMessage } from "vee-validate";
-import ServiceAccount from "../api/ServiceAccount";
+import serviceAccount from "../api/serviceAccount";
 import { useToast } from "vue-toastification";
 import AuthService from "../api/auth.js";
 import { useRouter } from "vue-router";
 import { ref } from "@vue/reactivity";
 /////////////////////////////////////////////////
+const router = useRouter();
 const toast = useToast();
-const Router = useRouter();
-const UserName = ref("");
-const Password = ref("");
+const userName = ref("");
+const password = ref("");
 // ///////////////////////////////////////
-const GetUserInfo = () => {
-  ServiceAccount.GetUser()
+const getUserInfo = () => {
+  serviceAccount
+    .GetUser()
     .then((response) => {
       AuthService.setUserInfo(response.data);
-      Router.push("/");
+      router.push("/");
     })
     .catch((error) => {
       console.log(error);
-    });
-};
-// ///////////////////////////////////////
-const SendServiceLogin = (perosn) => {
-  ServiceAccount.Login(perosn)
-    .then((response) => {
-      console.log(response);
-      AuthService.setToken(response.jwToken);
-      GetUserInfo();
-    })
-    .catch((error) => {
-      console.log(error);
-      toast.error("درخواست انجام نشد", {
+      toast.error("اطلاعات شما یافت نشد", {
         timeout: 2000,
       });
     });
 };
 // ///////////////////////////////////////
-const ValidateUserName = (value) => {
-  if (!value) {
-    return "لطفا نام کاربری خود را وارد کنید";
-  }
-  return true;
+const sendServiceLogin = (perosn) => {
+  serviceAccount
+    .Login(perosn)
+    .then((response) => {
+      AuthService.setToken(response.jwToken);
+      getUserInfo();
+    })
+    .catch((error) => {
+      console.log(error);
+      toast.error("شما اجازه ورود ندارید", {
+        timeout: 2000,
+      });
+    });
 };
-const ValidatePassword = (value) => {
-  if (!value) {
-    return "لطفا رمز خود را وارد کنید";
-  }
-  return true;
-};
-const HandelLogin = () => {
-  if (UserName.value && Password.value) {
-    if (Password.value.length > 5) {
+const handelLogin = () => {
+  if (userName.value && password.value) {
+    if (password.value.length > 5) {
       const Person = {
-        username: UserName.value,
-        password: Password.value,
+        userName: userName.value,
+        password: password.value,
       };
-      SendServiceLogin(JSON.stringify(Person));
+      sendServiceLogin(Person);
     } else {
       toast.warning("رمز عبور باید بیشتر از 5 رقم باشد", {
         timeout: 2000,
@@ -73,33 +63,27 @@ const HandelLogin = () => {
   <div class="LoginPage">
     <div class="LoginForm">
       <img src="../assets/image/Logo.png" alt="مرکز خدمات حوزه های علمیه" />
-      <Form @submit.prevent>
+      <form @submit.prevent>
         <div class="LoginParentInput">
-          <Field
+          <input
             placeholder="نام کاربری"
-            :rules="ValidateUserName"
-            v-model="UserName"
+            v-model="userName"
             class="LoginInput"
-            name="username"
             type="text"
           />
-          <ErrorMessage name="username" class="text-red-500 my-1" />
-          <Field
+          <input
             placeholder="رمز عبور"
-            :rules="ValidatePassword"
-            v-model="Password"
+            v-model="password"
             class="LoginInput"
-            name="password"
             type="password"
           />
-          <ErrorMessage name="password" class="text-red-500 my-1" />
         </div>
         <div class="LoginParentBtn">
-          <button @click="HandelLogin" type="button" class="LoginBtn">
+          <button @click="handelLogin" type="button" class="LoginBtn">
             وارد شدن
           </button>
         </div>
-      </Form>
+      </form>
     </div>
   </div>
 </template>

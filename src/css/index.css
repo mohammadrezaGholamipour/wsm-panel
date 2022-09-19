@@ -93,7 +93,7 @@
     height: 100vh;
   }
   .LoginForm {
-    @apply flex justify-center shadow-md items-center flex-col p-6 rounded-3xl hover:shadow-2xl transition-all duration-300 bg-white;
+    @apply flex justify-center shadow-md items-center flex-col p-6  rounded-xl hover:shadow-2xl transition-all duration-300 bg-white;
     direction: rtl;
     min-width: 300px;
     min-height: 443px;
@@ -108,7 +108,7 @@
     @apply flex justify-center items-center flex-col;
   }
   .LoginBtn {
-    @apply block shadow-lg mb-3 mt-2 px-6 py-2.5 bg-purple-600  text-white rounded-md hover:scale-105  transition duration-300 ease-in-out;
+    @apply block shadow-lg mb-3 mt-2 px-6 py-2.5 bg-green-600  text-white rounded-md hover:scale-105  transition duration-300 ease-in-out;
   }
   .LoginForgetInfo {
     @apply text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out;
