@@ -6,17 +6,19 @@ import { computed } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 /////////////////////////////////////////////////
-const Route = useRoute();
+const route = useRoute();
 const toast = useToast();
 const state = reactive({
-  RequestLaoding: false,
+  requestLaoding: false,
   ServiceId: "",
   ServiceMethodId: "",
-  Name: "",
-  InputSelectValue: "",
-  Shenase: "",
-  MatneSms: "",
-  InputSelect: [
+  name: "",
+  input: {
+    inputSelectValue: "",
+    shenase: "",
+    matneSms: "",
+  },
+  inputSelect: [
     { text: "کدملی", value: "1" },
     { text: "کد اختصاصی گذرنامه", value: "2" },
     { text: "کد کارت آمایش", value: "3" },
@@ -27,8 +29,8 @@ const state = reactive({
   ],
 });
 /////////////////////////////////////
-const SendSms = (WebService) => {
-  state.RequestLaoding = true;
+const sendSms = (WebService) => {
+  state.requestLaoding = true;
   ServiceSmsApi.Sms(WebService)
     .then((response) => {
       console.log(response);
@@ -44,31 +46,37 @@ const SendSms = (WebService) => {
     })
     .finally(() => {
       setTimeout(() => {
-        state.RequestLaoding = false;
+        state.requestLaoding = false;
       }, 1500);
     });
 };
 const AllInputSms = computed(() => {
   return (
-    state.Name && state.InputSelectValue && state.Shenase && state.MatneSms
+    state.name &&
+    state.input.inputSelectValue &&
+    state.input.shenase &&
+    state.input.matneSms
   );
 });
 const HandelServiceSms = () => {
   if (AllInputSms.value) {
     const webServiceParams = {
-      Name: state.Name,
-      IdType: state.InputSelectValue,
-      IdNumber: state.Shenase,
-      Message: state.MatneSms,
-      Serviceid: Route.meta.serviceid,
-      Servicemethodid: Route.meta.Servicemethodid,
+      name: state.name,
+      input: {
+        IdType: state.input.inputSelectValue,
+        IdNumber: state.input.shenase,
+        Message: state.input.matneSms,
+      },
+      Serviceid: route.meta.serviceid,
+      Servicemethodid: route.meta.Servicemethodid,
     };
-    SendSms(webServiceParams);
+    webServiceParams.input = JSON.stringify(webServiceParams.input);
+    sendSms(webServiceParams);
     // خالی کردن اینپوت ها
-    state.Name = "";
-    state.InputSelectValue = "";
-    state.Shenase = "";
-    state.MatneSms = "";
+    state.name = "";
+    state.input.inputSelectValue = "";
+    state.input.shenase = "";
+    state.input.matneSms = "";
   } else {
     toast.error("اطلاعات را کامل وارد کنید", {
       timeout: 2000,
@@ -76,9 +84,9 @@ const HandelServiceSms = () => {
   }
 };
 const ShenasePlaceHolder = computed(() => {
-  if (state.InputSelectValue) {
-    const Placeholder = state.InputSelect.filter(
-      (items) => items.value === state.InputSelectValue
+  if (state.input.inputSelectValue) {
+    const Placeholder = state.inputSelect.filter(
+      (items) => items.value === state.input.inputSelectValue
     );
     return `${Placeholder[0].text} خود را وارد کنید`;
   } else {
@@ -88,7 +96,7 @@ const ShenasePlaceHolder = computed(() => {
 </script>
 <template>
   <div class="ParentService">
-    <RequestLoading v-show="state.RequestLaoding" />
+    <RequestLoading v-show="state.requestLaoding" />
     <img
       src="../assets/image/SmsService.png"
       style="width: 320px"
@@ -98,18 +106,18 @@ const ShenasePlaceHolder = computed(() => {
       <input
         class="InputService"
         placeholder="عنوان"
-        v-model.trim="state.Name"
+        v-model.trim="state.name"
         type="text"
       />
       <div class="ParentInputSelectSms">
         <span class="SpanInputSelectSms">نوع احراز هویت :</span>
         <select
-          v-model="state.InputSelectValue"
+          v-model="state.input.inputSelectValue"
           class="InputSelectSms"
           style="width: 175px"
         >
           <option
-            v-for="(items, index) in state.InputSelect"
+            v-for="(items, index) in state.inputSelect"
             :value="items.value"
             :key="index"
           >
@@ -120,13 +128,13 @@ const ShenasePlaceHolder = computed(() => {
       <input
         :placeholder="ShenasePlaceHolder"
         class="InputService mt-3"
-        v-model.trim="state.Shenase"
+        v-model.trim="state.input.shenase"
         type="text"
       />
       <textarea
         class="InputService mt-3"
         placeholder="متن پیامک"
-        v-model.trim="state.MatneSms"
+        v-model.trim="state.input.matneSms"
         rows="7"
       ></textarea>
 

@@ -7,16 +7,15 @@ import { watch } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
 /////////////////////////////////////////////////
 const toast = useToast();
-const Route = useRoute();
+const route = useRoute();
 const state = reactive({
-  RequestLaoding: false,
-  WebService: {},
-  Name: "",
-  Input: "",
+  requestLaoding: false,
+  name: "",
+  input: "",
 });
 // ////////////////////////
-const GetWebService = (WebService) => {
-  state.RequestLaoding = true;
+const getWebService = (WebService) => {
+  state.requestLaoding = true;
   ServiceFormApi.Form(WebService)
     .then((response) => {
       console.log(response);
@@ -32,47 +31,47 @@ const GetWebService = (WebService) => {
     })
     .finally(() => {
       setTimeout(() => {
-        state.RequestLaoding = false;
+        state.requestLaoding = false;
       }, 1500);
     });
 };
-watch(Route, () => {
-  state.Name = "";
-  state.Input = "";
+watch(route, () => {
+  state.name = "";
+  state.input = "";
 });
 const HandelService = () => {
-  if (Route.meta.isone > 0) {
-    if (!state.Name || !state.Input) {
+  if (route.meta.isone > 0) {
+    if (!state.name || !state.input) {
       toast.error("اطلاعات را کامل وارد کنید", {
         timeout: 2000,
       });
     } else {
       // پر کردن اطلاعات
       const webServiceParams = {
-        Name: state.Name,
-        Input: state.Input,
-        Serviceid: Route.meta.serviceid,
-        Servicemethodid: Route.meta.Servicemethodid,
+        name: state.name,
+        input: state.input,
+        Serviceid: route.meta.serviceid,
+        Servicemethodid: route.meta.Servicemethodid,
       };
       // ارسال کردن
-      GetWebService(webServiceParams);
+      getWebService(webServiceParams);
       // خالی کردن
-      state.Name = "";
-      state.Input = "";
+      state.name = "";
+      state.input = "";
     }
   } else {
-    if (state.Name) {
+    if (state.name) {
       // پر کردن اطلاعات
       const webServiceParams = {
-        Name: state.Name,
-        Input: "",
-        Serviceid: Route.meta.serviceid,
-        Servicemethodid: Route.meta.Servicemethodid,
+        name: state.name,
+        input: "",
+        Serviceid: route.meta.serviceid,
+        Servicemethodid: route.meta.Servicemethodid,
       };
       // ارسال کردن
-      GetWebService(webServiceParams);
+      getWebService(webServiceParams);
       // خالی کردن
-      state.Name = "";
+      state.name = "";
     } else {
       toast.error("عنوان را وارد کنید", {
         timeout: 2000,
@@ -83,7 +82,7 @@ const HandelService = () => {
 </script>
 <template>
   <div class="ParentService">
-    <RequestLoading v-show="state.RequestLaoding" />
+    <RequestLoading v-show="state.requestLaoding" />
     <img
       src="../assets/image/FormService.png"
       style="width: 367px; margin: 0"
@@ -92,7 +91,7 @@ const HandelService = () => {
 
     <div class="flex justify-center flex-col items-center">
       <input
-        v-model.trim="state.Name"
+        v-model.trim="state.name"
         class="InputService"
         placeholder="عنوان"
         type="text"
@@ -106,8 +105,8 @@ const HandelService = () => {
         enter-to-class="opacity-100"
       >
         <input
-          v-show="Route.meta.isone > 0"
-          v-model.trim="state.Input"
+          v-show="route.meta.isone > 0"
+          v-model.trim="state.input"
           class="InputService"
           placeholder="ورودی"
           type="text"

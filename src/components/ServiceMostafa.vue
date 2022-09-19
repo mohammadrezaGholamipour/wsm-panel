@@ -6,20 +6,20 @@ import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 
 // //////////////////////////////////////
-const Route = useRoute();
+const route = useRoute();
 const toast = useToast();
 const state = reactive({
-  RequestLaoding: false,
+  requestLaoding: false,
   ServiceId: "",
   ServiceMethodId: "",
-  Name: "",
-  ChekBox: false,
-  Input: "",
+  name: "",
+  chekBox: false,
+  input: "",
 });
 
 // HandelRequestForServiceMostafa
-const GetServiceMostafa = (WebService) => {
-  state.RequestLaoding = true;
+const getServiceMostafa = (WebService) => {
+  state.requestLaoding = true;
   ServiceMostafaApi.Mostafa(WebService)
     .then((response) => {
       console.log(response);
@@ -35,38 +35,38 @@ const GetServiceMostafa = (WebService) => {
     })
     .finally(() => {
       setTimeout(() => {
-        state.RequestLaoding = false;
+        state.requestLaoding = false;
       }, 1500);
     });
 };
 // FinishHandelRequestForServiceMostafa;
 const HandelServiceMostafa = () => {
-  if (state.ChekBox) {
-    if (state.Name && state.Input) {
+  if (state.chekBox) {
+    if (state.name && state.input) {
       const webServiceParams = {
-        Name: state.Name,
-        Input: state.Input,
-        Serviceid: Route.meta.serviceid,
-        Servicemethodid: Route.meta.Servicemethodid,
+        name: state.name,
+        input: state.input,
+        Serviceid: route.meta.serviceid,
+        Servicemethodid: route.meta.Servicemethodid,
       };
-      GetServiceMostafa(webServiceParams);
-      state.Name = "";
-      state.Input = "";
+      getServiceMostafa(webServiceParams);
+      state.name = "";
+      state.input = "";
     } else {
       toast.error("اطلاعات را کامل وارد کنید", {
         timeout: 2000,
       });
     }
   } else {
-    if (state.Name) {
+    if (state.name) {
       const webServiceParams = {
-        Name: state.Name,
-        Input: "",
-        Serviceid: Route.meta.serviceid,
-        Servicemethodid: Route.meta.Servicemethodid,
+        name: state.name,
+        input: "",
+        Serviceid: route.meta.serviceid,
+        Servicemethodid: route.meta.Servicemethodid,
       };
-      GetServiceMostafa(webServiceParams);
-      state.Name = "";
+      getServiceMostafa(webServiceParams);
+      state.name = "";
     } else {
       toast.error("اطلاعات را کامل وارد کنید", {
         timeout: 2000,
@@ -77,7 +77,7 @@ const HandelServiceMostafa = () => {
 </script>
 <template>
   <div class="ParentService">
-    <RequestLoading v-show="state.RequestLaoding" />
+    <RequestLoading v-show="state.requestLaoding" />
     <img
       src="../assets/image/MostafaService.png"
       style="width: 367px; margin: 0"
@@ -87,12 +87,12 @@ const HandelServiceMostafa = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="state.Name"
+        v-model.trim="state.name"
         placeholder="عنوان"
         type="text"
       />
       <div class="flex flex-row-reverse mt-4 mb-2 items-start justify-center">
-        <input v-model="state.ChekBox" class="InputChekBox" type="checkbox" />
+        <input v-model="state.chekBox" class="InputChekBox" type="checkbox" />
         <label
           class="form-check-label text-lg inline-block text-gray-800"
           for="flexCheckDefault"
@@ -103,9 +103,9 @@ const HandelServiceMostafa = () => {
         </label>
       </div>
       <input
-        v-model.trim="state.Input"
+        v-model.trim="state.input"
         placeholder="کد تحصیلی"
-        v-show="state.ChekBox"
+        v-show="state.chekBox"
         class="InputService"
         type="text"
       />

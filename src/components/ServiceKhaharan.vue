@@ -8,21 +8,21 @@ import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 /////////////////////////////////////////////////
 const toast = useToast();
-const Route = useRoute();
+const route = useRoute();
 const state = reactive({
-  RequestLaoding: false,
-  ServiceId: "",
+  requestLaoding: false,
+  serviceId: "",
   ServiceMethodId: "",
-  Name: "",
-  InputTarikh: [
+  name: "",
+  inputTarikh: [
     { Placeholder: "تاریخ شروع", Value: "" },
     { Placeholder: "تاریخ پایان", Value: "" },
   ],
 });
 
 // HandelRequestForServiceKhaharan
-const GetServiceKhaharan = (WebService) => {
-  state.RequestLaoding = true;
+const getServiceKhaharan = (WebService) => {
+  state.requestLaoding = true;
   ServiceKhaharanApi.Khaharan(WebService)
     .then((response) => {
       console.log(response);
@@ -38,31 +38,31 @@ const GetServiceKhaharan = (WebService) => {
     })
     .finally(() => {
       setTimeout(() => {
-        state.RequestLaoding = false;
+        state.requestLaoding = false;
       }, 1500);
     });
 };
 // FinishHandelRequestForServiceKhaharan
 const HandelWebService = () => {
-  const Tarikh = state.InputTarikh.every((items) => !!items.Value === true);
-  if (Tarikh && state.Name) {
+  const tarikh = state.inputTarikh.every((items) => !!items.Value === true);
+  if (tarikh && state.name) {
     // تبدیل تاریخ به میلادی
-    state.InputTarikh.forEach(
+    state.inputTarikh.forEach(
       (items) => (items.Value = Convert.dateConvertToGregorian(items.Value))
     );
     // پر کردن اطلاعات
     const webServiceParams = {
-      Name: state.Name,
-      Input: `${state.InputTarikh[0].Value},${state.InputTarikh[1].Value}`,
-      Serviceid: Route.meta.serviceid,
-      Servicemethodid: Route.meta.Servicemethodid,
+      name: state.name,
+      Input: `${state.inputTarikh[0].Value},${state.inputTarikh[1].Value}`,
+      serviceId: route.meta.serviceId,
+      Servicemethodid: route.meta.Servicemethodid,
     };
     // ارسال کردن
-    GetServiceKhaharan(webServiceParams);
+    getServiceKhaharan(webServiceParams);
     // خالی کردن اینپوت ها
-    state.InputTarikh[0].Value = "";
-    state.InputTarikh[1].Value = "";
-    state.Name = "";
+    state.inputTarikh[0].Value = "";
+    state.inputTarikh[1].Value = "";
+    state.name = "";
   } else {
     toast.error("اطلاعات را کامل کنید", {
       timeout: 2000,
@@ -72,7 +72,7 @@ const HandelWebService = () => {
 </script>
 <template>
   <div class="ParentService">
-    <RequestLoading v-show="state.RequestLaoding" />
+    <RequestLoading v-show="state.requestLaoding" />
     <img
       src="../assets/image/KhaharanService.png"
       style="width: 367px; margin: 0"
@@ -82,13 +82,13 @@ const HandelWebService = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="state.Name"
+        v-model.trim="state.name"
         placeholder="عنوان"
         type="text"
       />
       <DatePicker
         class="InputService p-0"
-        v-for="(items, index) in state.InputTarikh"
+        v-for="(items, index) in state.inputTarikh"
         :placeholder="items.Placeholder"
         v-model="items.Value"
         :key="index"

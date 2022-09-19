@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useRouter } from "vue-router";
-import { notify } from "@kyvg/vue3-notification";
 import AuthService from "../api/auth.js";
 const Router = useRouter()
 const HttpClient = axios.create({
@@ -42,22 +41,13 @@ HttpClient.interceptors.response.use(
         case 403:
           break;
         case 404:
-          notify({
-            type: "error",
-            title: `منبع درخواست شده یافت نشد`
-          });
+          console.log("404");
           break;
         case 500:
-          notify({
-            type: "error",
-            title: `خطای غیر منتظره! لطفا با پشتیبانی تماس بگیرید.`
-          });
+          console.log("500");
           break;
         case 501:
-          notify({
-            type: "error",
-            title: `بخش درخواست شده درحال پیاده سازی می‌باشد. لطفا بعدا مراجعه نمایید`
-          });
+          console.log("501");
           break;
       }
     } else {

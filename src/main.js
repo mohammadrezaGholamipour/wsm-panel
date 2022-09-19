@@ -3,7 +3,6 @@ import App from "./App.vue";
 import AuthService from "./api/auth.js";
 import router from "./router/Routes";
 import "tw-elements";
-import Notifications from "@kyvg/vue3-notification";
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";
 /* import font awesome icon component */
@@ -74,5 +73,4 @@ const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(Toast);
 app.use(router);
-app.use(Notifications);
 app.mount("#app");

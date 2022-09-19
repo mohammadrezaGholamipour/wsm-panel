@@ -10,13 +10,13 @@ import { useRoute } from "vue-router";
 const toast = useToast();
 const Route = useRoute();
 const state = reactive({
-  RequestLaoding: false,
+  requestLaoding: false,
   ServiceId: "",
   ServiceMethodId: "",
-  Name: "",
-  ChekBox: false,
-  Input: "",
-  InputSelect: [
+  name: "",
+  chekBox: false,
+  input: "",
+  inputSelect: [
     { text: "1394", value: "1" },
     { text: "1395", value: "2" },
     { text: "1396", value: "3" },
@@ -28,8 +28,8 @@ const state = reactive({
   ],
 });
 // HandelRequestForServiceKhorasan
-const GetServiceKhorasan = (WebService) => {
-  state.RequestLaoding = true;
+const getServiceKhorasan = (WebService) => {
+  state.requestLaoding = true;
   ServiceKhorasanApi.Khorasan(WebService)
     .then((response) => {
       console.log(response);
@@ -45,44 +45,44 @@ const GetServiceKhorasan = (WebService) => {
     })
     .finally(() => {
       setTimeout(() => {
-        state.RequestLaoding = false;
+        state.requestLaoding = false;
       }, 1500);
     });
 };
 // FinishHandelRequestForServiceKhorasan;
 const HandelServiceKhorasan = () => {
-  if (state.ChekBox) {
-    if (state.Name && state.Input) {
+  if (state.chekBox) {
+    if (state.name && state.input) {
       // پر کردن اطلاعات
       const webServiceParams = {
-        Name: state.Name,
-        Input: state.Input,
+        name: state.name,
+        input: state.input,
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
       // ارسال اطلاعات
-      GetServiceKhorasan(webServiceParams);
+      getServiceKhorasan(webServiceParams);
       // خالی کردن
-      state.Name = "";
-      state.Input = "";
+      state.name = "";
+      state.input = "";
     } else {
       toast.error("اطلاعات را کامل کنید", {
         timeout: 2000,
       });
     }
   } else {
-    if (state.Name) {
+    if (state.name) {
       // پر کردن اطلاعات
       const webServiceParams = {
-        Name: state.Name,
-        Input: "",
+        name: state.name,
+        input: "",
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
       // ارسال اطلاعات
-      GetServiceKhorasan(webServiceParams);
+      getServiceKhorasan(webServiceParams);
       // خالی کردن
-      state.Name = "";
+      state.name = "";
     } else {
       toast.error("اطلاعات را کامل کنید", {
         timeout: 2000,
@@ -93,7 +93,7 @@ const HandelServiceKhorasan = () => {
 </script>
 <template>
   <div class="ParentService">
-    <RequestLoading v-show="state.RequestLaoding" />
+    <RequestLoading v-show="state.requestLaoding" />
     <img
       src="../assets/image/KhorasanService.png"
       style="width: 367px; margin: 0"
@@ -103,12 +103,12 @@ const HandelServiceKhorasan = () => {
     <div class="flex justify-center flex-col items-center">
       <input
         class="InputService"
-        v-model.trim="state.Name"
+        v-model.trim="state.name"
         placeholder="عنوان"
         type="text"
       />
       <div class="flex flex-row-reverse my-3 mt-4 items-start justify-center">
-        <input v-model="state.ChekBox" class="InputChekBox" type="checkbox" />
+        <input v-model="state.chekBox" class="InputChekBox" type="checkbox" />
         <label
           class="form-check-label text-lg inline-block text-gray-800"
           for="flexCheckDefault"
@@ -119,12 +119,12 @@ const HandelServiceKhorasan = () => {
         </label>
       </div>
       <select
-        v-model.trim="state.Input"
-        v-show="state.ChekBox"
-        class="InputSelect"
+        v-model.trim="state.input"
+        v-show="state.chekBox"
+        class="inputSelect"
       >
         <option
-          v-for="items in state.InputSelect"
+          v-for="items in state.inputSelect"
           :value="items.value"
           :key="items.value"
         >
