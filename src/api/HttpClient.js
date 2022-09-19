@@ -25,6 +25,10 @@ HttpClient.interceptors.request.use(
   }
 );
 HttpClient.interceptors.response.use(
+  (response) => {
+    const { code, message } = response.data;
+    return response.data || null;
+  },
   async (error) => {
     if (error && error.response) {
       switch (error.response.status) {
