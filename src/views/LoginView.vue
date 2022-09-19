@@ -1,5 +1,5 @@
 <script setup>
-import serviceAccount from "../api/serviceAccount";
+import serviceAccount from "../api/ServiceAccount";
 import { useToast } from "vue-toastification";
 import AuthService from "../api/auth.js";
 import { useRouter } from "vue-router";
@@ -11,8 +11,7 @@ const userName = ref("");
 const password = ref("");
 // ///////////////////////////////////////
 const getUserInfo = () => {
-  serviceAccount
-    .GetUser()
+  serviceAccount.GetUser()
     .then((response) => {
       AuthService.setUserInfo(response.data);
       router.push("/");
