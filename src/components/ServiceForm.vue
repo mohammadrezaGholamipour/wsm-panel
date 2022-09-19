@@ -37,8 +37,6 @@ const GetWebService = (WebService) => {
     });
 };
 watch(Route, () => {
-  state.Notification = false;
-  state.WebService = "";
   state.Name = "";
   state.Input = "";
 });
@@ -50,14 +48,14 @@ const HandelService = () => {
       });
     } else {
       // پر کردن اطلاعات
-      state.WebService = {
+      const webServiceParams = {
         Name: state.Name,
         Input: state.Input,
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
       // ارسال کردن
-      GetWebService(JSON.stringify(state.WebService));
+      GetWebService(webServiceParams);
       // خالی کردن
       state.Name = "";
       state.Input = "";
@@ -65,14 +63,14 @@ const HandelService = () => {
   } else {
     if (state.Name) {
       // پر کردن اطلاعات
-      state.WebService = {
+      const webServiceParams = {
         Name: state.Name,
         Input: "",
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
       // ارسال کردن
-      GetWebService(JSON.stringify(state.WebService));
+      GetWebService(webServiceParams);
       // خالی کردن
       state.Name = "";
     } else {

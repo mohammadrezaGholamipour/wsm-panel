@@ -26,7 +26,6 @@ const state = reactive({
     { text: "1400", value: "7" },
     { text: "1401", value: "8" },
   ],
-  WebService: {},
 });
 // HandelRequestForServiceKhorasan
 const GetServiceKhorasan = (WebService) => {
@@ -55,14 +54,14 @@ const HandelServiceKhorasan = () => {
   if (state.ChekBox) {
     if (state.Name && state.Input) {
       // پر کردن اطلاعات
-      state.WebService = {
+      const webServiceParams = {
         Name: state.Name,
         Input: state.Input,
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
       // ارسال اطلاعات
-      GetServiceKhorasan(JSON.stringify(state.WebService));
+      GetServiceKhorasan(webServiceParams);
       // خالی کردن
       state.Name = "";
       state.Input = "";
@@ -74,14 +73,14 @@ const HandelServiceKhorasan = () => {
   } else {
     if (state.Name) {
       // پر کردن اطلاعات
-      state.WebService = {
+      const webServiceParams = {
         Name: state.Name,
         Input: "",
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
       // ارسال اطلاعات
-      GetServiceKhorasan(JSON.stringify(state.WebService));
+      GetServiceKhorasan(webServiceParams);
       // خالی کردن
       state.Name = "";
     } else {

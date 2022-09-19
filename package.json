@@ -14,7 +14,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@fortawesome/vue-fontawesome": "^3.0.1",
-    "@kyvg/vue3-notification": "^2.4.1",
     "@progress/kendo-licensing": "^1.2.2",
     "@progress/kendo-vue-excel-export": "^3.5.2",
     "@vueuse/core": "^9.1.1",

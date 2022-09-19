@@ -18,7 +18,6 @@ const state = reactive({
     { Placeholder: "تاریخ شروع", Value: "" },
     { Placeholder: "تاریخ پایان", Value: "" },
   ],
-  WebService: {},
 });
 
 // HandelRequestForServiceKhaharan
@@ -52,14 +51,14 @@ const HandelWebService = () => {
       (items) => (items.Value = Convert.dateConvertToGregorian(items.Value))
     );
     // پر کردن اطلاعات
-    state.WebService = {
+    const webServiceParams = {
       Name: state.Name,
       Input: `${state.InputTarikh[0].Value},${state.InputTarikh[1].Value}`,
       Serviceid: Route.meta.serviceid,
       Servicemethodid: Route.meta.Servicemethodid,
     };
     // ارسال کردن
-    GetServiceKhaharan(JSON.stringify(state.WebService));
+    GetServiceKhaharan(webServiceParams);
     // خالی کردن اینپوت ها
     state.InputTarikh[0].Value = "";
     state.InputTarikh[1].Value = "";

@@ -25,7 +25,6 @@ const state = reactive({
     { text: "شناسه ملی", value: "6" },
     { text: "شماره فراگیر گذرنامه", value: "7" },
   ],
-  WebService: {},
 });
 /////////////////////////////////////
 const SendSms = (WebService) => {
@@ -56,7 +55,7 @@ const AllInputSms = computed(() => {
 });
 const HandelServiceSms = () => {
   if (AllInputSms.value) {
-    state.WebService = {
+    const webServiceParams = {
       Name: state.Name,
       IdType: state.InputSelectValue,
       IdNumber: state.Shenase,
@@ -64,14 +63,14 @@ const HandelServiceSms = () => {
       Serviceid: Route.meta.serviceid,
       Servicemethodid: Route.meta.Servicemethodid,
     };
-    SendSms(JSON.stringify(state.WebService));
+    SendSms(webServiceParams);
     // خالی کردن اینپوت ها
     state.Name = "";
     state.InputSelectValue = "";
     state.Shenase = "";
     state.MatneSms = "";
   } else {
-    toast.success("اطلاعات را کامل وارد کنید", {
+    toast.error("اطلاعات را کامل وارد کنید", {
       timeout: 2000,
     });
   }

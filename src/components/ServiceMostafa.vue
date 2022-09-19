@@ -15,7 +15,6 @@ const state = reactive({
   Name: "",
   ChekBox: false,
   Input: "",
-  WebService: {},
 });
 
 // HandelRequestForServiceMostafa
@@ -44,13 +43,13 @@ const GetServiceMostafa = (WebService) => {
 const HandelServiceMostafa = () => {
   if (state.ChekBox) {
     if (state.Name && state.Input) {
-      state.WebService = {
+      const webServiceParams = {
         Name: state.Name,
         Input: state.Input,
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
-      GetServiceMostafa(JSON.stringify(state.WebService));
+      GetServiceMostafa(webServiceParams);
       state.Name = "";
       state.Input = "";
     } else {
@@ -60,13 +59,13 @@ const HandelServiceMostafa = () => {
     }
   } else {
     if (state.Name) {
-      state.WebService = {
+      const webServiceParams = {
         Name: state.Name,
         Input: "",
         Serviceid: Route.meta.serviceid,
         Servicemethodid: Route.meta.Servicemethodid,
       };
-      GetServiceMostafa(JSON.stringify(state.WebService));
+      GetServiceMostafa(webServiceParams);
       state.Name = "";
     } else {
       toast.error("اطلاعات را کامل وارد کنید", {
