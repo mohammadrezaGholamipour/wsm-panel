@@ -1,12 +1,13 @@
 <script setup>
+import { computed, onMounted, watch } from "@vue/runtime-core";
 import { saveExcel } from "@progress/kendo-vue-excel-export";
 import ServiceTableApi from "../api/ServiceTableApi";
-import { computed, onMounted, watch } from "@vue/runtime-core";
 import RequestLoading from "./RequestLoading.vue";
-import { notify } from "@kyvg/vue3-notification";
+import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
-
+/////////////////////////////////////////////////
+const toast = useToast();
 const Route = useRoute();
 const state = reactive({
   RequestLaoding: false,
@@ -397,16 +398,14 @@ const GetTabel = (ServiceMethodId, ServiceId) => {
   ServiceTableApi.Tabel(ServiceMethodId, ServiceId)
     .then((response) => {
       console.log(response);
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
+      toast.success("با موفقیت انجام شد", {
+        timeout: 2000,
       });
     })
     .catch((error) => {
       console.log(error.message);
-      notify({
-        type: "error",
-        title: "درخواست انجام نشد ",
+      toast.error("درخواست انجام نشد", {
+        timeout: 2000,
       });
     })
     .finally(() => {
@@ -462,12 +461,6 @@ const ExportExcel = () => {
     <Teleport to="body">
       <RequestLoading v-if="state.RequestLaoding" />
     </Teleport>
-    <notifications
-      position="top center"
-      close-on-click
-      class="mt-1"
-      width="320"
-    />
     <table class="Table">
       <thead>
         <tr id="FirstTr">
@@ -570,4 +563,3 @@ const ExportExcel = () => {
     <!-- ////////////////////////////////////////// -->
   </div>
 </template>
-

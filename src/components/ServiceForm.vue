@@ -1,12 +1,12 @@
 <script setup>
 import ServiceFormApi from "../api/ServiceFormApi";
 import RequestLoading from "./RequestLoading.vue";
-import { notify } from "@kyvg/vue3-notification";
-import { watch } from "@vue/runtime-core";
+import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
+import { watch } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
-
-// ////////////////////////
+/////////////////////////////////////////////////
+const toast = useToast();
 const Route = useRoute();
 const state = reactive({
   RequestLaoding: false,
@@ -20,16 +20,14 @@ const GetWebService = (WebService) => {
   ServiceFormApi.Form(WebService)
     .then((response) => {
       console.log(response);
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
+      toast.success("با موفقیت انجام شد", {
+        timeout: 2000,
       });
     })
     .catch((error) => {
       console.log(error.message);
-      notify({
-        type: "error",
-        title: "درخواست انجام نشد ",
+      toast.error("درخواست انجام نشد", {
+        timeout: 2000,
       });
     })
     .finally(() => {
@@ -47,9 +45,8 @@ watch(Route, () => {
 const HandelService = () => {
   if (Route.meta.isone > 0) {
     if (!state.Name || !state.Input) {
-      notify({
-        type: "error",
-        title: "اطلاعات را کامل وارد کنید",
+      toast.error("اطلاعات را کامل وارد کنید", {
+        timeout: 2000,
       });
     } else {
       // پر کردن اطلاعات
@@ -79,10 +76,8 @@ const HandelService = () => {
       // خالی کردن
       state.Name = "";
     } else {
-      notify({
-        type: "error",
-        title: "عنوان را وارد کنید",
-        ignoreDuplicates: true,
+      toast.error("عنوان را وارد کنید", {
+        timeout: 2000,
       });
     }
   }
@@ -91,12 +86,6 @@ const HandelService = () => {
 <template>
   <div class="ParentService">
     <RequestLoading v-show="state.RequestLaoding" />
-    <notifications
-      position="top center"
-      close-on-click
-      class="mt-1"
-      width="320"
-    />
     <img
       src="../assets/image/FormService.png"
       style="width: 367px; margin: 0"

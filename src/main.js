@@ -8,6 +8,9 @@ import Notifications from "@kyvg/vue3-notification";
 import { library } from "@fortawesome/fontawesome-svg-core";
 /* import font awesome icon component */
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import Toast from "vue-toastification";
+// Import the CSS or use your own!
+import "vue-toastification/dist/index.css";
 /* import specific icons */
 import {
   faPowerOff,
@@ -69,6 +72,7 @@ router.beforeEach((to, from, next) => {
 });
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
+app.use(Toast);
 app.use(router);
 app.use(Notifications);
 app.mount("#app");

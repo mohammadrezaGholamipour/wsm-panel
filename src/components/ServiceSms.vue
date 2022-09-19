@@ -1,13 +1,13 @@
 <script setup>
 import RequestLoading from "./RequestLoading.vue";
 import ServiceSmsApi from "../api/ServiceSmsApi";
-import { notify } from "@kyvg/vue3-notification";
+import { useToast } from "vue-toastification";
 import { computed } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
-
-const Route = useRoute();
 /////////////////////////////////////////////////
+const Route = useRoute();
+const toast = useToast();
 const state = reactive({
   RequestLaoding: false,
   ServiceId: "",
@@ -33,16 +33,14 @@ const SendSms = (WebService) => {
   ServiceSmsApi.Sms(WebService)
     .then((response) => {
       console.log(response);
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
+      toast.success("با موفقیت انجام شد", {
+        timeout: 2000,
       });
     })
     .catch((error) => {
       console.log(error.message);
-      notify({
-        type: "error",
-        title: "درخواست انجام نشد ",
+      toast.error("درخواست انجام نشد", {
+        timeout: 2000,
       });
     })
     .finally(() => {
@@ -73,10 +71,8 @@ const HandelServiceSms = () => {
     state.Shenase = "";
     state.MatneSms = "";
   } else {
-    notify({
-      type: "error",
-      title: "اطلاعات را کامل وارد",
-      ignoreDuplicates: true,
+    toast.success("اطلاعات را کامل وارد کنید", {
+      timeout: 2000,
     });
   }
 };
@@ -94,7 +90,6 @@ const ShenasePlaceHolder = computed(() => {
 <template>
   <div class="ParentService">
     <RequestLoading v-show="state.RequestLaoding" />
-    <notifications position="top center" class="mt-1" width="320" />
     <img
       src="../assets/image/SmsService.png"
       style="width: 320px"

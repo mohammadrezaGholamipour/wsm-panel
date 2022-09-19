@@ -1,11 +1,12 @@
 <script setup>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import ServiceAccount from "../api/ServiceAccount";
-import { notify } from "@kyvg/vue3-notification";
+import { useToast } from "vue-toastification";
 import AuthService from "../api/auth.js";
 import { useRouter } from "vue-router";
 import { ref } from "@vue/reactivity";
-
+/////////////////////////////////////////////////
+const toast = useToast();
 const Router = useRouter();
 const UserName = ref("");
 const Password = ref("");
@@ -30,9 +31,8 @@ const SendServiceLogin = (perosn) => {
     })
     .catch((error) => {
       console.log(error);
-      notify({
-        type: "error",
-        title: "درخواست انجام نشد",
+      toast.error("درخواست انجام نشد", {
+        timeout: 2000,
       });
     });
 };
@@ -58,29 +58,19 @@ const HandelLogin = () => {
       };
       SendServiceLogin(JSON.stringify(Person));
     } else {
-      notify({
-        type: "warn",
-        title: "رمز عبور باید بیشتر از 5 رقم باشد",
-        ignoreDuplicates: true,
+      toast.warning("رمز عبور باید بیشتر از 5 رقم باشد", {
+        timeout: 2000,
       });
     }
   } else {
-    notify({
-      type: "error",
-      title: "اطلاعات را کامل وارد",
-      ignoreDuplicates: true,
+    toast.error("اطلاعات را کامل وارد کنید", {
+      timeout: 2000,
     });
   }
 };
 </script>
 <template>
   <div class="LoginPage">
-    <notifications
-      position="top center"
-      v-if="false"
-      class="mt-2"
-      width="320"
-    />
     <div class="LoginForm">
       <img src="../assets/image/Logo.png" alt="مرکز خدمات حوزه های علمیه" />
       <Form @submit.prevent>

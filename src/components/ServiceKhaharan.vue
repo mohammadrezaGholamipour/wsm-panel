@@ -2,12 +2,12 @@
 import ServiceKhaharanApi from "../api/ServiceKhaharanApi";
 import DatePicker from "vue3-persian-datetime-picker";
 import RequestLoading from "./RequestLoading.vue";
-import { notify } from "@kyvg/vue3-notification";
+import { useToast } from "vue-toastification";
 import Convert from "@/utilities/common.js";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
-
 /////////////////////////////////////////////////
+const toast = useToast();
 const Route = useRoute();
 const state = reactive({
   RequestLaoding: false,
@@ -27,16 +27,14 @@ const GetServiceKhaharan = (WebService) => {
   ServiceKhaharanApi.Khaharan(WebService)
     .then((response) => {
       console.log(response);
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
+      toast.success("با موفقیت انجام شد", {
+        timeout: 2000,
       });
     })
     .catch((error) => {
       console.log(error.message);
-      notify({
-        type: "error",
-        title: "درخواست انجام نشد ",
+      toast.error("درخواست انجام نشد", {
+        timeout: 2000,
       });
     })
     .finally(() => {
@@ -67,10 +65,8 @@ const HandelWebService = () => {
     state.InputTarikh[1].Value = "";
     state.Name = "";
   } else {
-    notify({
-      type: "error",
-      title: "اطلاعات را کامل وارد",
-      ignoreDuplicates: true,
+    toast.error("اطلاعات را کامل کنید", {
+      timeout: 2000,
     });
   }
 };
@@ -78,7 +74,6 @@ const HandelWebService = () => {
 <template>
   <div class="ParentService">
     <RequestLoading v-show="state.RequestLaoding" />
-    <notifications position="center top" class="mt-1" width="320" />
     <img
       src="../assets/image/KhaharanService.png"
       style="width: 367px; margin: 0"

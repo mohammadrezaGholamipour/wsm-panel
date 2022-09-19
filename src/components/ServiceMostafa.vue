@@ -1,12 +1,13 @@
 <script setup>
 import ServiceMostafaApi from "../api/ServiceMostafaApi";
 import RequestLoading from "./RequestLoading.vue";
-import { notify } from "@kyvg/vue3-notification";
+import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
 import { useRoute } from "vue-router";
 
 // //////////////////////////////////////
 const Route = useRoute();
+const toast = useToast();
 const state = reactive({
   RequestLaoding: false,
   ServiceId: "",
@@ -23,16 +24,14 @@ const GetServiceMostafa = (WebService) => {
   ServiceMostafaApi.Mostafa(WebService)
     .then((response) => {
       console.log(response);
-      notify({
-        type: "success",
-        title: "با موفقیت انجام شد",
+      toast.success("با موفقیت انجام شد", {
+        timeout: 2000,
       });
     })
     .catch((error) => {
       console.log(error.message);
-      notify({
-        type: "error",
-        title: "درخواست انجام نشد ",
+      toast.error("درخواست انجام نشد", {
+        timeout: 2000,
       });
     })
     .finally(() => {
@@ -55,10 +54,8 @@ const HandelServiceMostafa = () => {
       state.Name = "";
       state.Input = "";
     } else {
-      notify({
-        type: "error",
-        title: "اطلاعات را کامل وارد",
-        ignoreDuplicates: true,
+      toast.error("اطلاعات را کامل وارد کنید", {
+        timeout: 2000,
       });
     }
   } else {
@@ -72,10 +69,8 @@ const HandelServiceMostafa = () => {
       GetServiceMostafa(JSON.stringify(state.WebService));
       state.Name = "";
     } else {
-      notify({
-        type: "error",
-        title: "اطلاعات را کامل وارد",
-        ignoreDuplicates: true,
+      toast.error("اطلاعات را کامل وارد کنید", {
+        timeout: 2000,
       });
     }
   }
@@ -84,7 +79,6 @@ const HandelServiceMostafa = () => {
 <template>
   <div class="ParentService">
     <RequestLoading v-show="state.RequestLaoding" />
-    <notifications position="center top" class="mt-1" width="320" />
     <img
       src="../assets/image/MostafaService.png"
       style="width: 367px; margin: 0"
