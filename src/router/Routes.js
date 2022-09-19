@@ -525,9 +525,8 @@ const router = createRouter({
 });
 router.beforeEach((to, from, next) => {
   if (to.path === from.path && to.path !== "/") return;
-  const isAuthenticated = AuthService.getToken();
   const hasRouterUrl = to?.matched?.length > 0;
-  if (!!!isAuthenticated) {
+  if (!AuthService.getToken()) {
     if (to.name !== "login")
       return next({ path: '/login' });
   } else if (!hasRouterUrl) {
