@@ -456,7 +456,7 @@ const HandelCollapseUl = (itemstitle) => {
             leave-from-class="opacity-200"
             enter-to-class="opacity-200"
           >
-            <ul @click.stop v-show="items.isOpen">
+            <ul class="pr-2" @click.stop v-show="items.isOpen">
               <li
                 :class="
                   Route.path === item.link
