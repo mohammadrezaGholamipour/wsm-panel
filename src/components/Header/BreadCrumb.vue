@@ -1,11 +1,11 @@
 <script setup>
 import { useRoute } from "vue-router";
 
-const Route = useRoute();
+const route = useRoute();
 </script>
 <template>
   <nav
-    v-if="Route.meta.breadcrumb"
+    v-if="route.meta.breadcrumb"
     aria-label="breadcrumb"
     class="breadcrumb"
     dir="rtl"
@@ -21,7 +21,7 @@ const Route = useRoute();
       <li class="mx-2 flex"><font-awesome-icon icon="fa-solid fa-link" /></li>
 
       <li>
-        {{ Route.meta.breadcrumb }}
+        {{ route.meta.breadcrumb }}
       </li>
     </ol>
   </nav>

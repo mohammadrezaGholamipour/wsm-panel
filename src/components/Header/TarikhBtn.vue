@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "@vue/reactivity";
-const TarikhOption = [
+const tarikhOption = [
   {
     day: "numeric",
   },
@@ -14,13 +14,13 @@ const TarikhOption = [
     year: "numeric",
   },
 ];
-const Tarikh = ref([]);
-TarikhOption.forEach((items) => {
-  Tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
+const tarikh = ref([]);
+tarikhOption.forEach((items) => {
+  tarikh.value.push(new Intl.DateTimeFormat("fa-IR", items).format(new Date()));
 });
 </script>
 <template>
   <div class="Tarikh">
-    {{ Tarikh[2] }} {{ Tarikh[0] }} {{ Tarikh[1] }} {{ Tarikh[3] }}
+    {{ tarikh[2] }} {{ tarikh[0] }} {{ tarikh[1] }} {{ tarikh[3] }}
   </div>
 </template>

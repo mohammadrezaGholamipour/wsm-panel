@@ -2,13 +2,13 @@
 import { useFullscreen } from "@vueuse/core";
 import { ref, watch } from "@vue/runtime-core";
 const { isFullscreen, enter, exit } = useFullscreen();
-const IconFullOrDefaultScreen = ref(false);
+const iconFullOrDefaultScreen = ref(false);
 watch(isFullscreen, (value) => {
-  IconFullOrDefaultScreen.value = value;
+  iconFullOrDefaultScreen.value = value;
 });
-const HandelFullOrDefaultScreen = () => {
-  IconFullOrDefaultScreen.value = !IconFullOrDefaultScreen.value;
-  if (IconFullOrDefaultScreen.value) {
+const handelFullOrDefaultScreen = () => {
+  iconFullOrDefaultScreen.value = !iconFullOrDefaultScreen.value;
+  if (iconFullOrDefaultScreen.value) {
     enter();
   } else {
     exit();
@@ -19,7 +19,7 @@ const HandelFullOrDefaultScreen = () => {
   <button
     type="button"
     class="FullOrDefaultScreen"
-    @click="HandelFullOrDefaultScreen"
+    @click="handelFullOrDefaultScreen"
   >
     <font-awesome-icon
       :icon="
