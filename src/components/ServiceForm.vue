@@ -7,9 +7,9 @@ import { reactive } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
 
 /////////////////////////////////////////////////
+const router = useRouter();
 const toast = useToast();
 const route = useRoute();
-const router = useRouter();
 const state = reactive({
   requestLaoding: false,
   name: "",

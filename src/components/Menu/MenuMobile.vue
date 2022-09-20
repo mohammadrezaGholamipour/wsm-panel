@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
-const Route = useRoute();
-const MenuList = ref([
+const route = useRoute();
+const menuList = ref([
   {
     title: "خواهران",
     children: [
@@ -80,7 +80,7 @@ const MenuList = ref([
       },
     ],
     isOpen: false,
-    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
+    hasAccess: true, 
   },
   {
     title: "خراسان",
@@ -415,8 +415,8 @@ const MenuList = ref([
     hasAccess: true,
   },
 ]);
-const HandelCollapseUl = (itemstitle) => {
-  MenuList.value.forEach((items) => {
+const handelCollapseUl = (itemstitle) => {
+  menuList.value.forEach((items) => {
     if (items.title === itemstitle) {
       items.isOpen = !items.isOpen;
     } else {
@@ -435,8 +435,8 @@ const HandelCollapseUl = (itemstitle) => {
     <div class="MenuMobileParent">
       <div class="MenuMobileParentUl">
         <ul
-          @click="HandelCollapseUl(items.title)"
-          v-for="items in MenuList"
+          @click="handelCollapseUl(items.title)"
+          v-for="items in menuList"
           :key="items.title"
         >
           <li>
@@ -465,7 +465,7 @@ const HandelCollapseUl = (itemstitle) => {
               <ul @click.stop v-show="items.isOpen">
                 <li
                   :class="
-                    Route.path === item.link
+                    route.path === item.link
                       ? 'hover:bg-[#60645f1c] rounded-lg bg-[#e02d2d1c]'
                       : ''
                   "

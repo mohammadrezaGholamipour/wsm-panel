@@ -1,4 +1,3 @@
-<script setup></script>
 <template>
   <div class="loading">
     <div class="inline-flex justify-between items-center">
