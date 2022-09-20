@@ -523,16 +523,16 @@ const router = createRouter({
     },
   ],
 });
-// router.beforeEach((to, from, next) => {
-//   if (to.path === from.path && to.path !== "/") return;
-//   const hasRouterUrl = to?.matched?.length > 0;
-//   if (!AuthService.getToken()) {
-//     if (to.name !== "login")
-//       return next({ path: '/login' });
-//   } else if (!hasRouterUrl) {
-//     if (to.name !== 'login')
-//       return next({ path: "/" });
-//   }
-//   next();
-// });
+router.beforeEach((to, from, next) => {
+  if (to.path === from.path && to.path !== "/") return;
+  const hasRouterUrl = to?.matched?.length > 0;
+  if (!AuthService.getToken()) {
+    if (to.name !== "login")
+      return next({ path: '/login' });
+  } else if (!hasRouterUrl) {
+    if (to.name !== 'login')
+      return next({ path: "/" });
+  }
+  next();
+});
 export default router;

@@ -25,5 +25,3 @@ import MenuMobileBtn from "./MenuMobileBtn.vue";
     </div>
   </nav>
 </template>
-
-<style></style>
