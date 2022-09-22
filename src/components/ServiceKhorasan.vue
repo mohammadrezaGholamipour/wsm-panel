@@ -119,7 +119,7 @@ const handelServiceKhorasan = () => {
       <select
         v-model.trim="state.input"
         v-show="state.chekBox"
-        class="inputSelect"
+        class="InputSelect"
       >
         <option
           v-for="items in state.inputSelect"
