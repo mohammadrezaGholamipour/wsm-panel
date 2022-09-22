@@ -1,5 +1,5 @@
 <script setup>
-import serviceAccount from "../api/ServiceAccount";
+import ServiceAccount from "../api/ServiceAccount";
 import { useToast } from "vue-toastification";
 import AuthService from "../api/auth.js";
 import { useRouter } from "vue-router";
@@ -11,49 +11,49 @@ const userName = ref("");
 const password = ref("");
 // ///////////////////////////////////////
 const getUserInfo = () => {
-  serviceAccount.GetUser()
+  ServiceAccount.getUser()
     .then((response) => {
       AuthService.setUserInfo(response.data);
       router.push("/");
     })
     .catch((error) => {
       console.log(error);
-      toast.error("اطلاعات شما یافت نشد", {
+    });
+};
+// ///////////////////////////////////////
+const sendServiceLogin = (perosn) => {
+  ServiceAccount.login(perosn)
+    .then((response) => {
+      console.log(response);
+      const userInfo = response && response.data && response.data.UserInfo;
+      AuthService.setUserInfo(userInfo);
+      setTimeout(() => router.push("/"), 250);
+      //GetUserInfo();
+    })
+    .catch((error) => {
+      console.log(error);
+      toast.error("درخواست انجام نشد", {
         timeout: 2000,
       });
     });
 };
 // ///////////////////////////////////////
-const sendServiceLogin = (perosn) => {
-  serviceAccount
-    .Login(perosn)
-    .then((response) => {
-      AuthService.setToken(response.jwToken);
-      getUserInfo();
-    })
-    .catch((error) => {
-      console.log(error);
-      toast.error("شما اجازه ورود ندارید", {
-        timeout: 2000,
-      });
-    });
-};
 const handelLogin = () => {
   if (userName.value && password.value) {
-    if (password.value.length > 5) {
-      const Person = {
-        userName: userName.value,
+    if (password.value.length >= 4) {
+      const person = {
+        username: userName.value,
         password: password.value,
       };
-      sendServiceLogin(Person);
+      sendServiceLogin(person);
     } else {
-      toast.warning("رمز عبور باید بیشتر از 5 رقم باشد", {
-        timeout: 2000,
+      toast.warning("رمز عبور باید بیشتر از 3 رقم باشد", {
+        timeout: 100,
       });
     }
   } else {
     toast.error("اطلاعات را کامل وارد کنید", {
-      timeout: 2000,
+      timeout: 100,
     });
   }
 };
@@ -68,12 +68,14 @@ const handelLogin = () => {
             placeholder="نام کاربری"
             v-model="userName"
             class="LoginInput"
+            name="username"
             type="text"
           />
           <input
             placeholder="رمز عبور"
             v-model="password"
             class="LoginInput"
+            name="password"
             type="password"
           />
         </div>

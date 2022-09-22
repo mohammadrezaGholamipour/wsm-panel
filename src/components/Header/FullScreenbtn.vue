@@ -1,6 +1,7 @@
 <script setup>
-import { useFullscreen } from "@vueuse/core";
 import { ref, watch } from "@vue/runtime-core";
+import { useFullscreen } from "@vueuse/core";
+// ///////////////////////////////////////////////
 const { isFullscreen, enter, exit } = useFullscreen();
 const iconFullOrDefaultScreen = ref(false);
 watch(isFullscreen, (value) => {

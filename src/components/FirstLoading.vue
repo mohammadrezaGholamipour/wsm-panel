@@ -1,3 +1,4 @@
+<script setup></script>
 <template>
   <div class="body">
     <div class="wrapper">

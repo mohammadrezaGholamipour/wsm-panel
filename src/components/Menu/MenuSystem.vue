@@ -479,7 +479,6 @@ const handelCollapseUl = (itemstitle) => {
             </ul>
           </transition>
         </li>
-
         <hr class="MenuSystemHr" />
       </ul>
     </div>

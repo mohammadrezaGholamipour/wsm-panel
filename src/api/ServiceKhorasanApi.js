@@ -1,6 +1,5 @@
 import HttpClient from './HttpClient';
-
 export default {
-  Khorasan: (WebService) =>
-    HttpClient.post('servicebus/serviceready', WebService),
+  khorasan: (webService) =>
+    HttpClient.post('servicebus/serviceready', webService),
 };

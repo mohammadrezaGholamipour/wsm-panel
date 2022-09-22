@@ -1,4 +1,3 @@
-<script setup></script>
 <template>
   <button type="button" class="BtnMessages">
     <font-awesome-icon icon="fa-solid fa-envelope" />

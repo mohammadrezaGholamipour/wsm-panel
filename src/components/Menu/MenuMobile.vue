@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 import { useRoute } from "vue-router";
+// ////////////////////////////////////////
 const route = useRoute();
 const menuList = ref([
   {
@@ -80,7 +81,7 @@ const menuList = ref([
       },
     ],
     isOpen: false,
-    hasAccess: true, 
+    hasAccess: true, //await this.checkAdminAccess(en_AppId.ManagmentGallery, PageEnumManagmentGallery.HomePage as number),
   },
   {
     title: "خراسان",
@@ -462,7 +463,7 @@ const handelCollapseUl = (itemstitle) => {
               leave-from-class="opacity-200"
               enter-to-class="opacity-200"
             >
-              <ul @click.stop v-show="items.isOpen">
+              <ul class="pr-1" @click.stop v-show="items.isOpen">
                 <li
                   :class="
                     route.path === item.link
@@ -487,7 +488,6 @@ const handelCollapseUl = (itemstitle) => {
               </ul>
             </transition>
           </li>
-
           <hr class="MenuSystemHr" />
         </ul>
       </div>

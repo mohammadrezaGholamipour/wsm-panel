@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import AuthService from "../api/auth.js";
 import LoginView from "../views/LoginView.vue";
+import AuthService from '../api/auth.js';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -524,14 +524,13 @@ const router = createRouter({
   ],
 });
 router.beforeEach((to, from, next) => {
-  if (to.path === from.path && to.path !== "/") return;
+  if (to.path === from.path && to.path !== '/') return;
+  const isAuthenticated = AuthService.getUserInfo();
   const hasRouterUrl = to?.matched?.length > 0;
-  if (!AuthService.getToken()) {
-    if (to.name !== "login")
-      return next({ path: '/login' });
+  if (!isAuthenticated) {
+    if (to.name !== 'login') return next({ path: '/login' });
   } else if (!hasRouterUrl) {
-    if (to.name !== 'login')
-      return next({ path: "/" });
+    if (to.name !== 'login') return next({ path: '/' });
   }
   next();
 });

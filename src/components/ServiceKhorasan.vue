@@ -7,12 +7,12 @@ import { reactive } from "@vue/reactivity";
 
 // //////////////////////////////////////
 const toast = useToast();
-const Route = useRoute();
-const Router = useRouter();
+const route = useRoute();
+const router = useRouter();
 const state = reactive({
   requestLaoding: false,
-  ServiceId: "",
-  ServiceMethodId: "",
+  serviceId: "",
+  serviceMethodId: "",
   name: "",
   chekBox: false,
   input: "",
@@ -28,17 +28,17 @@ const state = reactive({
   ],
 });
 // HandelRequestForServiceKhorasan
-const getServiceKhorasan = (WebService) => {
+const getServiceKhorasan = (webService) => {
   state.requestLaoding = true;
-  ServiceKhorasanApi.Khorasan(WebService)
+  ServiceKhorasanApi.khorasan(webService)
     .then((response) => {
       console.log(response);
       toast.success("با موفقیت انجام شد", {
-        timeout: 2000,
+        timeout: 5000,
       });
       setTimeout(() => {
         router.push({ name: route.meta.Servicemethodid });
-      }, 2000);
+      }, 200);
     })
     .catch((error) => {
       console.log(error.message);
@@ -46,22 +46,18 @@ const getServiceKhorasan = (WebService) => {
         timeout: 2000,
       });
     })
-    .finally(() => {
-      setTimeout(() => {
-        state.requestLaoding = false;
-      }, 1500);
-    });
+    .finally(() => (state.requestLaoding = false));
 };
 // FinishHandelRequestForServiceKhorasan;
-const HandelServiceKhorasan = () => {
+const handelServiceKhorasan = () => {
   if (state.chekBox) {
     if (state.name && state.input) {
       // پر کردن اطلاعات
       const webServiceParams = {
         name: state.name,
         input: state.input,
-        Serviceid: Route.meta.serviceid,
-        Servicemethodid: Route.meta.Servicemethodid,
+        serviceId: route.meta.serviceid,
+        serviceMethodId: route.meta.Servicemethodid,
       };
       // ارسال اطلاعات
       getServiceKhorasan(webServiceParams);
@@ -79,8 +75,8 @@ const HandelServiceKhorasan = () => {
       const webServiceParams = {
         name: state.name,
         input: "",
-        Serviceid: Route.meta.serviceid,
-        Servicemethodid: Route.meta.Servicemethodid,
+        serviceId: route.meta.serviceid,
+        serviceMethodId: route.meta.Servicemethodid,
       };
       // ارسال اطلاعات
       getServiceKhorasan(webServiceParams);
@@ -124,7 +120,7 @@ const HandelServiceKhorasan = () => {
       <select
         v-model.trim="state.input"
         v-show="state.chekBox"
-        class="InputSelect"
+        class="inputSelect"
       >
         <option
           v-for="items in state.inputSelect"

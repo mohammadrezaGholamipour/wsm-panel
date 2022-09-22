@@ -1,7 +1,7 @@
 <script setup>
 import RequestLoading from "./RequestLoading.vue";
-import { useRoute, useRouter } from "vue-router";
 import ServiceSmsApi from "../api/ServiceSmsApi";
+import { useRoute, useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
 import { computed } from "@vue/runtime-core";
 import { reactive } from "@vue/reactivity";
@@ -12,8 +12,8 @@ const router = useRouter();
 const toast = useToast();
 const state = reactive({
   requestLaoding: false,
-  ServiceId: "",
-  ServiceMethodId: "",
+  serviceId: "",
+  serviceMethodId: "",
   name: "",
   input: {
     inputSelectValue: "",
@@ -31,13 +31,13 @@ const state = reactive({
   ],
 });
 /////////////////////////////////////
-const sendSms = (WebService) => {
+const sendSms = (webService) => {
   state.requestLaoding = true;
-  ServiceSmsApi.Sms(WebService)
+  ServiceSmsApi.sms(webService)
     .then((response) => {
       console.log(response);
       toast.success("با موفقیت انجام شد", {
-        timeout: 2000,
+        timeout: 5000,
       });
       setTimeout(() => {
         router.push({ name: route.meta.Servicemethodid });
@@ -46,7 +46,7 @@ const sendSms = (WebService) => {
     .catch((error) => {
       console.log(error.message);
       toast.error("درخواست انجام نشد", {
-        timeout: 2000,
+        timeout: 5000,
       });
     })
     .finally(() => {
@@ -55,7 +55,7 @@ const sendSms = (WebService) => {
       }, 1500);
     });
 };
-const AllInputSms = computed(() => {
+const allInputSms = computed(() => {
   return (
     state.name &&
     state.input.inputSelectValue &&
@@ -63,17 +63,17 @@ const AllInputSms = computed(() => {
     state.input.matneSms
   );
 });
-const HandelServiceSms = () => {
-  if (AllInputSms.value) {
+const handelServiceSms = () => {
+  if (allInputSms.value) {
     const webServiceParams = {
       name: state.name,
       input: {
-        IdType: state.input.inputSelectValue,
-        IdNumber: state.input.shenase,
-        Message: state.input.matneSms,
+        idType: state.input.inputSelectValue,
+        idNumber: state.input.shenase,
+        message: state.input.matneSms,
       },
-      Serviceid: route.meta.serviceid,
-      Servicemethodid: route.meta.Servicemethodid,
+      serviceId: route.meta.serviceid,
+      serviceMethodId: route.meta.Servicemethodid,
     };
     webServiceParams.input = JSON.stringify(webServiceParams.input);
     sendSms(webServiceParams);
@@ -88,12 +88,12 @@ const HandelServiceSms = () => {
     });
   }
 };
-const ShenasePlaceHolder = computed(() => {
+const shenasePlaceHolder = computed(() => {
   if (state.input.inputSelectValue) {
-    const Placeholder = state.inputSelect.filter(
+    const placeholder = state.inputSelect.filter(
       (items) => items.value === state.input.inputSelectValue
     );
-    return `${Placeholder[0].text} خود را وارد کنید`;
+    return `${placeholder[0].text} خود را وارد کنید`;
   } else {
     return "شناسه هویتی";
   }
@@ -131,7 +131,7 @@ const ShenasePlaceHolder = computed(() => {
         </select>
       </div>
       <input
-        :placeholder="ShenasePlaceHolder"
+        :placeholder="shenasePlaceHolder"
         class="InputService mt-3"
         v-model.trim="state.input.shenase"
         type="text"
@@ -143,7 +143,7 @@ const ShenasePlaceHolder = computed(() => {
         rows="7"
       ></textarea>
 
-      <button @click="HandelServiceSms" type="submit" class="BtnService">
+      <button @click="handelServiceSms" type="submit" class="BtnService">
         ارسال پیامک
       </button>
     </div>

@@ -1,21 +1,21 @@
 const AuthService = {
   getToken: () => {
-    return window.sessionStorage.getItem("token");
+    return window.localStorage.getItem('token');
   },
   setToken: (token) => {
-    window.sessionStorage.setItem("token", token);
+    window.localStorage.setItem('token', token);
   },
   setUserInfo: (user$) => {
     const userAsString = JSON.stringify(user$);
-    window.sessionStorage.setItem("user", userAsString);
+    window.localStorage.setItem('user', userAsString);
   },
   getUserInfo: () => {
-    const userAsString = window.sessionStorage.getItem("user");
+    const userAsString = window.localStorage?.getItem('user') ?? '';
     return userAsString ? JSON.parse(userAsString) : null;
   },
   removeAllUserInfo: () => {
-    window.sessionStorage.removeItem('user');
-    window.sessionStorage.removeItem('token');
+    window.localStorage.removeItem('user');
+    window.localStorage.removeItem('token');
   },
   isExpiredToken: () => {
     const user = AuthService.getUserInfo();

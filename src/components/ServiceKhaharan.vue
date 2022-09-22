@@ -8,69 +8,67 @@ import Convert from "@/utilities/common.js";
 import { reactive } from "@vue/reactivity";
 
 /////////////////////////////////////////////////
+const router = useRouter();
 const toast = useToast();
 const route = useRoute();
-const router = useRouter();
 const state = reactive({
   requestLaoding: false,
   serviceId: "",
-  ServiceMethodId: "",
+  serviceMethodId: "",
   name: "",
   inputTarikh: [
-    { Placeholder: "تاریخ شروع", Value: "" },
-    { Placeholder: "تاریخ پایان", Value: "" },
+    { placeholder: "تاریخ شروع", value: "" },
+    { placeholder: "تاریخ پایان", value: "" },
   ],
 });
 
 // HandelRequestForServiceKhaharan
-const getServiceKhaharan = (WebService) => {
+const getServiceKhaharan = (webService) => {
   state.requestLaoding = true;
-  ServiceKhaharanApi.Khaharan(WebService)
+  ServiceKhaharanApi.khaharan(webService)
     .then((response) => {
       console.log(response);
       toast.success("با موفقیت انجام شد", {
-        timeout: 2000,
+        timeout: 5000,
       });
       setTimeout(() => {
         router.push({ name: route.meta.Servicemethodid });
-      }, 2000);
+      }, 250);
     })
     .catch((error) => {
       console.log(error.message);
       toast.error("درخواست انجام نشد", {
-        timeout: 2000,
+        timeout: 5000,
       });
     })
-    .finally(() => {
-      setTimeout(() => {
-        state.requestLaoding = false;
-      }, 1500);
-    });
+    .finally(() => (state.requestLaoding = false));
 };
 // FinishHandelRequestForServiceKhaharan
-const HandelWebService = () => {
-  const tarikh = state.inputTarikh.every((items) => !!items.Value === true);
+const handelWebService = () => {
+  console.log("route", route);
+  console.log("route.meta", route.meta);
+  const tarikh = state.inputTarikh.every((items) => !!items.value === true);
   if (tarikh && state.name) {
     // تبدیل تاریخ به میلادی
     state.inputTarikh.forEach(
-      (items) => (items.Value = Convert.dateConvertToGregorian(items.Value))
+      (items) => (items.value = Convert.dateConvertToGregorian(items.value))
     );
     // پر کردن اطلاعات
     const webServiceParams = {
       name: state.name,
-      Input: `${state.inputTarikh[0].Value},${state.inputTarikh[1].Value}`,
-      serviceId: route.meta.serviceId,
-      Servicemethodid: route.meta.Servicemethodid,
+      Input: `${state.inputTarikh[0].value},${state.inputTarikh[1].value}`,
+      serviceId: route.meta.serviceid,
+      serviceMethodId: route.meta.Servicemethodid,
     };
     // ارسال کردن
     getServiceKhaharan(webServiceParams);
     // خالی کردن اینپوت ها
-    state.inputTarikh[0].Value = "";
-    state.inputTarikh[1].Value = "";
+    state.inputTarikh[0].value = "";
+    state.inputTarikh[1].value = "";
     state.name = "";
   } else {
     toast.error("اطلاعات را کامل کنید", {
-      timeout: 2000,
+      timeout: 2500,
     });
   }
 };
@@ -94,11 +92,11 @@ const HandelWebService = () => {
       <DatePicker
         class="InputService p-0"
         v-for="(items, index) in state.inputTarikh"
-        :placeholder="items.Placeholder"
-        v-model="items.Value"
+        :placeholder="items.placeholder"
+        v-model="items.value"
         :key="index"
       />
-      <button class="BtnService" @click="HandelWebService">
+      <button class="BtnService" @click="handelWebService">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
       </button>

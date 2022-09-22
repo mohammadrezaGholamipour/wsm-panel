@@ -5,7 +5,6 @@ import { useRoute, useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
-
 /////////////////////////////////////////////////
 const router = useRouter();
 const toast = useToast();
@@ -16,47 +15,39 @@ const state = reactive({
   input: "",
 });
 // ////////////////////////
-const getWebService = (WebService) => {
+const getWebService = (webService) => {
   state.requestLaoding = true;
-  ServiceFormApi.Form(WebService)
+  ServiceFormApi.form(webService)
     .then((response) => {
       console.log(response);
-      toast.success("با موفقیت انجام شد", {
-        timeout: 2000,
-      });
+      toast.success("با موفقیت انجام شد", { timeout: 5000 });
       setTimeout(() => {
         router.push({ name: route.meta.Servicemethodid });
-      }, 2000);
+      }, 250);
     })
     .catch((error) => {
       console.log(error.message);
-      toast.error("درخواست انجام نشد", {
-        timeout: 2000,
-      });
+      toast.error("درخواست انجام نشد", { timeout: 5000 });
     })
-    .finally(() => {
-      setTimeout(() => {
-        state.requestLaoding = false;
-      }, 1500);
-    });
+    .finally(() => (state.requestLaoding = false));
 };
 watch(route, () => {
   state.name = "";
   state.input = "";
 });
-const HandelService = () => {
+const handelService = () => {
   if (route.meta.isone > 0) {
     if (!state.name || !state.input) {
       toast.error("اطلاعات را کامل وارد کنید", {
-        timeout: 2000,
+        timeout: 3000,
       });
     } else {
       // پر کردن اطلاعات
       const webServiceParams = {
         name: state.name,
         input: state.input,
-        Serviceid: route.meta.serviceid,
-        Servicemethodid: route.meta.Servicemethodid,
+        serviceId: route.meta.serviceid,
+        serviceMethodId: route.meta.Servicemethodid,
       };
       // ارسال کردن
       getWebService(webServiceParams);
@@ -70,8 +61,8 @@ const HandelService = () => {
       const webServiceParams = {
         name: state.name,
         input: "",
-        Serviceid: route.meta.serviceid,
-        Servicemethodid: route.meta.Servicemethodid,
+        serviceId: route.meta.serviceid,
+        serviceMethodId: route.meta.Servicemethodid,
       };
       // ارسال کردن
       getWebService(webServiceParams);
@@ -79,9 +70,7 @@ const HandelService = () => {
       // خالی کردن
       state.name = "";
     } else {
-      toast.error("عنوان را وارد کنید", {
-        timeout: 2000,
-      });
+      toast.error("عنوان را وارد کنید", { timeout: 3000 });
     }
   }
 };
@@ -119,7 +108,7 @@ const HandelService = () => {
         />
       </transition>
 
-      <button class="BtnService" @click="HandelService">
+      <button class="BtnService" @click="handelService">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
       </button>

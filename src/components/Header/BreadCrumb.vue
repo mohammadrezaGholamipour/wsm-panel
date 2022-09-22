@@ -11,7 +11,7 @@ const route = useRoute();
   >
     <ol class="breadcrumbOl">
       <li>
-        <router-link to="/">
+        <router-link to="/home">
           <font-awesome-icon
             class="hover:scale-110 transition-all"
             icon="fa-solid fa-house-chimney"

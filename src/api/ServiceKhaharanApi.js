@@ -1,6 +1,5 @@
 import HttpClient from './HttpClient';
-
 export default {
-  Khaharan: (WebService) =>
-    HttpClient.post('servicebus/serviceready', WebService),
+  khaharan: (webService) =>
+    HttpClient.post('servicebus/servicerun', webService),
 };

@@ -1,6 +1,5 @@
 import HttpClient from './HttpClient';
-
 export default {
-  Mostafa: (WebService) =>
-    HttpClient.post('servicebus/serviceready', WebService),
+  mostafa: (webService) =>
+    HttpClient.post('servicebus/serviceready', webService),
 };

@@ -4,24 +4,22 @@ import RequestLoading from "./RequestLoading.vue";
 import { useRoute, useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
 import { reactive } from "@vue/reactivity";
-
 // //////////////////////////////////////
-const router = useRouter();
 const route = useRoute();
+const router = useRouter();
 const toast = useToast();
 const state = reactive({
   requestLaoding: false,
-  ServiceId: "",
-  ServiceMethodId: "",
+  serviceId: "",
+  serviceMethodId: "",
   name: "",
   chekBox: false,
   input: "",
 });
-
 // HandelRequestForServiceMostafa
-const getServiceMostafa = (WebService) => {
+const getServiceMostafa = (webService) => {
   state.requestLaoding = true;
-  ServiceMostafaApi.Mostafa(WebService)
+  ServiceMostafaApi.mostafa(webService)
     .then((response) => {
       console.log(response);
       toast.success("با موفقیت انجام شد", {
@@ -44,14 +42,14 @@ const getServiceMostafa = (WebService) => {
     });
 };
 // FinishHandelRequestForServiceMostafa;
-const HandelServiceMostafa = () => {
+const handelServiceMostafa = () => {
   if (state.chekBox) {
     if (state.name && state.input) {
       const webServiceParams = {
         name: state.name,
         input: state.input,
-        Serviceid: route.meta.serviceid,
-        Servicemethodid: route.meta.Servicemethodid,
+        serviceId: route.meta.serviceid,
+        serviceMethodId: route.meta.Servicemethodid,
       };
       getServiceMostafa(webServiceParams);
       state.name = "";
@@ -66,8 +64,8 @@ const HandelServiceMostafa = () => {
       const webServiceParams = {
         name: state.name,
         input: "",
-        Serviceid: route.meta.serviceid,
-        Servicemethodid: route.meta.Servicemethodid,
+        serviceId: route.meta.serviceid,
+        serviceMethodId: route.meta.Servicemethodid,
       };
       getServiceMostafa(webServiceParams);
       state.name = "";
@@ -113,7 +111,7 @@ const HandelServiceMostafa = () => {
         class="InputService"
         type="text"
       />
-      <button class="BtnService" @click="HandelServiceMostafa">
+      <button class="BtnService" @click="handelServiceMostafa">
         وب سرویس
         <font-awesome-icon icon="fa-solid fa-sliders" class="mr-2" />
       </button>

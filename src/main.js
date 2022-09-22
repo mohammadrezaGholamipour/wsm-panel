@@ -1,16 +1,13 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-
-import router from "./router/Routes";
-import "tw-elements";
-/* import the fontawesome core */
-import { library } from "@fortawesome/fontawesome-svg-core";
-/* import font awesome icon component */
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import Toast from "vue-toastification";
-// Import the CSS or use your own!
-import "vue-toastification/dist/index.css";
-/* import specific icons */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import 'vue-toastification/dist/index.css';
+import Toast from 'vue-toastification';
+import router from './router/Routes';
+import { createApp } from 'vue';
+import App from './App.vue';
+import './css/index.css';
+import 'tw-elements';
+/* icon */
 import {
   faPowerOff,
   faSun,
@@ -31,9 +28,8 @@ import {
   faGripLines,
   faLink,
   faSliders,
-} from "@fortawesome/free-solid-svg-icons";
-
-/* add icons to the library */
+} from '@fortawesome/free-solid-svg-icons';
+/* add Icon */
 library.add(
   faPowerOff,
   faSun,
@@ -55,9 +51,8 @@ library.add(
   faLink,
   faSliders
 );
-import "./css/index.css";
 const app = createApp(App);
-app.component("font-awesome-icon", FontAwesomeIcon);
-app.use(Toast);
 app.use(router);
-app.mount("#app");
+app.component('font-awesome-icon', FontAwesomeIcon);
+app.use(Toast);
+app.mount('#app');
