@@ -165,7 +165,12 @@
     @apply fixed top-0 left-0  w-full h-full outline-none overflow-x-hidden overflow-y-auto;
   }
   .LogModalDivOne {
-    @apply modal-dialog-centered modal-dialog-scrollable relative  pointer-events-none;
+    @apply modal-dialog-centered overflow-auto modal-dialog-scrollable relative  pointer-events-none;
+    align-items: normal;
+     max-width: 95vw !important;
+     min-height: 100px !important;
+     height: 500px !important;
+     min-width: 95vw !important;
   }
   .LogModalDivTow {
     @apply modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current;
