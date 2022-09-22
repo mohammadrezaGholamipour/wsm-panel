@@ -4,9 +4,7 @@ import { saveExcel } from "@progress/kendo-vue-excel-export";
 import ServiceTableApi from "../api/ServiceTableApi";
 import RequestLoading from "./RequestLoading.vue";
 import { reactive } from "@vue/reactivity";
-import { useRoute } from "vue-router";
 // ///////////////////////////////////////
-const route = useRoute();
 const state = reactive({
   requestLaoding: false,
   tableList: {
@@ -56,7 +54,7 @@ const state = reactive({
     ],
   },
   currentPage: 1,
-  inputTableList: [
+  headerLogTabel: [
     { field: "ServiceID", title: "شناسه نوع سرویس" },
     { field: "Text", title: "متن" },
     { field: "TypelogTitle", title: "نوع لاگ" },
@@ -65,7 +63,6 @@ const state = reactive({
     { nfieldame: "CreateDate", title: "تاریخ لاگ" },
   ],
 });
-// ///////////////////////////////////////
 const handelFilterInput = (input, value) => {
   console.log(input, value);
 };
@@ -80,7 +77,7 @@ const pageCount = computed(() => {
   );
 });
 const handelFindPage = (pageNumber) => {
-  state.currentPage = pageNumber; // Number(pageNumber); //event.target.innerHTML);
+  state.currentPage = pageNumber;
   getTabel(state.serviceMethodId, state.currentPage);
 };
 const exportExcel = () => {
@@ -100,16 +97,13 @@ const exportExcel = () => {
 <template>
   <div
     aria-labelledby="exampleModalCenteredScrollable"
-    id="exampleModalCenteredScrollable"
     class="LogModalParent hidden fade modal"
+    id="exampleModalCenteredScrollable"
     aria-modal="true"
     role="dialog"
   >
     <div class="LogModalDivOne modal-dialog">
       <div class="LogModalDivTow">
-        <div class="LogModalDivThree">
-          <p class="text-3xl text-gray-800">نمایش لاگ ها</p>
-        </div>
         <div class="LogModalBody">
           <!-- statrTabel -->
           <div class="ParentTabel">
@@ -125,125 +119,63 @@ const exportExcel = () => {
                     </button>
                   </th>
                   <th
-                    v-for="(items, index) in state.inputTableList"
-                    class="font-medium p-1"
+                    v-for="(items, index) in state.headerLogTabel"
+                    class="font-medium text-gray-800 p-1"
                     :key="index"
                     scope="col"
                   >
-                    {{ items.title }}
+                    <p class="p-0 py-2 m-0 bg-white  rounded-md">{{ items.title }}</p>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="(items, index) in state.tableList.data"
-                  v-show="state.tableList.data && state.tableList.data.length"
-                  :key="index"
-                >
-                  <td>
-                    {{ index + 1 }}
-                  </td>
-                  <td>
-                    {{ items.Id }}
-                  </td>
-                  <td>
-                    {{ items.Name }}
-                  </td>
-                  <td>
-                    {{ items.ServiceName }}
-                  </td>
-                  <td>
-                    {{ items.Servicemethodname }}
-                  </td>
-                  <td>
-                    <font-awesome-icon
-                      class="text-green-600 cursor-pointer"
-                      data-bs-target="#exampleModalCenter"
-                      @click="handelState(items.Id)"
-                      icon="fa-solid fa-message"
-                      data-bs-toggle="modal"
-                      size="xl"
-                    />
-                    <font-awesome-icon
-                      data-bs-target="#exampleModalCenteredScrollable"
-                      class="text-red-600 mr-4 cursor-pointer"
-                      icon="fa-solid fa-chart-simple"
-                      @click="handelState(items.Id)"
-                      data-bs-toggle="modal"
-                      size="xl"
-                    />
-                  </td>
+                <tr>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>سرویس لاگ</td>
+                  <td>نمایش لاگ</td>
+                  <td>1335441</td>
+                  <td>98711199</td>
+                  <td>1400/05/02</td>
                 </tr>
-                <p v-show="state.tableList.status !== 200">
-                  اطلاعات دریافت نشد
-                </p>
+                <tr>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>سرویس لاگ</td>
+                  <td>نمایش لاگ</td>
+                  <td>1335441</td>
+                  <td>98711199</td>
+                  <td>1400/05/02</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>سرویس لاگ</td>
+                  <td>نمایش لاگ</td>
+                  <td>1335441</td>
+                  <td>98711199</td>
+                  <td>1400/05/02</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>سرویس لاگ</td>
+                  <td>نمایش لاگ</td>
+                  <td>1335441</td>
+                  <td>98711199</td>
+                  <td>1400/05/02</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>سرویس لاگ</td>
+                  <td>نمایش لاگ</td>
+                  <td>1335441</td>
+                  <td>98711199</td>
+                  <td>1400/05/02</td>
+                </tr>
               </tbody>
             </table>
-            <!-- ////////////////////////////////////////// -->
-            <div class="TablePagination">
-              <ul class="UlPagination">
-                <li
-                  v-show="state.currentPage > 1"
-                  @click="handelPrevPagination"
-                >
-                  <a class="BtnNextOrPrevPagination">
-                    <font-awesome-icon icon=" fa-solid fa-circle-arrow-left" />
-                  </a>
-                </li>
-                <!-- /////////////////////////////////////////////////// -->
-                <li v-if="state.currentPage - 2 > 0">
-                  <a
-                    @click="handelFindPage(state.currentPage - 2)"
-                    class="PagePagination"
-                  >
-                    {{ state.currentPage - 2 }}
-                  </a>
-                </li>
-                <li v-if="state.currentPage - 1 > 0">
-                  <a
-                    @click="handelFindPage(state.currentPage - 1)"
-                    class="PagePagination"
-                  >
-                    {{ state.currentPage - 1 }}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="PagePagination scale-110 bg-white text-black border-2"
-                  >
-                    {{ state.currentPage }}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    v-show="state.currentPage + 1 <= pageCount"
-                    @click="handelFindPage(state.currentPage + 1)"
-                    class="PagePagination"
-                  >
-                    {{ state.currentPage + 1 }}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    v-show="state.currentPage + 2 <= pageCount"
-                    @click="handelFindPage(state.currentPage + 2)"
-                    class="PagePagination"
-                  >
-                    {{ state.currentPage + 2 }}
-                  </a>
-                </li>
-                <!-- ////////////////////////////////////////////////////////// -->
-                <li
-                  v-show="state.currentPage + 2 < pageCount"
-                  @click="state.currentPage++"
-                >
-                  <a class="BtnNextOrPrevPagination">
-                    <font-awesome-icon icon=" fa-solid fa-circle-arrow-right" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- ////////////////////////////////////////// -->
           </div>
           <!-- finishTabel -->
         </div>
