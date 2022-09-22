@@ -4,10 +4,10 @@ const props = defineProps(["state"]);
 <template>
   <div
     class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-    id="exampleModalCenter"
-    tabindex="-1"
     aria-labelledby="exampleModalCenterTitle"
+    id="exampleModalCenter"
     aria-modal="true"
+    tabindex="-1"
     role="dialog"
   >
     <div
@@ -16,13 +16,8 @@ const props = defineProps(["state"]);
       <div
         class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
       >
-        <div
-          class="modal-header flex flex-shrink-0 items-center justify-center p-4 border-b border-gray-200 rounded-t-md"
-        >
-          <p class="text-3xl">اعلام وضعیت</p>
-        </div>
         <div class="modal-body relative p-4">
-          <p class="text-lg">{{ props.state }}</p>
+          <p class="text-2xl">{{ props.state }}</p>
         </div>
         <div
           class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-center p-4 border-t border-gray-200 rounded-b-md"
