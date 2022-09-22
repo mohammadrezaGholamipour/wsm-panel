@@ -167,6 +167,33 @@ const handelState = (id) => {
     })
     .finally(() => (state.requestLaoding = false));
 };
+const handelLog = (id) => {
+  state.requestLaoding = true;
+  ServiceTableApi.getState(id)
+    .then((response) => {
+      console.log(response);
+      switch (response.data) {
+        case 1:
+          state.stateStatusText = "درحال اجرا";
+          break;
+        case 3:
+          state.stateStatusText = "پایان یافته";
+          break;
+        case 5:
+          state.stateStatusText = "درخواست خاتمه یافت توسط کاربر";
+          break;
+        default:
+          state.stateStatusText = "نامشخص";
+      }
+    })
+    .catch((error) => {
+      console.log(error.message);
+      toast.error("وضعیت دریافت نشد", {
+        timeout: 2000,
+      });
+    })
+    .finally(() => (state.requestLaoding = false));
+};
 </script>
 <template>
   <div class="ParentTabel">
@@ -231,7 +258,7 @@ const handelState = (id) => {
               data-bs-target="#exampleModalCenteredScrollable"
               class="text-red-600 mr-4 cursor-pointer"
               icon="fa-solid fa-chart-simple"
-              @click="handelState(items.Id)"
+              @click="handelLog(items.Id)"
               data-bs-toggle="modal"
               size="xl"
             />

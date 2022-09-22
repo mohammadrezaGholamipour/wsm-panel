@@ -60,11 +60,12 @@ const state = reactive({
   serviceId: "",
   currentPage: 1,
   inputTableList: [
-    { name: "کد", value: "", input: "Id" },
-    { name: "نام", value: "", input: "Name" },
-    { name: "نام سرویس", value: "", input: "ServiceName" },
-    { name: "نام متد", value: "", input: "Servicemethodname" },
-    { name: "وضعیت عملیات", value: "", input: "state" },
+    { field: "ServiceID", title: "شناسه نوع سرویس" },
+    { field: "Text", title: "متن" },
+    { field: "TypelogTitle", title: "نوع لاگ" },
+    { field: "Code", title: "کد" },
+    { nfieldame: "EntityCode", title: "شناسه رکورد" },
+    { nfieldame: "CreateDate", title: "تاریخ لاگ" },
   ],
 });
 // ///////////////////////////////////////
@@ -132,13 +133,7 @@ const exportExcel = () => {
                     :key="index"
                     scope="col"
                   >
-                    <input
-                      @input="handelFilterInput(items.input, items.value)"
-                      :placeholder="items.name"
-                      v-model="items.value"
-                      class="InputTabel"
-                      type="text"
-                    />
+                    {{ items.title }}
                   </th>
                 </tr>
               </thead>
