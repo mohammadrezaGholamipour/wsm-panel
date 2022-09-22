@@ -226,7 +226,7 @@ const handelLog = (id) => {
           </td>
           <td>
             <font-awesome-icon
-              class="text-green-600 cursor-pointer"
+              class="text-slate-500 cursor-pointer"
               data-bs-target="#exampleModalCenter"
               @click="handelState(items.Id)"
               icon="fa-solid fa-message"
@@ -235,7 +235,7 @@ const handelLog = (id) => {
             />
             <font-awesome-icon
               data-bs-target="#exampleModalCenteredScrollable"
-              class="text-red-600 mr-4 cursor-pointer"
+              class="text-slate-500 mr-4 cursor-pointer"
               icon="fa-solid fa-chart-simple"
               @click="handelLog(items.Id)"
               data-bs-toggle="modal"

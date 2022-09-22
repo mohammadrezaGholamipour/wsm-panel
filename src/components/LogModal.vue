@@ -85,10 +85,12 @@ const exportExcel = () => {
     data: state.tableList.data,
     fileName: "TableService",
     columns: [
-      { field: "Id", title: "کد" },
-      { field: "Name", title: "نام" },
-      { field: "ServiceName", title: "نام سرویس" },
-      { field: "Servicemethodname", title: "نام متد" },
+      { field: "ServiceID", title: "شناسه نوع سرویس" },
+      { field: "Text", title: "متن" },
+      { field: "TypelogTitle", title: "نوع لاگ" },
+      { field: "Code", title: "کد" },
+      { field: "EntityCode", title: "شناسه رکورد" },
+      { field: "CreateDate", title: "تاریخ لاگ" },
     ],
     dir: "rtl",
   });
