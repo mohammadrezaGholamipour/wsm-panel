@@ -112,7 +112,7 @@ const handelServiceKhorasan = () => {
           for="flexCheckDefault"
         >
           <p class="p-0 m-0 text-blue-500">
-            (واکشی اطلاعات ممتازین برای یک سال تحصیلی خاص)
+            اطلاعات ممتازین برای یک سال تحصیلی خاص
           </p>
         </label>
       </div>

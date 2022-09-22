@@ -99,9 +99,7 @@ const handelServiceMostafa = () => {
           class="form-check-label text-lg inline-block text-gray-800"
           for="flexCheckDefault"
         >
-          <p class="p-0 m-0 text-blue-500">
-            (واکشی اطلاعات فقط برای یک طلبه با کد تحصیلی المصطفی)
-          </p>
+          <p class="p-0 m-0 text-blue-500">اطلاعات طلبه با کد تحصیلی المصطفی</p>
         </label>
       </div>
       <input
