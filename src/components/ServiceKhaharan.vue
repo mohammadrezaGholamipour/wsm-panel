@@ -45,8 +45,6 @@ const getServiceKhaharan = (webService) => {
 };
 // FinishHandelRequestForServiceKhaharan
 const handelWebService = () => {
-  console.log("route", route);
-  console.log("route.meta", route.meta);
   const tarikh = state.inputTarikh.every((items) => !!items.value === true);
   if (tarikh && state.name) {
     // تبدیل تاریخ به میلادی
@@ -56,7 +54,7 @@ const handelWebService = () => {
     // پر کردن اطلاعات
     const webServiceParams = {
       name: state.name,
-      Input: `${state.inputTarikh[0].value},${state.inputTarikh[1].value}`,
+      input: `${state.inputTarikh[0].value},${state.inputTarikh[1].value}`,
       serviceId: route.meta.serviceid,
       serviceMethodId: route.meta.Servicemethodid,
     };

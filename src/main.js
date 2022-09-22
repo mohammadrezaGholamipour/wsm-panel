@@ -28,6 +28,8 @@ import {
   faGripLines,
   faLink,
   faSliders,
+  faMessage,
+  faChartSimple
 } from '@fortawesome/free-solid-svg-icons';
 /* add Icon */
 library.add(
@@ -49,7 +51,9 @@ library.add(
   faPrint,
   faGripLines,
   faLink,
-  faSliders
+  faSliders,
+  faMessage,
+  faChartSimple
 );
 const app = createApp(App);
 app.use(router);

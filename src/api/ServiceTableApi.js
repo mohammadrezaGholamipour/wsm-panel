@@ -9,4 +9,5 @@ export default {
     HttpClient.get(
       `servicebus/servicerun?type=full&offset=${offset}&limit=${Pagination.PageSize}&state=${serviceMethodId}`
     ),
+  getState: (id) => HttpClient.get(`servicebus/servicerun/states/${id}`)
 };

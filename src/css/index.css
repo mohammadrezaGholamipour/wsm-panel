@@ -161,6 +161,7 @@
   .PagePagination {
     @apply py-0 hover:scale-110 transition-all mx-1 cursor-pointer px-2 text-center text-xl relative block bg-slate-500 text-white border-slate-600 border-2 rounded-full shadow-md;
   }
+
   /* FinishTable */
   /* /////////////////////////////// */
   /* Service */
