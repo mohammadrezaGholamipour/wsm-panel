@@ -120,11 +120,13 @@ const exportExcel = () => {
                   </th>
                   <th
                     v-for="(items, index) in state.headerLogTabel"
-                    class="font-medium text-gray-800 p-1"
+                    class="font-medium shadow-md text-gray-800 p-1"
                     :key="index"
                     scope="col"
                   >
-                    <p class="p-0 py-2 m-0 bg-white  rounded-md">{{ items.title }}</p>
+                    <p class="p-0 py-2 m-0 bg-white rounded-md">
+                      {{ items.title }}
+                    </p>
                   </th>
                 </tr>
               </thead>
