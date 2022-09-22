@@ -1,6 +1,5 @@
 <script setup>
 import { saveExcel } from "@progress/kendo-vue-excel-export";
-import RequestLoading from "./RequestLoading.vue";
 import { reactive } from "@vue/reactivity";
 // ///////////////////////////////////////
 const state = reactive({
@@ -90,9 +89,6 @@ const exportExcel = () => {
         <div class="LogModalBody">
           <!-- statrTabel -->
           <div class="ParentTabel">
-            <Teleport to="body">
-              <RequestLoading v-if="state.requestLaoding" />
-            </Teleport>
             <table class="Table">
               <thead>
                 <tr id="FirstTr">
