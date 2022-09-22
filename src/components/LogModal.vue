@@ -9,7 +9,6 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 const state = reactive({
   requestLaoding: false,
-  stateStatusText: "نامشخص",
   tableList: {
     status: 200,
     meta_data: {
@@ -56,8 +55,6 @@ const state = reactive({
       },
     ],
   },
-  serviceMethodId: "",
-  serviceId: "",
   currentPage: 1,
   inputTableList: [
     { field: "ServiceID", title: "شناسه نوع سرویس" },

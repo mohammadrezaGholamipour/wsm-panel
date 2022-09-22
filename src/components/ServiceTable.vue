@@ -8,7 +8,6 @@ import { reactive } from "@vue/reactivity";
 import StateModal from "./StateModal.vue";
 import { useRoute } from "vue-router";
 import LogModal from "./LogModal.vue";
-
 /////////////////////////////////////////////////
 const toast = useToast();
 const route = useRoute();
@@ -72,8 +71,6 @@ const state = reactive({
     { name: "وضعیت عملیات", value: "", input: "state" },
   ],
 });
-// ////////////////////////////
-// HandelRequsetForTabelService
 const getTabel = (serviceMethodId, pageNumber) => {
   state.requestLaoding = true;
   // state.tableList.data = [];
@@ -96,20 +93,15 @@ const getTabel = (serviceMethodId, pageNumber) => {
 onMounted(() => {
   state.serviceMethodId = route.meta.requestServicemethodid;
   state.serviceId = route.meta.serviceid;
-  state.currentPage = 1;
   getTabel(state.serviceMethodId, state.currentPage);
 });
-
 watch(route, () => {
   if (route.meta.requestServicemethodid) {
     state.serviceMethodId = route.meta.requestServicemethodid;
     state.serviceId = route.meta.serviceid;
-    state.currentPage = 1;
     getTabel(state.serviceMethodId, state.currentPage);
   }
 });
-// FinishRequsetForTabelService;
-// /////////////////////////////
 const handelPrevPagination = () => {
   if (state.currentPage > 1) {
     state.currentPage--;
@@ -121,7 +113,7 @@ const pageCount = computed(() => {
   );
 });
 const handelFindPage = (pageNumber) => {
-  state.currentPage = pageNumber; // Number(pageNumber); //event.target.innerHTML);
+  state.currentPage = pageNumber;
   getTabel(state.serviceMethodId, state.currentPage);
 };
 const handelFilterInput = (input, value) => {
@@ -169,26 +161,13 @@ const handelState = (id) => {
 };
 const handelLog = (id) => {
   state.requestLaoding = true;
-  ServiceTableApi.getState(id)
+  ServiceTableApi.getLog(id, state.currentPage)
     .then((response) => {
       console.log(response);
-      switch (response.data) {
-        case 1:
-          state.stateStatusText = "درحال اجرا";
-          break;
-        case 3:
-          state.stateStatusText = "پایان یافته";
-          break;
-        case 5:
-          state.stateStatusText = "درخواست خاتمه یافت توسط کاربر";
-          break;
-        default:
-          state.stateStatusText = "نامشخص";
-      }
     })
     .catch((error) => {
       console.log(error.message);
-      toast.error("وضعیت دریافت نشد", {
+      toast.error("اطلاعات دریافت نشد", {
         timeout: 2000,
       });
     })
@@ -227,7 +206,7 @@ const handelLog = (id) => {
       <tbody>
         <tr
           v-for="(items, index) in state.tableList.data"
-          v-show="state.tableList.data && state.tableList.data.length"
+          v-show="state.tableList.data.length"
           :key="index"
         >
           <td>
@@ -264,7 +243,6 @@ const handelLog = (id) => {
             />
           </td>
         </tr>
-        <p v-show="state.tableList.status !== 200">اطلاعات دریافت نشد</p>
       </tbody>
     </table>
     <!-- ////////////////////////////////////////// -->

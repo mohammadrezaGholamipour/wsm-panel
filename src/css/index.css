@@ -23,6 +23,7 @@
   }
   /* firefox */
   html {
+    max-width: 1900px !important;
     scrollbar-width: none;
   }
   body {
@@ -123,13 +124,13 @@
     overflow: auto;
   }
   .Table {
-    min-width: 450px !important;
+    min-width: 900px;
     direction: rtl !important;
     height: 100% !important;
     width: 100% !important;
   }
   .Table tr td {
-    padding: 15px;
+    padding: 10px;
   }
   .Table tr:nth-child(even) {
     background-color: #d1d5db;
@@ -167,10 +168,10 @@
   .LogModalDivOne {
     @apply modal-dialog-centered overflow-auto modal-dialog-scrollable relative  pointer-events-none;
     align-items: normal;
-     max-width: 95vw !important;
-     min-height: 100px !important;
-     height: 500px !important;
-     min-width: 95vw !important;
+    max-width: 95vw !important;
+    min-height: 100px !important;
+    height: 500px !important;
+    min-width: 95vw !important;
   }
   .LogModalDivTow {
     @apply modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current;
@@ -267,16 +268,9 @@
   /* FinishVueNotification */
   /* /////////////////////////////// */
   /* Responsive */
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1158px) {
     .MenuSystemParent {
       display: none;
-    }
-    .vue-notification-group {
-      right: 0px !important;
-      left: calc(50% - 160px) !important;
-    }
-    .vue-notification {
-      border-radius: 20px !important;
     }
   }
   @media only screen and (min-width: 1001px) {
