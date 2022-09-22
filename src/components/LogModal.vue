@@ -1,7 +1,5 @@
 <script setup>
-import { computed } from "@vue/runtime-core";
 import { saveExcel } from "@progress/kendo-vue-excel-export";
-import ServiceTableApi from "../api/ServiceTableApi";
 import RequestLoading from "./RequestLoading.vue";
 import { reactive } from "@vue/reactivity";
 // ///////////////////////////////////////
@@ -63,23 +61,6 @@ const state = reactive({
     { nfieldame: "CreateDate", title: "تاریخ لاگ" },
   ],
 });
-const handelFilterInput = (input, value) => {
-  console.log(input, value);
-};
-const handelPrevPagination = () => {
-  if (state.currentPage > 1) {
-    state.currentPage--;
-  }
-};
-const pageCount = computed(() => {
-  return Math.ceil(
-    state.tableList.meta_data.total / state.tableList.meta_data.page_size
-  );
-});
-const handelFindPage = (pageNumber) => {
-  state.currentPage = pageNumber;
-  getTabel(state.serviceMethodId, state.currentPage);
-};
 const exportExcel = () => {
   saveExcel({
     data: state.tableList.data,
